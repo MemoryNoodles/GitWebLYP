@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <title>文本标签</title>
+    </head>
+    <body>
+        <h2 class="article-title">文本标签</h2>
+        <div class="wrap">
+            <div class="onePoint">
+                <p class="title">标题标签</p>
+                <p class="paragraph"><code>h1-h6</code>:标签可定义标题,他会自动在其前后创建一些空白。</p>
+                <img src="./html-img/title-h.png" alt="">
+                <p class="paragraph">运行结果：</p>
+                <div class="box">
+                    <h1>我是标题</h1>
+                    <h2>我是标题</h2>
+                    <h3>我是标题</h3>
+                    <h4>我是标题</h4>
+                    <h5>我是标题</h5>
+                    <h6>我是标题</h6>
+                </div> 
+            </div>
+            <div class="onePoint">
+                <p class="title">标题组合标签</p>
+                <p class="paragraph"><code>&lt;hgroup&gt;</code>:页面上的一个标题组合，或者标语的组合</p>
+                <img src="./html-img/title-hgroup.png" alt="">
+            </div>
+            <!--
+<div class="onePoint">
+<p class="title">段落标签</p>
+<p class="paragraph"><code>&lt;p&gt;</code>:标签定义段落,p 元素会自动在其前后创建一些空白</p>
+
+</div>-->
+            <div class="onePoint">
+                <!-- html其他文本标签的解释与运行效果   -->
+                <p class="title">其他HTML文本标签</p>
+                <div class="textTag">
+                    <table width="60%" border="0" class="textTag_table" cellspacing="1" cellpadding="0">                     
+                        <thead>
+                            <tr>
+                                <th width="42%">格式标签及应用</th>
+                                <th width="25%">功能</th>
+                                <th width="33%">应用效果</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>&lt;s&gt;内容&lt;/s&gt;</td>
+                                <td>删除线样式</td>
+                                <td><s>内容</s></td>
+                            </tr>
+
+                            <tr>
+                                <td>&lt;i&gt;内容&lt;/i&gt;</td>
+                                <td>文字斜体格式</td>
+                                <td><i>内容</i></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;b&gt;内容&lt;/b&gt;</td>
+                                <td>加粗标签</td>
+                                <td><b>内容</b></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;em&gt;内容&lt;/em&gt;</td>
+                                <td>强调标签，字体被加斜体效果</td>
+                                <td><em>内容</em></td>
+                            </tr>
+                            <tr>
+                                <td>3&lt;sub&gt;2&lt;/sub&gt;</td>
+                                <td>下标</td>
+                                <td>3<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td>3&lt;sup&gt;2&lt;/sup&gt;</td>
+                                <td>上标</td>
+                                <td>3<sup>2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;mark&gt;内容&lt;/mark&gt;</td>
+                                <td>用于标记文本</td>
+                                <td><mark>内容</mark></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;strong&gt;内容&lt;strong&gt;</td>
+                                <td>用于强调文本</td>
+                                <td><strong>内容</strong></td>
+                            </tr>
+                            <tr>
+                                <td>内容一&lt;br /&gt;内容二</td>
+                                <td>让文本强制换行</td>
+                                <td>内容一<br>
+                                    内容二</td>
+                            </tr>
+                            <tr>
+                                <td>&lt;p&gt;段落一&lt;/p&gt;&lt;p&gt;段落二&lt;/p&gt;</td>
+                                <td>段落标签(块级)</td>
+                                <td>
+                                    <p>段落一</p>
+                                    <p>段落二</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&lt;span&gt;文本&lt;/span&gt;&lt;span&gt;文本&lt;/span&gt;</td>
+                                <td>文本标签</td>
+                                <td><span>文本</span><span>文本</span></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;font size="3"&gt;设置字体大小&lt;/font&gt;</td>
+                                <td>设置字体大小等</td>
+                                <td><font size="3">设置字体红色</font></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;font face="黑体"&gt;设置字体黑体&lt;/font&gt;</td>
+                                <td>设置字体大小等</td>
+                                <td><font face="黑体">设置字体黑体</font></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;font color="#FF0000"&gt;设置字体红色&lt;/font&gt;</td>
+                                <td>设置字体颜色</td>
+                                <td><font color="#FF0000">设置字体红色</font></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 其他文本标签的解释与运行效果   -->
+            </div>
+
+            <!--  html5文本标签   -->
+            <div class="onePoint">
+                <p class="title">HTML5文本标签</p>
+                <section>
+                    <p class="paragraph"><code>article</code>该标签的作用和&lt;div&gt;十分相似，但是它会对标签内的一些带有默认样式的文本类标签进行样式调整，如：&lt;h1&gt;标签（&lt;h1&gt;标签默认的字体大小为“2em”，但放在&lt;article&gt;标签内会变成“1.5em”。有同类作用的标签还有：&lt;section&gt;、&lt;aside&gt;和&lt;nav&gt;）。</p>
+
+                </section>
+                
+                <section>
+                    <p class="paragraph"><code>details</code>:用于描述文档或文档某个部分的细节；如果设置open属性,默认内容展开</p>
+                    <img src="./html-img/h5Tag_detail.png" alt="">
+                    <p class="paragraph">运行结果：</p>
+                    <div class="box">
+                       
+                        <details>
+                            <summary>吕小布</summary>
+                            <p>忽悠大师</p>
+                        </details>
+                        
+                    </div>
+                    
+                </section>
+
+
+                <!-- time标签  -->
+                <p class="paragraph"><code>time</code>:用来表现时间或日期</p>
+                <img src="./html-img/h5Tag_time.png" alt="">
+                <p class="paragraph">运行结果：</p>
+                <div class="box">                   
+                    <p>我们在每天早上<time>9:00</time>上课。</p>
+                    <p>今年<time datetime="2016-01-27">过年</time>有点早。</p>                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

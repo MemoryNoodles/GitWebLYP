@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	   div{width:300px;height:122px;margin:30px;position:relative; left:0;top:0;	
+		   transition:1s;
+		}
+		div div{position: fixed; top:0; transition:1s;}
+	  .div1{background:url('../exampleImg/car.png') no-repeat; 
+		    transition-timing-function:ease;
+		}
+	  .div2{background:url('../exampleImg/car.png') no-repeat 0 -155px; 
+		    transition-timing-function:cubic-bezier(0.5,0.3,0.8,0.8);
+		    
+		}
+	  .div3{background:url('../exampleImg/car.png') no-repeat 0 -155px;
+		   transition-timing-function:cubic-bezier(0.7,0.7,0.1,0.8);
+		}
+	  .div4{background:url('../exampleImg/car.png') no-repeat; 
+		   transition-timing-function:cubic-bezier(0.8,0.2,1,1);
+		}
+	  input:focus~div { left:800px; }
+		
+	  input:focus~.div2{transform:rotate(30deg);}
+	  input:focus~.div3{transform:rotate(40deg); top:80px;}
+	  input:focus~.div4{top:200px;}
+	</style>
+</head>
+<body>
+    <input type="button" value="开始">
+	<div  class="div1"></div>
+	<div  class="div2"></div>
+    <div  class="div3"></div>
+	<div  class="div4"></div>
+</body>
+</html>
+
+
+
+
+
+

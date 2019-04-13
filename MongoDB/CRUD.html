@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <title>mongodb</title>
+    </head>
+    <body>
+        <h2 class="article-title">数据操作</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">数据操作</h3>
+                <div class="point_content">
+                    <h4 class="small_title">数据增加insert</h4>
+                    <img src="./mongoDbImg/insert.png"s>
+                    <h4 class="small_title">查询数据find</h4>
+                    <img src="./mongoDbImg/find.png">
+                </div> 
+            </section>
+            <section class="onePoint">
+                <h3 class="title">关系运算</h3>
+                <div class="point_content">
+                    <p class="paragraph">在MongoDB里面支持的关系查询操作：<em>大于（$gt）、小于（$lt）、大于等于（$gte）、小于等于（$lte）、不等于（$ne）、等于（key:value、$eq）</em></p>
+                    <img src="./mongoDbImg/insertData.png">
+                    <p>执行语句</p>
+                    <img src="./mongoDbImg/selaOperate.png">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">逻辑运算</h3>
+                <div class="point_content">
+                    <p class="paragraph">逻辑运算主要就是三种类型：<em>与（$and）、或（$or）、非（$not、$nor）、求模（$mod）</em>。</p>
+                    <h4 class="small_title">与（$and）</h4>
+                    <img src="./mongoDbImg/$and.png" alt="">
+                    <h4 class="small_title">或（$or）</h4>
+                    <img src="./mongoDbImg/$or.png" alt="">
+                    <h4 class="small_title">非（$not、$nor）</h4>
+                    <img src="./mongoDbImg/$not.png" alt="">
+                     <h4 class="small_title">求模（$mod）</h4>
+                    <img src="./mongoDbImg/$mod.png" alt="">
+                    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">范围查询</h3>
+                <div class="point_content">
+                    <p class="paragraph">“$in”（在范围之中）、“$nin”（不在范围之中）。</p>
+                    <img src="./mongoDbImg/$in.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数组查询</h3>
+                <div class="point_content">
+                    <p class="paragraph">先创建一个有数组的集合</p>
+                    <img src="./mongoDbImg/arr.png" alt="">
+                    <div class="box">
+                        <ul>
+                            <li>$all：包含</li>
+                            <li>$size：进行数量的控制</li>
+                            <li>index：用下标进行查询</li>
+                            <li>$slice：控制数组的返回的数量</li>
+                        </ul>
+                    </div>
+                    <img src="./mongoDbImg/$all$size.png" alt="">
+                    <img src="./mongoDbImg/$slice.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">嵌套集合运算</h3>
+                <div class="point_content">
+                    <p>删除之前的数据增加以下数据</p>
+                    <img src="./mongoDbImg/complex.png">
+                    <p>$elemMatch</p>
+                    <img src="./mongoDbImg/$elemMatch.png">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">判断某个字段是否存在</h3>
+                <div class="point_content">
+                    <p>$exists</p>
+                    <img src="./mongoDbImg/$exists.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">条件过滤</h3>
+                <div class="point_content">
+                    <img src="./mongoDbImg/$where.png">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">正则运算</h3>
+                <div class="point_content">
+                    <p class="">$regex使用正则运算，主要是为了实现模糊查询</p>
+                    <img src="./mongoDbImg/$regex.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数据排序</h3>
+                <div class="point_content">
+                    <p>“sort()”函数</p>
+                    <img src="./mongoDbImg/sort.png">    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数据分页显示</h3>
+                <div class="point_content">
+                   <img src="./mongoDbImg/skip.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数据的更新</h3>
+                <div class="point_content">
+                    <p class="paragraph">db.集合.update(更新条件 , 新的对象数据（更新操作符） , upsert , multi)；</p>
+                    <div class="box">
+                        <ul>
+                            <li>upsert:如果要更新的数据不存在，则增加一条新的内容（true为增加、false为不增加）</li>
+                            <li>multi：表示是否只更新满足条件的第一行记录，如果设置为false，只更新第一条，如果是true全更新。</li>
+                        </ul>
+                    </div>
+                    <img src="./mongoDbImg/$set.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">修改器</h3>
+                <div class="point_content">
+                   <!-- <div class="box">
+                        <dl>
+                            <dt>$inc</dt>
+                            <dd>主要针对于一个数字字段，增加某个数字字段的数据内容；</dd>
+                            <dt>$set</dt>
+                            <dd>进行内容的重新设置；</dd>
+                            <dt>$unset</dt>
+                            <dd>删除某个成员的内容；</dd>
+                            <dt>$push</dt>
+                            <dd>相当于将内容追加到指定的成员之中（基本上是数组）；</dd>
+                        </dl>
+                    </div>-->
+                    <p>1、<em>$inc</em>:主要针对于一个数字字段，增加某个数字字段的数据内容</p>
+                    <img src="./mongoDbImg/$inc.png" alt="">
+                    <p>2、<em>$unset</em>：删除某个成员的内容；</p>
+                    <img src="./mongoDbImg/$unset.png" alt="">
+                    <p>3、<em>$push</em>：相当于将内容追加到指定的成员之中（基本上是数组）；</p>
+                    <img src="./mongoDbImg/$update.png" alt="">
+                    <p>4、<em>$pushAll</em>：与“$push”是类似的，可以一次追加多个内容到数组里面；</p>
+                    <img src="./mongoDbImg/$pushALL.png" alt="">
+                    <p>5、<em>$addToSet</em>：向数组里面增加一个新的内容，只有这个内容不存在的时候才会增加；</p>
+                    <img src="./mongoDbImg/$addToSet.png" alt="">
+                    <p>6、<em>$pop</em>：删除数组内的数据；</p>
+                    <img src="./mongoDbImg/$pop.png" alt="">
+                    <p>7、<em>$pull</em>：从数组内删除一个指定内容的数据</p>
+                    <img src="./mongoDbImg/$pull.png" alt="">
+                    <p>8、<em>$pullAll</em>:一次性删除多个内容</p>
+                    <img src="./mongoDbImg/$pullAll.png" alt="">
+                    <p>9、<em>$rename</em>：为成员名称重命名；</p>
+                    <img src="./mongoDbImg/$rename.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">删除数据</h3>
+                <div class="point_content">
+                    <img src="./mongoDbImg/$remove.png" alt="">
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">游标</h3>
+                <div class="point_content">
+                    <p class="paragraph">所谓的游标就是指的数据可以一行行的进行操作</p>
+                    <img src="./mongoDbImg/hasNext.png" alt="">
+                    <p class="paragraph">当然上面这个语句容易让人联想到while</p>
+                    <img src="./mongoDbImg/printjson.png" alt="">
+                </div>
+
+            </section>
+        </article>
+    </body>
+</html>
+
+

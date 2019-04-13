@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>弹性盒模型、多栏布局、响应式布局</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">     
+    </head>
+    <body>
+        <h2 class="article-title">弹性盒模型（布局）、多栏布局、响应式布局</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <p class="title">弹性盒模型（布局）</p>
+                <p class="paragraph">所谓的弹性盒模型和我们之前所讲的盒子模型没有任何的关系。如果说有那么一点关系的话，那也只能说他们因为是一种包裹的关系，外层容器具有一下属性：</p>
+                <p>09年推出的box</p>
+                <div class="box">
+                    <dl>
+                        <dt>display属性</dt>
+                        <dd>display:box；这是09出的属性</dd>
+                        <dt>Box-orient</dt>
+                        <dd>定义项目(子项)的布局方向(Horizontal水平显示；vertical垂直方向)</dd>
+                        <dt>box-direction属性</dt>
+                        <dd>元素排列顺序(Normal正序;Reverse反序)</dd>
+                        <dt>box-ordinal-group属性</dt>
+                        <dd>设置元素的具体位置</dd>
+                        <dt>box-pack</dt>
+                        <dd>对盒子富裕的空间进行管理</dd>
+                        <dt>box-align属性</dt>
+                        <dd>在垂直方向上对元素的位置进行管理。</dd>
+
+                    </dl>
+                </div>
+                <p>12年推出的flex</p>
+                <div class="box">
+                    <dl>
+                        <dt>display属性</dt>
+                        <dd>display:flex；这是12出的属性，也是以后的标准</dd>
+                        <dt>flex-direction属性</dt>
+                        <dd>属性决定主轴的方向（即项目的排列方向）。</dd>
+                        <dt>flex-wrap属性</dt>
+                        <dd>定义，如果一条轴线排不下，如何换行。</dd>
+                        <dt>flex-flow属性</dt>
+                        <dd>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</dd>
+                        <dt>justify-content属性</dt>
+                        <dd>ustify-content属性定义了项目在主轴上的对齐方式。</dd>
+                        <dt>align-items属性</dt>
+                        <dd>align-items属性定义项目在交叉轴上如何对齐。</dd>
+                        <dt>align-content属性</dt>
+                        <dd>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</dd>
+                    </dl>
+                </div>
+            </section>
+            <!--  display:flex的兼容-->
+            <section class="onePoint">
+                <p class="seq">1、display</p>
+                <p class="paragraph">注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+                <img src="./css-img/flex.png" alt="">
+            </section>
+            <!--  flex-direction-->
+            <section class="onePoint">
+                <p class="seq">2、flex-direction</p>
+                <p class="paragraph">决定主轴的方向（即项目的排列方向）</p>
+                <div class="box">
+                    <ul>
+                        <li>row（默认值）：主轴为水平方向，起点在左端。</li>
+                        <li>row-reverse：主轴为水平方向，起点在右端。</li>
+                        <li>column：主轴为垂直方向，起点在上沿。</li>
+                        <li>column-reverse：主轴为垂直方向，起点在下沿。</li>
+                    </ul>
+                </div>
+                <img src="./css-img/flex-direction.png" alt="">
+                <p>对应的效果</p>
+                <div class="box">
+                    <img src="./css-img/flex-direction-effect.png" alt="">
+                </div>
+            </section>
+            <!--  flex-wrap-->
+            <section class="onePoint">
+                <p class="seq">3、flex-wrap</p>
+                <p class="paragraph">默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+                <div class="box">
+                    <ul>
+                        <li>nowrap（默认）：不换行。</li>
+                        <li>wrap：换行，第一行在上方。</li>
+                        <li>wrap-reverse：换行，第一行在下方。</li> 
+                    </ul>
+                </div>
+            </section>
+            <!--  flex-wrap-->
+            <section class="onePoint">
+                <p class="seq">4、flex-flow</p>
+                <p class="paragraph">flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
+            </section>
+            <!--  justify-content-->
+            <section class="onePoint">
+                <p class="seq">5、justify-content属性</p>
+                <p class="paragraph">justify-content属性定义了项目在主轴上的对齐方式。</p>
+                <div class="box">
+                    <ul>
+                        <li>flex-start（默认值）：左对齐</li>
+                        <li>flex-end：右对齐</li>
+                        <li>center： 居中</li>
+                        <li>space-between：两端对齐，项目之间的间隔都相等。</li>
+                        <li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+                    </ul>
+                </div>
+                <img src="./css-img/flex-justify-content.png" alt="">
+                <p>对应的效果</p>
+                <div class="box">
+                    <img style="width:800px" src="./css-img/flex-justify-content-effect.png" alt="">
+                </div>
+            </section>
+            <!--  align-items-->
+            <section class="onePoint">
+                <p class="seq">6、align-items属性</p>
+                <p class="paragraph">align-items属性定义项目在交叉轴上如何对齐。</p>
+                <div class="box">
+                    <ul>
+                        <li>flex-start：交叉轴的起点对齐。</li>
+                        <li>flex-end：交叉轴的终点对齐。</li>
+                        <li>center：交叉轴的中点对齐。</li>
+                        <li>baseline: 项目的第一行文字的基线对齐。</li>
+                        <li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+                    </ul>
+                </div>
+                <img src="./css-img/flex-align-items.png" alt="">
+                <p>对应的效果</p>
+                <div class="box">
+                    <img style="width:800px" src="./css-img/flex-align-items-effect.png" alt="">
+                </div>
+            </section>
+             <!--  项目的属性-->
+            <section class="onePoint">
+                <p class="title">项目的属性</p>
+                <p class="paragraph">在容器里设置了以上的一些属性后，项目上也有以下的一些属性</p>
+                <div class="box">
+                    <dl>
+                        <dt>order属性</dt>
+                        <dd>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</dd>
+                        <dt>flex-grow属性</dt>
+                        <dd>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</dd>
+                        <dt>flex-shrink属性</dt>
+                        <dd>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</dd>
+                        <dt>flex-basis属性</dt>
+                        <dd>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。(它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。)</dd>
+                        <dt><code>flex</code>属性</dt>
+                        <dd>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0&nbsp;1&nbsp;auto。后两个属性可选。</dd>
+                        <dt>align-self属性</dt>
+                        <dd>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</dd>
+                    </dl>
+                </div>
+            </section>
+             <!-- 多栏布局-->
+            <section class="onePoint">
+                <p class="title">多栏布局</p>
+                <div class="box">
+                    <ul>
+                        <li>column-width:栏目宽度</li>
+                        <li>column-count:栏目列数</li>
+                        <li>column-gap:栏目距离</li>
+                        <li>column-rule:栏目间隔线 </li>
+                    </ul>
+                </div>
+                <img src="./css-img/column.png" alt="">
+                <img src="./css-img/columnCss.png" alt="">
+            </section>
+            <!-- 响应式布局-->
+            <section class="onePoint">
+            	<h3 class="title">响应式布局</h3>
+            	<div class="point_content">
+            	    <img src="./css-img/mediaHtml.png" alt="">
+            		<img src="./css-img/media.png" alt="">
+            	</div>
+            </section>
+        </article>
+    </body>
+</html>

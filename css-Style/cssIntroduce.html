@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>css引入方式及选择器</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">css引入方式及选择器</h2>
+        <div class="wrap">
+            <section class="onePoint">
+                <p class="title">css的引入方式</p>
+                <div class="box">
+                    <ul>
+                        <li>行间样式表:&lt;div style="……"&gt;&lt;/div&gt;</li>
+                        <li>内部样式表:&lt;style&gt;…………&lt;/style&gt;</li>
+                        <li>外部样式表:&lt;link href="style.css" rel="stylesheet"/&gt;</li>
+                        <li>导入样式表：！import url(‘style.css’)</li>
+                    </ul>
+                </div>
+                
+            </section>
+            <section class="onePoint">
+                <p class="title">CSS引用优先级</p>
+                <p class="paragraph" style="font-size:22px; color:green">行内样式 > 内嵌样式 > 外链样式 > 导入样式</p>
+                <p class="paragraph">相对于“行内样式”和“内嵌样式”而言，“外链样式”即通过link标签引用CSS样式有以下好处：</p>
+                <div class="box">
+                    <ul>
+                        <li>简化了DOM结构，实现了内容和表现的分离，使HTML和CSS文件结构更加清晰，利于维护</li>
+                        <li>大大减少了CSS代码的编写量。项目越大，这一点体验得越明显</li>
+                        <li>link可以和其它link、JS文件以及body内的内容进行并行加载，使得加载速度更快(火狐是加载一个返回一个，谷歌等其他浏览器是加载完后一次性返回)</li>
+                        <li>利于项目整体风格的调整，维护起来也更加便捷。单文件修改，全网站（应用）生效</li>
+                        <li>浏览器会将CSS文件进行缓存，进一步地减少了加载所需时间</li>
+                        <li>对搜索引擎友好，有利于SEO</li>
+                    </ul>
+                </div>
+            </section>
+         
+        </div>
+    </body>
+</html>

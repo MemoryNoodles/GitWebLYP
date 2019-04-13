@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<script src="./js/public.js"></script>
+		<style>
+			.box{border:10px solid #ccc; width:800px; margin:0 auto; padding:10px;}
+			#write{padding:10px; border:1px dashed #ccc; background: #efefd6; width:300px;
+				height:300px;
+			}
+			#write textarea{
+				border:none;background: #efefd6; resize:none; width:100%; height:100%; 
+				outline: none; font-size:16px;
+			}
+			/*文字转换按钮*/
+			#operate div{background: #f76300; color:white; margin:0 20px; padding:10px 15px;}
+			/*文本框*/
+			#word{ border:1px dashed #ccc; background: #63eff7; width:300px;
+				padding:10px; height:300px;
+			}
+		</style>
+		<script >
+			window.onload = function(){
+				var oWrite  = getTag('write', 'textarea')[0];
+				var oWord = getTag('word');
+				var operate = getTag('operate', 'div')[0];
+				var oP = getTag('operate', 'p');
+				operate.onclick = function(){
+					var arr = oWrite.value.split('');
+					function move(){
+						//判断数组里还有没有文字
+						if(arr.length == 0) return;
+						//重新赋值
+						var letter = arr.shift();
+						var val = arr.join('');
+						oWrite.value = val;
+						
+						//右边的赋值
+						oWord.innerHTML += letter;
+
+					}
+					if(arr.length != 0){					
+						setInterval(move, 100);
+
+					}else{
+						alert("请输入内容！");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box clearFix">
+			<div id="write" class="left"><textarea></textarea></div>
+			<div id="operate" class="left">
+				<div>把文字右移</div>
+				<p></p>
+			</div>
+			<div id="word" class="left"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,219 @@
+.wrap{width:1200px; margin:0 auto;}
+/*第一个Div*/
+.wrap .sec1{
+	width:1200px; height:800px; background: #a2dc68; margin:10px; position: relative
+}
+.wrap .sec1 img{position: absolute; bottom:0;}
+.wrap .sec1 .APPImg{
+	animation-name: APPImg;
+	transform: scaleY(0.5) scaleX(1.4);
+}
+.wrap .sec1 .APPdes{
+	width:800px;
+	/*height:*/
+	text-align: center;
+	font-size: 48px;
+    margin-top: 130px;
+	text-shadow:6px 6px 10px #000000;
+	color:white;
+	animation-name: APPdes;
+	opacity:0;
+	animation-name: APPdes;
+	
+}
+.wrap .sec2 div{
+	width:550px; height:600px; margin:10px;
+}
+.fadeInLeft {
+	background: #6f9b42; 
+	animation-name: fadeInLeft;
+}
+.fadeInRight {
+	background: #337250; 
+	animation-name: fadeInRight;
+} 
+
+/**/
+.skill{margin:100px 0;; }
+.skill .circle{
+	width:300px;
+	float:left;
+	text-align: center;
+	animation-name:circlePhone
+}
+/*论坛*/
+.Posts{
+	transform-style: preserve-3d
+}
+.floor{margin-bottom:30px;
+    transform-origin:center;
+	transform:rotateX(30deg);
+	animation-name:postAnimation
+}
+.floor .title {
+    background: #719dc6;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 1px 3px #bcbcbc;
+    color: #fff;
+    font-size: 14px;
+    line-height: 42px;
+    height: 42px;
+    padding: 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: 0 1px 0 rgba(0,0,0,.32);
+	
+}
+.floor .floor_content {
+    background: #FFF;
+	height:100px;
+	border:1px solid #ccc;
+    box-shadow: 0 1px 3px #bcbcbc;
+}
+/**/
+.phoneAPP{
+	background: #f2f2f2;
+	text-align: center;
+	margin:50px 0;
+	padding:150px 0;
+	position: relative;
+	height:700px;
+}
+.phoneAPP>div{
+	position: absolute;
+    top:calc(50% - 100px);
+	height:300px;
+	left:calc(50% - 300px);
+	width:600px
+}
+.phoneAPP span{
+  position: absolute;
+	
+}
+.phoneAPP .APPImg1{
+	top: 150px;
+    z-index: 1;
+	left: 20px;
+	opacity:1;
+	
+}
+.phoneAPP .APPImg2{
+	top: 120px;/*top: 70px;*/
+    left: 20px;
+    z-index: 2;
+	opacity:0;
+	animation-name:APPImg2
+}
+.phoneAPP .APPImg3{
+	top: 70px;/*top: 0;*/
+    left: 20px;
+    z-index: 3;
+	opacity:0;
+	animation-name:APPImg3
+}
+/*动画*/
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.animated.infinite {
+	animation-iteration-count: infinite;
+}
+.animated.hinge {
+	animation-duration: 2s;
+}
+@keyframes APPImg{
+  0% {
+		opacity: 0;
+		transform: scaleY(0.5) scaleX(1.4);
+	}
+   30% {
+		opacity: 1;
+		transform: scaleY(1) scaleX(1);
+	} 
+	50% {
+		opacity: 1;
+		transform: scaleY(0.9) scaleX(1.2);
+	} 
+	80% {
+		opacity: 1;
+		transform: scaleY(0.85) scaleX(1.1);
+	} 
+  100% {
+		opacity: 1;
+		transform:scaleY(1) scaleX(1);
+   }
+}
+@keyframes APPdes{
+	0% {
+		opacity: 0;
+		margin-top:130px;
+	}
+	100% {
+		opacity: 1;
+		margin-top:170px;
+		
+	}
+}
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes fadeInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes circlePhone{
+	0% {
+		opacity: 0;
+		transform:scale(0)
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1)
+	}
+}
+@keyframes postAnimation{
+	0% {
+		opacity: 0;
+		transform:rotateX(90deg);
+	}
+	/*30%{
+		opacity: 0.3;
+		transform:rotateX(20deg);
+	}
+	60%{
+		opacity: 0.6;
+		transform: rotateX(35deg);
+	}*/
+	100% {
+		opacity: 1;
+		transform:rotateX(0deg);
+	}
+}
+@keyframes APPImg2{
+	from{top: 120px; opacity:0;}
+	to{
+		top: 70px; opacity:1;
+	}
+}
+@keyframes APPImg3{
+	from{top: 70px; opacity:0;}
+	to{
+		top: 0px; opacity:1;
+	}
+}

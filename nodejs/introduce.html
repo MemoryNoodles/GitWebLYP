@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>node介绍</title>
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">node介绍</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">什么是Node.js？</h3>
+                <div class="point_content"> 
+                    <!--<p class="paragraph">Node是一种新型Web服务器，是由Google的Ryan Dahl在2009年开发的。它不是JS的应用，而是JS的运行平台。Node.js采用C++语言编写的，是一个JavaScript的运行环境。它是基于Google的V8 JavaScript引擎的开发框架。Node.js有很多来自第三方的功能模块，使用require指令来载入Node.js模块</p>		-->
+                    <h4 class="small_title">1、从名字的写法说起</h4>
+                    <p class="paragraph">Node：一种新型Web服务器</p>
+                    <h4 class="small_title">2、是谁在什么时间开发的？</h4>
+                    <p class="paragraph">Google的Ryan Dahl 在2009年开发的。</p>
+                    <h4 class="small_title">3、不是JS的应用，而是JS的运行平台</h4>
+                    <p class="paragraph">Node.js采用C++语言编写的，是一个JavaScript的运行环境。</p>
+                    <h4 class="small_title">4、是网站/应用程序框架，模块化的平台</h4>
+                    <p class="paragraph">是基于Google的V8 JavaScript引擎的开发框架。</p>
+                    <h4 class="small_title">5、高可扩展性、模块化</h4>
+                    <p class="paragraph">Node.js有很多来自第三方的功能模块，使用 require 指令来载入 Node.js 模块。</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">使用Node.js包</h3>
+                <div class="point_content">
+                    <h4 class="small_title">1、什么是Node.js包？</h4>
+                    <div class="box">
+                        <ul>
+                            <li>1.Node.js是一个非常模块化的平台，这意味着很多功能是由外部模块提供的，而不是天生内置于平台的。</li>
+                            <li>2.Node.js包就是Node封装模块。即封装好的Node功能模块。</li>
+                        </ul>
+                    </div>
+                    <h4 class="small_title">2、什么是Node封装模块？</h4>
+                    <div class="point_content">
+                        <div class="box">
+                            <ul>
+                                <li>1、Node封装模块提供了exports 和 require 两个对象，其中 exports 是模块公开的接口，require 用于从外部获取一个模块的接口，即所获取模块的 exports 对象。</li>
+                                <li>2、Node封装模块易被共享、重用、安装。包含一个定义包的package.json文件</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">创建Node.js应用程序</h3>
+                <div class="point_content">
+                   <h4 class="small_title">创建Node.js封装模块的步骤</h4>
+                    <div class="box">
+                       <ul>
+                           <li>1.创建一个名为../anyName的目录文件夹。</li>
+                           <li>2.在该文件夹中创建一个名为anyName.js的文件。</li>
+                           <li> 3.在anyName.js文件中，创建函数并导出函数：例如：<em>exports.censor = censor; </em> </li>
+                           <li>4.在../anyName文件夹中创建一个package.json文件。大家应该很熟了。</li>
+                           <li> 5.在控制台窗口导航到../anyName文件夹中，建立一个本地的封装模块:npm pack</li>
+                       </ul>
+                    </div>
+                    <p>感兴趣的可以你https://npmjs.org/sigup注册一个账号，自己发布一个模块</p>
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="../jsFile/react.js"></script>
+	<script src="../jsFile/react-dom.min.js"></script>
+	<script src="../jsFile/browser.js"></script>
+	<script type="text/babel">
+	   var Greet = React.createClass({
+		   render:function(){
+			   return <h1>hellow {this.props.name}</h1>;
+		   }
+	   });
+	   ReactDOM.render(
+		     <Greet name="react" />,
+		     document.getElementById('box')
+	  );
+	</script>
+	
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body{font-size:16px;}
+.wrap{width:900px; margin:50px auto 100px;}
+.company li{float:left; border:1px solid #ededed; margin:25px;width:400px;}
+.des{display: table;padding:30px 34px 0;}
+.des>div{display:table-cell; vertical-align: top;}
+.des>div img{width:130px; height:130px;}
+.des>div:nth-child(1) p{margin:20px 0;}
+.des>div:nth-child(2) h4{ font-size:20px; margin:5px 0 15px;}
+.des>div:nth-child(2) P{ font-size:18px; font-weight:bold; color:#555555}
+.des>div:nth-child(2) P span{ color:#00b38a; margin-right:10px;}
+.company_state{background: #fafafa; height:52px; line-height:52px;	}
+.company_state span{width:32%; display: inline-block; text-align: center;}
+.company_state i{width:15px; height:18px; display: inline-block; margin-right:10px; vertical-align: middle;}
+.company_state .web i{background:url(./img/icon.png) no-repeat }
+.company_state .type i{background:url(./img/icon.png) no-repeat 0 -18px; }
+.company_state .place i{background:url(./img/icon.png) no-repeat 0 -36px; }
+
+.page{text-align: center; }
+.page a{border:1px solid #ccc; height:28px;padding:3px 10px; margin:0 5px; font-size:14px;}
+.page a.active{background:#00b38a; color:white; border:1px solid #00b38a;}
+.page a.not{cursor:not-allowed !important;  color: silver !important;}
+.page a:not(.not):hover{background:#00b38a; color:white; border:1px solid #00b38a; cursor:pointer}/*not-allowed*/

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标签的分类与嵌套</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">标签的分类与嵌套</h2>
+        <div class="wrap">
+            <!--文档基本结构strat-->
+            <div class="onePoint">
+                <p  class="title">常用标签</p>
+                <div class="box">
+                   <p>双标签</p>
+                    <ul>
+                        <li>div <span>块</span></li> 
+                        <li>p <span>段落</span></li>
+                        <li>span <span>区分样式</span></li>
+                        <li>strong <span>强调</span></li>
+                        <li>u <span>字体下划线</span></li>
+                        <li>s <span>删除线</span></li>
+                        <li>i <span>斜体</span></li>
+                        <li>h1-h6 <span>标题</span></li>
+                        <li>ul <span>无序列表</span></li>
+                        <li>ol <span>有序列表</span></li>
+                        <li>dl <span>定义列表</span></li>
+                        <li>table <span>表格</span></li>
+                        <li>from <span>表单</span></li>
+                    </ul>
+                    <p>单标签</p>
+                     <ul>
+                        <li>br <span>换行</span></li>
+                        <li>img <span>图片（单标签）</span></li>
+                        <li>a <span>链接、下载、锚点、发邮件、打电话、发短信</span></li>
+                        
+                        <li>meta <span>提供页面的信息</span></li>
+                        <li>link <span>外部链接</span></li>
+                        <li>input <span>输入框</span></li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--文档基本结构end-->   
+            <!--标签分类strat--> 
+            <div class="onePoint">
+                <p class="title">标签分类</p>
+                 <!--块级元素-->
+                <p class="paragraph"><strong>1、块级元素：</strong>一般用来搭建网站架构、布局、承载内容……它包括以下这些标签</p>
+                <p class="paragraph"><code>HTML</code>:div、ol、ul、dl、dt、dd、form、h1~h6、hr、p、table；</p>
+                <p class="paragraph"> <code>HTML5</code>:header、article、section、aside、nav、figcaption、hgroup、footer、address;</p>               
+                <!--行内元素-->
+                <p class="paragraph"><strong>2、行内元素(内联元素)：</strong>一般用在网站内容之中的某些细节或部位，用以“强调、区分样式、上标、下标、锚点”等等，下面这些标签都属于内嵌元素</p>
+                <p class="paragraph">a、b、big、br、cite、code、em、font、i、img、input、label、s、select、small、span、strong、sub、sup、textarea、u</p>
+                <div class="box-level2">
+                    <p>块元素特点</p>
+                    <ol>
+                        <li>默认独占一行 </li>
+                        <li>没有宽度时，默认撑满一排</li>
+                        <li>支持所有css命令</li>
+                    </ol>
+                </div>
+                <div class="box-level2">
+                    <p>行内元素特点</p>
+                    <ol>
+                        <li>同排可以继续跟同类的标签 </li>
+                        <li>内容撑开宽度</li>
+                        <li>不支持宽高(img、input除外)</li>
+                        <li>不支持上下的margin</li>
+                    </ol>
+                </div>
+            </div>  
+            <!--标签分类end--> 
+            <!--标签类别转换strat--> 
+            <div class="onePoint">
+                <p class="title">标签类别转换</p>
+                <div class="box">
+                    <p><code>display:block</code></p>
+                    <ol>
+                        <li>显示为块</li>
+                        <li>使内联元素具备块属性标签的特性</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <p><code>display:inline</code></p>
+                    <ol>
+                        <li>显示为内嵌</li>
+                        <li>使行块属性标签具备内联元素的特性</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <p><code>display:inline-blcok</code></p>
+                    <ol>
+                        <li>块在一行显示</li>
+                        <li>行内属性标签支持宽高</li>
+                        <li>没有宽度的时候内容撑开宽度</li>
+                        <li>问题:ie6 ie7 不支持块属性标签的inline-block</li>
+                    </ol>
+                </div>
+            </div>  
+            <!--标签类别转换end-->  
+            <!--元素的嵌套start-->    
+            <div class="onePoint">
+                <p class="title">HTML 标签的嵌套规则</p>
+                <!--1-->    
+                <p class="paragraph">1.元素嵌套规则：<em>块级元素>行内块元素>行内元素</em></p>
+                <img src="./html-img/qiantao1.png" alt="">
+                <!--2-->  
+                <p class="paragraph">2. 块级元素不能放在&lt;p&gt;里面：</p>
+                <img src="./html-img/qiantao2.png" alt="">
+                <!--3--> 
+                <p class="paragraph">3. 有几个特殊的块级元素只能包含内嵌元素，不能再包含块级元素，这几个特殊的标签是：</p>
+                <span style="color: #0000cd">h1、h2、h3、h4、h5、h6、p</span>
+                <!--4--> 
+                <p class="paragraph">4. li 内可以包含 div 标签 </p>
+                
+            </div>
+            
+            <!--元素的嵌套end-->       
+        </div>
+
+   
+ 
+        
+    </body>
+</html>

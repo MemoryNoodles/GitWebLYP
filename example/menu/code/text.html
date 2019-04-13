@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<style>
+			.head{background: #4e94c9; height:50px; position:fixed;
+			      width:100%; z-index:2;
+			}
+			.menu{width:1200px; margin:0 auto; line-height:50px;}
+			.menu a{float:left; padding:0 15px; color:white; }
+			.menu a.active{background: #b4ae14;}
+			.wrap{width:1200px; margin:0px auto; padding:0px;
+				position: relative;
+			}
+			.div1{ width:1200px; height:400px; background: #773d77; }
+			.div2{ width:1200px; height:400px; background: #ad2222; }
+			.div3{ width:1200px; height:400px; background: #24653b; }
+			.div4{ width:1200px; height:400px; background: #c7c241;margin-bottom:500px; }
+		</style>
+		<script>
+			window.onload = function(){
+				var oDiv1 = document.getElementById('div1');
+				var oDiv2 = document.getElementById('div2');
+				var oDiv3 = document.getElementById('div3');
+				var oDiv4 = document.getElementById('div4');
+				var arrAtag = document.getElementById('menu').getElementsByTagName('a');
+				window.onscroll = function(){
+					var top = document.documentElement.scrollTop || document.body.scrollTop;
+					if(top < oDiv2.offsetTop ){
+						changeCls(0);
+					}else if(top > oDiv2.offsetTop && top < oDiv3.offsetTop){
+						changeCls(1);
+					}else if(top > oDiv3.offsetTop && top < oDiv4.offsetTop){
+						changeCls(2);
+					}
+					else if(top > oDiv4.offsetTop){
+						changeCls(3);
+					}
+				}
+				
+				function changeCls(num){
+					for(var i=0; i<arrAtag.length; i++){
+						arrAtag[i].className = '';
+					}
+					arrAtag[num].className = 'active';
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<article>
+			<div class="head">
+				<nav class="menu" id="menu">	
+					<a href=""  class="active">首 页</a>
+					<a href="">资 讯</a>
+					<a href="">产 品</a>
+					<a href="">关于我们</a>
+				</nav>
+				<a href=""></a>
+			</div>
+			<div class="wrap">
+				<div class="div1" id="div1"></div>
+				<div class="div2" id="div2"></div>
+				<div class="div3" id="div3"></div>
+				<div class="div4" id="div4"></div>
+			</div>
+		</article>
+	</body>
+</html>

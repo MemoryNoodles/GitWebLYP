@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基本包装类型</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+
+            var cls = 'wrap box foot';
+            console.log(cls.match('b'));     //有返回数组，无返回null
+            console.log(cls.search('b'));    //找到b的位置，和indexOf类似
+            console.log(cls.replace('b', 'Q')); //把b替换成Q
+            console.log(cls.split(' '));     //以空格分割成字符串 [ "wrap", "box", "foot" ]
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">基本包装类型</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <p class="paragraph">为了便于操作基本类型值，ECMAScript 提供了3个特殊的引用类型：Boolean、Number和String。这些类型与其他引用类型相似，但同时也具有与各自的基本类型相应的特殊行为。实际上，每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而能够调用一些方法来操作这些数据。</p>
+                <h3 class="title">Boolean类型</h3>
+                <img src="./js-img/newBoolean.png">
+                <p class="paragraph">建议永远不要使用Boolean对象</p>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">Number类型</h3>
+                <img src="./js-img/newNumber.png">            
+            </section>
+            <section class="onePoint">
+                <h3 class="title">String类型</h3>
+                <!--字符方法-->
+                <p class="small_title">字符方法</p>
+                <img src="./js-img/charaMethod.png"> <br>
+                <img src="./js-img/charAt.png">
+                <!--字符串方法-->
+                <p class="small_title">字符串方法</p>
+                <img src="./js-img/strMethod.png" alt=""><br>
+                <img src="./js-img/strMethodJs.png">
+                <!--字符串位置方法-->
+                <p class="small_title">字符串位置方法</p>
+                <img src="./js-img/strIndexOf.png" alt=""><br>
+                <img src="./js-img/strIndexOfJs.png">
+                <p class="paragraph">实例:把字符串中重复的字符提取出来组成一个数组。</p>
+                <img src="./js-img/strExtend.png" alt="">
+                <!--大小写转换方法-->
+                <p class="small_title">大小写转换方法</p>
+                <img src="./js-img/strUpperCase.png" alt=""><br>
+                <img src="./js-img/strUpperCaseJs.png">
+                <!--字符串的模式匹配方法-->
+                <p class="small_title">字符串的模式匹配方法</p>
+                <img src="./js-img/strUseExpreg.png" alt=""><br>
+                <img src="./js-img/strExpReg.png">
+            </section>
+            <section class="task">
+				<p>本节作业</p>
+				<div>
+					
+					<h5 class="doWithYouslef">练习</h5>
+					<div>
+					    <p>1、将任意字符串倒叙</p>
+					    <p>2、找出字符串里重复的字符</p>
+					    <p>2、判断一个字符串中出现次数最多的字符，统计这个次数</p>
+						
+					</div>
+				</div>
+			</section>
+        </article>
+    </body>
+</html>

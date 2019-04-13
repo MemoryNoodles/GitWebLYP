@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>事件对象</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+            
+            /*阻止默认行为和冒泡*/
+            $('a').click(function (e) {
+                return false;
+            });
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">事件对象</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">事件对象</h3>
+                <div class="point_content">
+                    <p class="paragraph">事件对象就是event对象，通过处理函数默认传递接受。之前处理函数的e就是event事件对象，event对象有很多可用的属性和方法，我们在JavaScript课程中已经详细的了解过这些常用的属性和方法。</p>
+                    <div class="box">
+                        <dl>
+                            <dt>type</dt>
+                            <dd>获取触发事件名</dd>
+                            <dt>target</dt>
+                            <dd>获取绑定的DOM元素</dd>
+                            <dt>data</dt>
+                            <dd>获取额外数据</dd>
+                            <dt>pageX</dt>
+                            <dd>相对于文档的</dd>
+                            <dt>clientX</dt>
+                            <dd>相对于可视区</dd>
+                        </dl>
+                    </div>
+                    <img src="./jqueryImg/eventAttr.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">冒泡和默认行为</h3>
+                <div class="point_content">
+                    <p class="paragraph">这个我们在javascript的时候讲到了，这里我们在看一下。</p>
+                    <h4 class="small_title">阻止冒泡</h4>
+                    <img src="./jqueryImg/stopPropagation.png" alt="">
+                    <h4 class="small_title">阻止默认行为</h4>
+                    <img src="./jqueryImg/preventDefault.png" alt="">
+                    <p class="paragraph">注意：如果想让上面的超链接同时阻止默认行为且禁止冒泡行为，可以把两个方法同时写上： event.stopPropagation()和event.preventDefault()。两个方法如果需要同时启用的时候，还有一种简写方案代替，就是<em>直接return false。</em></p>
+                    <img src="./jqueryImg/returnFalse.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

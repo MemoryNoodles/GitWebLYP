@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #pageData{
+                width:800px;
+                margin:100px auto;
+            }
+            #pageData a{
+                width:20px;
+                height:20px;
+                display:inline-block;
+              /*  float:left;*/
+                marign:0 5px;
+                text-align: center;
+            }
+            #pageData  b{
+                 width:20px;
+                height:20px;
+                display:inline-block;
+                marign:0 5px;
+            }
+            #pageData .prevPage,#pageData .nextPage,#pageData .disabled{
+                width:80px;
+                cursor:pointer
+            }
+            #pageData .disabled{
+               cursor:not-allowed;
+               border: 1px solid #e6e6e6!important;
+               color: #787878!important;
+            }
+            .current{
+                background: #1273a7;
+                 cursor:not-allowed;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="pageData">
+        </div>
+        <script src="./js/jquery-3.1.1.min.js"></script>
+      <!--  <script src="./js/jquery.pageTest.js"></script>-->
+        <script>
+            (function($){
+                var ms = {
+                    init:function(obj, args){
+                        this.fillHtml(obj, args);
+                        this.bindEvent(obj, args);
+                    },
+                    fillHtml:function(obj, args){
+                        
+                        obj.empty()
+                        /*上一页*/
+                        if(args.currentPage == 1){
+                            obj.append('<a class="disabled">上一页</span>'); 
+                        }else{
+                           obj.append('<a class="prevPage">上一页</span>'); 
+                        }
+                        
+                       
+                        var start = args.currentPage-2, end = args.currentPage+2;
+                        if(args.currentPage == 1 || args.pageAll - args.currentPage ==4){
+                            end += 2
+                        }
+                        if(args.currentPage == 2 || args.pageAll - args.currentPage == 3){
+                            end += 1
+                        }
+                        if(args.currentPage == 4 || args.pageAll - args.currentPage == 1){
+                            start--
+                        }
+                        if(args.currentPage == 5 || args.pageAll - args.currentPage == 0){
+                            start -= 2
+                        }
+                        if(args.currentPage>=6){
+                            obj.append('<a href="javascript:;" class="current">'+1+'</a>');
+                             obj.append('<b>...</b>')
+                        }
+                    
+                        /*中间页*/
+                        for(;start<=end; start++){
+                            if(start>=1 && start<=args.pageAll){
+                                if(start == args.currentPage){
+                                    obj.append('<a href="javascript:;" class="current">'+start+'</a>');
+                                }else{
+                                    obj.append('<a href="javascript:;" class="pageNum">'+start+'</a>');
+                                }
+                            }
+                            
+                        }
+                         /*最后一页*/
+                        if(args.pageAll - args.currentPage > 4){
+                             obj.append('<b>...</b>')
+                             obj.append('<a href="javascript:;" class="pageNum">'+args.pageAll+'</a>') 
+                        }
+                       
+                        /*下一页*/
+                        if(args.currentPage == args.pageAll){
+                            obj.append('<a href="javascript:;" class="disabled">下一页</a>');
+                        }else{
+                            obj.append('<a href="javascript:;" class="nextPage">下一页</a>');
+                        }
+                    },
+                    
+                    bindEvent:function(obj, args){
+                        obj.on('click', 'a.prevPage', function(){  
+                            ms.fillHtml(obj, {
+                                currentPage:$('a.current').text()-1,
+                                pageAll:args.pageAll,
+                                backFn:args.backFn($('a.current').text()-1)
+                            })
+                        })
+                        
+                        obj.on('click', 'a.pageNum', function(){
+                             ms.fillHtml(obj, {
+                                currentPage:parseInt($(this).text()),
+                                pageAll:args.pageAll,
+                                backFn:args.backFn(parseInt($(this).text()))
+                            })
+                        })
+                        
+                        obj.on('click', 'a.nextPage', function(){
+                              
+                            ms.fillHtml(obj, {
+                                currentPage:parseInt($('a.current').text())+1,
+                                pageAll:args.pageAll,
+                                backFn:args.backFn(parseInt($('a.current').text())+1)
+                            })
+                        })
+                    }
+                }
+                $.fn.createPage = function(options){
+                    var args = $.extend({
+                        currentPage:1,
+                        pageAll:15,
+                        backFn:function(){}
+                    },options)
+                    ms.init(this, args);
+                }
+            })(jQuery)
+            
+            
+           $(function(){
+                $('#pageData').createPage({
+                     currentPage:1,
+                     pageAll:33,
+                     backFn:function(num){
+                         //alert(num)
+                     }
+                })
+           })
+            
+           /*$._data( $(".aaa")[0], "events")
+             检查一个元素是否已经绑定事件了
+            */
+            
+        </script>
+    </body>
+</html>
+
+
+
+

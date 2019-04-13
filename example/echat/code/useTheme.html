@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ch-Zn">
+	<head>
+		<meta charset="UTF-8">
+		<title>图形</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/style.css">
+
+
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="type">
+				<h3>食品酒水</h3>
+				<div class="type_content">
+					<div class="flex" id="food" data-des="食品酒水">
+						<div><label>早餐：<input type="text" ></label></div>
+						<div><label>中餐：<input type="text" ></label></div>
+						<div><label>晚餐：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--衣服饰品-->
+			<div class="type">
+				<h3>衣服饰品</h3>
+				<div class="type_content">
+					<div class="flex" id="cloth" data-des="衣服饰品">
+						<div><label>衣服：<input type="text"></label></div>
+						<div><label>裤子：<input type="text"></label></div>
+						<div><label>袜子：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--行车交通-->
+			<div class="type">
+				<h3>行车交通</h3>
+				<div class="type_content">
+					<div class="flex" id="traffic" data-des="衣服饰品">
+						<div><label>打车：<input type="text"></label></div>
+						<div><label>公车：<input type="text"></label></div>
+						<div><label>私家车：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--交流通讯-->
+			<div class="type">
+				<h3>交流通讯</h3>
+				<div class="type_content">
+					<div class="flex" id="Communication" data-des="交流通讯">
+						<div><label>座机：<input type="text"></label></div>
+						<div><label>手机：<input type="text"></label></div>
+						<div><label>上网：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<div id="result" class="right"> 结果</div>
+			<div id="chartdiv1" style=" height: 400px;"></div>
+			<div id="chartdiv2" style="width: 600px; height: 400px;"></div>
+		</div>
+	</body>
+	<script src="./js/jquery-3.1.1.min.js"></script>
+	<script src="./js/amcharts.js" type="text/javascript"></script>
+	<script src="./js/serial.js" type="text/javascript"></script>
+	<script src="./js/pie.js" type="text/javascript"></script>
+
+	<script src="./js/themes/light.js" type="text/javascript"></script>
+	<script >
+
+		/* var arr = [ {
+			"year": 2009,
+			"income": 24.6,
+			"expenses": 25
+		}];*/
+
+		$(function(){
+
+			var chart,  legend, chartData=[];
+			var chart1;
+			var chart2;
+
+
+			$("#result").click(function(){
+
+				$(".flex").each(function(index){
+					var ind = index;
+					//console.log($(this).get(0).dataset.des); get(0) 转原生
+					chartData[index] = {};
+					/*支出类*/
+					chartData[index].outlay = $(this).attr('data-des');
+					/*支出类的总费用*/
+					chartData[index].value = 0;
+					$(this).find('input').each(function(){
+						if( parseInt($(this).val())  ){
+
+							chartData[ind].value += parseInt($(this).val());
+						}
+
+					})
+
+				})
+
+				//点击结果后出图
+				makeCharts("light", "#FFFFFF","");  
+				function makeCharts(theme, bgColor, bgImage){
+					//清除
+					if(chart1){
+						chart1.clear();
+					}
+					if(chart2){
+						chart2.clear();
+					}
+
+
+					//柱形图
+					chart1 = AmCharts.makeChart("chartdiv1", {
+						type: "serial",
+						theme:theme,
+						dataProvider: chartData,
+						categoryField: "outlay",   //类别 
+						startDuration: 1,
+
+						categoryAxis: {
+							gridPosition: "start"   
+						},
+						valueAxes: [{
+							title: "个人支出表"
+						}],
+						graphs: [
+							//支出
+							{
+								type: "column",  //type 1、line-》线条  2、column-》柱状图
+								title: "支出",         //值
+								valueField: "value",    //值
+								lineThickness: 0,       //边框线
+								fillAlphas: 0.8,        //透明度 
+								/*bullet: "round",	*/  //中间的点
+								balloonText: "[[category]]<br><b>[[value]]</b> ([[percents]]%)	"
+							},
+							//收入   --
+							{
+								type: "column",         //column  收入
+								title: "收入",
+								valueField: "income",
+								lineAlpha: 0,
+								fillAlphas: 0.8,
+								balloonText: "[[title]] in [[category]]:<b>[[value]]</b>"
+							},
+						],
+						legend: {
+							useGraphSettings: true
+							
+						}
+
+					});
+
+					//饼状图
+					chart2 = AmCharts.makeChart("chartdiv2", {
+						type: "pie",
+						theme: theme,
+						dataProvider: chartData,
+						titleField: "outlay",
+						valueField: "value",
+						balloonText: "[[title]]<br><b>[[value]]</b> ([[percents]]%)",
+							legend: {
+							align: "center",
+							markerType: "circle"
+						}
+					});
+
+				}
+				
+				//
+
+			})
+
+
+		})
+
+	
+
+
+
+
+
+
+	</script>
+</html>

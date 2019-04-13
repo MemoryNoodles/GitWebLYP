@@ -1,0 +1,67 @@
+/*reset*/
+body{ font: 20px "微软雅黑", 'arial'; color:#333; margin-bottom: 100px }
+/*address, caption, cite, code, dfn, em, strong, th, var {font-style: normal;font-weight: normal;}*/
+h1,h2,h3,h4,h5,h6,{ padding:0; margin:0; font-weight:normal; }
+p{ margin:10px 0 0}
+ul,ol,dl{ list-style: none; padding:0; margin:0; }
+*{ box-sizing:border-box }
+/*reset*/
+
+iframe{ width:1400px; height:200px; }
+.html p{margin:0; line-height:20px;border: 1px solid #ccc;padding: 10px 20px;border-radius: 10px; font-size:16px}
+.article-title{ text-align: center; color:#1291E7; font-size:30px}
+img{ border-radius: 10px; margin:10px 15px;}
+code{ background:#bf5733; color:white; margin-right:10px; padding:2px; }
+em{ color:#0b933b; font-style: normal; font-size:22px;}
+cmd{ background: #000; font-style: normal; font-size:22px;  padding:3px 5px; color:white; margin:3px 5px;display: inline-block}
+.wrap{ padding:90px 20px; }
+
+
+.onePoint{ margin:15px 0; }
+.onePoint .point_content{ padding:0 20px; }
+h5Tag{ background: url(./html-img/h5_mark.jpg) no-repeat; }
+
+/*文本样式*/
+.Seq{ margin-top:20px; }
+.Seq strong{ font-size:22px; }
+.paragraph{ text-indent: 2em; font-weight: normal; color:#555555}
+.title{ font-size: 24px; color:#ffbe05; border-bottom:1px solid #ffbe05; padding-bottom: 5px; font-weight: bold}
+.small_title{font-size:20px; color:#065d96; margin:20px 0 10px; } 
+.code{ font-size: 24px; color:#065d96; font-weight: bold; ;}
+
+/*运行效果*/
+.box{ box-shadow: 0px 0px  5px #ccc; border-radius: 5px; padding:15px; margin:10px 15px}
+.box li{ background: url('../html-img/point.jpg') no-repeat 0 center/13px 13px ; padding-left:25px}
+.box dt{ background: url('../html-img/point.jpg') no-repeat 0 center/13px 13px ; padding-left:25px; color:#065d96; font-size:22px; }
+.box span{ margin-left:10px }
+.box-level2{ box-shadow: 0px 0px  5px #cccccc; border-radius: 5px; padding:15px; margin:10px 15px}
+.box-level2 li{ background: url('../html-img/point-level2.jpg') no-repeat 0 center/13px 13px ; padding-left:25px}
+
+/*属性的解释*/
+.attrExplain{ margin-left:25px; }
+.attrExplain dt{ background: url('../html-img/point.jpg') no-repeat 0 center/13px 13px ; color:#1293e7; font-size:22px; padding:10px 0 5px 20px; }
+/*table表格*/
+.textTag{ margin-top:30px; }
+.textTag_table{
+    text-align: center;
+    border-collapse: collapse;
+}
+table th{
+    height:50px;
+    background: #ccc;
+    color:#1293e7;
+    font-size:24px;
+}
+.textTag_table tr,td{
+    border:1px solid #ccc;
+}
+/*课后作业*/
+.task{margin-top:100px; min-height:300px ;}
+.task>p:nth-child(1){text-align:center; font-size:30px; color:#065d96;margin:50px 0 20px;
+   border-bottom:2px solid #ffbe05; padding-bottom:10px; text-align: center; 
+}
+.task>div{background:url('../js-img/challenge.png') no-repeat 80%;}
+.task h5{ margin:30px 0 5px; font-size:23px;}
+.task h5+div{margin-left:20px; background: #0b504b; color:#f0f0f0; padding:20px; border-radius: 10px; width:60%}
+.task .doWithNoWord{color:red}
+.task .doWithYouslef{color:#6a930c}

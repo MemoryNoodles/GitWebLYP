@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>过渡和2D变换</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">  
+    </head>
+    <body>
+        <h2 class="article-title">过渡和2D变换</h2>
+        <article class="wrap">
+           <!-- transition过渡   -->
+            <section class="onePoint">
+                <p class="title">transition过渡</p>
+                <div class="box">
+                    <dl>
+                        <dt>transition-property</dt>
+                        <dd>规定设置过渡效果的 CSS 属性的名称（none || all || [attr]）;可以指定一个或多个属性名称列表，以逗号“,”进行分隔</dd>
+                        <dt>transition-duration</dt>
+                        <dd>规定完成过渡效果需要多少秒或毫秒。</dd>
+                        <dt>transition-timing-function：规定速度效果的速度曲线。</dt>
+                        <dd>ease：（逐渐变慢）默认值</dd>
+                        <dd>linear：（匀速）</dd>
+                        <dd>ease-in：(加速)</dd>
+                        <dd>ease-out：（减速）</dd>
+                        <dd>ease-in-out：（先加速后减速）</dd>
+                        <dd>cubic-bezier：贝塞尔曲线（ x1, y1, x2, y2 ）;（ x1, y1, x2, y2 ）的值范围在0-1之间。 </dd>
+                        <dt>transition-delay</dt>
+                        <dd>定义过渡效果延迟多少秒后开始</dd>
+                    </dl>
+                </div>
+                <p>cubic-bezier是什么个东西啦，看下图。</p>
+                <img src="./css-img/cubic-bezic.png" style="width:400px" alt="">
+                <p class="paragaraph">(x1, y1)是p1的坐标；（ x2, y2）是p2的坐标。</p>
+                <p class="paragraph">了解完这些东西后，我们正式的来看一下写法：</p>
+                <img src="./css-img/transition.png" alt="">
+                <p><a href="./iframe/transition-exmeple.html" target="_blank">查看例子</a></p>
+            </section>
+            <!-- transition过渡完成事件   -->
+            <section class="onePoint">
+                <p class="title">transition过渡完成事件</p>
+                <div class="box">
+                    <dl>
+                        <dt>Webkit内核</dt>
+                        <dd>obj.addEventListener('webkitTransitionEnd',function(){},false);</dd>
+                        <dt>firefox</dt>
+                        <dd>obj.addEventListener('transitionend',function(){},false);</dd>
+
+                    </dl>
+                </div>
+                <p><a href="./iframe/transitionAnd2D.html" target="_blank">点击查看示例</a></p>
+            </section>
+
+            <section class="onePoint">
+                <p class="title"><code>transition</code>后面跟多个属性名称的情况</p>
+                <img src="./css-img/transition-more.png"  alt="">
+                 <p><a href="./iframe/transitionAnd2D.html" target="_blank">点击查看示例</a></p>
+                 <p><a href="./iframe/transition.html" target="_blank">扩展示列</a></p>
+            </section>
+            <!-- transform   -->
+            <section class="onePoint">
+                <p class="title">2D变换:transform</p>
+                <div class="box">
+                    <dl>
+                        <dt>rotate()旋转函数/取值度数</dt>
+                        <dd>deg度数--<em>transform:rotate(20deg);</em></dd>
+                        <dd>Transform-origin 旋转的基点--<em>transform-origin:left bottom center;</em></dd>
+                        <dt>skew()倾斜函数/取值度数(可正，可负) </dt>
+                        <dd>skewX()---<em>transform:skewX(30deg);</em></dd>
+                        <dd>skewY()---<em>transform:skewY(30deg);</em></dd>
+                        <dt>scale()缩放函数,取值:正数、负数和小数</dt>
+                        <dd>scaleX()---<em>transform:scaleX(1.1);</em></dd>
+                        <dd>scaleY()---<em>transform:scaleY(1.3);</em></dd>
+                        <dt>translate()位移函数/带单位的数值</dt>
+                        <dd>translateX()---<em>transform:translateX(20px);</em></dd>
+                        <dd>translateY()---<em>transform:translateY(20px);</em></dd>
+                    </dl>
+                </div>
+                <!--  Transform-origin-->
+                <p class="seq">配合rotate运用的<code>Transform-origin</code>变换原点</p>
+                <p class="paragraph">用法：例如（transform:rotate(50deg); transform-origin：top right; ）</p>
+                <div class="box">
+                    <dl>
+                        <dt>方位英文单词</dt>
+                        <dd>有“top”、“right”、“bottom”、“left”和“center”5个值可以使用，如“top left”表示左上角，“right bottom”表示右下角，“center center”表示默认的中点。</dd>
+                        <dt>Web常用长度单位</dt>
+                        <dd>如最常用的像素“px”，字符“em”，点“pt”等，如：“16px 20px”表示旋转的轴在“X轴”的16像素，“Y轴（向下为正，向上为负）”的20像素的位置。</dd>
+                        <dt>百分数</dt>
+                        <dd>第一个百分数表示相对于元素宽度的百分比位置，第二个百分数表示相对于元素高度的百分比位置，如：“0% 0%”相当于左上角，“50% 50%”相当于默认的中点，“100% 100%”相当于元素的右下角。</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/transform-origin.png" alt="">
+                <p><a href="./iframe/transform-origin.html" target="_blank">点击查看示例</a></p>
+                <p><code>skew</code>组合的示列代码：</p>
+                 <img src="./css-img/transition-skew.png" alt="">
+                 <p class="paragraph">其他的用法也差不多，我们直接敲代码看效果；</p>
+    
+            </section>
+            <section class="onePoint">
+                <p class="title"><code>transform</code>的组合式写法；</p>
+                <p class="paragraph">还记得之前我们讲过的transition吗？transition后面可以指定一个或多个属性名称列表，以逗号“,”进行分隔；transform和transition不同的是transform后面跟多个函数的时候不需要用逗号“,”进行分隔，废话不多说，直接看代码</p>
+               <img src="./css-img/transform-more.png" alt="">
+               <p><a href="./iframe/transition-car.html" target="_blank">查看列子</a></p>
+            </section>
+             <!-- transform的执行顺序问题   -->
+            <section class="onePoint">
+               <p class="title">transform的执行顺序问题</p>
+               <p class="paragraph">transform的执行顺序问题--先写先执行（rotate()旋转会把坐标轴给一起旋转了）。</p>
+               <img src="./css-img/transform-seq.png" alt="">
+               <p><a href="./iframe/transform-seq.html" target="_blank">查看运行效果</a></p>  
+            </section>
+            <!-- transform的综合运用   -->
+            <section class="onePoint">
+                <p class="title">transform的综合运用</p>
+                <p><a href="./test/css3-transform.html" target="_blank">查看效果；</a></p>
+            </section>
+          <!--  matrix(a,b,c,d,e,f) 矩阵函数   
+            <section class="onePoint">
+                <p class="title">matrix(a,b,c,d,e,f) 矩阵函数</p>
+                <p class="paragraph">matrix其实也不神奇，只是可以用他来代替上面所讲的旋转等，，</p>
+            </section>-->
+        </article>
+    </body>
+</html>

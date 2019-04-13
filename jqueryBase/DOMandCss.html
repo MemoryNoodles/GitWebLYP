@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>基础DOM和CSS操作</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+
+            $(function(){
+                console.log($('#title').offset().left);   //相对于视口的偏移
+                console.log($('#title').position().left); //相对于有定位的父元素的偏移
+                console.log($(window).scrollTop());       //获取当前滚动条的位置
+                $(window).scrollTop(300);                 //设置当前滚动条的位置             
+            })
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">基础DOM和CSS操作</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">设置和获取元素及内容</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/htmlval().png" alt="">
+                    <img src="./jqueryImg/htmlval()JS.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">元素属性操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">除了对元素内容进行设置和获取，通过jQuery 也可以对元素本身的属性进行操作，包括获取属性的属性值、设置属性的属性值，并且可以删除掉属性。</p>
+                    <img src="./jqueryImg/attr().png" alt="">
+                    <img src="./jqueryImg/attr()JS.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">元素样式操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">元素样式操作包括了直接设置CSS样式、增加CSS类别、类别切换、删除类别这几种操作方法。而在整个jQuery使用频率上来看，CSS样式的操作也是极高的，所以需要重点掌握。</p>
+                    <img src="./jqueryImg/cssOpeart.png" alt="">
+                    <img src="./jqueryImg/cssOpeartJS.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">CSS方法</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery不但提供了CSS的核心操作方法，比如.css()、.addClass()等。还封装了一些特殊功能的CSS操作方法，我们分别来了解一下。</p>
+                    <img src="./jqueryImg/widthAndHeight.jpg" alt="">
+                    <img src="./jqueryImg/widthAndHeightJS.png" alt="">
+                    <!--outerWidth-->
+                    <img src="./jqueryImg/outerWidth.png" alt="">
+                    <img src="./jqueryImg/outerWidthJS.png" alt="">
+                    <!--offset-->
+                    <img src="./jqueryImg/offset.png" alt="">
+                    <img src="./jqueryImg/offsetJS.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dom元素的尺寸与位置</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <style>
+            #backTop{ background:url(./js-img/backTop.png) no-repeat; 
+                position: fixed; bottom:50px; right:50px;
+                height:100px; width:80px; transform:rotate(-20deg); transition:1s; opacity:1
+            }
+            #backTop a{ color:white; display:inline-block; height:100px; width:80px;}
+            #backTop:hover{transform:rotate(0deg)}
+        </style>
+        <script>       
+
+            window.onload = function(){
+                var backTop = document.getElementById('backTop');
+                window.onscroll = function(){           //页面滚动的时候触发函数内的脚本
+                    /*oTop得到滚动的距离*/
+                    var oTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    if(oTop<200){
+                        backTop.style.opacity = 0; 
+                    }else{
+                        backTop.style.opacity = 1; 
+                    }
+
+                } 
+            }
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">Dom元素的尺寸与位置</h2>
+        <article class="wrap" id="wrap">
+            <section class="onePoint">
+                <h3 class="title">获取元素CSS大小</h3>
+                <div class="point_content">
+                    <h4 class="small_title">1.通过style内联获取元素的大小</h4>
+                    <p class="paragraph">style获取只能获取到行内style属性的CSS样式中的宽和高，如果有获取；如果没有则返回空。</p>  
+                    <img src="./js-img/setStyle.png" alt="">
+                    <!--获取元素的非行间样式-->
+                    <h4 class="small_title">2.获取元素的非行间样式</h4>   
+                    <p class="paragraph">通过计算获取元素的大小，无关你是否是行内、内联或者链接，它经过计算后得到的结果返回出来。如果本身设置大小，它会返回元素的大小，如果本身没有设置，非IE浏览器会返回默认的大小，IE浏览器返回auto。</p>
+                    <img src="./js-img/getStyle.png" alt="">
+                    <p class="paragraph">额外提示下：Gecko 2.0(Firefox 4/Thunderbird 3.3/SeaMonkey 2.1)之前，第二个参数“伪类”是必需的（如果不是伪类，设置为null或则false），不过现在，不是必需参数了。</p>
+                    <p>总结：以上的两种CSS获取元素大小的方法，只能获取元素的CSS大小，却无法获取<em>元素本身实际的大小</em>。比如加上了内边距、滚动条、边框之类的。</p>
+                    <!--CSSStyleSheet-->
+                    <h4 class="small_title">3、CSSStyleSheet</h4>
+                    <p class="paragraph">通过CSSStyleSheet对象中的cssRules(或rules-->IE)属性获取元素大小</p>
+                    <img src="./js-img/styleSheet.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">获取元素实际大小</h3>
+                <div class="point_content">
+                    <!--1、clientWidth 和 clientHeight-->
+                    <h4 class="small_title">1、clientWidth 和 clientHeight</h4>
+                    <p class="paragraph">这组属性可以获取元素<em>可视区</em>的大小，可以得到<em>元素内容及内边距</em>所占据的空间大小（<em>没有单位</em>）。对于元素的实际大小，clientWidth和clientHeight理解方式如下：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1.增加滚动条，最终值等于原本大小减去滚动条(宽17)的大小</li>
+                            <li>2.增加内边距，最终值等于原本大小加上内边距的大小</li>
+                        </ul>
+                    </div>
+                    <p>如果说没有设置任何CSS的宽和高度，那么非IE浏览器会算上滚动条和内边距的计算后的大小，而IE浏览器则返回0。</p>
+                    <!--scrollWidth和scrollHeight-->
+                    <h4 class="small_title">2、scrollWidth 和 scrollHeight</h4>
+                    <p class="paragraph">这组属性可以获取滚动内容<em>（实际应该要占的宽高不包含border和外边距）</em>的元素大小(没有单位)。</p>
+                    <img src="./js-img/scrollWidth.png" alt="">
+                    <!--offsetWidth和offsetHeight-->
+                    <h4 class="small_title">3、offsetWidth 和 offsetHeight</h4>
+                    <p class="paragraph">这组属性可以返回元素实际大小<em>(content+padding+border)</em>，包含边框、内边距和滚动条(没有单位)。对于元素大小的获取，一般是块级(block)元素并且以设置了CSS大小的元素较为方便。如果是内联元素(inline)或者没有设置大小的元素就尤为麻烦，所以，建议使用的时候注意。</p>
+                </div>
+              
+            </section>
+            <section class="onePoint">
+                <h3 class="title">获取元素周边大小</h3>
+                <div class="point_content">
+                    <!--clientLeft和clientTop-->
+                    <h4 class="small_title">1.clientLeft 和 clientTop（了解）</h4>
+                    <p class="paragraph">这组属性可以获取元素设置了<em>左边框和上边框（border）</em>的大小(可以理解为获取border大小)。目前只提供了Left和Top这组，并没有提供Right和Bottom。</p>
+                    <!--offsetLeft和offsetTop-->
+                    <h4 class="small_title">2.offsetLeft 和 offsetTop</h4>
+                    <p class="paragraph">这组属性可以获取当前元素<em>相对于有定位的父元素的位置</em>。还有：加上边框和内边距不会影响它的位置，但加上外边据会累加。</p>
+                    <!--offsetParent-->
+                    <h4 class="small_title">3、offsetParent</h4>
+                    <p class="paragraph">offsetParent和parentNode的区别是offsetParent返回的是<em>有定位</em>的父元素，parentNode放回父元素。如果父元素没有定位，那么offsetParent将返回body对象或html(IE8及以下)对象。所以，在获取offsetLeft和offsetTop时候，CSS定位很重要。</p>
+                    <p class="paragraph">如果说，在很多层次里，外层已经定位，我们怎么获取里层的元素距离body或html元素之间的距离呢？也就是获取任意一个元素距离页面上的位置。那么我们可以编写函数，通过不停的向上回溯获取累加来实现。</p>
+                    <img src="./js-img/offsetLeftJs.png" alt="">
+                    <!--scrollTop 和 scrollLeft-->
+                    <h4 class="small_title">4.scrollTop 和 scrollLeft</h4>
+                    <p class="paragraph">这组属性可以获取滚动条被隐藏的区域大小，也可设置定位到该区域。</p>
+                    <img src="./js-img/scrollTop.png" alt="">
+                    <div><a href="./example/toTop/code/index.html" target="_blank">回到顶部练习</a></div>
+                </div>
+            </section>
+            <div class="onePoint">
+                <h3 class="title">元素位置</h3>
+                <p class="paragraph">除了前面讲的几组属性可以获取元素所需的位置，其实还有一个DOM的方法：getBoundingClientRect()。这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。分别表示元素各边与页面上边和左边的距离。</p>
+                <img src="./js-img/DomGetBoundingCR.png" alt="">
+            </div>
+        </article>
+        <div id="backTop"><a href="#top">&nbsp;</a></div>
+    </body>
+</html>

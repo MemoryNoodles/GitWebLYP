@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<h2 class="article-title">路由</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">react-router-dom</h3>
+				<div class="point_content">
+					<p class="paragraph">讲路由前,我们要知道有react-router和react-react-dom;那究竟用哪一种啦？react-react-dom，为什么因为react-react-dom可以到处所有react-router可以到处的内容。现在我们来看一下react-router-dom</p>
+					<h4 class="small-title">BrowserRouter</h4>
+					<p class="paragraph">一个使用了 HTML5 history API 的高阶路由组件，保证你的UI界面和URL保持同步。下面我们来看一下他的一些属性：</p>
+					<div class="box">
+					    <dl>
+					        <dt>basename:String。为所有位置添加一个基准URL</dt>
+					        <dd>使用场景：假如你需要把页面部署到服务器的二级目录，你可以使用basename设置到此目录。</dd>
+					        <dt>getUserConfirmation:func。作用：导航到此页面前执行的函数，默认使用window.confirm</dt>
+					        <dd>使用场景：当需要用户进入页面前执行什么操作时可用，不过一般用到的不多。</dd>
+					        <dt>forceRefresh:bool。</dt>
+					        <dd>作用：当浏览器不支持HTML5的history API时强制刷新页面。</dd>
+
+					    </dl>
+					</div>
+					<h4 class="small_title">HashRouter</h4>
+					<p class="paragraph">了解有这个就好了，属性和BrowserRouter差不多。他是支持旧版的。这里不多说</p>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>

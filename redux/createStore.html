@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<h2 class="article-title">createStore</h2>
+		<article class="wrap">
+			<section class="onePoint">
+			    <h3 class="title">createStore</h3>
+			    <div class="point_content">
+                    <p>前面的学了action、reducer,store。但是怎么连贯起来用，还是不是很清楚，这是就要用到createStore，他用来存放应用中所有的state。来简单的看一下基本的用法</p>
+			        <img src="./react-img/createStore.png" alt="">
+			        <p>当store创建后，Redux会dispatch一个action到reducer上，来用初始的state来填充store,你不需要处理这个action。但要记住，如果第一个参数也就是传入的state如果是undefined的话，reducer应该返回初始的state值。</p>
+			        <p>createStore的几个参数</p>
+			        <div class="box">
+			            <ul>
+			                <li>1、第一个参数是reduce</li>
+			                <li>2、第二个参数初始的state</li>
+			                <li>3、middleware：iddleware可以修改 action的执行，并支持执行dispatch intent（意图）。*Intent一般是异步操作如 Promise、Observable或者Thunk（这里我们用redux-thunk）。</li>
+			            </ul>
+			        </div>
+			        <img src="./react-img/createStoreEx.png" alt="">
+			        <p>这时你可以用store的方法来测试一下，自己动手试试?不过你可能会问<em>applyMiddleware</em>这个是干嘛的，其实这个就是用来扩展Redux的一种推荐的方式，作用是：在发起action到获取到数据之间做一些操作。就像有些后台语言的中间件。</p>
+			    </div>
+			</section>
+			<section class="onePoint">
+			    <h3 class="title">compose</h3>
+			    <div class="point_content">
+			        <p>运用compose也可以做到和createStore一样的效果</p>
+			        <img src="./react-img/compose.png" alt="">
+			    </div>
+			</section>
+
+		</article>
+	</body>
+</html>

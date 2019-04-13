@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本包装类型</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+			
+			var a = 1;
+			console.log(window.a)  //1
+
+			let b = 2;
+			console.log(window.b)  // undefined
+			
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">let命令</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">let命令</h3>
+				<div class="point_content">
+					<h4 class="small_title">块级作用域</h4>
+					<p class="paragraph">ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。如下</p>
+					<img src="./es6Img/letScope.png" alt=""><br>
+					<img src="./es6Img/forLet.png" alt="">
+					<h4 class="small_title">不存在变量提升</h4>
+					<img src="./es6Img/letUp.png" alt="">
+					<h4 class="small_title">暂时性死区</h4>
+					<p class="paragraph">只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+					<img src="./es6Img/letDead.png" alt="">
+					<h4 class="small_title">不允许重复声明</h4>
+					<p>不允许重复声明：指的是在同一作用域中不能用let重复定义已经存在的标志符，</p>
+					<img src="./es6Img/letNoRepeat.png" alt="">
+					<img src="./es6Img/letZUOyongyu.png" alt="">
+				</div>
+
+			</section>
+			<section class="onePoint">
+				<h3 class="title">const命令</h3>
+				<div class="point_content">
+					<p class="paragraph">const声明一个只读的常量。一旦声明，常量的值就不能改变。</p>
+					<img src="./es6Img/const.png" alt="">
+					<p>这里就不详细讲述了，知道就行了。下面几点需要注意：</p>
+					<div class="box">
+						<ul>
+							<li>只声明不赋值，会报错。</li>
+							<li>const的作用域与let命令相同：只在声明所在的块级作用域内有效。</li>
+							<li>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。</li>
+							<li>const声明的常量，也与let一样不可重复声明。</li>
+							<li>如果常量保存的是一个对象，那么对象的属性是可以被修改的。</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">顶层对象的属性</h3>
+				<p>let,不会给window添加属性。</p>
+				<div class="point_content">
+					<img src="./es6Img/windowlet.png">
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">最佳实践</h3>
+				<div class="point_content">
+					<p class="paragraph">默认使用const,只在确实需要改变变量的时候使用let。这样就可以在某种程度上实现代码的不可变，从而防止某些错误的产生。</p>
+				</div>
+			</section>
+
+		</article>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,
+textarea,p,th,td,span{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+  font-size: 12px;
+  font-family: "Microsoft YaHei", "微软雅黑", "Arial", "黑体", "宋体", sans-serif;
+  background: #fff;
+}
+ul,li{
+  list-style: none;
+}
+fieldset,img,html,body,iframe{
+  border: 0;
+}
+h1,h2,h3,h4,h5,h6,em,strong,b,i{
+  font-style: normal;
+  font-size: 100%;
+  font-weight: normal;
+}
+input,textarea,a,button,select{
+  outline: none;
+  font-size: 12px;
+  border: 0;
+  box-sizing: border-box  
+}
+/*去除IE10中的小叉叉*/
+input::-ms-clear,
+input::-ms-reveal{
+  display: none;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+textarea,input,button,select {
+  color: inherit;
+  font-family: "Microsoft YaHei", "微软雅黑", "Arial", "黑体", "宋体", sans-serif;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  clear: both;
+}
+.clear {
+  clear: both;
+  display: block;
+}
+.hide {
+  display: none;
+}
+body {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a {
+  text-decoration: none !important;
+  outline: none;
+}
+
+/*禁止选中*/
+.noSel {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*自动省略号*/
+.tmui-ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.center{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

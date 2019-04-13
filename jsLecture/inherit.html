@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>继承</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+			
+			/*用深拷贝实现继承
+			  obj1：子类
+			  obj2：父类
+			*/
+			function deepCopy(obj1,obj2) {
+				for (var i in obj2) {
+					if (typeof obj2[i] === 'object') {
+						deepCopy(obj1[i], obj2[i]);   //调用递归实现深拷贝
+					} else {
+						obj1[i] = obj2[i];
+					}
+				}
+				return obj1;
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">面向对象与原型</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">改变this指向</h3>
+				<div class="point_content">
+					<h4 class="small_title">call()</h4>
+					<p class="paragraph">简单的说：call的第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数。</p>
+					<p>第一种用法（只传对象）</p>
+					<img src="./js-img/call1.png" alt="">
+					<p>第二种用法</p>
+					<img src="./js-img/call2.png">
+					<p>第三种用法</p>
+					<img src="./js-img/call3.png" alt="">
+					<h4 class="small_title">apply()</h4>
+					<p class="paragraph">apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数(背诵)</p>
+					<img src="./js-img/apply1.png">
+					<p class="paragraph">应用</p>
+					<img src="./js-img/applyUse.png">
+					<h4 class="small_title">bind()</h4>
+					<p class="paragraph">方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。</p>
+					<p>普通的运用</p>
+					<img src="./js-img/bind.png" alt="">
+					<img src="./js-img/bind2.png">
+					<p>出现上面的情况怎么办?这个时候我们就需要用到bind()</p>
+					<img src="./js-img/bind3.png" alt="">
+
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">继承</h3>
+				<div class="point_content">
+					<p>平时开发基本上用不到。这里就简单的说一种类型的继承<em>（拷贝继承）</em></p>
+					<img src="./js-img/extent.png" alt="">
+					<p>深拷贝</p>
+					<img src="./js-img/deepCopy.png" alt="">
+					<p>原型继承（有兴趣了解）</p>
+					<img src="./js-img/prototypeClone.png" alt="">
+				</div>
+				
+			</section>
+		</article>
+
+	</body>
+</html>

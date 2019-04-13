@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        body{
+                font-family: Arial, 宋体;
+        }
+        .register{
+            width:550px;
+            margin:30px auto;
+        }
+        form>div{
+            margin:15px 0;
+        }
+        .userName label,.psw label{
+                display:inline-block;
+                height: 42px;
+                width: 70px;
+                line-height: 42px;
+                font-size: 14px;
+                color: #666;
+                font-weight: 700;
+                text-align: right;
+        }
+        .userName input,.psw input{
+            display: inline-block;
+            position: relative;
+            width: 300px;
+            height:40px;
+            line-height:40px;
+            padding: 11px 10px;
+            margin:0 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            color: #666;
+        }
+        .tipBox{
+            display:inline-block;
+            font-size:13px;
+            width:150px;
+            height: 16px;
+            vertical-align: top;
+        }
+        .tipBox span.active{
+            display:block;
+        }
+        .tipBox span{
+            display:none;
+        }
+        .tipBox .tip{
+            color:#c9c9c9;
+            display:none;
+        }
+        .tipBox .tipError{
+            color:#ff0000;
+            display:none;
+        }
+        .rePsw{
+            color:#ff0000;
+            display:none;
+        }
+        .reg{
+            margin-left:80px
+                
+        }
+        .reg input{
+            background: #3f89ec;
+            width: 300px;
+            display: block;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+            background-image: none;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="register">
+        <form action=""  id="form">
+            <div class="userName info">
+                <label>用户名</label>
+                <input placeholder="请设置用户名" required type="text">
+                <div class="tipBox">
+                    <span class="tip">请输入中文</span>
+                    <span class="tipError">用户名仅支持中文</span>
+                    <span style="color:green" >ok</span>
+                </div>
+            </div>
+             <div class="psw info">
+                <label>密码</label>
+                <input  placeholder="请设置登陆密码" type="password" required>
+                <div class="tipBox">
+                    <span class="tip">请输入字母或数字6-12位</span>
+                    <span class="tipError">用户名仅支持字母、数字,且不能为纯数字</span>
+                    <span></span>
+                    <span class="rePsw">两次输入的密码不一致</span>
+                </div>
+            </div>
+            <div class="psw info">
+                <label>确认密码</label>
+                <input placeholder="请确认登陆密码"    type="password" required>
+                <div class="tipBox">
+                    <span class="tip">请输入字母或数字6-12位</span>
+                    <span class="tipError">用户名仅支持字母、数字,且不能为纯数字</span>
+                    <span></span>
+                    <span class="rePsw">两次输入的密码不一致</span>
+                
+                </div>
+            </div>
+            <div class="reg"> 
+              <input id="reg" type="button" value="注 册"></div>
+        </form>
+    </div>
+    <script src="./js/common.js"></script> 
+<script>
+    var oForm = document.getElementById('form');
+    var oReg = document.getElementById('reg');
+    var aInp = oForm.getElementsByTagName('input');
+    var node;
+    var userRe = /^[\u4e00-\u9fa5]+$/;
+    
+    var pswRe  = /^[a-z0-9]{6,12}$/;    
+    var arr = [];
+    
+   for(var i=0; i<aInp.length-1; i++){
+       aInp[i].index = i;
+       aInp[i].onfocus = function(){
+          node =  this.parentNode.getElementsByTagName('span');
+          addCls(node[0], 'active'); 
+          delCls(node[1], 'active');   
+          delCls(node[2], 'active');
+          if(this.index>0){
+               delCls(node[3], 'active');
+          }
+       }
+       aInp[i].onblur = function(){
+           var attr =  this.getAttribute('type'); 
+           if(this.value){
+              if( attr == 'text' ){
+                  if( userRe.test(this.value) ){
+                       delCls(node[0], 'active');   
+                       delCls(node[1], 'active');   
+                       addCls(node[2], 'active');  
+                  }else{
+                      delCls(node[0], 'active');   
+                      addCls(node[1], 'active');  
+                  }
+              }else{
+                  if( pswRe.test(this.value) ){
+                       delCls(node[0], 'active');   
+                       delCls(node[1], 'active');   
+                  }else{
+                      delCls(node[0], 'active');   
+                      addCls(node[1], 'active');  
+                  }
+                  arr[this.index-1] = this.value; 
+                  //arr[0]  arr[1]
+                  if( arr.length == 2 ){
+                     if(arr[0] == arr[1]){
+                         //delCls(node[3], 'active'); 
+                         
+            delCls(aInp[1].parentNode.getElementsByTagName('span')[3], 'active');
+                         
+            delCls(aInp[2].parentNode.getElementsByTagName('span')[3], 'active');
+                         
+                     }else{
+                         addCls(node[3], 'active');   
+                     }
+                  }
+              } 
+           }else{
+              delCls(node[0], 'active');   
+           }
+         
+       }
+   } 
+    
+    /*点击注册*/
+    oReg.onclick = function(){
+        var bol = true;
+       for(var i=0; i<aInp.length-1; i++){           
+       var errorNode =  aInp[i].parentNode.getElementsByTagName('span');
+/*console.log( hasCls(errorNode[1], 'active'), !aInp[i].value, (i>0 && hasCls(errorNode[3], 'active')) );*/
+          if( hasCls(errorNode[1], 'active') || !aInp[i].value || (i>0 && hasCls(errorNode[3], 'active'))){    
+              bol = false;
+          }
+       }
+        
+       if(bol){
+           alert("注册成功");
+       }else{
+           alert("没看见吗");
+       }
+    }
+    
+    
+    /*
+      正则
+         \d [0-9]
+         [a-z] a
+         [^\w] 
+         \s
+         a?
+         a*
+         a{5,10}
+         a+
+         /\w/gi
+      /box/i
+      new RegExp('box', 'i')
+         
+    */
+    
+    
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

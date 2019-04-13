@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>分页</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="company clearFix">
+			   <ul id="company_content">
+				  <li class="fl ">
+					 <div class="des">
+					 	<div>
+					 	   <img src="./img/[@img]" alt="">
+					 	   <p>怕寂寞，来压寨直播！</p>
+					 	</div>
+					 	<div>
+					 		<h4>[@company]</h4>
+					 		<p><span>[@say]</span>条面试评价</p>
+					 		<p><span>[@num]</span>个在招职位</p>
+					 		<p><span>[@rate]</span>简历处理率</p>
+					 	</div>
+					 </div>  
+					 <div class="company_state">
+					 	<span class="web"><i></i>[@web]</span>
+					 	<span class="type"><i></i>[@type]</span>
+					 	<span class="place"><i></i>[@place]</span>
+					 </div>
+				  </li> 	
+				 	
+			   </ul>
+			</div>
+			<div class="page" id="goPage">
+				<!--<a id="pre" class="not onePage">上一页</a>
+				<a href="" class="active">1</a>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a id="next" class="onePage">下一页</a>-->
+			</div>
+		</div>
+		<script src="./js/data.json"></script>
+		<script src="./js/public.js"></script>
+		<script>
+			//得到页数
+		    var aGoToPage = getTag('goPage', 'a');
+			/*页面的内容*/
+			var oContent = getTag('company_content');
+			/*模板*/
+			var strTemplate = oContent.innerHTML;
+			oContent.innerHTML = '';
+			var str = '';
+			var strPageNum = '';
+			//总条数
+			var totalData = jsonData.data;
+			//默认显示条数
+			var num = 6;
+			//单前页是第几页
+			var nowPage =  1;
+			var config = {			
+				CurrentPage:num,               //页面显示几条				
+				AllPage:totalData.length,      //总数据条数
+			};
+			page(config);
+			function page(obj){
+				//从第几条开始
+				var firstDateNum = (obj.CurrentPage)*(nowPage-1)
+				var lastDataNum = (obj.CurrentPage)*nowPage;
+				if(lastDataNum > totalData.length)  {lastDataNum = totalData.length;}
+				for(var i=firstDateNum; i<lastDataNum; i++){
+					str += strTemplate.replace('[@img]', totalData[i].img).
+					replace('[@company]', totalData[i].companyName).
+					replace('[@say]', totalData[i].assessNum).
+					replace('[@num]', totalData[i].office).
+					replace('[@rate]', totalData[i].rate).
+					replace('[@web]', totalData[i].web).
+					replace('[@type]', totalData[i].type).
+					replace('[@place]', totalData[i].place);
+				}
+				oContent.innerHTML = str;
+				str = '';
+			}
+			//创建下面的页码
+			var totalNum = Math.floor(totalData.length/num)+1;
+			var oNumContent = getTag('goPage');
+			createPageNum();
+			function createPageNum(){
+				strPageNum = '<a id="pre" class="not onePage">上一页</a>';
+				for(var i=1;i<totalNum+1; i++){
+					strPageNum += '<a href="">'+i+'</a>';
+				}
+				strPageNum += '<a id="next" class="onePage">下一页</a>';
+				oNumContent.innerHTML = strPageNum;
+				aGoToPage[1].className = 'active';
+			}
+			
+			//点击下面的页面
+			for(var i=0; i<aGoToPage.length; i++){
+				aGoToPage[i].onclick = function(){
+					//去掉class
+					var index = 0;
+					for(var j=1; j<aGoToPage.length-1; j++){
+						if(aGoToPage[j].className == 'active'){
+							index = j;
+						}
+						aGoToPage[j].className = '';
+					}
+					
+					//判断点击的是哪一个按钮
+					if(this.innerHTML == '上一页'){
+						if(nowPage == 1) {
+							aGoToPage[index].className =  'active';
+							return;
+						}
+						nowPage--;
+						if(nowPage)
+						aGoToPage[index-1].className =  'active';
+					}else if(this.innerHTML == '下一页'){
+						if(nowPage == totalNum) {
+							aGoToPage[index].className =  'active';
+							return;
+						}
+						nowPage++;
+						aGoToPage[index+1].className =  'active';
+					}else{
+						//得到这几第一页
+					    nowPage = parseInt(this.innerHTML);
+						this.className = 'active';
+					}
+					
+					if(nowPage == 1){
+						addCls(aGoToPage[0],'not');
+					}else{
+					    delCls(aGoToPage[0],'not');
+					}
+					if(nowPage == totalNum){
+						addCls(aGoToPage[aGoToPage.length-1],'not');
+					}else{
+					    delCls(aGoToPage[aGoToPage.length-1],'not');
+					}
+					//从新获取数据
+					page(config);
+					toTop();
+					return false;	
+				}
+			}
+			function toTop(){
+				var top = document.documentElement.scrollTop || document.body.scrollTop;
+				var iTime = setInterval(function(){
+					var speed  = Math.floor((0 - top)/10);
+					top = top + speed;
+					document.documentElement.scrollTop = document.body.scrollTop = top;
+					
+					if(top == 0){
+						
+						clearInterval(iTime);
+					}
+				},30)
+			}
+		</script>
+	</body>
+</html>

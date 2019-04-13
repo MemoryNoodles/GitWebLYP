@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>事件入门</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+           
+        </script>
+    </head>
+    <body >
+        <h2 class="article-title">事件入门</h2>
+        <article class="wrap" id="wrap">
+            <p class="paragraph">JavaScript事件是由访问Web页面的用户引起的一系列操作，例如：用户点击。当用户执行某些操作的时候，再去执行一系列代码。</p>
+            <section class="onePoint">
+                <h3 class="title">一、事件介绍</h3>
+                <div class="point_content">
+                    <p class="paragraph">事件一般是用于浏览器和用户操作进行交互。最早是在IE和网景（Netscape Navigator）中出现 ，作为分担服务器端运算负载的一种手段。直到几乎所有的浏览器都支持事件处理。而DOM2级规范开始尝试以一种复合逻辑的方式标准化DOM事件。IE9、Firefox、Opera、Safari和Chrome全都已经实现了“DOM2级事件”模块的核心部分。IE8之前浏览器仍然使用其专有事件模型。</p>
+                    <p class="paragraph">JavaScript有三种事件模型：内联模型、脚本模型和DOM2模型。</p>    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">二、内联模型</h3>
+                <div class="point_content">
+                    <p class="paragraph">这种模型是最传统接单的一种处理事件的方法。在内联模型中，事件处理函数是HTML标签的一个属性，用于处理指定事件。虽然内联在早期使用较多，但它是和HTML混写的，并没有与HTML分离</p>                 
+                    <img src="./js-img/htmlOnclick.png" alt="">                    
+                    <p><em>注意：</em>函数不要放在window.onload里面，否则会报错；为什么大家想一下？</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">三、脚本模型</h3>
+                <div class="point_content">
+                    <p class="paragraph">由于内联模型违反了HTML与JavaScript代码层次分离的原则。为了解决这个问题，我们可以在JavaScript中处理事件。这种处理方式就是脚本模型。</p>
+                    <img src="./js-img/jsOnclick.png" alt="">
+                    <p class="paragraph">通过匿名函数，可以直接触发对应的代码。也可以通过指定的函数名赋值的方式来执行函数(赋值的函数名不要跟着括号)。</p>
+                    <img src="./js-img/noNameFunc.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">四、事件处理函数</h3>
+                <div class="point_content">
+                    <p class="paragraph">JavaScript可以处理的事件类型为：鼠标事件、键盘事件、HTML事件。</p>
+                    <h4 class="small_title">1. 鼠标事件，页面所有元素都可触发</h4>
+                    <div class="box">
+                        <dl>
+                            <dt>onclick</dt>
+                            <dd>事件会在对象被点击时发生。</dd>
+                            <dt>ondblclick</dt>
+                            <dd>当用户双击主鼠标按钮时触发。</dd>
+                            <dt>onmousedown</dt>
+                            <dd>当用户按下了鼠标还未弹起时触发。</dd>
+                            <dt>onmouseup</dt>
+                            <dd>当用户释放鼠标按钮时触发。</dd>
+                            <dt>onmouseover</dt>
+                            <dd>当鼠标移到某个元素上方时触发。</dd>
+                            <dt>onmouseout</dt>
+                            <dd>当鼠标移出某个元素上方时触发。</dd>
+                            <dt>onmousemove</dt>
+                            <dd>当鼠标指针在元素上移动时触发。</dd>
+                        </dl>
+                          <div><a href="./example/menu/code/index.html" target="_blank">菜单练习</a></div>
+                    </div>
+                    <h4 class="small_title">2、键盘事件</h4>
+                    <div class="box">
+                        <dl>
+                            <dt>onkeydown</dt>
+                            <dd>当用户按下键盘上任意键触发，如果按住不放，会重复触发。</dd>
+                            <dt>onkeypress</dt>
+                            <dd>当用户按下键盘上的字母数字键触发，如果按住不放，会重复触发。（和onkeydown没有太多的区别）</dd>
+                            <dt>onkeyup</dt>
+                            <dd>当用户释放键盘上的键触发。</dd>
+                        </dl>
+                        <img src="./js-img/onkeydown.png" alt="">
+                    </div>
+                    <h4 class="small_tilte">3、HTML事件</h4>
+                    <div class="box">
+                        <dl>
+                            <dt>onload</dt>
+                            <dd>当页面完全加载后在window上面触发，或当框架集加载完毕后在框架集上触发 。</dd>
+                            <dt>onresize</dt>
+                            <dd>当窗口或框架的大小变化时在window或框架上触发。</dd>
+                            <dt>onscroll</dt>
+                            <dd>当用户滚动带滚动条的元素或window时触发。</dd>
+                            <dt>onblur</dt>
+                            <dd>当文本框(input 或 textarea)失去焦点时触发。</dd> 
+                            <dt>onfocus</dt>
+                            <dd>当文本框(input 或 textarea)获得焦点时触发。</dd> 
+                            <dt>onchange</dt>
+                            <dd>当文本框(input 或 textarea)内容改变且失去焦点后触发。</dd> 
+                            <dt>onselect</dt>
+                            <dd>当用户选择文本框(input 或 textarea)中的一个或多个字符触发。</dd>
+                           <!-- <dt>onsubmit</dt>
+                            <dd>当用户点击提交按钮在&lt;form&gt;元素上触发。</dd>
+                            <dt>onreset</dt>
+                            <dd>当用户点击重置按钮在&lt;form&gt;元素上触发。</dd>
+-->
+                        </dl>
+                        <img src="./js-img/windowSHIjian.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

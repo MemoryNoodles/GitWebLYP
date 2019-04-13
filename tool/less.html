@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>less</title>
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">less</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">css预处理器less</h3>
+                <div class="point_content">
+                    <p class="paragraph">Less是一门CSS预处理语言，它扩充了CSS语言，增加了诸如变量、混合（mixin）、函数等功能，让CSS更易维护、方便制作主题、扩充。</p>
+                </div>
+
+            </section>
+            <section class="onePoint">
+                <h3 class="title">安装</h3>
+                <div class="point_content">
+                    <p class="paragraph">在服务器端最容易的安装方式就是通过 npm （node.js 的包管理器），方法如下：<cmd>npm install -g less</cmd></p>
+                    <h4 class="small_title">webstrom配置</h4>
+                    <div class="box">
+                        <ul>
+                            <li>1、打开webstorm的file->settings ->External Tools，点击左上角的“加号”标志add，进入对话框</li>
+                            <li>2、progress:找到node.js下的less.cmd文件；例如：D:\nodejs\lessc.cmd</li>
+                            <li>3、arguments:--no-color --plugin=less-plugin-clean-css $FileName$ $FileParentDir$\css\$FileNameWithoutExtension$.css --source-map; </li>
+                            <li>4、output:$FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map;</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">使用</h3>
+                <div class="point_content">
+
+                    <h4 class="small_title">1、使用变量</p> 
+                    <div class="box">
+                        <ul>
+                            <li>1、以@作为变量的起始标识，变量名由字母、数字、_和-组成</li>
+                            <li>2、定义时 "@变量名: 变量值;" 的形式；引用时采用 "@变量名" 或 "@{变量名}" 的形式；</li>
+                        </ul>
+                    </div>
+                    <img src="./lessImg/var.png" alt="">
+                    <h4 class="small_title">2.嵌套(Nested)</h4>
+                    <img src="./lessImg/nest.png" alt="">
+                    <h4 class="small_title">3.父选择器引用(ParentSelector)</h4>
+                    <div class="box">
+                        <ul>
+                            <li>采用&引用完整的父选择器</li>
+                            <li>可通过追加和预追加的方式加工&，从而生成新的选择器</li>
+                            <li>同一个选择器可使用多个&</li>
+                            <li>通过在选择器后添加 "空格&"的方式，可将当前选择器排列到最前面</li>
+                            <li>&指向组选择器时，会生成新的组选择器</li>
+                        </ul>
+                    </div>
+                    <img src="./lessImg/parent.png" alt="">
+                    <h4 class="small_title">4.继承</h4>
+                    <img src="./lessImg/extend.png" alt="">
+                    <h4 class="small_title">5.混合(Mixin)</h4>
+                    <p>在2016前各个浏览器还保留有私有属性的时候，运用混合无疑是无敌的。</p>
+                    <img src="./lessImg/mixin.png" alt="">
+                    <img src="./lessImg/mixin2.png" alt="">
+                    <h4 class="small_title">6.运算符</h4>
+                    <p class="paragraph">Less还支持+、-、*、/运算符。但对单位不一致的运算数进行运算要注意以下两点</p>
+                    <div class="box">
+                        <ul>
+                            <li>1、运算数与运算符间必须用空格分隔；</li>
+                            <li>2、以第一个运算数的单位作为运算结果的单位；</li>
+                        </ul>
+                    </div>
+                    <img src="./lessImg/operat.png" alt="">
+                    <h4 class="small_title">7.函数</h4>
+                    <img src="./lessImg/default.png" alt="">
+                    <img src="./lessImg/data-uri.png" alt="">
+                    <p class="paragraph">其他的函数请参考官网。</p>
+                    <h4 class="small_title">8.导入指令(Import)</h4>
+                    <p class="paragraph">less样式文件可通过<em>@import '文件路径'</em>; 引入外部的less文件。</p>
+                    <div class="box">
+                        <ul>
+                            <li>1、不带扩展名或带.less的扩展名均被视为less文件;</li>
+                            <li>2、@import可出现在任何位置，而不像css的@import那样只能放在文件第一行。</li>
+                        </ul>
+                    </div>
+                  <!--  <p>另外@import还提供了6个可选配置项(分别为reference,inline,less,css,once,multiple)，用来改变引入文件的特性。语法为：<em> @import (reference) '文件路径'</em>; </p>-->
+                    <!--<div class="box">
+                        <dl>
+                            <dt>@import (reference) "文件路径"; </dt>
+                            <dd>将引入的文件作为样式库使用，因此文件中样式不会被直接编译为css样式规则。当前样式文件通过extend和mixins的方式引用样式库的内容。</dd>
+                            <dt>@import (inline) "文件路径";</dt>
+                            <dd>用于引入与less不兼容的css文件，通过inline配置告知编译器不对引入的文件进行编译处理，直接输出到最终输出。注意：引入的文件和当前文件会被编译为一个样式样式</dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                        </dl>
+                    </div>-->
+                </div>
+            </section>
+        </article>
+    </body>
+</html>
+
+
+
+

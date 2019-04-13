@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>盒子模型</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">    
+    </head>
+    <body>
+        <h2 class="article-title">盒子模型</h2> 
+        <div class="wrap">
+            <section class="onePoint">
+                <p class="title">盒子模型概述</p>
+                <p class="paragraph">所谓盒子模型，即是将网页布局中的元素（能设置宽高的元素）进行拟物化的比喻，一个盒子是由“内容--content”（盒子内的物件）、“内间距--padding”（物件和盒子的距离）、“边框--border”（盒子壁）、“外间距--margin”（盒子和其它物体的距离）组成，如下示例图：</p>
+                <p>W3C标准盒子模型</p>
+                <img src="./css-img/w3c-box.png"  style="width:700px" alt="">
+                <p>IE盒子模型</p>
+                <img src="./css-img/IE-box.png" style="width:700px" alt="">
+            </section>
+            <section class="onePoint">
+                <p class="title">统一盒子模型</p>
+                <div class="box">
+                    <dl>
+                        <dt>box-sizing:他可以让所有的浏览器的盒子模型统一；他的值可以是下面三个；</dt>
+                        <dd><code>border-box</code>：可以把盒子模型转为统一的IE盒子模型(业内推崇，也方便布局)</dd>
+                        <dd>padding-box：把盒子的宽设置为内容加padding</dd>
+                        <dd>content-box：可以把盒子模型转为统一的w3c标准盒子模型</dd>
+                    </dl>
+                </div>
+
+            </section>
+            <!-- width  -->
+            <section class="onePoint">
+                <p class="title">元素宽度“width”</p>
+                <p class="paragraph">width”属性最常用的两种设置方式为“像素（px）”设置和“百分比（%）”设置。他们的特点如下：</p>
+                <div class="box">
+                    <dl>
+                        <dt>像素设置</dt>
+                        <dd>优点：该方式去设置宽度更为的稳定，也就是说当一个元素是通过像素去设置元素宽度的时候，该元素的内容，特别是用像素去设置的文本内容也相对稳定，不会因为设备分辨率的不同而在排版显示上有所不同。</dd>
+                        <dd>缺点：在不同设备上，需要对元素宽度进行修改才能得到最佳的布局效果。如一个在PC端宽度为“960像素”的元素，在手机端就会出现右半部分，甚至右大半部分的显示都会被裁切的情况（如“iphone 4”的浏览器显示分辨率为“320*480”）。</dd>
+                        <dt>百分比设置</dt>
+                        <dd>优点：能对不同显示分辨率做出更好的适应。最外层的标签元素（<body>的子节点）若宽度设为“100%”，那无论是在具有“4K”显示分辨率的高清投影大屏幕上，还是在分辨率在几百像素的移动设备上，都能横向占满整个屏幕。现在有人将“百分比布局”称作“流式布局”，是一种应对“移动浪潮”布局的新趋势。</dd>
+                        <dd>缺点：若采用百分比布局的方式，很多因素难以控制，如采用默认大小的表单元素，HTML5的功能标签，都会给这种布局方式带来麻烦,若是采用多列布局的页面，这种布局方式在移动端上的效果绝对是“灾难性”的。特别是对于缺乏前端开发经验的开发人员而言，这种布局方式经常会出现一些布局效果在意料之外的情况。</dd>
+                    </dl>
+                </div>
+            </section>
+            <!-- margin  -->
+            <section class="onePoint">
+                <p class="title">外间距“margin”</p>
+                <div class="box">
+                    <ul>
+                        <li>margin-top:上外边距</li>
+                        <li>margin-right:又外边距</li>
+                        <li>margin-bottom:下外边距</li>
+                        <li>margin-left:左外边距</li>
+                    </ul>
+                </div>
+                <p class="paragraph">组合式写法</p>
+                <div class="box">
+                    <dl>
+                        <dt>margin : 10px 20px 5px 10px;</dt>
+                        <dd>即将“margin”分别对应的“margin-top”，“margin-right”，“margin-bottom”，“margin-left”的值设为10像素，20像素，5像素和10像素。</dd>
+                        <dt>margin: 10px;</dt>
+                        <dd>即将“margin”四个方向的值“margin-top”、“margin-right”、“margin-bottom”和“margin-left”都设置为10像素。</dd>
+                        <dt>margin: 10px 15px;</dt>
+                        <dd>即将“margin”垂直方向的值“margin-top”和“margin-bottom”设置为10像素，水平方向的值“margin-left”和“margin-right”都设置为15像素。</dd>
+                        <dt>margin: 10px 15px 20px;</dt>
+                        <dd>即将“margin”距离上方“margin-top”的值设为10像素，水平方向的值“margin-left”和“margin-right”都设置为15像素，距离下方的“margin-bottom”的值设为20像素</dd>
+                    </dl>
+                </div>
+                <div class="box">
+                    <dl>
+                        <dt>外边距的问题：</dt>
+                        <dd>1、上下外边距会叠压；</dd>
+                        <dd>2、父子级包含的时候子级的margin-top会传递给父级；(条件：父级没有padding或者没有border)</dd>
+                    </dl>
+                </div>
+                <p class="paragraph">利用margin居中</p>
+                <div class="box">
+                	<ul>
+                		<li>1、元素必须是块级元素</li>
+                		<li>2、需要为元素设置宽度</li>
+                		<li>3、相对于父级元素进行居中</li>
+                	</ul>
+                </div>
+                <img src="./html-img/marginAuto.png" alt="">
+            </section>
+            <!-- padding  -->
+            <section class="onePoint">
+                <p class="title">内间距“padding”</p>
+                <div class="box">
+                    <dl >              
+                        <dt>padding-top</dt>
+                        <dd>设置该元素的边界与自身的内容在上方的间距。</dd>
+                        <dt>padding-right</dt>
+                        <dd>设置该元素的边界与自身的内容在右方的间距。</dd>
+                        <dt>padding-bottom</dt>
+                        <dd>设置该元素的边界与自身的内容在下方的间距。</dd>
+                        <dt>padding-left</dt>
+                        <dd>设置该元素的边界与自身的内容在左方的间距。</dd>
+                    </dl>
+                </div>
+                <p class="paragraph">组合式写法</p>
+                <div class="box">
+                    <dl>
+                        <dt>padding: 10px;</dt>
+                        <dd>即将元素边界与内容四个方向“padding-top”、“padding-right”、“padding-bottom”和“padding-left”的间距都设置为10像素。</dd>
+                        <dt>padding: 10px 12px;</dt>
+                        <dd>即将元素边界与内容上下两个方向“padding-top”、“padding-bottom”的间距都设置为10像素,与内容左右两个方向“padding-left”和“padding-right”的间距都设置为12像素。</dd>
+                        <dt>padding: 10px 12px 15px;</dt>
+                        <dd>即将元素边界与内容上方“padding-top”的间距设置为10像素，与内容左右两个方向“padding-left”和“padding-right”的间距都设置为12像素，与内容下方“padding-top”的间距设置为15像素。</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">元素边框“border”</p>
+                <div class="box">
+                    <dl>
+                        <dt>border-width</dt>
+                        <dd>设定边框的宽度。可以为Web技术中常用的度量单位，通常为像素“px”。</dd>
+                        <dt>border-style</dt>
+                        <dd>none，无边框</dd>
+                        <dd>solid，实现边框</dd>
+                        <dd>dotted，点线边框</dd>
+                        <dd>dashed，虚线边框</dd>
+                        <dd>double，双线边框</dd>
+                        <dd>groove，3D凹槽边框</dd>
+                        <dd>ridge，3D凸槽边框</dd>
+                        <dd>inset，内浮雕边框</dd>
+                        <dd>outset，外浮雕边框</dd>
+                        <dt>border-color</dt>
+                        <dd>设置边框的颜色</dd>
+                    </dl>
+                </div>
+
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/border.html" frameborder="0" style="width:1200px; height:400px"></iframe>
+                </div>
+
+            </section>
+            <section class="onePoint">
+                <p class="title">元素的轮廓“outline”</p>
+                <img src="./css-img/border-outline.png" alt="">
+                <div class="box">
+                    <iframe src="./iframe/box-outline.html" frameborder="0" ></iframe>
+                </div>
+            </section>
+            <!--border的扩展应用  -->
+            <section class="onePoint">
+                <p>border的运用</p>
+                <img src="./css-img/border-use.png" alt="">
+                <div class="box">
+                    <iframe src="./iframe/use-border.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">圆角的盒子“border-radius”</p>
+                <img src="./css-img/border-radius.png" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/border-radius.html" frameborder="0" height=150px width="800px"></iframe>
+                </div>
+            </section>
+            <!--border-image  -->
+            <section class="onePoint">
+                <p class="title">边框图像“border-image”</p>
+                <p class="paragraph">边框图像</p>
+                <div class="box">
+                    <ul>
+                        <li>border-image-source: url图像路劲</li>
+                        <li>border-image-slice:num（数值不带单位）图片边框顶部/右侧/底部/左侧移量偏移。</li>
+                        <li>border-image-width:num（数值带单位）图片边框宽度</li>
+                        <li>border-image-outset:num（数值带单位）边框图像区域超出边框的量</li>
+                        <li>border-image-repeat: 图像边框平铺(repeated)、铺满(rounded)或拉伸(stretched)。</li>
+                    </ul>
+                </div>
+                <img src="./css-img/border-image.jpg" style="width:300px" alt=""><br>
+                <img src="./css-img/border-image-css.jpg" alt="">
+                <div class="box">
+                    <iframe src="./iframe/border-image.html" frameborder="0" width=600px height="200px"></iframe>
+                </div>
+            </section>
+            <!--box-shadow  -->
+            <section class="onePoint">
+                <p class="title">元素的阴影“box-shadow”</p>
+                <p class="paragraph">该属性能够让元素获得一个“阴影”效果，根据颜色的不同，有时候也可以叫做“发光”效果。“box-shadow”属性没有分支属性，它的值是以“组合值”的形式设置的，它最多允许6个值的组合，按值的顺序分别代表：</p>
+                <div class="box">
+                    <dl>
+                        <dt>h-skewing（必要）</dt>
+                        <dd>阴影在水平方向的偏移，负数是向左偏移，正数是向右偏移，单位为“px”。</dd>
+                        <dt>v-skewing（必要）</dt>
+                        <dd>阴影在垂直方向的偏移，负数是向上偏移，正数是向下偏移，单位为“px”。</dd>
+                        <dt>blur（可选）</dt>
+                        <dd>阴影的“模糊距离”或“模糊程度”，单位为“px”。</dd>
+                        <dt>spread（可选）</dt>
+                        <dd>阴影的扩展范围，若将“blur”设为“0”，该值则相当于一个可以进行位置偏移但不具备“outline-offset”的“outline”，单位为“px”。</dd>
+                        <dt>color（可选）</dt>
+                        <dd>阴影的颜色，支持Web技术中的常用颜色模式：“颜色英文单词”、“HEX”、“RGBa”、“HSLa”。</dd>
+                        <dt>inset（可选）</dt>
+                        <dd>将默认向外的阴影方向改为<em>向内</em>。</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/box-shadow.png" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/box-shadow.html" frameborder="0" width=1200px height=150px></iframe>
+                </div>
+                <p class="seq">扩展--box-shadow的层叠效果</p>
+                <img src="./css-img/box-shadow-cdie.png" alt="">
+                <div class="box">
+                    <iframe src="./iframe/box-shadow-cdie.html" frameborder="0" style="height:250px;"></iframe>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>

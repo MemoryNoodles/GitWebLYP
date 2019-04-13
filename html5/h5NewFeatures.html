@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5新特性</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+
+            /*简单的json数组格式*/
+            var values = [25,"hi", true];
+            /*复杂的*/
+            var exmJson = [
+                {
+                    "title":"你喜欢打篮球吗？",
+                    "answer":[
+                        "喜欢","不喜欢"
+                    ],
+                    "year":2016,
+                },
+                {
+                    "title":"你喜欢打篮球吗？",
+                    "answer":[
+                        "喜欢","不喜欢"
+                    ],
+                    "year":2016,
+                },
+                {
+                    "title":"你喜欢打篮球吗？",
+                    "answer":[
+                        "喜欢","不喜欢"
+                    ],
+                    "year":2016,
+                }
+            ]  
+
+        </script>
+    </head>
+    <body >
+
+        <h2 class="article-title">HTML5新特性</h2>
+        <article class="wrap" id="wrap">
+           <section class="onePoint">
+           	<h3 class="title">新属性</h3>
+           	<div class="point_content">
+           		 <div class="box">
+                        <dl>
+                            <dt>contenteditable="true"</dt>
+                            <dd>让标签可编辑</dd>
+                            <dt>user-select:none</dt>
+                            <dd>页面不能选择</dd>
+                          
+                        </dl>
+                    </div> 
+           	</div>
+           </section>
+            <section class="onePoint">
+                <h3 class="title">一、新的选择器</h3>
+                <div class="point_content">
+                    <p class="paragraph"></p>
+                    <div class="box">
+                        <dl>
+                            <dt>querySelector</dt>
+                            <dd>querySelector()方法接收一个css选择符，返回与该模式匹配的第一个元素，如果没有找到返回null。</dd>
+                            <dt>querySelectorAll</dt>
+                            <dd>querySelectorAll()接收的一个css选择符，返回所有匹配的元素。</dd>
+                            <dt>getElementsByClassName</dt>
+                            <dd>getElementByClassName()只使用一个字符串值作为输入.并返回一个Nodelist,这个NodeList包含所有类名称匹配这个字符串值的元素</dd>
+                        </dl>
+                    </div> 
+                    <p class="paragraph">querySelector的用法示列</p>
+                    <img src="./js-img/querySelector.png" alt="">
+                    <p class="paragraph">querySelectorAll的用法示列</p>
+                    <img src="./js-img/querySelectorAll.png" alt="">
+                    <p class="paragraph">getElementByClassName的用法示列</p>
+                    <img src="./js-img/getElementsByClassName.png" alt="">
+                    <p>关于h5的支持度大家可以参考一下网站<a href="www.caniuse.com" target="_blank">各浏览器对H5的方法的支持度</a></p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">获取class列表属性</h3>
+                <div class="point_content">
+                    <p class="paragraph">在操作类名时，可以通过classList属性添加、删除和切换类名</p>
+                    <div class="box">
+                        <dl>
+                            <dt>classList(浏览器支持度稍微差了一点)</dt>
+                            <dd>length:元素中类名个数的长度</dd>
+                            <dd>add():添加class方法</dd>
+                            <dd>remove():删除class方法</dd>
+                            <dd>toggle():切换class方法 </dd>
+                            <dd>contains():检测元素中是否包含指定的类名</dd>
+                        </dl>
+                    </div>
+                </div>
+                <p class="paragraph">在演示classList方法之前，我们先用js的知识来对类进行删除与添加</p>
+                <img src="./js-img/addAndDelCls.png">
+                <p class="paragraph">我们再来看一下classList的用法</p>
+                <img src="./js-img/classList.png" alt="">
+            </section>
+            <section class="onePoint">
+                <h3 class="title">JSON</h3>
+                <div class="point_content">
+                    <div class="box">
+                        <dl>
+                            <dt>对象</dt>
+                            <dd>对象作为一种复杂数据类型，表示的是一组无序的键值对。而每个键值对儿中的值可以使简单值，也可以是浮渣的数据类型的值。</dd>
+                            <dt>数组</dt>
+                            <dd>数组也是一种复杂数据类型，表示一组有序的值的列表，可以通过数值索引来访问其中的值。数组的值也可以是任意类型--对象、数组、简单值</dd>
+                        </dl>
+                    </div>
+                    <h4 class="small_title">对象</h4>
+                    <p class="paragraph">json中对象与<em>javascript字面量</em>稍微有一些不同。我们就来看一下前面我们讲的对象直面量。</p>
+                    <img src="./js-img/createObj.png" alt="">
+                    <p class="paragraph">json中的对象要求给属性加引号。</p>
+                    <img src="./js-img/json.png">
+                    <h4 class="small_title">数组</h4>
+                    <p class="paragraph">json中的第二种复杂数据类型是数组。json数组采用的就是javaScript中的数据字面量形式。</p>
+                    <img src="./js-img/exmJson.png">
+
+                    <!-- <p class="paragraph">如何其他浏览器做到兼容http://www.json.org/去下载json2.js</p>-->
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">json的解析与序列化</h3>
+                <div class="box">
+                    <dl>
+                        <dt>stringify()</dt>
+                        <dd>把json转化成字符串(会自动的把双引号加上)</dd>
+                        <dt>parse()</dt>
+                        <dd>把字符串转成json(字符串中的属性要严格的加上引号)</dd>
+                    </dl>
+                </div>
+                <h4 class="small_title">stringify</h4>
+                <p><em>stringify带一个参数</em>的用法。</p>
+                <img src="./js-img/jsonStringify.png" alt="">
+                <p><em>stringify带两个参数</em>的用法。他的第二个参数是一个<em>数组</em>。</p>
+                <img src="./js-img/jsonStringifyWithPar.png" alt="">
+                <h4 class="small_title">parse</h4>
+                <img src="./js-img/parse.png">
+            </section>
+            <section class="onePoint">
+                <h3 class="title">data自定义数据</h3>
+                <div class="point_content">
+                    <p class="paragraph">HTML5规定可以为元素添加非标准的属性，但要添加前缀data-，目的是为元素提供与渲染无关的信息，或则提供语义信息(支持度也是稍微差了一点)。看示列：</p>
+                    <img src="./js-img/dataset.png" alt="">
+                </div>
+            </section>
+            <!-- <section class="onePoint">
+<h3 class="title">延迟加载JS</h3>
+<div class="point_content">
+<p class="paragraph">Html5的defer和async</p>
+<div class="box">
+<dl>
+<dt>defer</dt>
+<dd>延迟加载，会按顺序执行，在onload执行前被触发</dd>
+<dt>async</dt>
+<dd>异步加载，加载完就触发，有顺序问题</dd>
+</dl> 
+</div>
+</div>
+</section>-->
+            <!-- <section class="onePoint">
+<h3 class="title">历史管理</h3>
+<div class="point_content">
+<ul>
+<li>onhashchange:改变hash值来管理</li>
+</ul>
+</div>
+</section>-->
+            <section class="onePoint">
+                <h3 class="title">拖放事件(浏览器的支持度较差)</h3>
+                <div class="point_content">
+                    <p class="paragraph">元素可以触发拖动事件的前提是需要在元素的属性上加上<em>draggable="true"</em>,拖动元素时，会依次出发下列事件：</p>
+                    <div class="box">
+                       <dl>
+                           <dt>ondragstart</dt>
+                           <dd>按下鼠标键并开始移动鼠标时触发</dd>
+                           <dt>drag</dt>
+                           <dd>元素在被拖动的过程中会一直触发</dd>
+                           <dt>dragend</dt>
+                           <dd>当拖动停止，会触发</dd>
+                       </dl>
+                    </div>
+                    <img src="./js-img/dragstart.png" alt="">
+                    <p class="paragraph">当某个元素被拖动到一个有效的放置目标上时，下列事件会依次发生：</p>
+                    <div class="box">
+                        <dl>
+                            <dt>dragenter</dt>
+                            <dd>当有元素被拖动到放置目标上，就会触发dragenter事件。</dd>
+                            <dt>dragover</dt>
+                            <dd>当被拖动的元素还在放置目标的范围内移动时，就会持续的触发该事件。</dd>
+                            <dt>dragleave</dt>
+                            <dd>当元素被拖出放置目标时，触发dragleave</dd>
+                            <dt>drop</dt>
+                            <dd>当元素放置到了目标中时，触发drop</dd>
+                        </dl>
+                    </div>
+                    <img src="./js-img/dragleave.png">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

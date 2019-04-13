@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>js的引入</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+
+    </head>
+    <body>
+        <h2 class="article-title">js的引入</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <p class="title">使用js的两种方式</p>
+                <p class="paragraph">使用js的两种方式，一种是外部引入，一种是在Html中直接书写javascript代码；我们直接来看代码的书写方式：</p>
+                <img src="./js-img/jsPullin.png" alt="">
+                <p class="paragraph">我们一般是使用外部文件来包含js脚本文件；为什么？因为他有以下几个优点：</p>
+                <div class="box">
+                    <ul>
+                    	<li>维护性高、可缓存(加载一次，无需加载)、方便未来扩展的特点。</li>
+                    	<li>可以重用</li>
+                    	<li>实现了内容与行为的分离</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">javascript的属性</p>
+                <p class="paragraph">js的属性主要有以下几个：</p>
+                <div class="box">
+                    <dl>
+                        <dt>async可选</dt>
+                        <dd>（异步加载，IE不支持）表示应该立即下载脚本，但不妨碍页面中的其他操作，比如下载其他资源或等待加载其他脚本；（只对外部脚本文件有效）使用 async(类似布尔值用法) </dd>
+                        <dt>defer可选</dt>
+                        <dd>表示脚本可以延迟到文档完全被解析和显示之后再执行（只对外部脚本有效）;使用defer="defer"但是把延迟脚本放在页面底部依然是最佳选择</dd>
+                        <dt>src可选</dt>
+                        <dd>表示要执行代码的外部文件；使用src="./js/jsFile.js"</dd>
+                        <dt>language可选</dt>
+                        <dd>已废弃</dd>
+                        <dt>type可选</dt>
+                        <dd>可选。可以看成是language的替代属性,他的用法type="text/javascript";但是现在已经不被推荐使用</dd>
+                    </dl>
+                </div>
+            </section> 
+        </article>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浮动/定位</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">     
+    </head>
+    <body>
+        <h2 class="article-title">float浮动与定位</h2>
+        <div class="wrap">
+            <section class="onePoint">
+                <p class="title">float浮动</p>
+                <p class="paragraph">什么是文档流？将窗体自上而下分成一行行, 并在每行中按从左至右的顺序排放元素,即为文档流。</p>
+                
+                <p class="paragraph">使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停了下来。</p>
+                <div class="box">
+                    <ul>
+                        <li>left:元素向左浮动。</li>
+                        <li>right:元素向右浮动。</li>
+                        <li>none:默认值。元素不浮动，并会显示在其在文本中出现的位置。</li>
+                        <li>inherit:规定应该从父元素继承float属性的值。</li>
+                    </ul>
+                </div>
+                
+            </section>
+            <section class="onePoint">
+                <p class="title">clear清除浮动</p>
+                <p class="paragraph">元素的某个方向上不能有浮动元素</p>
+                <div class="box">
+                    <ul>
+                        <li>left:清除左浮动</li>
+                        <li>right:清除右浮动</li>
+                        <li><code>both</code>:左右两侧均不允许浮动元素</li>
+                        <li>none:默认值</li>
+                        <li>inherit:规定应该从父元素继承clear属性的值。</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">清除浮动的方法</p>
+                <div class="box">
+                    <dl>
+                        <dt>br清浮动</dt>
+                        <dd>问题：不符合工作中：结构、样式、行为，三者分离的要求。</dd>
+                        <dt><code>after伪类</code></dt>
+                        <dd>清浮动方法（现在主流方法）</dd>
+                        <dd></dd>
+                        <dt>overflow:hidden 清浮动方法；</dt>
+                        <dd>问题：需要配合 宽度 或者 zoom 兼容IE6 IE7；</dd>
+                    </dl>                    
+                </div>
+                <img src="./css-img/clearfix.png" alt="">
+                <div class="box">
+                    <dl>
+                        <dt><code>after伪类</code>：元素内部末尾添加内容；</dt>
+                        <dd>:after{content"添加的内容";} IE6，7下不兼容</dd>
+                        <dt>zoom缩放</dt>
+                        <dd>a、触发 IE下 haslayout，使元素根据自身内容计算宽高。</dd>
+                        <dd>b、FF 不支持；</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">定位属性position</p>
+                <div class="box">
+                    <dl>
+                        <dt>static（静态定位）</dt>
+                        <dd>默认值，没有定位。元素出现在正常的文档流中</dd>
+                        <dt>relative（相对定位）</dt>
+                        <dd>使元素生成相对定位，通过top,bottom,left,right的设置相对于其正常（原先本身）位置进行定位。可通过z-index进行层次分级。</dd>
+                        <dt>absolute（绝对定位）</dt>
+                        <dd>使元素生成绝对定位，相对于static定位以外的第一个父元素进行定位。</dd>
+                        <dt>fixed（固定定位）</dt>
+                        <dd>使元素相对于浏览器窗口进行固定定位。</dd>
+                    </dl>
+                </div>
+                <!-- 1、relative-->
+                <p class="seq"><code>1、relative</code>属性（相对定位）</p>
+                <div class="box">
+                    <ul>
+                        <li>定位为relative的元素脱离正常的文本流中，但其在文本流中的位置依然存在。</li>
+                        <li>无论父级存在不存在，均是以父级的左上角进行定位，但是父级的Padding属性会对其影响。</li>
+                    </ul>
+                </div>
+                <!-- 2、absolute-->
+                <p class="seq"><code>2、absolute</code>属性（绝对定位）</p>
+                <div class="box">
+                    <ul>
+                        <li>定位为absolute的层脱离正常文本流，但与relative的区别是其在正常流中的位置不再存在。</li>
+                        <li>如果父元素存在且有定位，则以父级的左上角为原点进行定位；即使父级有Padding属性，对其也不起作用</li>
+                    </ul>
+                </div>
+                 <!-- 2、absolute-->
+                <p class="seq"><code>3、z-index</code>属性</p>
+                <p class="paragraph">z-index，又称为对象的层叠顺序，它用一个整数来定义堆叠的层次，整数值越大，则被层叠在越上面，当然这是指同级元素间的堆叠，如果两个对象的此属 性具有同样的值，那么将依据它们在HTML文档中流的顺序层叠，写在后面的将会覆盖前面的。需要注意的是，父子关系是无法用z-index来设定上下关系 的，一定是子级在上父级在下。</p>
+                <p class="paragraph">注意：使用static 定位或无position定位的元素z-index属性是无效的。</p>
+            </section>
+            <br><br>
+           <section class="task">
+				<p>本节作业</p>
+				<p>百度登录弹出框--用margin或者calc</p>
+				
+			</section>
+        </div>
+    </body>
+</html>

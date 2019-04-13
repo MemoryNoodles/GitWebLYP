@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css引入方式及选择器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">    
+
+	</head>
+	<body>
+		<h2 class="article-title">选择器</h2>
+		<div class="wrap">
+			<section class="onePoint">
+				<p class="title">一般选择器</p>
+				<div class="box">
+					<ul>
+						<li>id选择器（#） </li>
+						<li>class(类)选择器（.）</li>
+						<li>群组选择器（，）</li>
+						<li>类型(元素)选择器(div……)</li>
+						<li>包含(后代)选择器(div p..)</li>
+						<li>通配符（*）</li>
+					</ul>
+				</div>
+				<img src="./css-img/select.png" alt="">
+				<p class="paragraph">选择器优先级</p>
+				<p class="paragraph" style="font-size:22px; color:green">通配符&lt;元素选择器&lt;class(类)选择器&lt;id选择器&lt;行间样式&lt;js&lt;!important</p>
+			</section>
+			<section class="onePoint">
+				<p class="title">高级选择器</p>
+				<p><strong>1、属性选择器</strong></p>
+				<img src="./css-img/attrSeletor-css.png" alt="">
+				<img src="./css-img/attrSeletor.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+					<iframe src="./iframe/attrSelector.html" frameborder="0"></iframe>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">伪类选择器</h3>
+				<div class="point_content">
+					<div class="box">
+						<dl>
+							<dt>:hover</dt>
+							<dd>鼠标悬浮于该元素上设置的样式</dd>
+							<dt>:active</dt>
+							<dd>鼠标悬点击时该元素上设置的样式</dd>
+							<dt>:visited</dt>
+							<dd>鼠标悬点击后该元素上设置的样式</dd>
+							<dt>:focus</dt>
+							<dd>表单元素获得焦点后设置的样式</dd>
+						</dl>
+					</div>
+					<img src="./html-img/ahover.png" alt=""><br>
+					<img src="./html-img/ahoverCss.png" alt="">
+					<div class="box">
+						<iframe src="./iframe/aHover.html" frameborder="0"></iframe>
+					</div>
+				</div>
+			</section>
+			<section>
+				<!-- 伪类选择器  -->
+				<p><strong>2、伪元素选择器</strong></p>
+				<p class="paragraph">该类选择器主要用于向指定的选择器添加指定的效果，该类选择器会增加“1”的权重，主要有四个伪元素：</p>
+				<div class="box">
+					<ul>
+						<li>:first-letter</li>
+						<li>:first-line</li>
+						<li>:before</li>
+						<li>:after</li>
+					</ul>
+				</div>
+				<!-- first-letter  -->
+				<img src="./css-img/firstL-CSS.png" alt="">
+				<img src="./css-img/firstL.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+					<iframe src="./iframe/first-letter.html" frameborder="0" height="50px" width="800px"></iframe>
+				</div>
+				<!-- first-line  -->
+				<p class="paragraph"><code>first-line</code>控制第一行的颜色</p>
+				<p class="paragraph"><code>before</code>在指定的选择器之前插入一段内容。插入的内容默认为“行内元素”，可以通过“display”强制转换显示类型。</p>
+				<p class="paragraph"><code>after</code>在指定的选择器之后插入一段内容，使用方式和“:before”一样。插入的内容默认也是为“行内元素”，同样可以通过“display”强制转换显示类型。</p>
+				<img src="./css-img/before.png" alt="">
+				<img src="./css-img/before-html.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<style>
+					.before p:before{ content:'曹操：'; color:#0d3f9f }
+				</style> 
+				<div class="box">
+					<div class="before paragraph">
+						<p>谁是英雄。</p>
+						<p>惟使君与操耳!</p>
+					</div> 
+				</div>
+			</section>
+			<section class="onePoint">
+				<p class="title">结构性伪类选择器</p>
+				<p class="paragraph">该类选择器主要用于当前选择器精确地通过元素“索引值”或“匹配类型”的索引值定位到该选择器的同级指定元素。</p>
+				<div class="box">
+					<ul>
+						<li>first-child</li>
+						<li>last-child</li>
+						<li>nth-child(n)：n的值，可以是一个数值、也可以是一个表达式（列如：2n+1）、odd(奇数)、even(偶数)</li>
+						<li>not(selector)</li>
+					</ul>
+				</div>
+				<img src="./html-img/firstChildHtml.png" alt="">
+				<img src="./html-img/firstChild.png" alt="">
+				<div class="box">
+					<iframe src="./iframe/firstChild.html" frameborder="0"></iframe>
+				</div>
+				
+			</section>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,133 @@
+/*reset*/
+body{ padding:0; margin: 0; font: 18px/1.5 "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"\5B8B\4F53" !important; }
+ul,li{ padding: 0; margin: 0; list-style: none }
+h1,h2,h3,h4,h5,h6{ margin:0; padding: 0; }
+section,header,article,footer{display: block}
+*{box-sizing: border-box}
+/*reset*/
+#main { position: relative; z-index: 1; overflow-x: hidden;min-height: 600px;}
+#header { height: 65px;position: fixed;width:100%;   z-index: 5; background: #06799f;}
+header:before{ content:''; clear:both;}
+.logo {float:left; width: 100px; padding:13px;cursor: pointer;}
+.logo img{  position: relative; margin: 3px 0 0 0; width: 150px;}
+.logo img:hover{ animation: logoMove 0.2s infinite;-webkit-animation: logoMove 0.2s infinite; }
+
+#nav { float: right; margin: 0; padding: 16px 0;}
+#nav li{  float: left;  width: 130px; top: -20px; position: relative;  z-index: 1; opacity: 0;
+          transition: opacity 1s ease, top 1s ease;
+          text-decoration: none; color:white; text-align: center; font-size:22px; cursor:pointer;
+     }
+#nav li ul,#nav li ol{ height:200px; width:100px; margin-top:25px;  padding: 20px 0; transition: 1s; -webkit-transition: 1s; display: none; position: relative;}
+#nav li ol{width:200px;}
+#nav li:hover ul{   display: block; }
+#nav li:hover ol{   display: block; }
+#nav li ul li, #nav li ol li{ color:white;opacity: 1; padding: 8px 0 6px 20px; transition: 0.5s;  font-size:20px; text-align: left;z-index: 3;  font-family:'微软雅黑',Arial; }
+/*js课件中单独使用的ol*/
+#nav li ol li{width:inherit; color:#ff9c00}/*#ff9c00*/
+#nav li ol li div{ display:none; }
+#nav li ol li div a{ display:block; padding:5px 0; color:white;}
+#nav li ul li a,#nav li ol li a{ color:white; text-decoration:none;
+         text-align:left; z-index: 3;  font-size:16px; }
+#nav li ol li a{text-indent:1.5em;}
+#nav .line{ background: #a57500; position:absolute; top:0; height:0; z-index:1;
+            transition:top 0.1s linear; -webkit-transition:top 0.15s linear; padding:0;
+            	
+    }
+
+/*#nav li:hover ul li{ opacity: 1;  }*/
+.navBg{ height: 0; transition:0.5s; background: #024e67; position: relative; top:65px;}
+#nav:hover div.navBg{ height:200px;  width:100%}
+
+.theHead{ width: 95%; margin: 0 auto; position: relative;}
+
+#aside{width:1%;float:left;padding-top:80px;border-right:1px solid #ccc; position: fixed}
+#aside a{  text-decoration: none; display: inline-block; background: #e94920;
+     padding:8px 20px;  border-radius: 10px; text-align: center;
+	display:none; color:white;margin:10px
+}
+#wrapBox{width:99%; float:right; }
+/*welcome*/
+#iBanner{
+     position: relative;
+   
+     width:1200px;
+     margin:0 auto; 
+     -webkit-perspective:600px;
+    -moz-perspective:600px;
+/*    -webkit-transform-style:preserve-3d; */
+   
+}
+#iBanner #contain {
+/*	 background: url('html-img/iPeopleBg.png') no-repeat 0 bottom; */
+     height:348px; 
+     perspective: 800px; 
+    transform-style: preserve-3d;
+    position: relative; width:620px; margin:40% auto 50px; 
+    -webkit-transform-style:preserve-3d; 
+    -webkit-perspective-origin:center center;
+    -moz-perspective-origin:center center;perspective-origin:center center;
+    transform-origin:center center 10px; -webkit-transform-origin:center center 10px;
+}
+#iBanner #contain:afer {
+/*	 content: ''; clear: both;*/
+}
+#iBanner #iPeople{
+    position: absolute; left: 0px; top:-100px;  transform:translateZ(-25px); 
+    -webkit-animation:iPeople 2s; -moz-animation:iPeople 2s; opacity:0; animation-fill-mode: forwards
+}
+#iBanner #html5{
+    position: absolute; left: 372px; top: 58px; transform:translateZ(-25px); 
+    -webkit-animation:html5 2s;-moz-animation:html5 2s; opacity:0; width:30px; animation-fill-mode: forwards
+}
+#iBanner #bgPeople{
+    position: absolute; left: 0px; top: 100px; transform:translateZ(-25px);   
+    -webkit-animation:bgPeople 2s;-moz-animation:bgPeople 2s; opacity:0; animation-fill-mode: forwards; -moz-animation-fill-mode: forwards
+}
+#iBanner #PeopleShadow{
+    position: absolute; left: 0px; top: 200px; transform:translateZ(-25px); 
+     -webkit-animation:PeopleShadow 2s;-moz-animation:PeopleShadow 2s; opacity:0;  animation-fill-mode: forwards
+}
+@keyframes logoMove{
+    25%{ left:3px; }
+    50%{ left:0px; }
+    75%{ left:-3px; }
+    100%{ left:0px; }
+}
+@-webkit-keyframes logoMove{
+    25%{ left:3px; }
+    50%{ left:0px; }
+    75%{ left:-3px; }
+    100%{ left:0px; }
+}
+@-webkit-keyframes PeopleShadow{
+    from{ opacity:0}
+    to{  opacity:1}
+}
+@-moz-keyframes PeopleShadow{
+    from{ opacity:0}
+    to{  opacity:1}
+}
+@-webkit-keyframes html5{
+    from{ opacity:0; width:30px;}
+    to{  opacity:1; width:190px;}
+}
+@-moz-keyframes html5{
+    from{ opacity:0; width:30px;}
+    to{  opacity:1; width:190px;}
+}
+@-webkit-keyframes bgPeople{
+    from{opacity:0; top:100px}
+    to{opacity:1; top:200px}
+}
+@-moz-keyframes bgPeople{
+    from{opacity:0; top:100px}
+    to{opacity:1; top:200px}
+}
+@-webkit-keyframes iPeople{
+    from{opacity:0; top:-100px}
+    to{opacity:1; top:0px}
+}
+@-moz-keyframes iPeople{
+    from{opacity:0; top:-100px}
+    to{opacity:1; top:0px}
+}

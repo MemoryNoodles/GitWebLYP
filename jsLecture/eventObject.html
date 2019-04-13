@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>事件对象</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+
+            function stopPro(evt) {
+                var e = evt || window.event;
+                window.event ? e.cancelBubble = true : e.stopPropagation();
+            }
+
+        </script>
+    </head>
+    <body >
+        <h2 class="article-title">事件对象</h2>
+        <article class="wrap" >
+            <p class="paragraph">在触发DOM上的某个事件时，会产生一个事件对象event,这个对象中包含着所有与事件有关的信息。包括导致事件的元素、事件的类型以及其他与特定事件相关的信息。</p>
+            <section class="onePoint">
+                <h3 class="title">一、事件对象</h3>
+                <div class="point_content">
+                    <p class="paragraph">事件处理函数的一个标准特性是，以某些方式访问的事件对象包含着有关于当前事件的上下文信息。</p>
+                    <h4 class="small_title">this关键字和上下文</h4>  
+                    <p class="paragraph">在一个对象里，由于作用域的关系，this代表着离它最近对象。</p> 
+                    <img src="./js-img/onclickAndThis.png" alt="">
+                    <h4 class="small_title">event对象</h4>
+                    <p class="paragraph">事件对象，我们一般称作为event对象，这个对象是浏览器通过函数把这个对象作为参数传递过来的。那么首先，我们就必须验证一下，在执行函数中没有传递参数，是否可以得到隐藏的参数。</p>
+                    <img src="./js-img/funcArguments.png" alt="">
+                    <p class="paragraph">上面的做法是不是很累？其实我们是可以通过接收参数来得到的。只是直接接收event对象，是W3C的做法，IE9以下不支持，低版本的IE自己定义了一个event对象，直接在window.event获取即可。如下图</p>
+                    <img src="./js-img/event.png" alt="">
+
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">二、鼠标事件</h3>
+                <div class="point_content">
+                    <p class="paragraph">鼠标事件是Web上面最常用的一类事件，毕竟鼠标还是最主要的定位设备。那么通过事件对象可以获取到屏幕坐标等</p>  <h4 class="small_title">可视区及屏幕坐标</h4> 
+                    <img src="./js-img/eventClient.png">
+                    <h4 class="small_title">修改键</h4>
+                    <p class="paragraph">有时，我们需要通过键盘上的某些键来配合鼠标来触发一些特殊的事件。这些键为：Shfit、Ctrl、Alt等，它们经常被用来修改鼠标事件和行为，所以叫修改键。</p>
+                    <img src="./js-img/modifyKey.png" alt="">
+                    <p>练习：按下回车键和ctrl键的时候发表留言</p>
+                    <img src="./js-img/CtrlKey.png" alt="">    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">三、键盘事件</h3>
+                <div class="point_content">
+                    <p class="paragraph">用户在使用键盘时会触发键盘事件。</p>
+                    <h4 class="small_title">键码</h4>
+                    <p class="paragraph">在发生keydown和keyup事件时，event对象的keyCode属性中会包含一个代码，与键盘上一个特定的键对应。</p>
+                    <img src="./js-img/eventKeycode.png" alt="">  <br>
+                    <p>练习：物体跟着鼠标移动</p>
+                     <img src="./js-img/onkeydownMove.png" alt="">         
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">四、W3C与IE</h3>
+                <div class="point_content">
+                    <p class="paragraph">在标准的DOM事件中，event对象包含与创建它的特定事件有关的属性和方法。触发的事件类型不一样，可用的属性和方法也不一样。</p>
+                    <img src="./js-img/w3cEvent.png" alt=""><br>
+                    <img src="./js-img/IEevent.png" alt="">
+                    <p class="paragraph">在这里，我们只看所有浏览器都兼容的属性或方法。首先第一个我们了解一下W3C中的target和IE9以下的srcElement，都表示事件的目标。</p>
+                    <img src="./js-img/eventTarget.png" alt="">
+                    <h4 class="small_title">事件流</h4>
+                    <p class="paragraph">事件流是描述的从页面接受事件的顺序，当几个都具有事件的元素层叠在一起的时候，那么你点击其中一个元素，并不是只有当前被点击的元素会触发事件，而层叠在你点击范围的所有元素都会触发事件。事件流包括两种模式：<em>冒泡和捕获</em>。</p>
+                    <p class="paragraph"><em>事件冒泡</em>，是从<em>里往外</em>逐个触发。<em>事件捕获</em>，是从<em>外往里</em>逐个触发。那么现代的浏览器默认情况下都是冒泡模型，而捕获模式则是早期的Netscape默认情况。而现在的浏览器要使用DOM2级模型的事件绑定机制才能手动定义事件流模式。</p>
+                    <p>示列啦，没写，，，，</p>
+                    <p class="paragraph">在阻止冒泡的过程中，W3C和IE9以下采用的不同的方法，如果我们要兼容低版本的IE。可以这样写：</p>
+                    <img src="./js-img/cancelBubble.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

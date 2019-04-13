@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>promise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+  <link rel="shortcut icon" href="./html-img/favicon.ico">
+  <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+<h2 class="article-title">promise</h2>
+<article class="wrap">
+  <section class="onePoint">
+    <h3 class="title">promise</h3>
+    <div class="point_content">
+       <p class="paragraph">Promise新建后就会立即执行。</p>
+ <pre>
+   <code class="language-js">
+         var myFirstPromise = new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    resolve("成功!"); //代码正常执行！
+                }, 250);
+            });
+
+            myFirstPromise.then(function(successMessage){
+                console.log(successMessage);
+            });
+   </code>
+ </pre>
+      <p>下面是 <em>完整版</em></p>
+<pre>
+  <code class="language-js">
+    var promise = new Promise((resolve, reject) =>{
+
+        if (xhr.readyState ==4 && xhr.status == 200){/* 异步操作成功 */
+          resolve(value);
+        } else {
+          reject(error);
+        }
+
+    });
+
+    promise.then(function(value) {
+                 // success
+              }, function(error) {
+                 // failure
+             });
+    //或者
+     promise.then(result => console.log(result))
+             .catch(error => console.log(error));
+  </code>
+</pre>
+      <p>旧浏览器不支持 Promise，需要使用 polyfill es6-promise 。<cmd>var Promise = require('es6-promise').Promise;</cmd></p>
+    </div>
+    <p >代替ajax的 <em>fetch结合promise</em>使用，有兴趣的可以参考 <a href="https://segmentfault.com/a/1190000007019545">fetch结合promise</a></p>
+  </section>
+
+
+</article>
+</body>
+</html>

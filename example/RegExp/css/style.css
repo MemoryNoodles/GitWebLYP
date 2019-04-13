@@ -1,0 +1,25 @@
+
+.div{
+    height:100px;
+    width:100px;
+    padding:10px;
+    background: #217a90;
+    border-top:2px solid #ccc;
+    border:1px solid #ccc;
+    
+}
+.div div{
+    width:400px;
+    height:400px;
+    background:red;
+    position: relative;
+    left:30px;
+    padding:10px;
+    border:1px solid #ccc;
+    
+}
+
+
+
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <title>mongodb</title>
+    </head>
+    <body>
+        <h2 class="article-title">聚合</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">聚合</h3>
+                <div class="point_content">
+                   <h4 class="small_title">1、取得集合的数据量</h4>
+                    <p class="paragraph">要知道集合中的数据总量，可以用count()函数。</p>
+                    <img src="./mongoDbImg/count.png">
+                   <!-- <h4 class="small_title">消除重复数据</h4>-->
+                    <h4 class="small_title">group操作</h4>
+                    <p>$sum:总计</p>
+                    <img src="./mongoDbImg/$group.png">
+                    <p>$avg:平均</p>
+                    <img src="./mongoDbImg/$avg.png" alt="">
+                    <p>$min:最小值;$max:最大值</p>
+                    <img src="./mongoDbImg/$min.png" alt="">
+                    <p>$first:第一个;$last:最后一个</p>
+                    <img src="./mongoDbImg/$first.png" alt="">
+                    <p>$sort:排序</p>
+                    <img src="./mongoDbImg/sort.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数据库的备份和还原</h3>
+                <div class="point_content">
+                    <h4 class="small_title">数据库的备份</h4>
+                    <p>一般会用到的命令例如:<cmd>mongodump -h 127.0.0.1 -d rfDB -o D:\mongodb\data\reserve</cmd></p>
+                    <div class="box">
+                        <ul>
+                            <li>-h:指明数据库宿主机的IP(默认的是:127.0.0.1),如果不需要指定，可以不写。</li>
+                            <li>-d:指明数据库的名字,如果不写会默认备份所有的数据库</li>
+                            <li>-o:指明备份的文件夹</li>
+                        </ul>
+                    </div>
+                    <p>更多的操作请输入：mongodump -help</p>
+                    <h4 class="small_title">数据库还原</h4>
+                     <p>一般会用到的命令例如:<cmd>mongorestore -h 127.0.0.1 -drfDB D:\mongodb\data\reserve\rfDB</cmd></p>
+                     <div class="box">
+                        <ul>
+                            <li>-h:指明数据库宿主机的IP(默认的是:127.0.0.1),如果不需要指定，可以不写。</li>
+                            <li>-d:指明数据库的名字,后面跟的是备份的数据库目录</li>
+                          
+                        </ul>
+                    </div>
+                    <p>更多的操作请输入：mongorestore -help</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">用户管理</h3>
+                <div class="point_content">
+                    <p class="paragraph">在MongoDB里面默认情况下只要是进行连接都可以不使用用户名与密码，只是会出现一个警告。这个警告怎么才能不出现啦？？想想之前的有不出现的情况吗？</p>
+                    <p class="paragraph">如果要想配置用户名和密码一定是针对于一个数据库的,先切换到rfDB数据库上。然后执行下面的命令</p>
+                    <img src="./mongoDbImg/createUser.png" alt="">
+                    <p class="paragraph">在配置文件里更改用户验证为true,启动服务，这时要想使用数据库就必须敲入下面的代码。</p>
+                    <img src="./mongoDbImg/user.png" alt="">
+                    <P class="paragraph">如果想要更改密码则要关闭验证用户服务，用下面的命令更改。</P>
+                    <img src="./mongoDbImg/changeUserPassword.png" alt="">
+                </div>
+            </section>
+            <section class="ontPoint">
+                <h3 class="title">固定集合</h3>
+                <div class="point_content">
+                    <p class="paragraph">所谓的固定集合指的是规定集合大小，如果要保存的内容已经超过了集合的长度，那么会将最早的数据移出，从而保存新的数据。</p>
+                    <img src="./mongoDbImg/hotWord.png">
+                    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">node结合mongo</h3>
+                <div class="point_content">
+                    <img src="./mongoDbImg/mongoAndNode.png" alt="">
+                    <img src="./mongoDbImg/mongoAndNode2.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>
+
+

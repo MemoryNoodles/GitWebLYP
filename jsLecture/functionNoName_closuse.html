@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>匿名函数和闭包</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+
+            /*var user = 'The Window';
+            var obj = {
+                user : 'Object',
+                getUserFunction : function () {
+                    return function () { //闭包不属于obj，里面的this指向window
+                        return this.user;
+                    };
+                }
+            };
+            console.log(obj.getUserFunction().call(obj))*/
+
+            /*   function func(){
+                this.name="luce";
+            }
+            var box = new func();
+            console.log(box.name);*/
+
+            function Desk() {};
+            var box = function () {
+                var age = 100;
+                function run() {
+                    return '运行中...';
+                }
+                var desk = new Desk(); //可以实例化特定的对象
+                desk.go = function () {
+                    return age + run();
+                };
+                return desk;
+            }();
+            console.log(box.go());
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">匿名函数和闭包</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">一、匿名函数</h3>
+                <div class="point_content">
+                    <p class="paragraph">匿名函数就是没有名字的函数。</p>
+                    <img src="./js-img/noNameFunction.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">二、闭包</h3>
+                <div class="point_content">
+                    <p class="paragraph">闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的常见的方式，就是在一个函数内部创建另一个函数，通过另一个函数访问这个函数的局部变量。</p>
+                    <img src="./js-img/closuse.png" alt="">
+                </div>
+                <p class="paragraph">使用闭包有一个优点，也是它的缺点：就是可以把局部变量驻留在内存中，可以避免使用全局变量。(全局变量污染导致应用程序不可预测性，每个模块都可调用必将引来灾难，所以推荐使用私有的，封装的局部变量)。</p>
+            </section>
+        </article>
+    </body>
+</html>

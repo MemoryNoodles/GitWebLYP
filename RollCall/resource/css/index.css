@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+body,html {
+    height: 100%;
+    background: url("./Image/floor@1x.jpg") no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    line-height: 50px;
+    font-family: "微软雅黑";
+    overflow: hidden;
+    margin: 0;
+    user-select:none;
+    -webkit-user-select:none;
+    cursor: default;
+}
+
+#header {
+    width: 100%; height: 200px;
+    background: url("./Image/heaeder-bg.png") no-repeat;
+    line-height: 150px;
+    text-align: center;
+    font-family: "华文行楷";
+    font-size: 96px;
+    color: #2a2826;
+}
+#header.moveBg {
+    text-shadow: 0 2px 8px #fefefe;
+	animation: headermove 8s infinite linear alternate;
+	-webkit-animation: headermove 8s infinite linear alternate;
+}
+#header .maskBlcok {
+	width: 400px; height: 190px;
+    background-image: url("./Image/maskBlock.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%; top: -180px;
+    margin-left: -200px;
+    z-index: 1;
+    transition: all 1.6s ease;
+    -webkit-transition: all 1.6s ease;
+    transform-origin: 50% 0%;
+}
+#header .maskBlcok.rotateBlock {
+    animation: animBlock 2.2s ease-in-out infinite alternate;
+    -webkit-animation: animBlock 2.2s ease-in-out infinite alternate;
+    top: -30px;
+}
+#studentName.scaleFont {
+    padding-top: 10px;
+    -webkit-animation: scalefontsize 0.8S ease 1s;
+    animation: scalefontsize 0.8S ease 1s;
+    transform: rotate(15deg);
+    -webkit-transform: rotate(10deg);
+    display: block;
+}
+#studentName .cancelCheck {
+	font-family: "微软雅黑";
+    font-size: 34px;
+    color: #615757;
+    transform: rotate(-10deg);
+    display: inline-block;
+    position: relative;
+    top: -26px;
+}
+#main {
+    width: 400px; height: auto;
+    margin: 0 auto;
+}
+.btnGroup {
+    margin-top: 30px;
+}
+.btnGroup button {
+    width: 120px; height: 44px;
+    background-color: #715232;
+    border: 1px solid #B99C72;
+    outline: none;
+    box-shadow: 0 0 0 2px #4e3919;
+    border-radius: 3px;
+    letter-spacing: 8px;
+    text-indent: 8px;
+    color: #e2d6c4;
+    font: normal 18px/30px "微软雅黑";
+    margin-right: 15px;
+    cursor: pointer;
+}
+.btnGroup button:hover {
+    background-color: #8e6d4b;
+    border: 1px solid #ddc39d;
+    color: #fffcf8;
+}
+.btnGroup button:active {
+    background-color: #553a1f;
+    border: 1px solid #291808;
+    border-right: 1px solid #91704f;
+    border-bottom: 1px solid #91704f;
+    color: #d3c4ae;
+}
+.btnGroup button:last-child {
+    margin-right: 0;
+}
+table.everybody {
+    background-color: #dfdcd4;
+    border: 2px solid #574c3f;
+    border-right: 2px solid #C7AB8D;
+    border-bottom: 2px solid #C7AB8D;
+    border-radius: 16px;
+    box-shadow: inset 4px 4px 8px 2px rgba(47, 44, 37, 0.8);
+    margin: 0 auto;
+    margin-top: 40px;
+    overflow: hidden;
+}
+table.running {
+    border: 2px solid #C7AB8D;
+    border-right: 2px solid #574c3f;
+    border-bottom: 2px solid #574c3f;
+    animation: flashBorder 1s infinite ease alternate;
+    -webkit-animation: flashBorder 0.4s infinite ease alternate;
+}
+table td {
+    width: 96px; height: 50px;
+    background-color: #efece5;
+    border: 2px solid #C7AB8D;
+    border-radius: 25px;
+    padding-left: 6px; padding-right: 6px;
+    text-align: center;
+    font-family: "华文行楷";
+    font-size: 22px;
+    color: #3d3a38;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    -webkit-transition: all 0.6s ease;
+}
+table td.none {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+}
+.checked {
+    background-color: #8e6d4b;
+    border: 1px solid #ddc39d; 
+    font-size: 28px;
+    color: #ffffff
+}
+/* 按钮闪光 */
+@keyframes flashBorder {
+    0% { box-shadow: 0 0 50px #ff0101}
+    20% { box-shadow: 0 0 50px #d8ff01}
+    40% { box-shadow: 0 0 50px #01ff1e}
+    60% { box-shadow: 0 0 50px #018aff}
+    80% { box-shadow: 0 0 50px #6c01ff}
+    100% { box-shadow: 0 0 50px #ff016c}
+}
+@-webkit-keyframes flashBorder {
+    0% { box-shadow: 0 0 5px #b90b0b}
+    100% { box-shadow: 0 0 40px 10px #b90b0b}
+}
+/* header移动 */
+@keyframes headermove {
+    0% { background-position: top left;}
+    100% { background-position: top right;}
+}
+@-webkit-keyframes headermove {
+    0% { background-position: top left;}
+    100% { background-position: top right;}
+}
+@keyframes scalefontsize {
+    0% { transform: scale(1)}
+    25% { transform: scale(1.5)}
+    50% { transform: scale(1)}
+    75% { transform: scale(1.5)}
+    100% { transform: scale(1)}
+}
+@-webkit-keyframes scalefontsize {
+    0% { transform: scale(1)}
+    25% { transform: scale(1.8)}
+    50% { transform: scale(1)}
+    75% { transform: scale(1.8)}
+    100% { transform: scale(1)}
+}
+@keyframes animBlock {
+    0% { transform: rotate(5deg)}
+    20% { transform: rotate(-2deg)}
+    40% { transform: rotate(6deg)}
+    60% { transform: rotate(-1deg)}
+    80% { transform: rotate(3deg)}
+    100% { transform: rotate(-7deg)}
+}
+@-webkit-keyframes animBlock {
+    0% { transform: rotate(5deg)}
+    20% { transform: rotate(-2deg)}
+    40% { transform: rotate(6deg)}
+    60% { transform: rotate(-1deg)}
+    80% { transform: rotate(3deg)}
+    100% { transform: rotate(-7deg)}
+}

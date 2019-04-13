@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #graph{
+            width:1200px;
+            height:400px;
+            margin:0 auto
+        }
+    </style>
+</head>
+<body>
+   <div id="graph">
+       
+   </div>
+   <script src="./js/echarts.common.min.js"></script>
+   <script src="./js/graphMedia.js"></script>
+   <script>
+       var oGraph = document.getElementById('graph');
+       var myChart = echarts.init(oGraph)
+        myChart.setOption(option);
+    </script>
+   
+</body>
+</html>

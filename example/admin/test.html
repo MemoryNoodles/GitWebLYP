@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+ <div style="width:800px; height:400px" >
+     
+ </div>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+<script src="./js/echarts.minAll.js"></script>
+<script src="./js/jcDate.js"></script>
+<script src="./js/china.js"></script>
+
+<script src="./js/graphData.js"></script>
+<script>
+function UTCDate() {
+        return new Date(Date.UTC.apply(Date, arguments));
+    }
+ function UTCToday() {
+        var today = new Date();
+        return UTCDate(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+    }
+    console.log(new Date().toDateString().valueOf())
+</script>  
+</body>
+</html>

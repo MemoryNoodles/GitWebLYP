@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			section:after{content:''; display:block; clear:both;}
+			div{ float:left; margin-left:80px; margin-top:50px;border-radius: 10px; 
+				width:200px; height:100px;  
+			}
+			div:nth-child(even){ background: #23956d; }
+			div:nth-child(2) {
+				height:100px; width:200px;
+				border:2px solid red;
+				outline:#53be3a dotted 20px ;
+
+			}
+
+			div:nth-child(1){ outline: #ccc groove 10px; background: #ccc; border-radius: 50%}
+
+		</style>
+	</head>
+	<body>
+		<section>
+			<div></div>
+			<div></div>
+			<div></div> 
+		</section>
+
+	</body>
+</html>

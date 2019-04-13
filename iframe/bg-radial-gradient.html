@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            article:after{
+				content:'';
+				display: block;
+				clear: both;
+		}
+            section{ width:150px; height:150px; float:left; margin:20px;}
+            section:nth-child(1){ background:-webkit-radial-gradient( #000000 , white ); }
+            section:nth-child(2){ background:-webkit-radial-gradient(contain, #000000, white); }
+            section:nth-child(3){ background:-webkit-radial-gradient(20%, #c92914,#1498c9, #d1ca0f); }
+            
+        </style>
+    </head>
+    <body>
+        
+        <article id="contain">
+            <section></section>
+            <section></section> 
+            <section></section> 
+        </article>
+
+    </body>
+</html>

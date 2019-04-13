@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>运算符</title>
+        <meta name="viewport" content="wi`dth=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+
+        <script>
+            var box = 5 > 4?'true':'false'; //返回true，5>4返回true则把'true'赋值给box，反之。
+            /*  相当于 */
+            var box = ''; // 初始化变量
+            if (5 > 4) { // 判断表达式返回值
+                box = 'true'; // 赋值
+            } else {
+                box = 'false'; // 赋值
+            }
+        </script>
+
+    </head>
+    <body>
+        <h2 class="article-title">运算符</h2>
+        <article class="wrap">
+            <!--一元运算符-->
+            <section class="onePoint">
+                <h3 class="title">一元运算符</h3>
+                <div class="point_content">
+                    <p class="paragraph">只能操作一个值的运算符叫做一元运算符。</p>
+                    <h4 class="small-title">递增 ++ 和递减 --</h4>
+                    <img src="./js-img/oneOperater01.png" alt="">
+                    <h4 class="small-title">前置和后置的区别</h4>
+                    <p class="paragraph">在没有赋值操作，前置和后置是一样的。但在赋值操作时，如果递增或递减运算符前置，那么前置的运算符会先累加或累减再赋值，如果是后置运算符则先赋值再累加或累减。</p>
+                </div>
+            </section>
+            <!--算术运算符-->
+            <section class="onePoint">
+                <h3 class="title">算术运算符</h3>
+                <div class="point_content">
+                    <p class="paragraph">ECMAScript定义了5个算术运算符+ 加、- 减、* 乘、/ 除、% 取模 。如果在算术运算的值不是数值，那么后台会先使用Number()转型函数将其转换为数值 ( 隐式转换 ) 。</p>
+                    <img src="./js-img/addOperater.png" alt="">
+                    <img src="./js-img/chengchu.png" alt="">
+                </div>
+            </section>
+            <!--关系运算符-->
+            <section class="onePoint">
+                <h3 class="title">关系运算符</h3>
+                <div class="point_content">
+                    <p class="paragraph">用于进行比较的运算符称作为关系运算符：小于 (&lt;) 、大于 (&gt;)&lt; 、小于等于 (&lt;=) 、大于等于 (&gt;=) 、相等 (==) 、不等 (!=) 、全等 ( 恒等 )(===) 、不全等 ( 不恒等 )(!==)</p>
+                    <p class="paragraph">和其他运算符一样，当关系运算符操作非数值时要遵循一下规则：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1. 两个操作数都是数值，则数值比较；</li>
+                            <li>2. 两个操作数都是字符串，则比较两个字符串对应的字符编码值；</li>
+                            <li>3. 两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较；</li>
+                        </ul>
+                    </div>
+                    <img src="./js-img/dayu.png" alt="">
+                    <img src="./js-img/dengyu.png" alt="">
+                </div>
+            </section>
+            <!--逻辑运算符-->
+            <section class="onePoint">
+                <h3 class="title">逻辑运算符</h3>
+                <div class="point_content">
+                    <p class="paragraph">逻辑运算符通常用于布尔值的操作，一般和关系运算符配合使用，有三个逻辑运算符：逻辑与 (AND) 、逻辑或 (OR) 、逻辑非 (NOT) 。</p>
+                    <!--逻辑与(AND)-->
+                    <h4 class="small_title">逻辑与(AND)：&&</h4>
+                    <img src="./js-img/huo.png" alt="">
+                    <p class="paragraph">如果两边的操作数有一个操作数不是布尔值的情况下，与运算就不一定返回布尔值，此时，遵循已下规则：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1. 第一个操作数是对象，则返回第二个操作数；</li>
+                            <li>2. 第二个操作数是对象，则第一个操作数返回true，才返回第二个操作数,否则返回false;</li>
+                            <li>3. 有一个操作数是null，则返回null；</li>
+                            <li>4. 有一个操作数是undefined，则返回undefined。</li>
+                        </ul>
+                    </div>
+                    <img src="./js-img/LogicAnd.png" alt="">
+                    <!--逻辑或(OR)-->
+                    <h4 class="small_title">逻辑或(OR)：||</h4>
+                    <p class="paragraph">如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值，此时，遵循已下规则：</p>
+                    <img src="./js-img/orOperater.png" alt="">
+                    <!--逻辑非 (NOT)-->
+                    <h4 class="small_title">逻辑非(NOT)：!</h4>
+                    <p class="paragraph">逻辑非运算符可以用于任何值。无论这个值是什么数据类型，这个运算符都会返回一个布尔值。它的流程是：先将这个值转换成布尔值，然后取反，规则如下：</p>
+                    <img src="./js-img/notOperater.png" alt="">
+                    <!--三元条件运算符-->
+                    <h4 class="small_title">三元条件运算符</h4>
+                    <p class="paragraph">三元条件运算符其实就是后面将要学到的 if 语句的简写形式。</p>
+                    <img src="./js-img/sanmu.png" alt="">
+                </div>
+            </section>
+             <!--运算符优先级-->
+            <section class="onePoint">
+               <h3 class="title">运算符优先级</h3>
+               <div class="point_content">在一般的运算中，我们不必考虑到运算符的优先级，因为我们可以通过圆括号来解决这种问题。和我们小时候学习的数学差不多</div>
+            </section>
+        </article>
+    </body>
+</html>

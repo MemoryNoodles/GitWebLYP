@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<style>
+			.wrap{width:1200px; margin:50px auto;}
+			.flash{width:296px; height:420px; overflow:hidden;}
+			/**/
+			.flash {
+				position: relative;
+				display: inline-block;
+				width: 296px;
+				height: 374px;
+				padding: 45px 0 0;
+				border-top: 1px solid #e0e0e0;
+				margin-left: 14px;
+				margin-bottom: 14px;
+				background: #fff;
+			}
+			/*主题颜色*/
+			.theme-green{   
+				border-top:1px solid #83c44e;
+				color: #83c44e;
+			}
+			.theme-game{
+				border-top-color: #e53935;
+				color: #e53935;
+			}
+
+			/*标题*/
+			.flash>h2{text-align: center;    
+				margin: 0 10px 18px;
+				font-size: 16px;
+				font-weight: 400;
+				text-align: center;
+
+			}
+			/**/
+			.flash>ul{overflow: hidden;margin-left:0; transition:0.5s; font-size:0;}
+			.flash li{text-align: center; float:left; width: 296px;}
+			.flash li h4{   
+				margin: 0 20px 5px;
+				font-size: 20px;
+				font-weight: 400;
+				line-height: 1.25;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				color: #333;
+			}
+			/*说明*/
+			.desc {
+				margin: 0 48px 10px;
+				height: 40px;
+				font-size: 12px;
+				line-height: 20px;
+				text-align: center;
+				overflow: hidden;
+				color: #b0b0b0;
+			}
+			/*图片*/
+			.flash li div{    
+				width: 216px;
+				height: 154px;
+				margin: 0 auto;
+
+			}
+			.flash li img{width: 216px;
+				height: 154px;
+			}
+			.idot{text-align: center;}
+			.idot span{border-radius:50%; width:8px; height:8px; display:inline-block; 
+				background: #d4d4d4; margin:10px;
+			}
+			.idot span.active{background: #ffffff; border:1px solid #ff7f29}
+			.flash .controlBtn .left, .flash .controlBtn .right{width:20px; height:48px; opacity:0;}
+			.flash:hover .controlBtn .left, .flash:hover .controlBtn .right{opacity:0.8;}
+			.flash .controlBtn .left:hover, .controlBtn .right:hover{background-color:rgba(0,0,0,0.6)}
+			.flash .controlBtn .left{background:rgba(0,0,0,0.2) url('./img/left.png') no-repeat center;
+				position: absolute; left:0; top:calc(50% - 24px); 
+
+			}
+			.flash .controlBtn .right{background:rgba(0,0,0,0.2) url('./img/right.png') no-repeat center;
+				position: absolute; right:0; top:calc(50% - 24px); 
+			}
+			/*横排的falsh*/
+			.home-star-goods{height:380px; overflow: hidden; position: relative;
+			}
+			.home-star-goods>h2{
+				position: relative;
+				height: 58px;
+				margin: 0;
+				font-size: 22px;
+				font-weight: 200;
+				line-height: 58px;
+				color: #333;
+			}
+			.home-star-goods>ul{transition:0.7s; font-size:0;}
+			.home-star-goods ul li{
+				display:inline-block; text-align: center;
+			}
+			.home-star-goods  li {
+				height: 320px;
+				width: 220px;
+				padding: 39px 0;
+				border-top-width: 1px;
+				border-top-style: solid;
+				text-align: center;
+				background: #fafafa;
+				margin-right: 25px;
+			}
+			.home-star-goods  li.mod5{margin-right:0;}
+			.home-star-goods  .thumb {
+				display: block;
+				width: 160px;
+				margin: 0 auto 22px;
+			}
+			.home-star-goods .thumb img {
+				width: 160px;
+				height: 160px;
+			}
+			.home-star-goods .title {
+				margin: 0 20px 3px;
+				font-size: 14px;
+				font-weight: 400;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.home-star-goods  .desc {
+				height: 18px;
+				margin: 0 20px 12px;
+				font-size: 12px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				color: #b0b0b0;
+			}
+			.home-star-goods  .price {
+				margin: 0;
+				color: #ff6709;
+			}
+			.home-star-goods .controlBtn{
+				position: absolute;
+				right: 0; top:20px;
+				width:70px; height:25px;
+			}
+			.home-star-goods .controlBtn span{
+				width:35px; height:24px; display:inline-block; border:1px solid #ccc;
+				padding:5px;
+			}
+			.home-star-goods .controlBtn span:nth-child(1){
+				background:url('./img/LeftB.png') center no-repeat;
+			}
+			.home-star-goods .controlBtn span:nth-child(2){
+				background:url('./img/rightB.png') center no-repeat;
+			}
+			/*一般屏幕的轮播*/
+			.lunbo{
+				width:1200px; height:450px; overflow:hidden; margin:30px auto;
+				position: relative;
+			}
+			.lunbo li{transition:1s; position:absolute; top:0; left:0;opacity:0}
+			.lunbo li.active{opacity:1}
+			.lunbo li img{width:1200px; }
+
+			.lunbo .controlBtn span{width:40px; height:70px;text-align: center;
+				display:inline-block
+			}
+			.lunbo .controlBtn span:nth-child(1){
+				background:url(./img/Left.png) center no-repeat;
+				position:absolute; left:0; top:calc(50% - 35px);
+			}
+			.lunbo .controlBtn span:nth-child(2){
+				background:url(./img/right.png) center no-repeat;
+				position:absolute; right:0; top:calc(50% - 35px);
+			}
+			.lunbo .controlBtn span:hover{
+				background-color:rgba(0,0,0,0.7)
+			}
+			.lunbo .idot{position: absolute; bottom:20px; right:30px}
+			.lunbo .idot span{width:10px; height:10px; background: #5c5c5c; border:2px solid #b1b1b1; display:inline-block; margin:5px;}
+			.lunbo .idot span.active {
+				background: #d9d9d9;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="flash theme-green" id="flash1">
+				<h2 >MIUI 主题</h2>
+				<ul class="flashImg">
+					<li>
+						<h4>暖冬礼屋</h4>
+						<p class="desc">年度双旦主题，锁屏玩游戏赢大奖！</p>
+						<p>免费</p>
+						<div><img src="./img/MIUI.jpg" alt=""></div>
+					</li>
+					<li>
+						<h4>影之刃2</h4>
+						<p class="desc">官方定制主题，设计风格还原游戏中的“蒸汽朋克+黑暗武侠”</p>
+						<p>免费</p>
+						<div><img src="./img/MIUI2.jpg" alt=""></div>
+					</li>
+					<li>
+						<h4>刷票神奇</h4>
+						<p class="desc">刷票本不难，姿势很重要！春节回家，全都靠ta~</p>
+						<p>免费</p>
+						<div><img src="./img/MIUI3.jpg" alt=""></div>
+					</li>
+				</ul>
+				<div class="controlBtn">
+					<span class="left"></span>
+					<span class="right"></span>
+				</div>
+				<div class="idot"></div>
+			</div>
+			<!--第二个flash-->
+			<div class="flash theme-game" id="flash2">
+				<h2 >游戏</h2>
+				<ul class="flashImg">
+					<li>
+						<h4>剑侠世界</h4>
+						<p class="desc">一生不容错过的浪漫武侠！！</p>
+						<p>免费</p>
+						<div><img src="./img/game.jpg" alt=""></div>
+					</li>
+					<li>
+						<h4>米柚手游模拟器</h4>
+						<p class="desc">在电脑上玩遍小米所有手游</p>
+						<p>免费</p>
+						<div><img src="./img/game2.png" alt=""></div>
+					</li>
+					<li>
+						<h4>老九门</h4>
+						<p class="desc">九门恩怨，盗墓笔记前传上线</p>
+						<p>免费</p>
+						<div><img src="./img/game3.jpg" alt=""></div>
+					</li>
+					<li>
+						<h4>刷票神奇</h4>
+						<p class="desc">免费下载海量的手机游戏<br>天天都有现金福利赠送</p>
+						<p>免费</p>
+						<div><img src="./img/game4.jpg" alt=""></div>
+					</li>
+				</ul>
+				<div class="controlBtn">
+					<span class="left"></span>
+					<span class="right"></span>
+				</div>
+				<div class="idot"></div>
+			</div>
+			<!--衡起的-->
+			<div class="home-star-goods" id="flash3">
+				<h2 >小米明星单品</h2>
+				<ul class="flashImg">
+					<li class="theme-game">
+						<a href="" class="thumb"><img src="./img/phone1.png" alt=""></a>
+						<h3 class="title">小米5s Plus</h3>
+						<p class="desc">5.7英寸大屏双摄手机，拍照黑科技</p>
+						<p class="price">2299元起</p>
+					</li>
+					<li class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone2.png" alt=""></a>
+						<h3 class="title">红米手机4</h3>
+						<p class="desc">12月30日早10点开售</p>
+						<p class="price">699元起</p>
+					</li>
+					<li>
+						<a href="" class="thumb"><img src="./img/pc.png" alt=""></a>
+						<h3 class="title">小米电视3s 55英寸</h3>
+						<p class="desc">人工智能电视，4K大屏新旗舰</p>
+						<p class="price">3499元起</p>
+					</li>
+					<li  class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone3.png" alt=""></a>
+						<h3 class="title">小米手环 2</h3>
+						<p class="desc">OLED 显示屏幕，升级计步算法</p>
+						<p class="price">149元</p>
+					</li>
+					<li  class="theme-green mod5">
+						<a href="" class="thumb"><img src="./img/phone5.png" alt=""></a>
+						<h3 class="title">小米手环 2</h3>
+						<p class="desc">OLED 显示屏幕，升级计步算法</p>
+						<p class="price">149元</p>
+					</li>
+					<li  class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone4.png" alt=""></a>
+						<h3 class="title">小米移动电源2</h3>
+						<p class="desc">双向快充，高密度锂聚合物电芯</p>
+						<p class="price">79元</p>
+					</li>
+					<li  class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone5.png" alt=""></a>
+						<h3 class="title">小米手环 2</h3>
+						<p class="desc">OLED 显示屏幕，升级计步算法</p>
+						<p class="price">149元</p>
+					</li>
+					<li>
+						<a href="" class="thumb"><img src="./img/pc.png" alt=""></a>
+						<h3 class="title">小米电视3s 55英寸</h3>
+						<p class="desc">人工智能电视，4K大屏新旗舰</p>
+						<p class="price">3499元起</p>
+					</li>
+					<li class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone2.png" alt=""></a>
+						<h3 class="title">红米手机4</h3>
+						<p class="desc">12月30日早10点开售</p>
+						<p class="price">699元起</p>
+					</li>
+					<li  class="theme-green">
+						<a href="" class="thumb"><img src="./img/phone5.png" alt=""></a>
+						<h3 class="title">小米手环 2</h3>
+						<p class="desc">OLED 显示屏幕，升级计步算法</p>
+						<p class="price">149元</p>
+					</li>
+					<li  style="display:none"></li>
+					<li  style="display:none"></li>
+				</ul>
+				<div class="controlBtn">
+					<span class="left"></span>
+					<span class="right"></span>
+				</div>
+				<div class="idot"></div>
+			</div>
+			<!--一般屏幕的falsh-->
+			<div id="flash4" class="lunbo">
+				<ul class="flashImg">
+					<li class="active">
+						<img src="./img/flash1.jpg" alt="">
+					</li>
+					<li>
+						<img src="./img/flash2.jpg">
+					</li>
+					<li>
+						<img src="./img/flash3.jpg">
+					</li>
+					<li>
+						<img src="./img/flash4.jpg">
+					</li>
+				</ul>
+				<div class="controlBtn">
+					<span class="left"></span>
+					<span class="right"></span>
+				</div>
+				<div class="idot"></div>
+			</div>
+		</div>
+		<script src="./js/public.js"></script>
+		<script src="./js/flash.js"></script>
+		<script>
+			//直接调用
+			/*第一个需要创建点*/
+			new Flash('flash1').init(true,1);
+
+			/*第二个需要创建点*/
+			new Flash('flash2').init(true,1);
+
+			/*第三个横排不需要创建点*/
+			new Flash('flash3').init(false,1, {bol:true, time:4000});
+
+			/*屏幕falsh*/
+			var lunbo = new Flash('flash4');
+
+			/*在自己的属性上添加切换方法--*/
+			lunbo.tab = function(){
+				for(var i=0; i<this.ali.length; i++){
+					delCls(this.ali[i], 'active');
+					delCls(this.arrSpan[i], 'active');
+				}
+				addCls(this.ali[this.num], 'active');	
+				addCls(this.arrSpan[this.num], 'active');	
+			}
+			/*在自己的属性上添加操作方法*/
+			lunbo.opear = function(){
+				var _this = this;
+				//动态改写ul的宽度
+				this.oul.style.width = this.ali[0].offsetWidth*this.ali.length + 'px';
+				this.w =  this.ali[0].parentNode.offsetWidth/this.ali[0].offsetParent.offsetWidth;
+				/*左右按钮事件*/
+				this.next.onclick = function(){
+					
+					_this.nextFunc(_this);
+				}
+				this.prev.onclick = function(){
+
+					if(_this.num > 0){
+						_this.num --; 
+						_this.tab();
+					}else{
+						_this.num = Math.round(_this.w) -1; 
+						_this.tab();
+					}
+				}
+			}
+			
+			lunbo.init(true,1, {bol:true, time:2000});
+		</script>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+

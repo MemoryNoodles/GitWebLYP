@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>轮播图</title>
+        <style>
+            body{ background:#666; }
+            ul,li{margin:0; padding:0; list-style: none}
+            /*图片*/
+            .wrap { text-align: center;width:740px; margin:100px auto; position: relative;}
+            .wrap .box{width:740px; height:423px; overflow:hidden; margin:0px auto;}
+            .wrap .img{ position: relative; height:423px; transition:0.8s;}
+            .wrap .img li{ position: absolute;left:0; width:740px; opacity:0; filter:alpha(opacity=0); transition:1s}
+            .wrap .img li img{ width:740px; }
+            /*点的样式*/
+            .smallImg {position: relative}
+            .smallImg div{width:100%; opacity:0.4; filter:alpha(opacity=40); background:#000; height:105px;
+                position: absolute; bottom:0 
+            }
+            .wrap .dots{ width:470px; position: absolute; bottom:0; width:100%; left:calc( 50% - 235px) }
+            .wrap .dots li{  border-radius:15px; 
+                float:left; margin:10px;  z-index: 9;
+            }
+            .wrap .dots li img{height:70px; width:95px; border-radius:15px;}
+            .wrap .dots .active img { border:2px solid white}
+        </style>
+        <script src="./jsFile/common.js"></script>
+        <script>
+            window.onload = function(){
+                var move = new flash('flashImg', 'dots');
+                move.next = function(){
+                    var _this = this;
+                    if(this.num > this.aLI.length -1 ){
+                        this.num = 0;  
+                    }else{
+                        for(var i=0; i<this.aLI.length; i++){
+                            this.aLI[i].style.opacity = 0;
+                        }
+                        this.aLI[this.num].style.opacity = 1;
+                         ++this.num;
+                         this.Dots(); 
+                    }
+
+                    if(!this.time){
+                        this.time = setInterval(function(){
+                            _this.next();
+                        }, 2000); 
+                    }
+
+                }
+                move.init();
+
+            }
+        </script>
+    </head>
+    <body>
+        <section class="wrap" id="wrap">
+            <div class="box">
+                <ul class="img" id="flashImg">
+                    <li style="opacity:1"><img src="./exampleImg/labo.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo2.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo3.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo4.jpg" alt=""></li>
+                </ul> 
+            </div>
+            <div class="smallImg">
+                <div></div>
+                <ul class="dots" id="dots"> 
+                    <li class="active"><img src="./exampleImg/labo.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo2.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo3.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo4.jpg" alt=""></li>
+                </ul>
+            </div>
+
+        </section> 
+    </body>
+</html>

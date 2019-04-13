@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>面向对象与原型</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+			
+			function Func(){
+				this.age = 18;           /*优先级最高*/
+			} 
+			Func.prototype.age = 19;     /*优先级最二*/
+			Object.prototype.age = 20;   /*优先级最三*/
+			
+			var num = new Func();
+			console.log(num.age);        //18
+			
+			
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">面向对象与原型</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<p class="paragraph">ECMAScript有两种开发模式：1.函数式(过程化)，2.面向对象(OOP)。面向对象的语言有一个标志，那就是类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。</p>
+				<h4 class="small_title">什么是函数式(过程化)</h4>
+				<p>简单，那就是我们之前一直在用的方法比如：</p>
+				<img src="./js-img/guochengshi.png" alt="">
+				<h4 class="small_title">什么是面向对象</h4>
+				<p class="paragraph">一句话就是用对象的思想去写代码，就是面向对象编程（迷茫？？我们接着往下看），回顾一下之前创建对象的方式。</p>
+				<img src="./js-img/xitongObj.png">
+				<!---->
+				<h3 class="title">面向对象的组成</h3> 
+				<div class="point_content">
+					<div class="box">
+						<ul>
+							<li><em>属性</em>——变量：状态、静态的</li>
+							<li><em>方法（行为、操作）</em>——函数：过程、动态的</li>
+						</ul>
+					</div>
+					<p class="paragraph">创建一个对象，然后给这个对象新建属性和方法。</p>
+					<img src="./js-img/objectCompose.png" alt="">  
+					<p >上面的方式有个缺点，想创建一个类似的对象，就会产生大量的代码。这时候我们就用到了面向对象中的封装函数，人们习惯把他叫做工厂方法。</p>                  
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">工厂方法</h3>
+				<img src="./js-img/gongc.png">
+				<p class="paragraph">但是上面的方法和我们最开始的new Tab()看上去没有太多的关系，是吗？答案是否定的,我们可以把上面的代码改写成下面这样这就是我们通常说的构造函数。</p>
+				<img src="./js-img/construct.png">
+				<p>构造函数和普通函数的<em>区别</em>：</p>
+				<div class="box">
+					<ul>
+						<li>1.没有显式的创建对象</li>
+						<li>2.将属性和方法赋给力this对象</li>
+						<li>3.没有return语句</li>
+					</ul>
+				</div>
+				<p class="paragraph">构造函数的方法有一些规范：</p>
+				<div class="box">
+					<ul>
+						<li>1.函数名大写，(非强制，但这么写有助于区分构造函数和普通函数)；</li>
+						<li>2.通过构造函数创建对象，必须使用new运算符实力化才能运行里面的代码。</li>
+					</ul>
+				</div>
+				<p>同样的上面的方法也一样的存在着缺陷， 比如</p>
+				<img src="./js-img/quote.png">
+				<!--<p>这个有什么关系啦？看下面</p>-->
+			</section>
+			<section class="onePoint">
+				<h3 class="title">对象的引用</h3>
+				<div class="point_content">
+					<img src="./js-img/basic.png"><br>
+					<img src="./js-img/quote1.png" alt=""><br>
+					<img src="./js-img/quote2.png" alt=""><br>
+					<img src="./js-img/address.png" alt="">
+					<p>这个和我们上面说的缺陷有什么关系啦？大家想一想，如果我们new出一百个构造函数（那岂不是要用100个来存地址），那岂不是很占内存。</p>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">原型</h3>
+				<img src="./js-img/prototype2.png" alt=""><br>
+				<img src="./js-img/arrSum.png"><br>
+				<img src="./js-img/arrPrototype.png">
+				<p class="paragraph">但是不要在系统对象上去改变系统自带的方法？比如Array.prototype.push = function{},这就是改变了系统的方法，这样再去使用push方法就会有问题.</p>
+				<p class="paragraph">如果一个对象下出现相同的属性怎么办？他们优先级是怎么样的。</p>
+				<img src="./js-img/prototypeLian.png" alt="">
+				<p class="pargraph">为什么New出来的对象调用的是4啦？看下面</p>
+			</section>
+			<section class="onePoint">
+
+				<h3 class="title">原型链</h3>
+				<div class="point_content">
+					<p class="paragraph">每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念（背诵）。由于理论比较空洞，我们先来看一下原型继承的写法。</p>
+					<img src="./js-img/prototypeWrite.png" alt="">
+					<p>通过上面的继承的列子再来结合下图：</p>
+					<img src="./js-img/prototype.png" alt="">
+					<p class="paragraph">在原型模式声明中，多了两个属性，这两个属性都是创建对象时自动生成的。__proto__属性是实例指向原型对象的一个指针，它的作用就是指向构造函数的原型属性constructor。通过这两个属性，就可以访问到原型里的属性和方法了</p>
+				</div>
+
+			</section>
+			
+		</article>
+	</body>
+</html>

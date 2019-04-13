@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<h2 class="article-title">state和生命周期</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">state</h3>
+				<div class="point_content">
+				    <p class="paragraph">下面我们来看一下state,比如说我们要做一个显示时间的功能</p>
+                    <img src="./react-img/noState.png" alt="">
+                    <p>上面的代码是不是特别的费劲，也特别的js,来我们用react的方式来做一个这样的功能</p>
+                    <img src="./react-img/state1.png" alt="">
+                    <p>看上去还好像没有效果啊，等等我们来看一下组件的生命周期</p>
+				</div>
+			</section>
+			<section class="onePoint">
+			    <h3 class="title">组件的生命周期</h3>
+			    <div class="point_content">
+			       <p>每个组件都有几个“生命周期方法”,下面我们就来一一的看一下这些方法</p>
+			       <h4 class="small_title">1、第一次渲染</h4>
+			       <p>也就是说，当创建组件的实例并将其插入到DOM中时，下面的方法将依次被调用</p>
+			       <div class="box">
+			           <ul>
+			               <li>constructor()：用到这方法时需要调用super(props)；否则，this.props将在构造函数中未定义，这可能导致错误。初始state也应该在这里设置</li>
+			               <li>componentWillMount()</li>
+			               <li>render()：将组件渲染到页面</li>
+			               <li>componentDidMount():对DOM节点进行操作</li>
+			           </ul>
+			       </div>
+			       <h4 class="small_title">2、数据有更新</h4>
+			       <p>更新可能是props或state的改变引起的。当重新渲染组件时，将调用这些方法：</p>
+			        <div class="box">
+			           <ul>
+			               <li>componentWillReceiveProps():this.props有变化或更新时将会调用这个方法，this.state有变化时不会执行该方法。</li>
+			               <li>shouldComponentUpdate()：有数据更新时，规定页面是否需要跟新，return true表示允许更新；return false表示不更新，那下面的几个方法将不会再执行了。</li>
+			               <li>componentWillUpdate():不能再这里执行this.setState()</li>
+			               <li>render()</li>
+			               <li>componentDidUpdate()</li>
+			           </ul>
+			       </div>
+			       <h4 class="small_title">3、卸载</h4>
+			       <p>当从DOM中删除组件时，将调用此方法：</p>
+			       <div class="box">
+			           <ul>
+			               <li>componentWillUnmount()</li>
+			           </ul>
+			       </div>
+			       <h4 class="small_title">错误处理</h4>
+			        <p>当渲染，生命周期方法或任何子组件的构造函数中出现错误时，将调用此方法。(一般来说很少用)</p>
+			        <div class="box">
+			           <ul>
+			               <li>componentDidCatch()</li>
+			           </ul>
+			       </div>
+			       <p>看完上面的生命周期的方法后，我们来完成前面的时间的例子</p>
+			       <img src="./react-img/state2.png" alt="">
+			    </div>
+			</section>
+		</article>
+	</body>
+</html>

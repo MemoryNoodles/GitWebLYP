@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            .wrap{width:400px; 
+                margin:20px auto;
+            }
+            .wrap:after{
+                content:'';
+                clear: both;
+                display:block;
+                height:0;
+            }
+            #box{width:300px; height:300px;
+                border:1px solid #c91b1b;
+                position: relative;
+                overflow: hidden
+            }
+            #box img{
+                position: absolute;
+            }
+            .left{float:left; width:300px}
+            .right{float:right;width:80px;margin-left:20px; text-align: center;}
+            .right button{
+               margin:5px 0;
+            }
+            .opeart{display:flex; margin:20px 0;}
+            .opeart div{flex:1; text-align: center; width:50%;
+               color:white; padding:5px 0;margin:0 10px;;
+            }
+            /*  .checkInImg{background:url('./img/upImg.png') no-repeat;}*/
+            #checkInImg{position:relative; background: #1daa43; 
+               
+            }
+            #checkInImg input{opacity:0; filter:alpha(opacity=0);
+                position: absolute; left:0;
+                width:100%;    
+            }
+            #checkOut{position:relative; background: #1d84aa;}
+            #generateImg img{float:left;width:200px;}
+            #generateGif{position:fixed; bottom:50px; background: #ba9b19;                 color:white; text-align: center;
+                       width:300px; left:calc(50% - 150px);
+                      padding:10px 0; 
+            }
+            .mask{ position: fixed;background: rgba(0,0,0,0.4);
+                left:0; top:0; right:0; bottom:0;
+                display:none;        
+                z-index: 99988;
+            }
+            .mask div{
+                width:300px; 
+                height:300px;
+                position: absolute;
+                top:calc(50% - 150px);
+                left:calc(50% - 150px);    
+                z-index:99999;
+                background:white;
+            }
+            .mask div img{
+                 position: absolute;
+                 z-index:99999;
+            }
+           /* .mask div img{width:400px; }*/
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="left">
+                <div id="box">    
+                </div>
+                <div class="opeart">
+                    <div id="checkInImg">导入图片<input id="file"  accept=".gif,.jpg,.jpeg,.png" type="file"></div>
+                    <div id="checkOut">生成图片</div>
+                </div>
+            </div>
+            <div class="right">
+                <button id="Lrotate">顺旋转</button>
+                <button id="Rrotate">逆旋转</button>
+            </div> 
+        </div>
+        <div id="generateImg"></div>
+        <div id="generateGif">生成gif</div>
+        <div class="mask" id="mask">
+            <div></div>
+        </div>
+
+<script src="./gif/html2canvas.min.js"></script>
+<script src="./gif/public.js"></script>
+<script src="./gif/gif.js"></script>
+<script src="./gif/gif.worker.js"></script>
+<script>
+
+    var oFile = $('file');
+    var nowImg,   //当前选择图片
+        aImg,     //图片总数
+        num = 0;
+    /*缩略图*/
+    oFile.onchange = function(e){
+        //如果没有选择图片则返回
+        if(!this.files[0]) return 
+        
+         e.stopPropagation();
+        //去掉class,保证导入的图片可编辑
+        aImg =  $('box').getElementsByTagName('img');
+        if(aImg.length > 0){
+            for(var j=0; j<aImg.length; j++){	
+                 delCls(aImg[j], 'active');
+            }
+        }
+        
+        //渲染成base64
+        var reader = new FileReader(), url;
+        reader.readAsDataURL(e.target.files[0])
+        reader.onload = (function (file) {
+            return function (e) {
+                url = this.result; //base64数据
+                innerImg();
+            };
+        })(e.target.files[0]);
+       
+
+        //生成图片
+        function innerImg(){
+              num++; //层级依次增加
+              $('box').innerHTML += '<img class="active"' +
+              'style="z-index:'+num+'; transform:rotate(0deg);"'  +
+              'src="'+ url +'"' +
+              'alt="">';
+            
+            
+            //赋值拖拽事件
+            dragImg()
+
+            //给图片添加点击事件-》可以切换编辑
+            tab();
+        }
+        
+       
+    }
+    
+    //img的class为active的可拖拽
+    function dragImg(){         
+        nowImg = $('box', 'active');
+        nowImg.onmousedown = function (ev) {
+            drag(nowImg, $('box'), ev)
+        }
+    }
+    
+    /*图片的缩放*/
+    function scrollFunc(e) {
+        if( !nowImg ) return;
+        
+        e = e || window.event;
+        if (e.wheelDelta) {       //IE/Opera/Chrome
+            var scale = (e.wheelDelta > 0?5:-5);           
+            nowImg.style.width = parseFloat(getStyle(nowImg, 'width'))+scale+'px' ;
+        } 
+        else if(e.detail) {      //Firefox
+            var scale = (e.detail > 0?5:-5);           
+            nowImg.style.width = parseFloat(getStyle(nowImg, 'width'))+scale+'px' ;
+        }
+    }     
+    if(document.addEventListener){
+        /*火狐比较特立独行*/
+        document.addEventListener('DOMMouseScroll',scrollFunc,false);
+    }
+    //其他浏览器
+    window.onmousewheel=document.onmousewheel=scrollFunc;
+    
+    /*
+       切换class
+    */
+    function tab(){  
+        var zIndex = 0, nowIndex=0;
+        for(var i=0; i<aImg.length; i++){		
+            //得到最大层级:确保多次操作后依然没有问题
+             if( parseInt(aImg[i].style.zIndex) > zIndex ){
+                  zIndex = parseInt(aImg[i].style.zIndex)
+              }
+            
+            aImg[i].onclick = function(e){
+                for(var j=0; j<aImg.length; j++){	
+                    delCls(aImg[j], 'active');                   
+                    //得到最大层级
+                    if( parseInt(aImg[j].style.zIndex) > zIndex ){
+                        zIndex = parseInt(aImg[j].style.zIndex)
+                    }      
+                }
+                
+                addCls(this, 'active'); 
+                this.style.zIndex = zIndex + 1;
+                dragImg()
+                e.stopPropagation();
+                return false;
+            }
+        }
+    }
+    document.onclick = function(){
+        if(!aImg) return;
+       if(aImg.length > 0){
+            for(var j=0; j<aImg.length; j++){	
+                 delCls(aImg[j], 'active');
+            }
+        }
+    }
+    /*旋转*/
+    $('Lrotate').onclick = function(e){
+        e.stopPropagation();
+        nowImg = $('box', 'active');
+        var str = nowImg.style.transform;
+        var rotate =  str.substr( str.indexOf('(')+1, str.indexOf(')') );
+        nowImg.style.transform = 'rotate('+ (parseInt(rotate) + 5) +'deg)'; 
+    }
+    $('Rrotate').onclick = function(e){
+        e.stopPropagation();
+        nowImg = $('box', 'active');
+        var str = nowImg.style.transform;
+        var rotate =  str.substr( str.indexOf('(')+1, str.indexOf(')') );
+        nowImg.style.transform = 'rotate('+(parseInt(rotate) - 5)+'deg)';
+    }
+    /*
+       生成图片
+    */
+    $('checkOut').onclick = function(){
+        html2canvas($('box'), {
+            onrendered: function(canvas) {
+                var data=canvas.toDataURL("image/png");//生成的格式
+                $('generateImg').innerHTML +=  '<img  src="'+ data +'" alt="">';
+            }
+        });
+    }
+    /*
+      生成GIF
+    */
+    var oDiv = $('mask').getElementsByTagName('div')[0]
+    $('generateGif').onclick = function(){
+        var aToImg =  $('generateImg').getElementsByTagName('img');
+        if(aToImg.length > 0){
+             var gif = new GIF({
+                  workers: 5,
+                  quality: 5,
+                  workerScript:"gif/gif.worker.js",
+                  background:"white",
+                  transparent:"transparent",
+                  width:300,
+                  height:300,
+                });
+
+                // 增加图片
+               for(var i=0; i<aToImg.length; i++){
+                    gif.addFrame(aToImg[i]);
+               }
+               //生成图片
+               gif.on('finished', function(blob) {
+                   
+                    $('mask').style.display = 'block';
+                    oDiv.innerHTML = '<img src="'+ URL.createObjectURL(blob) +'">'
+                
+                });
+
+                gif.render();
+        
+     }
+ }
+    
+</script>
+
+</body>
+</html>

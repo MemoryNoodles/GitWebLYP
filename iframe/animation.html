@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style>
+        
+        section{ width:150px; height: 150px; background:blue; 
+                 animation:myMove 1s ease 0.2s  2 normal;
+                 -webkit-animation:myMove 2s ease 0.2s  2 normal;
+        }
+        @keyframes myMove{
+            10%{ width:300px }
+            30%{ height:300px; background:green; }
+            50%{ width:400px; opacity:0.5; }
+            80%{ height:200px; opacity: 1 }
+            100%{ height:150px; background:blue; }
+        }
+        @-webkit-keyframes myMove{
+            10%{ width:300px }
+            30%{ height:300px; background:green; }
+            50%{ width:400px; opacity:0.5; }
+            80%{ height:200px; opacity: 1 }
+            100%{ height:150px; background:blue; }
+        }
+        @-moz-keyframes myMove{
+            10%{ width:300px }
+            30%{ height:300px; background:green; }
+            50%{ width:400px; opacity:0.5; }
+            80%{ height:200px; opacity: 1 }
+            100%{ height:150px; background:blue; }
+        }
+        
+    </style>
+</head>
+<body>
+   <section></section> 
+</body>
+</html>

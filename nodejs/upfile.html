@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>开发环境</title>
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">上传文件</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">模块</h3>
+                <div class="point_content"> 
+                  <h4 class="small_title">formidable</h4>
+                   <div class="box">
+                       <dl>
+                           <dt>new formidable.IncomingForm()</dt>
+                           <dd>创建新的传入表单</dd>
+                           <dt>form.encoding = 'utf-8';</dt>
+                           <dd>设置传入表单字段的编码。</dd>
+                           <dt>form.uploadDir = "文件路劲";</dt>
+                           <dd>设置放置文件上传的目录。<!--可以使用fs.rename（）移动它们。--></dd>
+                           <dt>form.keepExtensions = 布尔值</dt>
+                           <dd>true表示显示扩展名，false表示不显示扩展名。默认值为false</dd>
+                           <dt>form.maxFieldsSize = 2 * 1024 * 1024;</dt>
+                           <dd>设置默认上传文件的大小为2MB，超过报错</dd>
+                           <dt>form.multiples = 布尔值</dt>
+                           <dd>true能上传多张图片，false则为一张</dd>
+                           <dt>form.parse(request, function(err, fields, files){});</dt>
+                           <dd>解析传入的包含表单数据的node.js请求。 如果提供了cb，则会收集所有字段和文件并将其传递给回调：</dd>
+                          <!-- <dt></dt>
+                           <dd></dd>-->
+                          
+                       </dl>
+                   </div>
+                   <p class="paragraph"><em>利用搭建的服务器上传文件</em></p>
+                </div>
+
+            </section>
+           
+        </article>
+    </body>
+</html>

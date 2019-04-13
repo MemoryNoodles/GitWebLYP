@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>时间与日期</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+
+			var d = new Date();
+			var year = d.getFullYear();                //得到当前年
+			
+			var month = d.getMonth() + 1;                  //得到当前月	
+			    month = month < 10 ? '0' + month : month;  //补0操作
+			
+			var day = d.getDate();                         //得到当前日期	 
+			    day = day < 10 ? '0' + day : day;          //补0操作
+			
+			console.log(year + '-' + month + '-' + day);  //拼接得到当前时间       
+
+			/*例外*/
+			console.log(Date.now());                  // 获取日期的毫秒数，
+
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">时间与日期</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">Date类型</h3>
+				<div class="point_content">
+					<p class="paragraph">ECMAScript中的Date类型是在早期Java中java.util.Date类基础上构建的。为此，Date类型使用UTC(Coordinated Universal Time，国际协调时间 [ 又称世界统一时间 ])1970年1月1日午夜( 零时 )开始经过的毫秒来保存日期。在使用这种数据存储格式的条件下，Date类型保存的日期能够精确到1970年1月1日之前或之后的285616年。</p>
+					<img src="./js-img/newDate.png" alt="">
+				</div>
+				<p>输出今天的日期，以YYYY-MM-DD的方式</p>
+				<img src="./js-img/getTime.png" alt="">
+				
+			</section>
+			<section class="task">
+			    <p>抢购倒计时功能</p>
+			</section>
+		</article>
+	</body>
+</html>

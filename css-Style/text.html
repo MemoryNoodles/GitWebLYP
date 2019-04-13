@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">  
+        <style>
+
+            .wordSpacing{ word-spacing: 20px; }
+            .letterSpacing{ letter-spacing:10px; }
+
+            .ellipsis{ text-overflow: ellipsis;
+                        width:300px; 
+                        overflow: hidden;  
+                        white-space: nowrap
+            }
+
+        </style>  
+    </head>
+    <body>
+        <h2 class="article">文本样式设置</h2> 
+        <div class="wrap">
+            <section class="onePoint">
+                <p class="title">文本的居中方式“text-align”</p>
+                <p class="paragraph">属性用于控制“行内块元素”或“块元素”内“行内元素”（文本元素）的居中方式的，包含三个值：</p>
+                <div class="box">
+                    <dl>
+                        <dt>left（默认）</dt>
+                        <dd>文本左对齐</dd>
+                        <dt>center</dt>
+                        <dd>文本居中对齐</dd>
+                        <dt>right</dt>
+                        <dd>文本右对齐</dd>
+                        <dt>justify</dt>
+                        <dd>两端对齐</dd>
+                    </dl>
+                </div>
+                <p>IE中要使用text-align-last:justify,但是他要生效，就必须先定义text-align:justify</p>
+                <img src="./css-img/text-align.png" alt="">
+            </section>
+            <section class="onePoint">
+                <p class="title">段落首行缩进“text-indent”</p>
+                <p class="paragraph">该属性是用于“行内元素”设置每个段落首行缩进数量值的属性，CSS字体大小（font-size）可以设置的数值和单位在该属性的值中都可以使用（除了百分比）。如果是用于中文布局，一般会使用“2em”的数值和单位来为每个段落的首行缩进“两个字符”。这个属性的常用的属性值有：</p>
+                <div class="box">
+                    <ul>
+                        <li>em</li>
+                        <li>px</li>
+                        <li>rem</li>
+                    </ul>
+                </div>
+                <img src="./css-img/text-indent.png" alt="">
+            </section>
+            <section class="onePoint">
+                <p class="title">文本装饰线“text-decoration”</p>
+                <p class="paragraph">该属性是为文本上添加一根装饰线，带"href"属性的<a>标签默认会带有一根下划线，就是由该属性的值“underline”设置的。“text-decoration”属性有以下值：</p>
+                <div class="box">
+                    <dl>
+                        <dt>none（默认）</dt>
+                        <dd>不显示任何装饰线</dd>
+                        <dt>underline</dt>
+                        <dd>在文本下方显示装饰线</dd>
+                        <dt>overline</dt>
+                        <dd>在文本上方显示装饰线</dd>
+                        <dt>line-through</dt>
+                        <dd>在文本中间显示装饰线，相当于删除线</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">英文字母大小写转换“text-transform”</p>
+                <div class="box">
+                    <dl>
+                        <dt>none（默认）</dt>
+                        <dd>保持文本中英文单词的默认大小写</dd>
+                        <dt>capitalize</dt>
+                        <dd>每个英文单词首字母为大写字母，其它为小写字母</dd>
+                        <dt>uppercase</dt>
+                        <dd>将所有英文单词转换为大写字母</dd>    
+                        <dt>lowercase</dt>
+                        <dd>将所有英文单词转换为小写字母</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">段落文本行高“line-height”</p>
+                <p class="paragraph">该属性是用于设置“行内元素”中文本元素在一行中所占据的高度，可以使用的值也和字体大小设置一样，而且同样能够使用百分，或不带单位的浮点数（“1”表示“100%”，“1.5”表示“150%”，以此类推）。该属性除字面上的意思外，很多时候还有一个小妙用，就是当文本元素只有一行时，可以将该行的文本行高设为和父容器元素高度一致，以此到达文本垂直居中的效果。使用场景如：表格、导航按钮、自定义样式按钮、标题栏等。</p>
+            </section>
+            <section class="onePoint">
+                <p class="title">单词的间距word-spacing和字符间的间距letter-spacing</p>
+                <p class="paragraph"><code>word-spacing</code>：属性用于设置英文单词之间的间距，中文则是设置文本中空格的距离，单位为Web技术的常用度量单位，如“px”，“em”，“rem”等，可以为负数。</p>
+                <p class="paragraph"><code>letter-spacing</code>:属性是用于控制字符间的间距，即无论单词或词语中含有空格（word-spacing属性对空格字符无效），该属性都会生效，单位同样为Web技术的常用度量单位，同样为可以为负数。</p>
+                <img src="./css-img/spacing.png" alt="">
+                <p class="paragraph">运行效果：</p>
+                <div class="box">
+                    <p class="wordSpacing">我是word-spacing控制的Attribute is used to set the spacing between words</p>
+
+                    <p class="letterSpacing">我是letter-spacing属性控制的：用于控制字符间的间距</p>
+                    <p class="letterSpacing">Attribute is used to control the spacing between the characters</p>
+                </div>
+
+            </section>
+            <section class="onePoint">
+                <p class="title">空格换行处理“white-space”</p>
+                <p class="paragraph">该属性设置如何处理元素内的空格符和换行符，它主要有以下值：</p>
+                <div class="box">
+                    <dl>
+                        <dt>normal（默认）</dt>
+                        <dd>由浏览器处理空格和换行</dd>
+                        <dt>pre</dt>
+                        <dd>段落里所有的空格符和换行符都会被保留（类似于&lt;pre&gt;标签）</dd>
+                        <dt>nowrap</dt>
+                        <dd>段落内的文本不会换行（类似于没有设置过换行的“notepad”）</dd>
+                        <dt>pre-wrap</dt>
+                        <dd>段落里所有的空格符序列和换行符序列都会被保留（除了在某些编码格式下和“pre”有所差距，大多数时候可以说它和“pre”这个值是等价的）</dd>
+                        <dt>pre-line</dt>
+                        <dd>多空格会合并成一个，但换行符会保留</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">文本的裁切“text-overflow”</p>
+                <p class="paragraph">该属性规定当文本溢出包含元素时进行的处理。该属性主要包含两个值：</p>
+                <div class="box">
+                    <dl class="attrExplain">
+                        <dt>clip</dt>
+                        <dd>(默认)，裁剪文本</dd>
+                        <dt>ellipsis</dt>
+                        <dd>显示省略符号来代表被裁剪的文本</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/ellipsis.png" alt="">
+                <div class="box">
+                    <p class="ellipsis">朝辞白帝彩云间，千里江陵一日还。两岸猿声啼不住，轻舟已过万重山。</p>
+                </div>
+
+            </section>
+        </div>
+    </body>
+</html>

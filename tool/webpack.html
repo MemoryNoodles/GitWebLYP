@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/prism.css">
+	</head>
+	<body>
+		<h2 class="article-title">webpack的安装</h2>	
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">webpack初级</h3>
+				<div class="point_content">
+					<h4 class="small_title">安装webpack</h4>
+					<p>1、<cmd>cnpm install webpack -g</cmd>可以简写为<cmd>cnpm i webpack -g</cmd></p> 
+					<p class="paragraph">创建项目<cmd>cnpm init</cmd></p>
+					<p class="paragraph">注入依赖<cmd>cnpm install "模块名" --save-dev</cmd></p>
+					<div class="box">
+						<ul>
+							<li>--save依赖</li>
+							<li>-dev开发环境要用到的东西</li>
+						</ul>
+					</div>
+					<h4 class="small_title">安装加载器</h4>
+					<cmd>cnpm install css-loader style-loader --save-dev</cmd>
+				</div>
+
+			</section>
+
+			<section class="onePoint">
+				<h3 class="title">webpack服务器的安装(实现自动刷新)</h3>
+				<div class="point_content">
+					<p>npm install webpack-dev-server --save-dev安装webpack服务器</p>
+					<p>webpack && webapck-dev-server --hot --inline进行webpack打包并启动一个webpack服务器 --hot --inline自动刷新</p>
+					<p>进行了上面的安装后需要在package.json的scripts中加上start:webpack && webpack-dev-server --hot --inline（打包加开启服务） 有了这句话启动服务只需要npm start，ctrl+c可以终止服务。<!--在后面加上--content-base可以更改服务器访问的根目录--></p>
+					<p>如果出错可能是端口号被占用：修改端口号webpack-dev-server --port 8021</p>
+					<p class="paragraph">样式中要加载其他的文件需要安装url-loader和file-loader{ test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'}</p>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">配置config文件</h3>
+				<div class="point_content">
+					<img src="./react-img/baseConfig.png" alt="">
+					<p>打包webpack 文件名/js文件名 打包成的文件夹/打包成js文件名</p>
+				</div>
+			</section>
+            <section class="onePoint">
+				<h3 class="title">进阶</h3>
+				<div class="point_content">
+					<p>实现js、css图片压缩</p>
+<pre>
+    <code class="language-js">
+        var webpack = require('webpack');
+        //剥离css
+        var extractText = require('extract-text-webpack-plugin');
+        //把剥离出来的多个css文件打包成style.css,
+        var css = new extractText('style.css');
+
+        //css压缩
+        var optimize = require("optimize-css-assets-webpack-plugin");
+        var compress  = new optimize();
+
+        //压缩js
+        var js = new webpack.optimize.UglifyJsPlugin({
+            comments:false,   //去掉注释
+            compress:{
+                warnings:false  //去掉警告
+            }
+        })
+
+        <!--下面的loader部分-->
+         {
+            test:/.css$/,
+            loaders:extractText.extract({
+                fallback:"style-loader",
+                use:'css-loader'
+            })
+        },
+        {
+            test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+            loaders: [
+                'url-loader?limit=20000&name=[path][name].[ext]',
+                'img-loader'
+            ]
+        },
+    </code>
+</pre>
+					<!--<img src="./react-img/UglifyjsCSS.png" alt=""/>
+					<img src="./react-img/UglifyjsCSS2.png" alt=""/>-->
+					<p>完了吗？没有。懒得写了听讲吧！</p>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">安装babel</h3>
+				<div class="point_content">
+					<cmd>npm install babel-cli -g</cmd>
+					<p class="paragraph">把依赖写入 package.json<cmd>npm install babel-cli --save-dev
+						</cmd></p>
+					<h4 class="small_title">使用babel-preset-env</h4>
+					<p class="paragraph"><cmd>npm install  babel-preset-env  --save-dev</cmd></p>
+					<p class="paragraph">在目录下创建.babelrc文件，设置为{"presets": ["env"]}
+					</p>
+					<p class="paragraph">单个转换命令：</p>
+					<div class="box">
+						<ul>
+							<li>
+							  <cmd>babel 要打包的js文件路径  --out-file 打包成的文件路径</cmd></li>
+							<li><cmd>babel 要打包的js文件路径  -o 打包成的文件路径</cmd></li>
+						</ul>
+					</div>
+					<p>按照上面的方式，就必须每次写完代码都要执行以下cmd命令，有没有简单一点的方式？还是有的，就是在命令的最后面加上--watch快马上试一下。</p>
+					<p>如果想生成Source Map（资源映射）这样写<cmd>babel ./js/index.js(自己需要编译的文件路劲) -o ./pack/pack.js(编译后的文件) -s --watch</cmd></p>
+					<p class="paragraph">整个目录转码：</p>
+					<div class="box">
+						<ul>
+							<li>
+							  <cmd>babel 要打包的目录 --out-dir 打包输出的目录</cmd></li>
+							<li><cmd>babel 要打包的目录 -d 打包输出的目录</cmd></li>
+						</ul>
+					</div>
+					<p>整个目录进行转码不好的是，文件名会相同。</p>
+
+					<p>如果要简化写法,安装babel-loader加载器</p>
+                    <p><cmd>cnpm install babel-loader --save-dev</cmd></p>
+                    <img src="./es6Img/webpackBabel.png" alt="">
+                    <p class="paragraph">以后熟悉后也可以进行一次性安装比如：npm install webpack webpack-dev-server css-loader style-loader.. --save-dev。如果觉得麻烦，这时候就必须想到配置，看下图</p>
+					<img src="./react-img/webpack.png" alt=""/>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">webpack结合babel</h3>
+				<div class="point_content">
+					<p class="paragraph">需要注意的一点是要生产映射文件要在webpack.config.js文件中加上devtool:"#cheap-module-eval-source-map",这是7种模式中最好用的一种</p>
+				</div>
+
+			</section>
+			<section class="onePoint">
+			    <h3 class="title">安装react模块</h3>
+			    <div class="point_content">
+			      <p><cmd>cnpm install react react-dom babel-preset-react &#45;&#45;save-dev</cmd></p>
+			      <p>在babelrc文件里加入react{"presets": ["env","react"]}</p>
+			    </div>
+			</section>
+			<section class="onePoint">
+			    <p>bundle-loader/react-loadable</p>
+			</section>
+		</article>
+		<script src="./jsFile/prism.js"></script>
+		
+	</body>
+</html>

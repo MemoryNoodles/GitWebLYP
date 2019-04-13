@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">deferred</h2>
+        <article class="wrap">
+            <!--deferred-->
+            <section class="onePoint">
+                <h3 class="title">deferred</h3>
+                <div class="point_content">
+                    <p class="paragraph">传统的异步编程会带来的一些问题，比如</p>
+                    <div class="box">
+                        <ul>
+                            <li>深度嵌套</li>
+                            <li>回调地狱</li>
+                        </ul>
+                    </div>
+                    <p>我们需要一个更好的规范，那就是Promise规范,我们先来看一个简单的列子</p>
+                    <img src="./jqueryImg/promise.png" alt="">
+                    <img src="./jqueryImg/doneFail.png" alt="">
+                    <p>其实和上面的方法不同的还有一个always方法，这个就是不管你的请求成不成功都会执行里的方法。</p>
+                    <p>下面我们来看一下promise的真正用处。</p>
+                    <img src="./jqueryImg/newPromise.png" alt="">
+                    <p>promise成功的解决了原始ajax中的问题：深度嵌套；用promise可以把所有的请求以列表的形式展现出来。看起来不累。</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">$.when的用法</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/when.png" alt="">
+                </div>
+                <p>如果两个请求都成功了，就运行then()里的函数；如果有一个失败或都失败了，就不会报错。</p>
+            </section>
+
+        </article>
+    </body>
+</html>

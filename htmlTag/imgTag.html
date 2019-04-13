@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="ico shortcut" href="./html-img/favicon.ico">    
+    <link rel="stylesheet" href="./css/common.css">
+    <title>img标签</title>
+</head>
+<body>
+  <h2 class="article-title">img标签</h2>  
+  <div class="wrap">
+     <div class="onePoint">
+         
+         <p class="title">用img标签显示图片</p>
+         <p class="paragraph seq"><strong>1</strong>、<code>src</code>是图片的必要属性，通过将该属性的值设置为硬盘或服务器地址上图片的绝对路径或HTML页面和图片间的相对路径即可显示指定图片。</p>
+         <img src="./html-img/imgTag-beatif.png" alt="">
+         <p class="paragraph">运行效果：</p>
+         <img src="./html-img/beatiful.jpg" alt="">
+         <!--alt属性   -->
+         <p class="paragraph seq"><strong>2</strong>、<code>alt</code>属性，就是在网速很差、图片太大、图片引用错误的时候，图片没法显示；如果加了alt属性，图片上就会显示alt的属性值；</p>
+         <img src="./html-img/img-alt.png" alt="">
+         <p class="paragraph">运行效果：</p>
+         <div class="box"> <img src="./html-img/beatifu.jpg" alt="赏心悦目的风景图"> </div>
+         <!--title属性   -->
+         <p class="paragraph seq"><strong>3</strong>、<code>title</code>属性，提供图片更详细的信息，鼠标移动到图片上会显示</p>                
+         <img src="./html-img/img-title.png" alt="赏心悦目的风景图" title="赏心悦目的风景图" >
+         <p class="paragraph">运行效果：</p>
+         <div class="box"> <img src="./html-img/beatiful.jpg" alt="赏心悦目的风景图" title="赏心悦目的风景图"> </div>
+         <!--img的特别之处   -->
+         <p class="paragraph">img是一个行内块元素</p>
+         <img src="./html-img/img-inlineblock.png" alt="">
+         <p class="paragraph">运行效果：</p> 
+         <img src="./html-img/beatiful.jpg" style="width:500px; height:300px;" alt="赏心悦目的风景图" title="赏心悦目的风景图"> 
+         <img src="./html-img/beatiful.jpg" style="width:500px; height:300px;" alt="赏心悦目的风景图" title="赏心悦目的风景图"> 
+         <p class="paragraph"><mark>注意</mark>：直接在img标签内用属性的方式设置宽高width="500px" height="300px"，虽然有用，却不会显示在样式里，权重值最低。 </p>
+     </div>  
+  </div>
+</body>
+</html>

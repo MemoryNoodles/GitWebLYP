@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>3D变换及动画</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">  
+    </head>
+    <body>
+        <h2 class="article-title">3D变换及动画</h2>
+        <article class="wrap">
+
+            <section class="onePoint">
+                <p class="title">animation属性</p>
+                <p class="paragraph">下面是animation的分支属性：</p>
+                <div class="box">
+                    <dl>
+                        <dt>animation-name</dt>
+                        <dd>规定需要绑定到选择器的keyframe名称。</dd>
+                        <dt>animation-duration</dt>
+                        <dd>规定完成动画所花费的时间，以秒或毫秒计。</dd>
+                        <dt>animation-timing-function</dt>
+                        <dd>规定动画的速度曲线。</dd>
+                        <dt>animation-delay</dt>
+                        <dd>规定在动画开始之前的延迟。</dd>
+                        <dt>animation-iteration-count</dt>
+                        <dd>规定动画应该播放的次数。</dd>
+                        <dt>animation-direction</dt>
+                        <dd>规定是否应该轮流反向播放动画。</dd>
+                    </dl>
+                </div>
+                <p class="seq">animation-timing-function的属性值有下面几种：</p>
+                <div class="box">
+                    <dl>
+                        <dt>ease</dt>
+                        <dd>逐渐变慢）默认值</dd>
+                        <dt>linear</dt>
+                        <dd>（匀速）</dd>
+                        <dt>ease-in</dt>
+                        <dd>(加速)</dd>
+                        <dt>ease-out</dt>
+                        <dd>（减速）</dd>
+                        <dt>ease-in-out</dt>
+                        <dd>（先加速后减速）</dd>
+                        <dt>cubic-bezier</dt>
+                        <dd>贝塞尔曲线（ x1, y1, x2, y2 ）;（ x1, y1, x2, y2 ）的值范围在0-1之间。 </dd>
+                    </dl> 
+                </div>
+                <p class="seq">animation-iteration-count的属性值有下面几种：</p>
+                <div class="box">
+                    <ul>
+                        <li>n:定义动画播放次数的数值。</li>
+                        <li>infinite:规定动画应该无限次播放。</li>
+                    </ul>
+                </div>
+                <p class="seq">animation-direction的属性值有下面几种：</p>
+                <div class="box">
+                    <ul>
+                        <li>normal:默认值。动画应该正常播放。</li>
+                        <li>alternate:动画应该轮流反向播放。</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">调用动画</p>
+                <p class="paragraph">关键帧——@keyFrames</p>
+                <div class="box">
+                    <dl>
+                        <dt>关键帧的时间单位</dt>
+                        <dd>百分数：0%、25%、100%等</dd>
+                        <dd>字符：from(0%)、to(100%)</dd>                 
+                    </dl>
+                </div>
+            </section>
+            <!--animation的组合方式 -->
+            <section class="onePoint">
+                <p>废话少说，我们直接上代码</p>
+                <img src="./css-img/animation.png" alt="">
+                <p><a href="./iframe/animation.html" target="_blank">点击查看效果</a></p>
+            </section>
+            <!--animation-fill-mode 控制动画停留在那一针 -->
+            <section class="onePoint">
+                <p class="paragraph">如果我们想让动画停止在某一帧里那我们就需要用到animation-fill-mode;下面我们来看一下他的属性值有哪些；</p>
+                <div class="box">
+
+                    <dl>
+                        <dt>forwards</dt>
+                        <dd>当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。</dd>
+
+                        <dt>backwards</dt>
+                        <dd>在 animation-delay 所指定的一段时间内，在动画显示之前，保持开始属性值（在第一个关键帧中定义）</dd>
+
+                        <dt>both</dt>
+                        <dd>向前和向后填充模式都被应用。（什么意思？他最后的状态和animation-direction以及animation-iteration-count有关；当animation-direction的值为aternate且播放次数为偶数时他会停留在第一帧里。反之。。。）</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/animation-fill-mode.png" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/animation-fill-mode.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <!--animation-play-state 控制动画播放或停止 -->
+            <section class="onePoint">
+                <p class="title">animation-play-state</p>
+                <p class="paragraph">除了上面可以控制停留在哪一帧外，我们还可以运用animation-play-state控制动画的播放和停止，他有一下属性值：</p>
+                <div class="box">
+                    <dl>
+                        <dt>running</dt>
+                        <dd>播放动画</dd>
+                        <dt>paused</dt>
+                        <dd>停止动画</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/animation-play-state.png" alt="">
+                <div class="box">
+                    <iframe src="./iframe/animation-play-state.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">animation的完成时可以被监听</p>
+                <div class="box">
+                    <dl>
+                        <dt>Webkit内核</dt>
+                        <dd>obj.addEventListener('webkitAnimationEnd',function(){},false);</dd>
+                        <dt>firefox</dt>
+                        <dd>obj.addEventListener('animationend',function(){},false);</dd>
+                    </dl>
+                </div>
+            </section>
+            <!-- 神奇的3D变换 -->
+            <section class="onePoint">
+                <p class="title">3D变换</p>
+                <p class="paragraph">如果觉得他们的知识不够过瘾的话，我们来看一下css3的3D变换。</p>
+                <div class="box">
+                    <dl>
+                        <dt>perspective</dt>
+                        <dd>景深</dd>
+                        <dt>perspective-origin</dt>
+                        <dd>景深基点</dd>
+                        <dt>transform-style</dt>
+                        <dd>建立3D空间</dd> 
+                        <dt>Transform 新增函数</dt>
+                        <dd>rotateX()</dd>
+                        <dd>rotateY()</dd>
+                        <dd>rotateZ()</dd>
+                        <dd>scaleZ()</dd>
+                        <dd>translateZ()</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p>1、首先我们来了解一下<code>perspective</code>,他的的中文意思是：透视，视角！</p>
+                <p class="paragraph">用perspective结合translateZ可以做出近大远小的感觉。</p>
+                <img src="./css-img/perspective.png" alt="">
+                <img src="./css-img/perspective-css.png" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/perspective.html" style="height:400px" frameborder="0"></iframe>
+                </div>
+                <p><a href="./iframe/perspective-expand.html" target="_blank">查看扩展应用</a></p>
+                
+               <!--perspective的用法 -->
+               <p class="paragraph"><code>perspective</code>属性有两种书写形式，一种用在舞台元素上（动画元素们的共同父辈元素）；第二种就是用在当前动画元素上，与transform的其他属性写在一起。如下代码示例：</p>
+               <img src="./css-img/perspective-use.png" alt="">
+               <p class="paragraph"><em>他们的区别在于</em>：<em>第一个</em>是对于所有子元素进行透视，也就是他下面的所有子元素整体看上去是透视的；而<em>第二个</em>是每个元素都有一个自己的透视点，这样子每个元素看上去的效果就是一模一样了！</p>
+               <img src="./css-img/perspective-usrImg.png" style="width:500px" alt="">
+            </section>
+            <section class="onePoint">
+                <p>2、<code>perspective-origin</code>就是设置3D元素的基点位置，当为元素定义perspective-origin 属性时，其子元素会获得透视效果，而不是元素本身。浏览器支持情况差。</p>
+                <p class="paragraph">基本用法；<em>perspective-origin：center center;</em>单位可以是方位词left,right,center,bottom,top,也可以是百分号比如20%；</p>
+            
+            </section>
+            <section class="onePoint">
+                <p>3、<code>transform-style</code>属性也是3D效果中经常使用的,可以说你要让某个东西看起来立体，那就少不了transform-style，其两个参数如下，</p>
+                <div class="box">
+                    <dl>
+                        <dt>flat</dt>
+                        <dd>默认值，表示平面的</dd>
+                        <dt>preserve-3d</dt>
+                        <dd>3D透视</dd>
+                    </dl>
+                </div>
+                <p>我们还是结合示列来看一下他的用法</p>
+                <img src="./css-img/preserve-3d-html.png" alt="">
+                 <img src="./css-img/preserve-3d.png" alt="">
+                 <p>运行效果：</p>
+                 <div class="box">
+                     <iframe src="./iframe/preserve-3d.html" style="height:400px" frameborder="0"></iframe>
+                 </div>
+                 <p>作业</p>
+                 <div class="box">
+                 	<iframe src="./iframe/preserve-3d-work.html" frameborder="0"></iframe>
+                 </div>
+                 <p>其他应用</p>
+                 <img src="./css-img/transform-style.png" alt="">
+                 <div class="box">
+                 	 <iframe src="./iframe/transform-style3D.html" frameborder="0"></iframe>
+                 </div>
+            </section>
+        </article>
+        <script src="./js/common.js"></script>
+    </body>
+</html>

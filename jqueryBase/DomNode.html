@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基础DOM和CSS操作</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+
+            $(function(){
+                // $('#div').remove(); //直接删除ID为div的元素
+                // $('#div').empty();  //删除掉ID为div节点里的内容
+
+            })
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">基础DOM和CSS操作</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">DOM节点</h3>
+                <div class="point_content">
+                   <p>元素选择:</p>
+                    <div class="box">
+                        <dl>
+                            <dt>parent()</dt>
+                            <dd>父节点</dd>
+                            <dt>find()</dt>
+                            <dd>父节点</dd>
+                            <dt>children()</dt>
+                            <dd>子节点</dd>
+                        </dl>
+                    </div>
+                    <img src="./jqueryImg/parrents.png" alt="">
+                    <p>过滤操作:</p>
+                    <div class="box">
+                        <dl>
+                            <dt>parent()</dt>
+                            <dd>父节点</dd>
+                            <dt>parents()</dt>
+                            <dd>元素的所有父节点</dd>
+                        <!--    <dt>offsetParent()</dt>
+                            <dd>有定位的父节点</dd>-->
+                            <dt>siblings()</dt>
+                            <dd>兄弟节点</dd>
+                            <dt>has()</dt>
+                            <dd>$("li").has("ul"):包含后ul元素的li</dd>
+                             <dt>filter()</dt>
+                            <dd>和not()对立的</dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">创建节点</h3>
+                <div class="point_content">
+                    <p class="paragraph">为了使页面更加智能化，有时我们想动态的在html结构页面添加一个元素标签，那么在插入之前首先要做的动作就是：创建节点。</p>
+                    <img src="./jqueryImg/createNode.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">插入节点</h3>
+                <div class="point_content">
+                    <p class="paragraph">在创建节点的过程中，其实我们已经演示怎么通过.append()方法来插入一个节点。但除了这个方法之余呢，jQuery提供了其他几个方法来插入节点。</p>
+                    <h4 class="small_title">在元素内部插入节点</h4>
+                    <img src="./jqueryImg/appendAnd.png" alt="">
+                    <img src="./jqueryImg/appendAndJS.png" alt="">
+                    <img src="./jqueryImg/appendTo.png" alt="">
+                    <h4 class="small_title">在元素外部插入节点</h4>、
+                    <img src="./jqueryImg/outerAppend.jpg" alt="">
+                    <img src="./jqueryImg/outerAppendJS.png" alt="">
+
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">包裹节点</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery提供了一系列方法用于包裹节点，那包裹节点是什么意思呢？其实就是使用字符串代码将指定元素的代码包含着的意思。</p>
+                    <div class="box">
+                        <dl>
+                            <dt>wrap</dt>
+                            <dd>向指定元素包裹一层代码</dd>
+                            <dt>unwrap()</dt>
+                            <dd>移除一层指定元素包裹的内容</dd>
+                            <dt>wrapInner</dt>
+                            <dd>向指定元素的子内容包裹一层代码</dd>
+                        </dl>
+                    </div>
+                    <img src="./jqueryImg/wrap.png" alt="">
+                </div>
+            </section>
+            <section class="ontPoint">
+                <h3 class="title">节点操作</h3>
+                <div class="point_content">
+                    <div class="box">
+                        <dl>
+                            <dt>remove()</dt>
+                            <dd>删除节点</dd>
+                            <dt>empty()</dt>
+                            <dd>清空节点</dd>
+                            <dt>clone()</dt>
+                            <dd>克隆节点，参数为true则可以进行深度克隆</dd>
+                        </dl>
+                    </div>
+                    <img src="./jqueryImg/remove.png" alt="">
+                    <img src="./jqueryImg/detach.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">设置和获取元素及内容</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/htmlval().png" alt="">
+                    <img src="./jqueryImg/htmlval()JS.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">元素属性操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">除了对元素内容进行设置和获取，通过jQuery 也可以对元素本身的属性进行操作，包括获取属性的属性值、设置属性的属性值，并且可以删除掉属性。</p>
+                    <img src="./jqueryImg/attr().png" alt="">
+                    <img src="./jqueryImg/attr()JS.png" alt="">
+                    <p><em>注意：</em>对属性值为boolean值得属性<em>只能用prop和removeProp进行设置</em>;比如单选、多选框</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">元素样式操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">元素样式操作包括了直接设置CSS样式、增加CSS类别、类别切换、删除类别这几种操作方法。而在整个jQuery使用频率上来看，CSS样式的操作也是极高的，所以需要重点掌握。</p>
+                    <img src="./jqueryImg/cssOpeart.png" alt="">
+                    <img src="./jqueryImg/cssOpeartJS.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">CSS方法</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery不但提供了CSS的核心操作方法，比如.css()、.addClass()等。还封装了一些特殊功能的CSS操作方法，我们分别来了解一下。</p>
+                    <img src="./jqueryImg/widthAndHeight.jpg" alt="">
+                    <img src="./jqueryImg/widthAndHeightJS.png" alt="">
+                    <!--outerWidth-->
+                    <img src="./jqueryImg/outerWidth.png" alt="">
+                    <img src="./jqueryImg/outerWidthJS.png" alt="">
+                    <!--offset-->
+                    <img src="./jqueryImg/offset.png" alt="">
+                    <img src="./jqueryImg/offsetJS.png" alt="">
+                    <p>对象集合.position()是相对与有定位的父元素的距离，（对象集合设置为margin:0 auto会有一些问题）通常不用</p>
+
+                </div>
+
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数据缓存</h3>
+                <div class="point_content">
+                    <!--  <p>在HTML5规范中div中读取预存的data-[key]值</p>-->
+                    <img src="./jqueryImg/data.png" alt="">
+                    <p>$("div").data("test"):这个可以获取div的自定义属性</p>
+                    <p>$("div").removeData("test"):这个只能移除这样设置的数据$("div").data("test","123")，不能移除元素自身带有的自定义属性</p>
+
+                </div>
+            </section>
+            <section class="task">
+                <h3 class="title">作业</h3>
+                <div>
+                    <p>点击倒计时60时秒</p>
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

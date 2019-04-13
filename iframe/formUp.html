@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script src="../jsFile/jquery-3.1.1.min.js"></script>
+        <style>
+            body{background:#ededed; font-family: 微软雅黑; font-size:18px}
+            label{ display:block}
+            .wrap{ width:350px; margin:100px auto; }
+            .wrap label input{ margin-left:20px; border:1px solid #ccc; border-radius:3px; line-height:20px; padding:5px;}
+            .wrap label input[type = 'file']{  border:none;}
+            .wrap select{width:143px; margin-left:20px;}
+            .wrap em{ color:red;  width: 20px; display: inline-block;}
+            .wrap button{background:red; color:white; border:none; padding:2px 25px; border-radius:5px; font-size:20px;
+                  
+            }
+            .updata{text-align: center;}
+        </style>
+        <script>
+            
+           $(function(){
+               $("#update").click(function(e){
+                   console.log($('form').serialize());        //序列化表单
+                   console.log($('form').serializeArray());   //把数据整合成键值对的JSON对象。
+                   return false;
+               })
+               
+           })
+           
+        </script>
+    </head>
+    <body>
+        <section class="wrap">
+            <form>
+                <label><em>*</em>姓名：<input type="text" name="user" placeholder="请输入姓名"> </label><br>
+                <label><em>*</em>性别：<input type="radio" name="sex">男 <input type="radio" name="sex">女</label><br>
+                <label><em>*</em>头像：<input type="file"> </label><br>
+                <label><em>*</em>年龄：
+                   <select name="old">
+                    <option value ="volvo">15-20</option>
+                    <option value ="saab">20-25</option>
+                    <option value="opel">25-30</option>
+                    <option value="audi">30-40</option>
+                    </select>
+                </label><br>
+                <label><em>*</em>职业：<input type="checkbox" name="profession">前端
+                      <input type="checkbox"  name="profession">java
+                      <input type="checkbox"  name="profession">php
+                </label><br>
+                <label><em>*</em>地址：<input type="text"  name="address" placeholder="请输入地址"> </label><br>
+                <label><em>*</em>电话：<input type="text" name="tel" placeholder="请输入电话"> </label><br>
+                <div class="updata">
+                    <button id="update">提交</button>
+                </div>
+                
+            </form>
+        </section>
+    </body>
+</html>

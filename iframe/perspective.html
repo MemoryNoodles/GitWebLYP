@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            
+            
+            input{ width:400px; }
+            article{ perspective:300px;
+                width:1000px; height:300px; margin:20px auto;padding:20px 0 0;
+                background:#ccc; text-align: center;
+            }
+            section{ width:100px; height:100px; background: red; margin:0 auto;
+                transform:translateZ(50px);
+                -webkit-transform:translateZ(50px); 
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <article>
+            -100<input id="inp" type="range" min="-100" max="300" oninput="changeValue();" >300
+            <br><br><br><br>
+            <section id="box"></section>
+        </article>
+        
+    </body>
+    <script>
+        function getStyle(obj, attr){
+            if(obj.currentStyle){
+                return obj.currentStyle[attr];
+            }else{
+                return getComputedStyle(obj,false)[attr];
+            }
+        }
+        
+        var oIp = document.getElementById('inp');
+        var oSec = document.getElementById('box');
+        function changeValue(){
+            var value = oIp.value;
+            oSec.innerHTML =  'translateZ('+ value +'px)'
+            oSec.style.webkitTransform = 'translateZ('+ value +'px)'
+            oSec.style.transform = 'translateZ('+ value +'px)'
+        }
+    </script>
+</html>

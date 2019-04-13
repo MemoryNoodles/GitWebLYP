@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+
+            .wrap{ 
+                display:-webkit-box;  /* Safari */  
+                display:-moz-box;     /* Firefox  */  
+                display:box;
+                display:flex;
+                display:-webkit-flex; /* Safari */
+            }
+
+
+            .wrap {
+                /*          flex-direction: row | row-reverse | column | column-reverse;*/
+                flex-wrap:nowrap;
+                -webkit-flex-wrap:nowrap;
+            }
+            .wrap div{ flex:1; -webkit-flex:1; background: #ccc; height: 100px; margin: 20px;}
+            
+
+
+            .wrap {
+                justify-content: flex-start | flex-end | center | space-between | space-around;
+            }
+
+
+            .wrap {
+                align-items: flex-start | flex-end | center | baseline | stretch;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div>1</div>
+            <div >2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+    </body>
+</html>

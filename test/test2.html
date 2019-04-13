@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            html,body{padding:0; margin:0}
+            #myDiv{width:100px; height: 100px; background: #000; position: absolute}
+            #box{width:200px; height: 200px; background:green; margin:100px auto;}
+        </style>
+    </head>
+    <body>
+
+        <div id="myDiv" draggable="true"></div>
+        <div id="box"></div>
+        <script>
+            var oDiv = document.getElementById('myDiv');
+            var oEn = document.getElementById('box');
+            var disX,disY;
+            oDiv.ondragstart = function(ev){
+                oDiv.style.backgroundColor='blue';
+                disX = ev.clientX - oDiv.offsetLeft;
+                disY = ev.clientY - oDiv.offsetTop;  
+
+            }  
+            //拖动的时候一直改变oDiv的left与top
+            oDiv.ondrag = function(ev){     
+                oDiv.style.left = (ev.clientX - disX) + 'px';
+                oDiv.style.top =  (ev.clientY - disY) +'px';
+            }
+            //停止拖动的时候让oDiv的left和top等于当前的left与top;
+            oDiv.ondragend = function(ev){  
+                oDiv.style.left = (ev.clientX - disX) + 'px';
+                oDiv.style.top =  (ev.clientY - disY) +'px';
+
+            }
+            /* 这里就是放置元素的改变 问题很多啊*/
+            oEn.ondragenter = function(){
+                this.style.background = 'red';
+            }
+            oEn.ondragleave = function(){
+               this.style.background = 'yellow';
+            };
+            
+        </script>
+
+    </body>
+</html>

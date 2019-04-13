@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+
+            $(function(){
+                /*如果想让Ajax异步载入一段HTML内容，我们只需要一个HTML请求的url即可*/
+                $('#btn').click(function(){
+                    $('#box').load('test.html');
+                });
+                /*如果想对载入的HTML 进行筛选，那么只要在url参数后面跟着一个选择器即可。*/
+                $('#btn').click(function(){
+                    $('#box').load('test.html .wrap');
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">Ajax</h2>
+        <article class="wrap">
+            <!--Ajax概述-->
+            <section class="onePoint">
+                <h3 class="title">加载请求</h3>
+                <div class="point_content">
+                    <p class="paragraph">在Ajax异步发送请求时，遇到网速较慢的情况，就会出现请求时间较长的问题。而超过一定时间的请求，用户就会变得不再耐烦而关闭页面。而如果在请求期间能给用户一些提示，比如：正在努力加载中...，那么相同的请求时间会让用户体验更加的好一些。</p>
+                    <p class="paragraph">jQuery提供了两个全局事件，<em>ajaxStart()和ajaxStop()</em>。这两个全局事件，只要用户触发了Ajax，请求<em>开始时激活ajaxStart()</em>，请求<em>结束时激活.ajaxStop()</em>。</p>
+                    <img src="./jqueryImg/ajaxStart.png" alt="">
+                    <p><a href="ajaxTest.html" target="_blank">点击查看示例</a></p>
+                </div>
+            </section>
+            <section class="onePoint">
+                
+            </section>
+        </article>
+    </body>
+</html>

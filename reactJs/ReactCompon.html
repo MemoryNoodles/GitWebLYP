@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ReactJS组件</title>
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<h2 class="article-title">ReactJS组件</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">组件属性</h3>
+				<div class="point_content">
+					<p class="paragraph">ReactJS是基于组件化的开发，下面我们开始来学习ReactJS里面的组件，React允许将代码封装成组件（component），然后像插入普通HTML标签一样，在网页中插入这个组件。下面我们来看一下编写组件的几个方法</p>
+					<p>第一种写法</p>
+					<img src="./react-img/component1.png" alt="">
+					<p>运行效果：</p>
+					<div class="box">
+						<p class="paragraph">你好；王</p>
+					</div>
+					<p>第二种写法</p>
+					<img src="./react-img/component2.png" alt="">
+					<p>运行效果：</p>
+					<div class="box">
+						<p class="paragraph">你好；王</p>
+					</div>
+					<p><em>注意事项</em></p>
+					<div class="box">
+						<ul>
+							<li>获取属性的值用的是props.属性名</li>
+							<li>创建的组件名称首字母必须大写。</li>
+							<!--<li>为元素添加css的class时，要用className。</li>-->
+							<!--<li>组件的style属性的设置方式也值得注意，要写成style={{width: this.state.witdh}}。</li>-->
+						</ul>
+					</div>	
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">组件状态</h3>
+				<div class="point_content">
+					<p class="paragraph">组件免不了要与用户互动，React的一大创新，就是将组件看成是一个状态机，一开始有一个初始状态，然后<em>用户互动</em>，导致状态变化，从而触发<em>重新渲染UI</em> 。</p>
+					<img src="./react-img/getInitialState.png" alt="">
+					<p>运行效果：</p>
+					<div class="box">
+						<iframe src="./react-iframe/getInitialState.html" frameborder="0"></iframe>
+					</div>
+					<p>用户点击组件，会导致状态变化，this.setState方法就修改状态值，每次修改以后，自动调用 this.render方法，再次渲染组件。</p>
+				</div>
+				<p><em>注意点：</em></p>
+				<div class="box">
+					<ul>
+						<li><em>getInitialState</em>函数必须有返回值，可以是NULL或者一个对象。</li>
+						<li>访问state的方法是<em>this.state.属性名。</em></li>
+						<li>变量用<em>{}</em>包裹，不需要再加双引号。</li>
+					</ul>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">组件的生命周期</h3>
+				<div class="point_content">
+					<p>组件的生命周期分成三个状态：</p>
+					<div class="box">
+						<dl>
+							<dt>Mounting</dt>
+							<dd>已插入真实DOM</dd>
+							<dt>Updating</dt>
+							<dd>正在被重新渲染</dd>
+							<dt>Unmounting</dt>
+							<dd>已移出真实DOM</dd>
+						</dl>
+					</div>
+					<p class="paragraph">React为每个状态都提供了<em>两种处理函数</em>，<em>componentWillMount()</em>函数在进入状态之前调用，<em>componentDidMount()</em>函数在进入状态之后调用,那什么是状态？其实就时render一个在render之前执行，一个在之后，可以理解为window.onload。用一个列子来说明问题：</p>
+					<h4 class="small_title">1、componentDidMount</h4>
+					<img src="./react-img/componentDidMount.png" alt="">
+					<p>运行效果：</p>
+					<div class="box">
+						<iframe src="./react-iframe/componentDidMount.html" frameborder="0"></iframe>
+					</div>
+					<p>注意点：</p>
+					<div class="box">
+						<ul>
+							<li>为元素添加css的class时，要用<em>className</em>,随便说一句，使用id还是之前的用法。</li>
+							<li>组件的style属性的设置方式也值得注意，要写成<em>style={{width: this.state.witdh}}</em>。</li>
+							<li>单独的使用style时，属性值的设置要写成<em>style={{background:'blue'}}</em>,需要加引号。</li>
+						</ul>
+					</div>
+					<h4 class="small_title">2、componentWillMount</h4>
+					<img src="./react-img/componentWillMount.png" alt="">
+					<p>运行效果：</p>
+					<div class="box">
+						<iframe src="./react-iframe/compomemtWillMount.html" frameborder="0"></iframe>
+					</div>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>

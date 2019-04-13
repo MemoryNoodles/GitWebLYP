@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>表格</title>  
+    <link rel="shortcut icon" href="./html-img/favicon.ico">
+    <link rel="stylesheet" href="./css/common.css">
+    <script>
+       window.addEventListener("orientationchange",function(){
+           if(window.)
+           
+       })
+    </script>
+</head>
+<body>
+    <h2 class="article-title">表格</h2>
+    <article class="wrap">
+    <section>
+        <p class="title">表格的发展</p>
+        <p class="paragraph">HTML中的表格，也就是&lt;table&gt;标签对除了用于显示数据，在CSS出现以前，由于缺乏样式控制，通常是利用&lt;table&gt;标签的布局特性来进行布局的。但CSS出现以后，特别是发展到CSS2以后，基本再也不会考虑采用&lt;table&gt;标签来进行布局了。因为：</p>
+        <div class="box">
+            <ul>
+                <li>太多无意义的空标签存在</li>
+                <li>会出现一些不必要的嵌套，且嵌套会很复杂</li>
+                <li>布局不够灵活，布局变动几乎要从新进行开发</li>
+                <li>表格需要计算内容的宽度，使加载变慢</li>
+            </ul>
+        </div>
+        <p class="paragraph">
+            现在的&lt;table&gt;最多的用途也就是用来显示数据了，虽然它的加载渲染速度会偏慢，但比起&lt;div&gt;的新式布局来说，&lt;table&gt;会减少对CSS的使用，实际开发起来会更加快捷。
+        </p>
+        <p class="paragraph">
+            &lt;table&gt;的基本格式如下：
+        </p>
+        <img src="./html-img/table-init-01.png" alt="">
+        <p class="paragraph">或</p>
+        <img src="./html-img/table-init-02.png" alt="">
+        <p class="paragraph">运行结果：</p>
+        <div class="box">
+            <iframe src="./iframe/table-Effects-01.html" frameborder="0"></iframe>
+        </div>
+    </section>
+    
+    <section>
+        <p class="title">完整的table</p>
+        <p class="paragraph"><code>border</code>:设置表格的边框</p>
+        <p class="paragraph"><code>cellspacing</code>：用于设置表格单元格之间的空间或间隙，默认单位为像素（px）。</p>
+        <p class="paragraph"><code>cellpadding</code>：用于设置表格单元格与内容之间的间距，默认单位为像素（px）。</p>
+        <img src="./html-img/table-attr-01.png" alt="">
+        <div class="box">
+            <iframe src="./iframe/table-Effects-02.html" frameborder="0" scrolling=no></iframe>
+        </div> 
+    </section>
+    <section>
+        <p class="title">带样式的table</p>
+        <p class="paragraph"><code>width</code>:用于设置表格宽度（可用百分比也可用具体的像素单位,推荐有百分比）。</p>
+        <p class="paragraph"><code>height</code>：用于设置表格高度。</p>
+        <p class="paragraph"><code>bgcolor</code>：用于设置表格颜色。(只有这个属性是th、tr、td可以直接用的)(HTML5 不支持。HTML 4.01 已废弃。)</p>
+        <p class="paragraph"><code>align</code>：规定表格相对周围元素的对齐方式。(HTML5 不支持。HTML 4.01 已废弃。推荐用样式来设置)</p>
+        <p class="paragraph">关于更多table的属性请上w3cschool</p>
+        <img src="./html-img/table-attr-02.png" alt="">
+        <img src="./html-img/table-attr-03.png" alt="">
+        <div class="box">
+            <iframe src="./iframe/table-Effects-03.html" frameborder="0" scrolling=no style="height:180px; width:500px"></iframe>
+            <iframe src="./iframe/table-Effects-04.html" frameborder="0" scrolling=no style="height:180px; width:500px"></iframe>
+        </div> 
+    </section>
+    <section>
+        <p class="title">表格的跨行跨列</p>
+        <p class="paragraph"><code>colspan</code>：属性规定单元格可横跨的列数；用法：&lt;td colspan="2"&gt;&lt;/td&gt;</p>
+        <p class="paragraph"><code>rowspan</code>：属性规定单元格可横行的行数；用法：&lt;td rowspan="2"&gt;&lt;/td&gt;</p>
+        <img src="./html-img/table-attr-04.png" alt="">
+        <p class="paragraph">运行效果：</p>
+        <div class="box">
+            <iframe src="./iframe/table-Effects-05.html" frameborder="0" scrolling=no style="height:260px;" width="800px"></iframe>
+        </div> 
+        
+    </section>
+    <section>
+        <div class="task">
+            <p>本节作业</p>
+            <img src="./task/table%E5%AE%9E%E4%BE%8B.png" alt="">
+        </div>
+    </section>
+    </article>
+</body>
+</html>

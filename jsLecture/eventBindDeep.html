@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>事件绑定与深入</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <style>
+            #menu{display: none; position:absolute; border:1px solid #065d96;padding:10px; background:#ccc;}
+            #menu li{ border-bottom: 1px dashed #ccc; padding:5px 15px; }
+            #menu li a { text-decoration:none; color:#113350}
+        </style>
+        <script>
+
+            var Event = {
+                /*事件绑定*/
+                addHander:function(element, type, func){
+                    if(ele.addEventListener){
+                        ele.addEventListener(type, func, false);
+                    }else if(ele.attachEvent){
+                        ele.attachEvent('on'+type, func, false);
+                    }else{
+                        ele['on'+type] = func;
+                    }
+                },
+                /*事件解除*/
+                removeHander:function(element, type, func){
+                    if(ele.addEventListener){
+                        ele.removeEventListener(type, func, false);
+                    }else if(ele.detachEvent){
+                        ele.detachEvent('on'+type, func, false);
+                    }else{
+                        ele['on'+type] = null;
+                    }
+                },
+                /*事件对象*/
+                getEvent:function(ev){
+                    return event?ev:window.event;
+                },
+                /*获取事件目标*/
+                getTarget:function(event){
+                    return event.target || event.srcElement;  
+                },
+                /*阻止默认事件*/
+                preventDefault:function(event){
+                    if(event.preventDefault){
+                        event.preventDefault();
+                    }else{
+                        event.returnValue = false;
+                    }
+                },
+                /*阻止冒泡*/
+                stopPropagation:function(event){
+                    if(event.stopPropagation){
+                        event.stopPropagation();
+                    }else{
+                        event.cancelBubble = true;
+                    }
+                },
+
+            };
+
+            /*自定义右键菜单*/
+            window.document.oncontextmenu = function(ev){ 
+                var menu = document.getElementById('menu');
+                var disX = ev.clientX;
+                var disY = ev.clientY;
+                var winY = document.documentElement.scrollTop || document.body.scrollTop; 
+                menu.style.cssText = 'left:'+disX+'px;top:'+(disY+winY)+'px';
+                menu.style.display = 'block';
+                return false;
+            }
+            document.onclick = function(){
+                menu.style.display = 'none';
+            }
+
+            window.onbeforeunload = function(e){
+                
+               // e.returnValue = "离开";
+            }
+          
+        </script>
+    </head>
+    <body oncopy="return false" onselectstart="return false" >
+        <h2 class="article-title">事件绑定与深入</h2>
+
+        <article class="wrap" >
+            <p class="paragraph">事件绑定分为两种：一种是传统事件绑定(内联模型，脚本模型)，一种是现代事件绑定(DOM2级模型)。现代事件绑定在传统绑定上提供了更强大更方便的功能。</p>
+           <!-- <section id="menu">
+                <ul>
+                    <li><a href="">重新加载</a></li>
+                    <li><a href="#sec4">事件补充</a></li>
+                    <li><a href="">333</a></li>
+                </ul>
+            </section>-->
+            <section class="onePoint">
+                <h3 class="title">一、传统事件绑定的问题</h3>
+                <div class="point_content">
+                    <p class="paragraph">传统事件绑定有内联模型和脚本模型，内联模型我们不做讨论，基本很少去用(为什么？大家回想一下)。先来看一下脚本模型，脚本模型将一个函数赋值给一个事件处理函数</p>
+                    <img src="./js-img/onclickCOMMON.png" alt="">
+
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">二、W3C事件处理函数</h3>
+                <div class="point_content">
+                    <p class="paragraph">“DOM2级事件”定义了两个方法，用于添加事件和删除事件处理程序的操作：addEventListener()和removeEventListener()。所有DOM节点中都包含这两个方法，并且它们都接受3个参数；事件名、函数、冒泡或捕获的布尔值(true表示捕获，false表示冒泡)。</p>
+                    <img src="./js-img/addEventListener.png" alt=""><br>
+                    <img src="./js-img/addEventListenerDeep.png" alt="">
+                    <p>大家想一下想要解除绑定应该怎么写？</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">三、IE9以下事件处理函数</h3>
+                <div class="point_content">
+                    <p class="paragraph">低版本IE实现了与DOM中类似的两个方法：attachEvent()和detachEvent()。这两个方法接受相同的参数：事件名称和函数。IE9及以上的事件处理函数都符合w3c标准。</p>
+                    <p class="paragraph">在使用这两组函数的时候，先把区别说一下：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1、低版本IE不支持捕获，只支持冒泡；</li>
+                            <li>2、低版本IE添加事件不能屏蔽重复的函数；</li>
+                            <li>3、低版本IE中的this指向的是window而不是DOM对象。</li>
+                            <li>4、在传统事件上，低版本IE是无法接受到event对象的（是不是要用window.event），但使用了attachEvent()却可以，但有些区别。</li>
+                            <li>5、低版本IE的事件名称要加'on'。</li>
+                        </ul>
+                    </div>   
+                    <img src="./js-img/attachEvent.png" alt="">
+                    <p><em>如果不考虑低版本的IE，我们就直接用W3C的事件处理函数。</em></p>    
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">绑定的兼容性写法</h3>
+                <div class="point_content">
+                    <img src="./js-img/W3CIEbind.png" alt="">
+                    <!--
+<p class="paragraph">IE中的事件绑定函数attachEvent()和detachEvent()可能在实践中不去使用，有几个原因:</p>                
+<div class="box">
+<ul>
+<li>1、IE9就将全面支持W3C中的事件绑定函数；</li>
+<li>2、IE的事件绑定函数无法传递this；</li>
+<li>3、IE的事件绑定函数不支持捕获；</li>
+<li>4、同一个函数注册绑定后，没有屏蔽掉；</li>
+</ul>
+</div>
+-->
+                </div>
+            </section>
+
+            <!--
+<section class="onePoint">
+<h3 class="title">事件的兼容写法大全</h3>
+<div class="point_content">
+<p class="paragraph">大哥:能不能有点高级一点的写法？全都用function来写好累啊！</p>
+<img src="./js-img/eventComptibal.png" alt="">
+</div>
+</section>
+-->
+            <section class="onePoint" id="sec4">
+                <h3 class="title">四、事件对象的其他补充</h3>
+                <div class="point_content">
+                    <!--取消默认事件-->
+                    <h4 class="small_title">1、取消默认事件</h4>
+                    <p class="paragraph">有时我们需要阻止事件的默认行为，比如：一个超链接的默认行为就点击然后跳转到指定的页面。那么阻止默认行为就可以屏蔽跳转的这种操作，而实现自定义操作。取消事件默认行为还有一种不规范的做法，就是返回false。</p>
+                    <img src="./js-img/returnFalse.png" alt="">
+                    <p class="paragraph">虽然return false；可以实现这个功能，但有漏洞；第一：必须写到最后，这样导致中间的代码执行后，有可能执行不到return false；第二：return false写到最前那么之后的自定义操作就失效了。所以，最好的方法应该是在最前面就阻止默认行为，并且后面还能执行代码。</p>
+                    <img src="./js-img/preventDefault.png">
+                    <!--取消默认的右键菜单-->
+                    <h4 class="small_title">2、取消默认的右键菜单</h4>
+                    <p class="paragraph">上下文菜单事件：contextmenu，当我们右击网页的时候，会自动出现windows自带的菜单。那么我们可以使用contextmenu事件来修改我们指定的菜单，但前提是把右击的默认行为取消掉。</p>
+                    <img src="./js-img/personalMenu.png" alt="">
+                    <!--鼠标滚轮事件-->
+                    <h4 class="small_title">3、鼠标滚轮事件</h4>
+                    <p class="paragraph">鼠标滚轮(onmousewheel)和DOMMouseScroll，用于获取鼠标上下滚轮的距离。</p>
+                    <div class="box">
+                        <dl>
+                            <dt>onmousewheel</dt>
+                            <dd>ie/chrome/safari等..</dd>
+                            <dt>DOMMouseScroll</dt>
+                            <dd>只有火狐支持DOMMouseScroll而且必须使用监听(addEventListener)。</dd>
+                        </dl>
+                    </div>
+                    <img src="./js-img/mouseWheel.png">
+                    <p><em>思考题：他和document.onscroll的区别。</em></p>
+                    <!---->
+                   <!-- <p>离开页面事件</p>-->
+                    
+                </div>
+            </section>
+
+        </article>
+    </body>
+</html>

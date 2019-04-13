@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<style>	
+			body{font-size:18px; background: #f0f0f0;}
+			h2{text-align: center; margin:20px 0}
+			textarea{outline: none; border: none; word-wrap: break-word;}
+			.wrap{width: 600px; margin:0 auto; overflow:hidden}
+			#publishText{border:1px solid #ccc; padding:10px; height:100px; background: #ffffff;}
+			#publishText.focus{border:1px solid #fa7d3c}
+			#publishText textarea{display:block; resize:none; width:100%; height:100%;
+				font-size:16px;
+			}
+			/*发布按钮*/
+			#pubBtn button{ display:inline-block; padding:5px 20px;
+				border:1px solid #fbbd9e;
+				background:#fbbd9e; color:white; font-size:15px;
+			}
+			.mesBorad{margin:20px 0;}
+			#mesBorad li{background: #ffffff; box-shadow: 0px 0px  5px #c4c4c4; margin:10px 5px;padding:10px; }
+			#mesBorad li.del{background: #8d8d0b;}
+			#mesBorad li>div{display: table-cell; font-size:14px;}
+			#mesBorad li>div:nth-child(2){padding-left:20px;}
+			#mesBorad li>div img{width:100px; height:100px; border-radius:50%; vertical-align: top}
+			#mesBorad li>div h5{font-size:18px; font-weight: normal; }
+			#mesBorad li>div p{padding:10px 0; 	text-indent:2em;}
+
+			#delMes{background: #797979; color:white; padding:5px 15px; font-size:14px;}
+			#delMes.active{background: #6aa9c1;}
+		</style>
+		<script src="./js/public.js"></script>
+		<script>
+			window.onload = function(){
+				var oPublish = getTag('publishText', 'textarea')[0];
+				var delMes = getTag('delMes');
+				var oMesBorad = getTag('mesBorad');
+				var arrLi = getTag('mesBorad', 'li');	
+				var numDelLi = 0;
+				var oPubBtn = getTag('pubBtn', 'button')[0];
+				/*得到焦点*/
+				oPublish.onfocus = function(){
+					addCls(oPublish.parentNode, 'focus');
+				}
+				/*失去焦点*/
+				oPublish.onblur = function(){
+					delCls(oPublish.parentNode, 'focus');
+				}
+				
+				/*点击发布按钮增加留言*/
+				oPubBtn.onclick = function(){
+					//大于五条的时候删除前面的留言
+					if(arrLi.length>=5){
+						arrLi[0].parentNode.removeChild(arrLi[0]);
+					}
+					var oli = document.createElement('li');
+					oli.innerHTML = oPublish.value;
+					oMesBorad.appendChild(oli);
+					/*为新增的元素添加事件*/
+					oli.addEventListener('click', delFunc, false);
+				}
+				/*点击时增加要删除的标记*/
+				function delFunc(){
+					if(this.className){
+						numDelLi--;
+						delCls(this, 'del');
+						if(numDelLi == 0){
+							delCls(delMes, 'active');
+						}
+					}else{
+						numDelLi++;
+						addCls(this, 'del');
+						addCls(delMes, 'active');
+					}
+				}
+				
+				//点击删除按钮
+				delMes.onclick = function(){
+					if(this.className != 'right'){
+						var liWithDel = document.getElementsByClassName('del');
+						console.log(liWithDel.length);
+						for(var i=(liWithDel.length - 1); i>=0; i--){
+							liWithDel[i].parentNode.removeChild(liWithDel[i]);
+						}
+						numDelLi = 0;
+						delCls(delMes, 'active');
+					}
+				}
+			}
+		</script>
+	</head>
+	<body >
+		<h2>留言板</h2>
+		<article class="wrap">
+			<div  class="pushlish clearFix">
+				<div id="publishText">
+					<textarea></textarea>
+				</div>
+				<div class="right" id="pubBtn"><button>发布</button></div>	
+			</div>
+			<div class="mesBorad">
+				<div class="clearFix">
+					<div class="left">我的言论</div>
+					<div class="right" id="delMes">删除</div>
+				</div>
+				<ul id="mesBorad">
+					<!--<li>
+<div><img src="./img/ship.jpg" alt=""></div>
+<div>
+<h5>屠洪纲:</h5>
+<p>站似一棵松 不动不摇坐如钟 走路一阵风 南拳和北腿 少林武当功 太极八卦连环掌 中华有神功 卧似一张弓 站似一棵松 不动不摇坐如钟 走路一阵风 南拳和北腿 少林武当功 太极八卦连环掌 中华有神功 棍扫一大片 枪挑一条线 身轻好似云中 我们豪气冲云天 外练筋骨皮 内练一口气 刚柔并济不低头 我们心中有天地 卧似一张弓 站似一棵松 不动不摇坐如钟 走路一阵风 南拳和北腿 少林武当功 太极八卦连环掌 中华有神功 青风剑在手 双刀就看走 行家功夫一出手 她就知道有没有 手是两扇门</p>
+</div>
+</li>-->
+				</ul>
+			</div>
+		</article>
+
+
+	</body>
+</html>

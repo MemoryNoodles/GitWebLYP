@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			div{width:200px; height:200px; background: #000; margin:10px;	}
+			#toTop{position: fixed; bottom:50px; right:50px; width:28px; height:64px;
+				background:url('./img/topcio.png') no-repeat;
+			}
+			#toTop:hover{
+				background:url('./img/topcio.png') no-repeat -28px 0;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var oTopBtn  = document.getElementById('toTop');
+				/*滚动的时候获取滚动的高度*/
+				window.onscroll = function(){
+					var top = document.documentElement.scrollTop || document.body.scrollTop;
+					if(top>50){
+						oTopBtn.style.display = 'block';
+					}else{
+						oTopBtn.style.display = 'none';
+					}
+				}
+				/*点击的时候返回最高点*/
+				oTopBtn.onclick = function(){
+					var top = document.documentElement.scrollTop || document.body.scrollTop;
+					var iTime = setInterval(function(){
+						var speed = (top - 0)/10;
+						if(top == 0) {
+							clearInterval(iTime);
+						}else{
+							top = Math.floor(top - speed);
+							document.documentElement.scrollTop = document.body.scrollTop = (top - speed);
+						}
+						
+					},30)
+				}
+
+			}
+		</script>
+	</head>
+	<body >
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div id="toTop"></div>
+	</body>
+</html>

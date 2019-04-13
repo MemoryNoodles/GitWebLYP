@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<style>
+		header{background: #579fe9; height:55px;}
+		.main{height: 100%;}
+		#menu{background: #333333; width: 20%; 
+		    padding:30px 0; height:700px;
+		}
+		.photo{width:100px; height:100px; margin:0 auto; background: #72702c;}
+		#menu li{font-size:20px; color:white; text-align:center; margin:10px 0; padding:10px 0}
+		#menu li.active{background: #498fd7;}
+		.content{width:70%}
+	</style>
+	<script>
+	   window.onload = function(){
+		   var oTab = document.getElementById('tab');
+		   var aLi = oTab.getElementsByTagName('li');
+		   var oIframe = document.getElementById('iframe1');
+		   console.log(aLi);
+		   for(var i=0; i<aLi.length; i++){
+			   aLi[i].index = i;
+			   aLi[i].onclick = function(){
+				   for(var j=0; j<aLi.length; j++){
+					 aLi[j].className = ''
+				   }
+				   this.className = 'active';
+				   oIframe.src = 'iframe' +(this.index+1)+'.html';
+			   }
+		   }
+	   }
+	</script>
+</head>
+<body>
+	<article>
+		<header></header>
+		<section class="main">
+			<aside id="menu" class="left">
+			    <div class="photo"></div>
+				<ul id="tab">
+					<li class="active" index='0'>百度</li>
+					<li index='1'>阿里</li>
+					<li index='2'>腾讯</li>
+				</ul>
+			</aside>
+			<section class="content right">
+				<iframe src="iframe1.html" id="iframe1" frameborder="0"></iframe>
+			</section>
+		</section>
+	</article>
+</body>
+</html>

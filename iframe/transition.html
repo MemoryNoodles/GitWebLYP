@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <style>
+            aside{
+                position: fixed;
+                bottom:100px; right:50px;
+            }
+            .asideBar li{
+                text-align: right;
+                position: relative;
+                margin:5px 0;
+            }
+            .asideBar li div{
+                width:53px; height:53px; line-height:53px;
+                display: inline-block;
+                background:#ccc;
+                border-radius:4px;
+                position: relative; right:0;
+                text-align: center
+
+            }
+            .asideBar i{
+                width:53px; height:53px;
+                display: inline-block;
+            }
+            .asideBar .onlineQQ i{
+                background:url("../img/qq.png") no-repeat center;
+            } 
+            .asideBar .mobile i{
+                 background:url("../img/phone.png") no-repeat center;
+            }
+            .asideBar li a{
+                display: none;
+                position: absolute;top:0;
+                color:white;
+                font-size:14px;
+                width:105px;
+                padding-left:10px;
+            }
+            .asideBar li.mobile a{
+                padding-left:0;
+                margin-left:-5px;
+            }
+            .asideBar .onlineQQ:hover div{
+                background: #3499d6;
+            }
+            .asideBar .mobile:hover div{
+                background:#e04a5b;
+            }
+            .asideBar li:hover div{
+                position: relative;
+                right:0;
+                width: 150px;
+                text-align: left;
+                overflow: hidden;
+                transition: 0.3s ease-out; 
+            }
+            .asideBar li:hover a{
+                display: inline-block;
+                
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <aside>
+            <ul class="asideBar">
+                <li class="onlineQQ">
+                    <div>
+                        <i></i>
+                        <a href="">在线客服</a>
+                    </div>
+                </li>
+                <li class="mobile">
+                    <div>
+                        <i></i>
+                        <a href="">15983135863</a>
+                    </div>
+                </li>
+            </ul>
+        </aside> 
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>常规选择器</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="./html-img/favicon.ico" />
+        <link rel="stylesheet" href="./css/common.css" />
+        <!--        <script src="./jsFile/jquery-3.1.1.min.js"></script>-->
+        <script>
+			
+            //jquery高级选择器的方法
+			  /*后代选择器 --后面的方法更快*/
+			    $('#box p').css('width', '500px') = $("#box").find('p').css('width', '500px');
+			  /*子选择器*/
+			    $('#box>p').css('width', '500px') = $("#box").chindren('p').css('width', '500px');
+			  /*下一个同级节点元素*/
+				$('#box+p').css('width', '500px') = $("#box").next('p').css('width', '500px');
+			  /*后面所有同级节点*/
+				$('#box~p').css('width', '500px') = $("#box").nextAll('p').css('width', '500px');
+				
+		   //jquery提供的其他方法
+			  /*下一个同级节点*/
+				 $("#box").prev('p').css('width', '500px');
+			  /*前面所有同级节点元素*/
+				 $("#box").prevAll('p').css('width', '500px');
+			  /*往前遇到这个元素就停止*/
+			    $("#box").prevUntil('p').css('width', '500px'); 
+			 /*往后遇到这个元素就停止*/
+			    $("#box").nextUntil('p').css('width', '500px'); 
+			 //空节点
+		        $('div:empty').css('background','red');
+			 
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">常规选择器</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">简单选择器</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/IDsizzle.png" alt="" /><br>
+                    <img src="./jqueryImg/IDsizzleJS.png" alt="" />
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">进阶选择器</h3>
+                <div class="point_content">
+                    <p class="paragraph">在简单选择器中，我们了解了最基本的三种选择器：元素标签名、ID和类(class)。那么在基础选择器外，还有一些进阶和高级的选择器方便我们更精准的选择元素。</p>
+                    <img src="./jqueryImg/sizzleLv2.png" alt="" /><br>
+                    <img src="./jqueryImg/sizzleLv2JS.png" alt="">
+                    <p class="paragraph">除了上面讲的选择器外，我们还可以这样用</p>
+					<img src="./js-img/sizzleLv2JS1.png">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">可见性选择器</h3>
+                <div class="point_content">
+                    <div class="box">
+                        <ul>
+                            <li>$("ele:hidden"):匹配所有不可见元素，或者type为hidden的元素</li>
+                            <li>$("ele:visible"):匹配所有的可见元素</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">属性选择器</h3>
+                <div class="point_content">
+                    <div class="box">
+                        <ul>
+                            <li>$("div[id]"):查找所有含有id属性的div元素</li>
+                            <li>$("input[type='text']"):匹配给定的属性是某个特定值的元素</li>
+                             <li>$("input[type!='text']"):查找所有type属性不是text的input元素</li>
+                             <li>$("input[name^='news']"):查找所有name以 'news'开始的input元素</li>
+                             <li>$("input[name$='news']"):查找所有name以 'news'结束的input元素</li>
+                             <li>$("input[id][name$='man']"):找到所有含有 id 属性，并且它的name属性是以man结尾的</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">高级选择器</h3>
+                <div class="point_content">
+                   <img src="./jqueryImg/heightSizzle.png" alt=""><br>
+                   <img src="./jqueryImg/heightSizzleFunc.png" alt="">
+                    <p>prevUntil把遇到他之前的所有元素都选择到</p>
+                     <!--<p>next(),nextAll(),children(),prev(),prevAll(),prevUntil(),nextUntil();siblings();属性选择器$('a[title=^num]').css('color', 'red');</p>-->
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">基本过滤器</h3>
+                <div class="point_content">
+                    <p class="paragraph">过滤器主要通过特定的过滤规则来筛选所需的DOM元素，和CSS中的伪类的语法类似：使用冒号(:)开头。</p>
+                    <img src="./jqueryImg/filterSizzle.jpg" alt="">
+                    <img src="./jqueryImg/filterSizzleJS.png" alt="">
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">子元素过滤器</h3>
+                <div class="point_content">
+                    
+                    <img src="./jqueryImg/childSizzle.png" alt="">
+                    <p class="paragraph">和css一样</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">内容过滤器</h3>
+                <div class="point_content">
+                    <div class="box">
+                    	<dl>
+                    		<dt>div:contains(文本)</dt>
+                    		<dd>选取div中含有文本的节点</dd>
+                    		<dt>div:empty或者$('div').empty()</dt>
+                    		<dd>匹配所有不包含子元素或者文本的div元素</dd>
+                    	<!--	<dt>div:parent</dt>
+                    		<dd>匹配含有子元素或者文本的div元素</dd>
+                    		<dt>div:has(p)</dt>
+                    		<dd>匹配所有包含p元素的div元素</dd>-->
+                    		
+                    	</dl>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">表单选择器</h3>
+                <div class="point_content">
+                    <p class="paragraph">虽然可以使用常规选择器来对表单的元素进行定位，但有时还是不能满足开发者灵活多变的需求。所以，jQuery为表单提供了专用的选择器。</p>
+                    
+                    <img src="./jqueryImg/fromSizzle.jpg" alt="">
+                    <p>用法示例$(':input')</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">表单过滤器</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery提供了四种表单过滤器，分别在是否可以用、是否选定来进行表单字段的筛选过滤。</p>
+                    <img src="./jqueryImg/fromFilter.png" alt="">
+                     <p>用法示例$("input:enabled")-->匹配所有可用元素</p>
+                </div>
+            </section>
+           <section class="onePoint">
+                <h3 class="title">其他的用法</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/$choose.png">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

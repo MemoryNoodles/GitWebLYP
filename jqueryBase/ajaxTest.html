@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+           #box {
+	       background:blue; width:100px; height:50px;;}
+            .loading{ display:none }
+        </style>
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+
+            $(function(){   
+                
+                $(document).ajaxStart(function () {
+                    alert("begin");
+                    $('.loading').show();       //执行ajax时元素的class为.loading的会显示
+                }).ajaxStop(function () {
+                    alert("end");
+                    $('.loading').hide();      //执行ajax后元素的class为.loading的会隐藏
+                });
+                
+                //点击元素
+                $("#box").click(function(){
+                    $.ajax({
+                        type:'POST',
+                        url:'text.json',
+                        dataType:'json',
+                        success:function(data){                            
+                           $("#box").html(data.is_ok) ;
+                        }
+                    })
+                     
+                });
+                
+            })
+        </script>
+    </head>
+    <body>
+
+        <form action="">
+            <label>用户名：<input type="text" name="user" ></label>
+            <label>账号：<input type="text" name="account" ></label>
+            <label>密码：<input type="text" name="password" ></label>
+            <!--<div id="box" style="width:100px; height:50px; background:red"></div>-->
+            <button>提交</button>
+        </form>
+      <div id="box"></div>
+      <div class="loading">正在加载。。。。。</div>
+    </body>
+</html>

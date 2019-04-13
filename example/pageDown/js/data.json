@@ -1,0 +1,27 @@
+var jsonData = {
+	data:[
+		{companyName:'压寨网络', img:'company1.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company2.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company3.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company4.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company6.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company7.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company5.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company8.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company2.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company1.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company6.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company8.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company3.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company2.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company4.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company7.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company3.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company2.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company4.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company7.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'},
+		{companyName:'压寨网络', img:'company3.png', assessNum:'46', office:'4', rate:'96%', web:'移动互联网',type:'成长型',place:'深圳'},
+		{companyName:'美啦', img:'company2.png', assessNum:'83', office:'5', rate:'93%', web:'移动互联网',type:'成熟型',place:'成都'}
+		
+	]
+}

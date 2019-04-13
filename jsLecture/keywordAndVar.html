@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>语法、关键保留字及变量</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+
+        <script>
+            var str='a', name='luck', lastName='ll';
+            var message = 'hi';
+            var age = 100;
+        </script>
+
+    </head>
+    <body>
+        <h2 class="article-title">语法、关键保留字及变量</h2>
+        <article class="wrap">
+            <!-- 语法构成  -->
+            <section class="onePoint">             
+                <h3 class="title">语法</h3>
+                <div class="point_content">
+                    <h4 class="small_title">区分大小写</h4>
+                    <p class="paragraph">ECMAScript中的一切，包括变量、函数名和操作符都是区分大小写的。例如：text 和
+                        Text 表示两种不同的变量</p>
+                    <h4 class="small_title">标识符</h4>
+                    <p class="paragraph">所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。标识符可以是下列格
+                        式规则组合起来的一或多个字符：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1、第一字符必须是一个字母、下划线(_)或一个美元符号($)。</li>
+                            <li>2、其他字符可以是字母、下划线、美元符号或数字。</li>
+                            <li>3、不能把关键字、保留字、true、false 和 null 作为标识符。</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="small_title">注释</h4>
+                    <p class="paragraph">ECMAScript 使用 C 风格的注释，包括单行注释和块级注释。</p>
+                    <img src="./js-img/note.png">                
+                </div>
+            </section>
+            <!-- 关键字和保留字  -->
+            <section class="onePoint">
+                <h3 class="title">关键字和保留字</h3>
+                <div class="point_content">
+                    <p class="paragraph">ECMAScript-262 描述了一组具有特定用途的关键字，一般用于控制语句的开始或结束 ，
+                        或者用于执行特定的操作等。关键字也是语言保留的，不能用作标识符。</p>
+                    <img src="./js-img/keyword.png"  alt="">
+                    <p class="paragraph">ECMAScript-262 还描述了另一组不能用作标识符的保留字。尽管保留字在 JavaScript
+                        中还没有特定的用途，但它们很有可能在将来被用作关键字。</p>
+                    <img src="./js-img/baoliuWord.png" alt=""> 
+                </div>
+            </section>
+            <!-- 关键字和保留字  -->
+            <section class="onePoint">
+                <h3 class="title">变量</h3>
+                <div class="point_content">
+                    <p class="paragraph">ECMAScript 的变量是松散类型的，所谓松散类型就是用来保存任何类型的数据。定义
+                        变量时要使用var操作符（var是关键），后面跟一个变量名（变量名是标识符）。</p>
+                    <p>第一种情况</p>
+                    <img src="./js-img/varKeyword.png" alt="">
+                    <p>第二种情况</p> 
+                    <p class="paragraph">初始化（也就是给变量赋值）后的变量，可以再次进行赋值;所以我们把它叫做变量；</p>
+                    <img src="./js-img/changeVar.png">
+                    <p>第三种情况</p> 
+                    <p class="paragraph">声明多个变量时，可以用“，”（逗号），分开。</p>
+                    <img src="./js-img/varMore.png">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

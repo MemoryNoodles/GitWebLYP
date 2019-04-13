@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>数据类型</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        
+    </head>
+    <body>
+        <h2 class="article-title">数据类型</h2>
+        <article class="wrap">
+            <section class="onePoint">
+
+                <h3 class="title">数据类型</h3>
+                <div class="point_content">
+                    <p class="paragraph">ECMAScript中有5种简单数据类型：<em>Undefined、Null、Boolean、Number 和 String</em>。
+                        还有一种复杂数据类型——<em>Object</em>。ECMAScript不支持任何创建自定义类型的机制，所有
+                        值都成为以上<em>6</em>中数据类型之一。</p>
+                    <!--typeof操作符-->
+                    <h4 class="small_title">typeof操作符</h4>
+                    <p class="paragraph">typeof 操作符是用来检测变量的数据类型。对于值或变量使用 typeof 操作符会返回如下
+                        字符串。</p>
+                    <img src="./js-img/typeof.png" alt=""><br>
+                    <img src="./js-img/typeofRuslt.png" alt="">
+                    <p class="paragraph">typeof操作符可以操作变量，也可以操作字面量。虽然也可以这样使用：typeof(box)，
+                        但，typeof是操作符而非内置函数。<em>ps</em>：函数在ECMAScript中是对象，不是一种数据类型 。
+                        所以，使用typeof来区分function和object是非常有必要的。</p>
+                    <!--Undefined类型-->
+                    <h4 class="small_title">Undefined类型</h4>
+                    <p class="paragraph">Undefined类型只有一个值，即特殊的undefined。在使用var声明变量，但没有对其初始化时，这个变量的值就是undefined。</p>
+                    <!--null类型-->
+                    <h4 class="small_title">null类型</h4>
+                    <p class="paragraph">Null类型是一个只有一个值的数据类型，即特殊的值null。它表示一个空对象引用，而typeof操作符检测null会返回 object。</p>
+                    <img src="./js-img/null.png">
+                    <p class="paragraph">有个要说明的是：undefined是派生自null的，因此ECMA-262规定对它们的相等性测试返回true。</p>
+                    <!--Boolean类型-->
+                    <h4 class="small_title">Boolean类型</h4>
+                    <p class="paragraph">Boolean类型有两个值(字面量)true和false。而true不一定等于1，false不一定等于0。JavaScript是区分大小写的，True和False或者其他都不是Boolean类型的值。</p>
+                    <img src="./js-img/boolean.png">
+                    <!--Number 类型-->
+                    <h4 class="small_title">Number类型</h4>
+                    <p class="paragraph">Number类型包含两种数值：<em>整型和浮点型</em>。为了支持各种数值类型，ECMA-262定义了不同的数值字面量格式。</p>
+                    <img src="./js-img/number.png">
+                    <p class="paragraph"><em>NaN</em>，即非数值(Not a Number)是一个特殊的值，这个数值用于表示一个本来要返回数
+                        值的操作数未返回数值的情况(这样就不会抛出错误了)。</p>
+                    <img src="./js-img/NaN.png" alt="">
+                    <p class="paragraph">可以通过Number.NaN得到NaN值，任何与NaN进行运算的结果均为NaN，NaN与自
+                        身不相等(NaN不与任何值相等)。也就是说alert(NaN == NaN)会弹出false</p>
+                    <!--isNaN()函数-->
+                    <p><em>isNaN()</em>函数</p>
+                    <p class="paragraph">ECMAScript提供了isNaN()函数，用来判断这个值到底是不是NaN。isNaN()函数在接
+                        收到一个值之后，会尝试将这个值转换为数值。</p>
+                    <img src="./js-img/isNaN.png" alt=""> 
+                    <!--Number()函数-->
+                    <p><em>Number()</em>函数</p>
+                    <p class="paragraph">Number()函数是转型函数，可以用于任何数据类型;</p>
+                    <img src="./js-img/number().png" alt="">  
+                    <!--parseInt()函数-->
+                    <p><em>parseInt()</em>函数</p>
+                    <p class="paragraph">由于 Number()函数在转换字符串时比较复杂且不够合理，因此在处理整数的时候更常
+                        用的是parseInt()。parseInt()除了能够识别十进制数值，也可以识别八进制和十六进制。</p>
+                    <img src="./js-img/parseInt.png" alt="">  
+                    <!--parseInt()函数-->
+                    <p><em>parseFloat()</em>函数</p>
+                    <p class="paragraph">parseFloat()是用于浮点数值转换的，和parseInt()一样，从第一位解析到非浮点数值位置。</p>
+                    <img src="./js-img/parseFloat.png" alt="">  
+                    <!--String类型-->
+                    <h4 class="small_title">String类型</h4>
+                    <p class="paragraph">String类型用于表示由于零或多个16位Unicode字符组成的字符序列，即字符串。字符串可以由双引号(")或单引号(')表示。字符串还可以进行拼接：</p>
+                    <img src="./js-img/varStr.png" alt="">
+                    <p class="paragraph">String类型包含了一些特殊的字符字面量，也叫转义序列。</p>
+                    <img src="./js-img/strEscape.png" alt="">
+                    <!--toString()-->
+                    <p><em>toString()</em>函数1、将值转换为字符串；ps:null和undefined没有toString这个方法</p>
+                    <img src="./js-img/toString.png" alt="">
+                    <!--String()-->
+                    <p><em>String()</em>如果在转型之前不知道变量是否是null或者undefined的情况下，我们还可以使用转型函数String()，这个函数能够将任何类型的值转换为字符串。</p>
+                    <img src="./js-img/string.png" alt="">
+                    <!--Object类型-->
+                    <h4 class="small_title">Object类型</h4>
+                    <p class="paragraph">ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行new操作符后跟要创建的对象类型的名称来创建。</p>
+                    <img src="./js-img/newObject.png">
+                </div>
+
+
+            </section>
+        </article>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+        input#go:focus+section{ animation-play-state:running }
+        input#stop:focus+section{ animation-play-state:paused }
+        section{  width:200px; height:100px; background:blue; border-radius: 0; 
+                  transform:translateX(0);
+                 animation:myMove 4s linear infinite alternate;
+                 -webkit-animation:myMove 4s linear infinite alternate ;
+        }
+        @keyframes myMove{
+            from{ background:yellow; }
+            to{ background:red; border-radius:50%; transform:translateX(300PX);}
+        }
+        @-webkit-keyframes myMove{
+            from{ background:yellow; }
+            to{ background:red; border-radius:50%; transform:translateX(300PX); }
+        }
+        
+    </style>
+</head>
+<body>
+   <input id="go" type="button" value="播放"><input id="stop" type="button" value="停止"> 
+   <section></section>
+</body>
+</html>

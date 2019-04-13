@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!--优先使用 IE 最新版本和 Chrome-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- 使用IE6 -->
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=6" >-->
+        <!-- uc强制竖屏 -->
+        <meta name="screen-orientation" content="portrait">
+        <!-- UC强制全屏 -->
+        <meta name="full-screen" content="yes">
+        <!-- QQ强制竖屏 -->
+        <meta name="x5-orientation" content="portrait">
+        <!-- QQ强制全屏 -->
+        <meta name="x5-fullscreen" content="true">
+        <title>酷炫的网站</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/jquery.fullPage.css">
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/jquery-ui.js"></script>
+        <script src="./js/jquery.fullPage.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <style>
+            .navbar-fixed-top{
+                top:20px;
+            }
+            .menu .icon-bar{    
+                background: white;
+            }
+            #head.single ul li a{
+                color:white;
+                
+            }
+            #head.double ul li a{
+                color:#239ed7;;
+            }
+            #head.double  .flow-logo{
+                background:url('./img/logo.png');
+            }
+            .flow-logo{
+                background:url('./img/logo-opacity.png') no-repeat center;    
+                width: 122px;
+                height: 36px;
+                display:inline-block;
+                border-radius:10px;
+            }
+            
+            .navbar-collapse li.active a{
+                /*可以继承color的颜色*/
+                border-bottom:2px solid;
+
+            }
+            .navbar .navbar-collapse li a{
+                font-size:16px;
+                color: #fff;
+                padding: 10px 4px 0 ;
+                margin: 0 16px 15px;
+            }
+            .navbar-collapse li a:hover{
+                background:none !important;
+            }
+            .flow-index{
+                background:linear-gradient(#239ed7, #5db87b);
+            }
+            /*第一段*/
+            img {
+                vertical-align: middle;
+            }
+            .flow-index{background:linear-gradient(100deg,#239ed7,#5db87b);
+                /*height:580px;*/
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+            .background-views{
+                
+                position: relative;
+                height: 90%;
+                margin:0 auto;
+            }  
+            .background-views>* {
+                position: absolute;
+                bottom: 0;
+            }
+            .fadeInUp {
+                /* -webkit-animation-name: fadeInUp;
+                animation-name: fadeInUp;*/
+                opacity: 0;
+                -webkit-transform: translate3d(0,100%,0);
+                transform: translate3d(0,100%,0);
+                transition:1s;
+            }
+            .active .fadeInUp {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+                transition-delay: 0.7s;
+            }
+            .active .animated {
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+            }
+            .wave{
+                position:absolute;
+                background:url('./img/wave.png')  repeat-x;
+                bottom: 0;
+                left: 0;
+                width: 18000px;
+                height: 200px;
+                -webkit-animation: wave1 20s linear infinite;
+                animation: wave1 20s linear infinite;
+            }
+            .wave2{ 
+                left:300px;
+                opacity:0.5;
+                -webkit-animation: wave2 20s linear infinite;
+                animation: wave2 20s linear infinite;
+            }
+            @keyframes wave1{
+                0% {
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0);
+                }
+                100% {
+                    -webkit-transform: translateX(-10000px);
+                    transform: translateX(-10000px);
+                }
+            }
+
+            @keyframes wave2{
+                0% {
+                    -webkit-transform: translateX(300px);
+                    transform: translateX(300px);
+                }
+                100% {
+                    -webkit-transform: translateX(-15000px);
+                    transform: translateX(-15000px);
+                }    
+            }
+
+            @keyframes fadeInUp{
+                0% {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0,100%,0);
+                    transform: translate3d(0,100%,0);
+                }
+                100% {
+                    opacity: 1;
+                    -webkit-transform: none;
+                    transform: none;
+                }
+            }
+            .flow-index .runtime-sum {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 20px;
+                margin: 0;
+                height: 150px;
+                color: #215167;
+                font-size:16px;
+            }
+
+            .number{
+                display: inline-block;
+                width: 40px;
+                height:72px;
+                line-height:72px;
+                border-radius:10px;
+                margin-right:20px;
+                background:#cdecf8  url("./img/icon-nums.png") no-repeat ;
+                transition:0.5s;
+            } 
+            .symbol{
+                margin-left: -20px;
+                text-align: center;
+                display:inline-block;
+                font-size:40px;
+                vertical-align: bottom;
+                /*line-height:72px;*/
+            }
+            span.number-0{
+                background-position:center 4px;
+            }
+            span.number-1{
+                background-position:center -56px;
+            }
+            span.number-2{
+                background-position:center -116px;
+            }
+            span.number-3{
+                background-position:center -176px;
+            }
+            span.number-4{
+                background-position:center -236px;
+            }
+            span.number-5{
+                background-position:center -296px;
+            }
+            span.number-6{
+                background-position:center -356px;
+            }
+            span.number-7{
+                background-position:center -416px;
+            }
+            span.number-8{
+                background-position:center -476px;
+            }
+            span.number-9{
+                background-position:center -536px;
+            }
+            /*第二段*/
+            .fp-section{
+                position: relative
+            }
+            .flowpp-categories{
+                padding-top:60px;
+                height:100%;
+                
+            }
+            .flowpp-categories>div{
+                padding-top:30px;    
+            }
+            .flowpp-des{
+                float:left;
+            }
+            .handle{
+              display:table;
+              width:200px;
+              margin:40px auto 0;
+            }
+            .handle .application,.handle .behavior{
+              text-align: center;
+              display: table-cell;
+              font-size:14px
+
+            }
+            .handle .application i, .handle .behavior i{
+              display: block;
+              width:63px;
+              height:63px;
+              margin:0 auto 10px;
+            }
+            .handle .application i{
+              background:url('./img/android-ico.png');
+            }
+            .handle .application.active i{
+              background:url('./img/android-ico-active.png');
+            }
+            .handle .behavior i{
+              background:url('./img/手势.png');
+            }
+            .handle .behavior.active i{
+              background:url('./img/手势-active.png');
+            }
+            .flow-word{
+              position: relative;
+            }
+            .flow-word h3{
+               position: absolute;
+               color: rgb(90, 115, 118);
+               font: bold 22px/50px 方正正大黑简体, "Microsoft Yahei";
+
+
+            }
+            .flow-word h3.fadeInLeft{
+               animation:fadeleft 0.8s;
+              animation-fill-mode:forwards
+            }
+            @keyframes fadeleft{
+               0%{
+                 left:-400px;
+                 opacity: 0;
+               }
+               100%{
+                 left:0px;
+                 opacity: 1;
+               }
+            }
+            .demo{
+                position: absolute;
+                right:0px;
+                bottom:0;
+                width:655px;
+                top:60px;
+                
+            }
+            .demo>div{
+                position: absolute;
+                right:0px;
+                bottom:0;
+                width:100%;
+                height: 100%;
+            }
+            .demo .view-app img{
+                position: absolute;
+            }
+
+            .view-app img:nth-child(2){
+              top:60px;
+              right:200px;
+              width:80px;
+
+            }
+            .view-app img:nth-child(3){
+              top:90px;
+              right:135px;
+              width:80px;
+              transition-delay:0.1s;
+            }
+            .view-app img:nth-child(4){
+              top:115px;
+              right:65px;
+              width:80px;
+              transition-delay:0.2s;
+            }
+            .view-app img:nth-child(5){
+              top:145px;
+              right:0px;
+              width:80px;
+              transition-delay:0.3s;
+            }
+            .view-app img:nth-child(6){
+              top:115px;
+              right:260px;
+              width:80px;
+              transition-delay:0.4s;
+            }
+            .view-app img:nth-child(7){
+              top:140px;
+              right:190px;
+              width:80px;
+              transition-delay:0.5s;
+            }
+            .view-app img:nth-child(8){
+              top:170px;
+              right:120px;
+              width:80px;
+              transition-delay:0.6s;
+            }
+            .view-app img:nth-child(9){
+              bottom:110px;
+              left:120px;
+              width:80px;
+              transition-delay:0.8s;
+            }
+            .view-app img:nth-child(10){
+              bottom:70px;
+              left:200px;
+              width:80px;
+              transition-delay:1s;
+            }
+            .demo .view-app .phone-shell{
+                width:820px;
+                bottom: 0 !important;
+            }
+            /*第三段*/
+            .flow-flowai{
+              background:#223637;
+            }
+            .bigData{
+              padding-top:90px;
+              color:white;
+            }
+            .flowai-des p{
+                color: rgb(90, 115, 118);
+                font: bold 22px/50px 方正正大黑简体, "Microsoft Yahei";
+            }
+
+            @media (min-width: 768px){
+                .flow-index .runtime-sum {
+                    left: 50%;
+                    margin-left: -300px;
+                }
+                .container{
+                    width:750px;
+                }
+              .handle .application,.handle .behavior{
+                font-size:16px
+              }
+
+            }
+            @media (min-width:992px){
+                .container{
+                    width: 1170px;
+                    height:100%;
+                }
+                .handle .application,.handle .behavior{
+                   font-size:18px
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="navbar navbar-fixed-top menu">
+            <div class="container single" id="head">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">展开</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="flow-logo" href="#"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#flow-index">首页</a></li>
+                        <li><a href="#flow-flowpp">flow++</a></li>
+                        <li><a href="#flow-flowai">FlowAI</a></li>
+                        <li><a href="#flow-about">关于我们</a></li>
+                        <li class="dropdown"> 
+                            <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">联系方式</a>
+                            <!--<ul class="dropdown-menu" aria-labelledby="dLabel">
+<li>info@flowpp.com</li>
+<li>010-59403236</li>
+<li>flowplusplus</li>
+<li>hr@flowplus.com</li>
+</ul>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </header> 
+        <div id="fullpage">
+            <div class="section flow-index">
+                <!--  <div class="wrap">-->
+                <div class="background-views container">
+                    <img src="./img/building1.png" alt="" class="hidden-xs animated fadeInUp"  style="left: 0px;  max-height: 70%; transition-delay:1.2s">
+                    <img src="./img/building2.png" alt="" class=" animated fadeInUp" style="left: 100px;  max-height: 50%;">
+                    <img src="./img/building3.png" alt="" class="animated fadeInUp visible-lg" style="left: 300px;  max-height: 74%;">
+                    <img src="./img/building4.png" alt="" class="animated fadeInUp" style="right: 20%; max-width: 22%; max-height: 40%; transition-delay:0.8s">
+                    <img src="./img/building5.png" alt="" class="animated fadeInUp" style="right: 0px; max-height: 80%;">
+                </div>
+                <div class="wave wave1"></div>
+                <div class="wave wave2"></div>
+                <!--    </div> -->
+                <div class="runtime-sum text-left">
+                    <p>实时用户行为采集数  <i id="average-sum" ></i> </p>
+                    <div class="number-holder">
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                        <span class="symbol">,</span>
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                        <span class="symbol">,</span>
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                        <span class="number number-0"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <!--第二段-->
+            <div class="section fp-section">
+              <div class="flowpp-categories container">
+                 <div class="flowpp-des">
+                     <h1>Flow++</h1>
+                     <h3>新一代互联网应用识别引擎</h3>
+                     <div class="handle">
+                       <div class="application active">
+                         <i></i>
+                         应用识别
+                       </div>
+                       <div class="behavior">
+                         <i></i>
+                         行为识别
+                       </div>
+                     </div>
+                     <div class="flow-word">
+                        <h3 class="fadeInLeft animated fade">自研、实战，全球最新技术</h3>
+                        <h3 class="fade">精准、高效，一切无所遁藏</h3>
+                     </div>
+                 </div>
+                  <div class="demo">
+                       <div class="view-app">
+                            <img class="phone-shell" src="./img/flowpp-phone.png" alt="">
+                            <img class="" src="./img/flowpp-icon-wechat.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-evernote.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-love.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-weibo.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-chat.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-home.png" alt="">
+                            <img  class="fadeInUp"src="./img/flowpp-icon-car.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-phone.png" alt="">
+                            <img class="fadeInUp" src="./img/flowpp-icon-contact.png" alt="">
+                      </div>
+                     <div class="view-act"></div>
+                </div>
+              </div>
+            
+            </div>
+            <!--第三段-->
+            <div class="section flow-flowai">
+                <div class="bigData container">
+                   <div class="col-md-5 col-xs-12 flowai-word">
+                      <h1>FlowAI</h1>
+                      <h3>实时移动互联网大数据平台</h3>
+                      <div class="handle">
+
+                      </div>
+                      <div class="flowai-des">
+                         <p class="fade animated fadeInLeft">全天候自动化数据分析</p>
+                         <p class="fade">360° 全方位用户勾画</p>
+                         <p class="fade">7×24小时实时安全防御</p>
+                      </div>
+                   </div>
+                   <div class="col-md-7 col-xs-12">
+                     <div class="visualization">
+
+                     </div>
+                     <div class="user-portrait">
+                       <img class="" src="./img/user-avatar1.png" alt="">
+                       <img src="./img/user-avatar2.png" alt="">
+                       <img src="./img/user-avatar3.png" alt="">
+                     </div>
+                     <div class="deep-monitor"></div>
+                   </div>
+                </div>
+            </div>
+          <script>
+            /*翻页*/
+            $.fn.fullpage({
+                verticalCentered: false,
+                anchors: ['flow-index', 'flow-flowpp', 'flow-flowai', 'flow-about'],
+                afterLoad:function(index, nextIndex){
+                    $('#head').toggleClass('double');
+                },
+              /*  onLeave:function(){
+               pageNum++
+               $('#navbar').removeClass('single')
+               }*/
+            })
+            /***********************************************************************/
+            /*************************       滚动数字       **************************/
+            /***********************************************************************/
+            /*滚动数字*/
+            var numData = 370821659;
+            /*动态显示在页面上*/
+            var str = '';
+            function changeNum(numC){
+                $('.number-holder .number').each(function(index, item){
+                    item.className = 'number number-'+numC[index]
+                })
+            }
+            changeNum(numData.toString());
+            setInterval(function(){
+                numData += Math.random()*300
+                changeNum(numData.toString())
+            },3000);
+
+            /***********************************************************************/
+            /*************************       第二页       **************************/
+            /***********************************************************************/
+            var bol = true;
+            $('.handle div').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+
+                $('.flow-word h3').siblings().removeClass('animated fadeInLeft')
+                $('.flow-word h3').eq($(this).index()).addClass('animated fadeInLeft')
+            })
+
+          </script>
+        </div>
+
+    </body>
+</html>
+
+
+
+

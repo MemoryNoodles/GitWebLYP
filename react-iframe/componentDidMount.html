@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="../jsFile/react.js"></script>
+	<script src="../jsFile/react-dom.min.js"></script>
+	<script src="../jsFile/browser.js"></script>
+    <style>
+		.box{
+			width:400px; height:200px;
+			line-height:200px; color:white; font-size:25px;
+			text-align:center;
+		}
+	</style>
+	
+	<script type="text/babel">
+	   var ChangeOpacity = React.createClass({
+		   getInitialState:function(){
+			   return {
+				   opacity:1,
+               };
+		   },
+		   /*每隔500毫秒调用一次 componentDidMount componentWillMount*/
+		   componentDidMount:function(){
+			
+			   this.timer = setInterval(function(){
+				   var opacity = this.state.opacity;
+				   opacity -= 0.05;
+				   if(opacity<0.1) opacity=1 
+				   this.setState({
+					   opacity:opacity
+				   });
+			   }.bind(this),2000)                    //修改this的指向为当前对象
+		   },
+		   render:function(){	
+			
+			   return(
+				   <div className="box" style={{opacity:this.state.opacity,background:'blue'}}>
+				   	  reactJS {this.props.customize}
+				   </div>				   
+			   )
+		   }
+	   });
+	   ReactDOM.render(
+		     <ChangeOpacity customize="没那么难吧！" />,
+		     document.getElementById('box')
+	  );
+	</script>
+	
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

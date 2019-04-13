@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>工具函数</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+
+    </head>
+    <body>
+        <h2 class="article-title" id="title">工具函数</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">字符串操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">在jQuery中，字符串的工具函数只有一个，就是去除字符串左右空格的工具函数：$.trim()。</p>
+                    <img src="./jqueryImg/trim().png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">数组和对象操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery为处理数组和对象提供了一些工具函数，这些函数可以便利的给数组或对象进行遍历、搜索等操作。</p>
+                    <img src="./jqueryImg/each.png" alt=""><br>
+                    <!--<img src="./jqueryImg/grep().png" alt=""><br>
+                    <p> $.grep(arr, callback, bol)三个参数的用法</p>
+                    <img src="./jqueryImg/map.png" alt=""><br>
+                    <p>第一个参数可以是一个对象</p>
+                    <img src="./jqueryImg/inArray.png" alt=""><br>-->
+                    <img src="./jqueryImg/merge.png" alt=""><br>
+                  <!--  <p>你知道源码是怎么写的吗？很简单不是用的concat</p>
+                    <img src="./jqueryImg/extend.png" alt="">
+                    -->
+                    <p><em>$.makeArray( $('p'))</em>功能(1)类数组转数组的方法(2)$.makeArray( $('p'),arr)合并数组</p>
+                    <p><em>$.inArray(ele, arr)</em>功能(1)等同于indexOf(2)$.inArray(ele, arr,i)从第几位开始算</p>
+                    
+                    <p>数组去重的方法</p>
+                    <img src="./jqueryImg/uniqueSort.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">其他操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery提供了一个预备绑定函数上下文的工具函数：$.proxy()。这个方法，可以解决诸如外部事件触发调用对象方法时this的指向问题。</p>
+                <!--    <img src="./html-img/proxy.png" alt="">-->
+                    <img src="./jqueryImg/proxy.png" alt="">
+                    <img src="./jqueryImg/proxy2.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">多库共存</h3>
+                <div class="point_content">
+                   <p>避免库与库之间的冲突。</p>
+                    <img src="./jqueryImg/noConflict.png" alt="">
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">检测</h3>
+                <div class="point_content">
+                    <p><em>$.type()</em>和Object.prototype.toString.call()一样</p>
+                    <p><em>$.isFunction()</em>：函数用于检测指定参数是否是js函数</p>
+                    <p><em>$.isNumeric()</em>：函数用于判断指定参数是否是一个数字值。</p>
+                    <p><em>$.isArray()</em>：函数用于判断指定参数是否是一个数组。</p>
+                    <p><em>$.isPlainObject()</em>：函数用于判断指定参数是否是一个纯粹的对象。</p>
+                    <p><em>$.contains(对象, 对象2)</em>;检测对象是否包含对象2：<em>ps:</em>不要把jquery对象和原生对象搞混了哦</p>
+                    <p><em>$.isEmptyObject()</em>;检测是不是空对象</p>
+                    <img src="./jqueryImg/param.png" alt="">
+                </div>
+            </section>
+            <!-- <section class="onePoint">
+                <h3 class="title">读取自定义data数据</h3>
+                <div class="point_content">
+                   <p>$("div").data("test"):这个可以获取div的自定义属性</p>
+                   <p>$("div").removeData("test"):这个只能移除这样设置的数据$("div").data("test","123")，不能移除元素自身带有的自定义属性</p>
+                </div>
+            </section>-->
+        </article>
+    </body>
+</html>

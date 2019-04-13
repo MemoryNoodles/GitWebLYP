@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本包装类型</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+
+			// 正常函数写法
+			[1,2,3].map(function (x) {
+				return x * x;
+			});
+
+			// 箭头函数写法
+			[1,2,3].map(x => x * x);
+
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">es6函数</h2>
+		<article class="wrap">
+		    <section class="onePoint">
+		    	<h3 class="title">默认赋值</h3>
+		    	<div class="point_content">
+		    	    <p>想想之前es5默认参数的情况,自己写一个</p>
+		    		<img src="./es6Img/funcHasValue.png" alt="">
+		    		<p>可以排除错误</p>
+		    		<img src="./es6Img/newError.png" alt="">
+		    	</div>
+		    </section>
+		    <section class="onePoint">
+		    	<h3 class="title">rest参数</h3>
+		    	<div class="point_content">
+		    		<p class="paragraph">ES6引入rest参数（形式为“...变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。这样简化的写法我们把它叫做语法糖</p>
+		    		<img src="./es6Img/sugar.png" alt="">
+		    		<p>rest参数的多种用法</p>
+					<img src="./es6Img/rest.png">
+		    	</div>
+		    </section>
+			<section class="onePoint">
+				<h3 class="title">箭头函数</h3>
+				<div class="point_content">
+					<h4 class="small_title">把匿名函数赋值给变量</h4>
+					<p class="paragraph">ES6允许使用“箭头”（=>）定义函数。</p>
+					<img src="./es6Img/arrowFunc.png">
+					<p class="paragraph">如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+					<img src="./es6Img/withMoreParaFunc.png">
+					<p class="paragraph">由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。</p>
+					<img src="./es6Img/FuncReturnObj.png" alt="">
+					<h4 class="small_title">声明一个普通函数</h4>
+					<img src="./es6Img/constFunc.png">
+
+					<h4 class="small_title">箭头函数的一个用处是简化回调函数。</h4>
+					<img src="./es6Img/mapFunc.png">
+				</div>
+			</section>
+			<section class="onePoint">
+			     <h3 class="title">尾调用优化</h3>
+			     <div class="point_content">
+                     <p>如果一段代码满足以下几个条件，可以被js引擎自动优化</p>
+                     <div class="box">
+                         <ul>
+                             <li>在函数内部，尾调用是最后一条语句</li>
+                             <li>尾调用的结果作为函数值返回</li>
+                             <li>尾调用不访问当前函数的变量(就是说函数不是一个闭包)</li>
+                         </ul>
+                     </div>
+			         <p>看下面的代码：</p>
+			         <img src="./es6Img/TailCallFail.png" alt="">
+			         <p>这时我们来看一下我们的递归</p>
+			         <img src="./es6Img/TailCallFail2.png" alt="">
+			         <p>这时如果我们改一下</p>
+			         <img src="./es6Img/TailCallSucc.png" alt="">
+			     </div>
+			</section>
+			<section class="onePoint">
+			    <h3 class="title">箭头函数与传统函数的主要不同在于以下几点:</h3>
+			    <div class="point_content">
+			        <div class="box">
+			            <ul>
+			                <li>1、箭头函数没有this,super,argument绑定；this,arguments,super这些值由外围最近一层非箭头函数决定;</li>
+			                <li>2、不能通过new关键字调用，因为箭头函数没有constructor方法，所以不能被用作构造函数，如果通过new关键字调用函数，程序会抛出错误。</li>
+			                <li>3、没有原型，由于不可以通过new关键字调用箭头函数，因而没有构建原型的需求，所以箭头函数不存在prototype这个属性</li>
+			            </ul>
+			        </div>
+			    </div>
+			</section>
+
+		</article>
+	</body>
+</html>

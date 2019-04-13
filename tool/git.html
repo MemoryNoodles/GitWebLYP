@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>git</title>
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+<h2 class="article-title">git</h2>
+<article class="wrap">
+   <section class="onePoint">
+        <h3 class="title">安装</h3>
+        <div class="point_content">
+            <div class="box">
+                <ul>
+                    <li>https://git-for-windows.github.io:windows上的安装</li>
+                   <li>git config --global user.name "Your Name":设置名字</li>
+                   <li>git config --global user.email "email@example.com":设置邮箱</li>
+                   <li>git config --list:查看参数设置对了没</li>
+                </ul>
+            </div>
+         </div>
+    </section>
+    <section class="onePoint">
+        <h3 class="title">创建版本库</h3>
+        <div class="point_content">
+            <div class="box">
+                <ul>
+                    <li>mkdir 目录名</li>
+                    <li>cd    目录名</li>
+                    <li>git init:把这个目录变成Git可以管理的仓库。</li>
+                    <li>git add readme.txt:添加制定文件readme.txt</li>
+                    <li>git add .:添加所有文件</li>
+                    <li>git commit -m "":提交</li>
+                </ul>
+            </div>
+            <p class="paragraph">第一次提交后，可以直接使用<cmd>git commit -a -m "提交说明"</cmd>进行一次性提交，而不用走git add这一步，不过默认会提交所有文件； </p>
+        </div>
+    </section>
+    <section class="onePoint">
+        <h3 class="title">时光机穿梭</h3>
+        <div class="point_content">
+            <h3 class="small_title">回退版本</h3>
+            <div class="box">
+                <ul>
+                    <li>git status:查看状态</li>
+                    <li>git diff:查看不同</li>
+                    <li>git log --pretty=oneline:查看提交历史</li>
+                    <li>git reflog:查看命令历史，以便确定要回到未来的哪个版本。</li>
+                    <li>git reset --hard HEAD^:回退到上一个版本</li>
+                    <li>git reset HEAD/git reset HEAD file：撤销提交</li>
+                    
+                    <li>git reset --hard commitID:回退到指定版本</li>
+                    <li>工作区与暂存区的概念</li>
+                    <li>git checkout -- readme.txt:把readme.txt文件在工作区的修改全部撤销</li>
+                </ul>
+            </div>
+            <h3 class="small_title">删除文件</h3>
+            <div class="box">
+                <ul>
+                    <li>rm test.txt:删除工作区文件</li>
+                    <li>git rm test.txt:从版本库中删除</li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+   <section class="onePoint">
+        <h3 class="title">添加到远程仓库</h3>
+        <div class="point_content">
+            <div class="box">
+               <dl>
+                   <dt>第一步</dt>
+                   <dd>在github创建一个项目</dd>
+                   <dt>第二步</dt>
+                   <dd>创建本地与远程仓库之间的关联，<cmd>git remote add origin 你的git地址</cmd></dd>
+                   <dt>第三步</dt>
+                   <dd>git push -u origin master</dd>
+               </dl>
+            </div>
+           <div>
+               <em>注意如果push出现问题解决办法是</em>
+               <p class="paragraph">1、git pull;先拉回来</p>
+               <p class="paragraph">2、git pull origin master --allow-unrelated-histories允许合并不相关历史</p>
+           </div>
+           <p><em>从远程仓库克隆</em>，只需要一句话git clone 你的git仓库地址</p>
+         </div>
+    </section>
+   <section class="onePoint">
+        <h3 class="title">分支管理</h3>
+        <div class="point_content">
+           <h3 class="small_title">创建</h3>
+            <div class="box">
+               <dl>
+                   <dt>git checkout -b dev</dt>
+                   <dd>创建并切换到分支dev</dd>
+                   <dt>git branch dev / git checkout dev</dt>
+                   <dd>创建分支         /切换分支</dd>
+                   <dt>git branch</dt>
+                   <dd>查看当前分支</dd>
+               </dl>
+            </div>
+            <h3 class="small_title">合并</h3>
+            <div class="box">
+                <ul>
+                    <li>git merge dev:当前分支合并分支dev</li>
+                </ul>
+            </div>
+            <h3 class="small_title">删除分支</h3>
+            <div class="box">
+                <ul>
+                    <li>git branch -d dev:删除dev分支</li>
+                    <li>git branch -D dev:强行删除没有合并过的分支</li>
+                </ul>
+            </div>
+            <h3 class="small_title">bug分支</h3>
+            <div class="box">
+                <ul>
+                    <li>git stash:把当前工作现场“储藏”起来，等以后恢复现场后继续工作</li>
+                    <li>git stash list:查看存储历史</li>
+                    <li>git stash apply stash@{0}:恢复指定储藏版本</li>
+                    <li>git stash pop:恢复的同时把stash内容也删了</li>
+                </ul>
+            </div>
+            <h3 class="small_title">多人协作</h3>
+            <div class="box">
+                <ul>
+                    <li>git push origin dev</li>
+                    <li>git pull:出现问题时执行git branch --set-upstream dev origin/dev:push</li>
+                </ul>
+            </div>
+         </div>
+    </section>
+    <section class="onePoint">
+        <h3 class="title">配置忽略文件</h3>
+        <div class="point_content">
+           
+        </div>
+    </section>
+</article>
+</body>
+</html>

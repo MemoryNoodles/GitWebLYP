@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<title>ajax</title>
+		<script>
+
+			/*
+				2、open方法
+				参数
+					1.打开方式-> get/post
+					2.地址
+					3.是否异步
+						异步:非阻塞 前面的代码不会影响后面代码的执行
+						同步:阻塞 前面的代码会影响后面代码的执行
+		     */
+			xhr.open('get','test.txt',true);
+
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">Ajax</h2>
+		<article class="wrap">
+			<section class="onePoint">
+
+				<h3 class="title">AJAX简介</h3>
+				<div class="point_content">
+					<p class="paragraph">1999年，微软公司发布IE浏览器5.0版，第一次引入新功能：允许JavaScript脚本向服务器发起HTTP请求。这个功能当时并没有引起注意，直到2004年Gmail发布和2005年Google Map发布，才引起广泛重视。2005年2月，AJAX这个词第一次正式提出，指围绕这个功能进行开发的一整套做法。从此，AJAX成为脚本发起HTTP通信的代名词，W3C也在2006年发布了它的国际标准。</p>
+					<p class="small_title">AJAX包括以下几个步骤。</p>
+					<div class="box">
+						<ul>
+							<li>1、创建AJAX对象</li>
+							<li>2、发出HTTP请求</li>
+							<li>3、接收服务器传回的数据</li>
+							<li>4、更新网页数据</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">AJAX</h3>
+				<div class="point_content">
+				    <h4 class="small_title">简单的ajax</h4>
+				    <p class="paragraph">先做一个简单的测试</p>
+				    <img src="./js-img/easyAjax.png" alt="">
+				    <h4 class="small_title">form表单</h4>
+				    <p class="paragraph">还记得表单吗？method、action</p>
+				    <img src="./js-img/ajaxFromGet.png" alt="">
+				    <img src="./js-img/ajaxFromPost.png" alt="">
+				    <p class="paragraph">使用post的时候可以在<em>接收页面的网络</em>下看到传输的数据</p>
+				   
+					<!--<h4 class="small_title">1、创建XMLHttpRequest对象</h4>
+					<img src="./js-img/XMLHttpRequest.png">
+					<h4 class="small_title">2、open()</h4>
+					<img src="./js-img/ajaxOpen.png" alt="">
+					<p>get和post的区别会影响send的发动</p>
+					<h4 class="small_title">3、send()提交发送请求</h4>-->
+					
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">ajax中的get</h3>
+				<div class="point_content">
+					<img src="./js-img/AjaxGet.png" alt="">
+					<img src="./js-img/ajaxgetText.png" alt="">
+					<h4 class="small_title">请求状态监控-->onreadystatechange事件</h4>
+					<p class="paragraph"><em>一</em>、readyState属性：请求状态</p>
+					<div class="box" style="margin-left:50px;">
+						<ul>
+							<li>0:（UNSENT）还没有调用open()方法</li>
+							<li>1:（OPENED）请求已建立, 但未发送 (已调用open方法, 但未调用send方法)</li>
+							<li>2:（HEADERS_RECEIVED）请求已发送 (send方法已调用, 已收到响应头)</li>
+							<li>3:（LOADING）请求处理中, 响应内容不全</li>
+							<li>4:（DONE）数据接收完毕</li>
+						</ul>
+					</div>
+					<p class="paragraph"><em>二</em>、status属性：服务器(请求资源)的状态/http状态码</p>
+					<p class="paragraph"><em>三</em>、返回的内容->responseText：返回以文本形式存放的内容</p>
+					<h4 class="small_title">模拟后台接收数据</h4>
+					<p>下载服务器工具网址www.php100.com,<br><a href="./jsFile/get.php" target="_blank">php的get接收方式文件下载</a></p>
+					<img src="./js-img/AjaxGetUrl.png" alt="">
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">ajax中的post</h3>
+				<div class="point_content">
+				    <a href="./jsFile/post.php" target="_blank">php的post接收方式文件下载</a><br>
+					<img src="./js-img/ajaxPost.png"  alt="">
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">获取数据实列</h3>
+				<div class="point_content">
+					<p class="paragraph"><a href="./jsFile/getNews.php" target="_blank">php文件下载</a></p>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">ajax的封装</h3>
+				<div class="point_content">
+					<p class="paragraph">作业</p>
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">ajax-leval2</h3>
+				<div class="point_content">
+					<p class="paragraph">文件的上传</p>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>
+
+

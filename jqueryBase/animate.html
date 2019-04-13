@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基础事件</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+            
+            /*点击执行动画*/
+            $('#div1').click(function(){
+                $(this).animate({width : 300} , 2000).delay(1000).animate({height : 300} , 2000);
+            });
+
+            /*点击阻止动画*/
+            $('#div2').click(function(){
+                $('#div1').stop();   //默认 : 只会阻止当前运动
+                //$('#div1').stop(true); //阻止后续的运动
+                //$('#div1').stop(true,true); //可以立即停止到指定的目标点
+                //$('#div1').finish();  //立即停止到所有指定的目标点
+            });
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">基础事件</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">一．显示、隐藏</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery 中显示方法为：.show()，隐藏方法为：.hide()。在无参数的时候，只是硬性的显示内容和隐藏内容。</p>
+                    <img src="./jqueryImg/showAndHide.png" alt="">
+                    <p class="paragraph">在.show()和.hide()方法可以传递一个参数，这个参数的值可以设置为以下几个：</p>
+                    <div class="box">
+                        <dl>
+                            <dt>slow</dt>
+                            <dd>对应600毫秒</dd>
+                            <dt>normal</dt>
+                            <dd>400毫秒</dd>
+                            <dt>fast</dt>
+                            <dd>200毫秒</dd>
+                        </dl>
+                    </div>
+                    <p>看到这里我们理所当然的想到其实他后面还可以跟一个数字例如下图</p>
+                    <img src="./jqueryImg/showAndHideWidhPara.png" alt="">
+                    <p>回调</p>
+                    <img src="./jqueryImg/showBack.png" alt="">
+                    <p>我们在使用show()和hide()的时候，如果需要一个按钮切换操作，需要进行一些条件判断。而jQuery提供给我们一个类似功能的独立方法：<em>toggle()</em>。</p>
+                    <img src="./jqueryImg/toggle.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">二．滑动、卷动</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery提供了一组改变元素高度的方法：.slideUp()、.slideDown()和.slideToggle()。顾名思义，向上收缩(卷动)和向下展开(滑动)。</p>
+                    <img src="./jqueryImg/slideToggle.png" alt="">
+                    <p><em>注意：</em>滑动、卷动效果和显示、隐藏效果一样，具有相同的参数。</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">三．淡入、淡出</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery提供了一组专门用于透明度变化的方法：fadeIn()和fadeOut()，分别表示淡入、淡出，当然还有一个自动切换的方法：fadeToggle()。</p>
+                    <img src="./jqueryImg/fadeToggle.png" alt="">
+                    <p class="paragraph">上面三个透明度方法只能是从0到100，或者从100到0，如果我们想设置指定值就没有办法了。而 jQuery 为了解决这个问题提供了<em>fadeTo()</em>方法。</p>
+                    <img src="./jqueryImg/fadeTo.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">自定义动画</h3>
+                <div class="point_content">
+                    <!--简单的动画-->
+                    <h4 class="small_title">简单的动画</h4>
+                    <p class="paragraph">jQuery提供了几种简单常用的固定动画方面我们使用。但有些时候，这些简单动画无法满足我们更加复杂的需求。这个时候，jQuery提供了一个animate()方法来创建我们的自定义动画，满足更多复杂多变的要求。</p>
+
+                    <img src="./jqueryImg/animateEasy.png" alt="">
+                    <p><em>注意</em>：一个CSS变化就是一个动画效果，上面的例子中，已经有四个CSS变化，已经实现了多重动画同步运动的效果。</p>
+                    <p>必传的参数只有一个，就是一个键值对CSS变化样式的对象。还有两个可选参数分别为<em>速度和回调函数</em>。</p>
+                    <img src="./jqueryImg/animateWithPara.png" alt="">
+                    <p class="paragraph">自定义动画中，每次开始运动都必须是初始位置或初始状态，而有时我们想通过当前位置或状态下再进行动画。jQuery 提供了自定义动画的累加、累减功能。</p>
+                    <img src="./jqueryImg/animateMove.png" alt="">
+                  <!--  列队动画
+                    <h4 class="small_title">列队动画</h4>
+                    <p>自定义实现<em>列队动画</em>的方式，有两种：1、通过<em>连缀或顺序</em>来实现列队动画。2、在回调函数中再执行一个动画；</p>       
+                    <img src="./jqueryImg/animation.png" alt="">
+                    <p><em>注意</em>：如果不是同一个元素，就会实现同步动画</p>
+                    <img src="./jqueryImg/animation2.png" alt="">-->
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">阻止当前运动</h3>
+                <div class="point_content">
+                    <div class="box">
+                        <dl>
+                            <dt>stop()</dt>
+                            <dd>默认:只会阻止当前运动</dd>
+                            <dt>stop(true)</dt>
+                            <dd>阻止后续的运动</dd>
+                            <dt>stop(true,true)</dt>
+                            <dd>可以立即停止到指定的目标点</dd>
+                            <dt>finish()</dt>
+                            <dd>立即停止到所有指定的目标点</dd>
+                        </dl>
+                    </div>
+                    <img src="./jqueryImg/stop.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">动画队列</h3>
+                <div class="point_content">
+                    <img src="./jqueryImg/queue.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

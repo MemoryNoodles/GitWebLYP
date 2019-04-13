@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>大数据</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <!--  <link rel="stylesheet" href="./css/foundation.min.css"> -->       <link rel="stylesheet" href="./css/foundation-datepicker.min.css">
+        <link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+
+        <style>
+            body{
+                background: #2f323b;
+                font-size：14px;
+            }
+            .silder{
+                background: #24252a;
+                padding-right:0;
+            }
+            .logo{
+                color:#366eb5;
+                font-family:"微软雅黑", "microsoft yahei";
+                font-size:20px;
+                height:60px;
+                line-height:60px;
+                text-align: center
+            }
+            .place{
+                color:#758ba9;
+                text-align: center;
+                height:40px;
+                font-size:14px;
+                font-weight:normal;
+            }
+            .place label{
+                font-size:14px;
+                font-weight:normal;
+            }
+            .place select{
+                background: transparent;
+                border: 1px solid #393e48;
+                width:70px;
+                height:25px;;
+
+            }
+            .menu .item, .menu .item a{
+                color:white;
+                height:50px;
+                line-height:50px;
+                font-size:16px;
+                text-align: center;
+                /*     border-bottom:2px solid #758ba9;*/
+            }
+            .menu .active{
+                background-color: #366fb6;
+            }
+            .menu .dataPro i, .menu .dataStatic i,.menu .userMange i,.menu .cityPro i{
+                width:16px;
+                height:16px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right:10px;
+            }
+            .menu .dataPro i{
+                background:url('./img/data.png') no-repeat center/16px;
+            }
+            .menu .dataStatic{
+                background-image:url('./img/');
+            }
+            .menu .dataStatic i{
+                background:url('./img/dataStistic.png') no-repeat center/16px;
+            } 
+            .menu .userMange i{
+                background:url('./img/userMange.png') no-repeat center/16px;
+            } 
+            .menu .cityPro i{
+                background:url('./img/city.png') no-repeat center/16px;
+            } 
+            .menu .item div{
+                display: none;
+                font-size:14px;
+            }
+            
+            .navbar-default{
+                background: #24252a;
+                border:none;
+                font-size:18px;
+               
+            }
+            .navbar-default .navbar-brand{
+                font-size:18px;
+                color:white;
+            }
+            .navbar-nav li a{
+                font-size:16px;
+                color:white !important;
+                
+            }
+            .navbar-nav li.active a{
+                background: #366fb6 !important;
+                 color:white !important;
+            }
+            /*右边的数据*/
+            .quet{
+                margin-top:60px;    
+            }
+            .quet .item{
+                background: #24252a;
+                margin-right:10px;
+                width:32%;
+                height:80px;;
+                display: table;
+                padding:20px 0;
+            }
+            .quet .item>div{
+                display:table-cell;
+                text-align: center;
+                font-size:16px;
+                width:50%;
+                vertical-align: top;
+            }
+            .user i, .setUp i, .loginUser i{  
+                width:24px;
+                height:24px;
+                display:block;
+                margin:0 auto 5px;
+            }
+            .user i{
+                background:url('./img/Customer_service.png') no-repeat center;
+            }
+            .setUp i{
+                background:url('./img/setUp.png') no-repeat center;
+            }
+            .loginUser i{
+                background:url('./img/loginUser.png') no-repeat center;
+            }
+            .user{ 
+                color:#33965e;
+            }
+            .loginUser{
+                color:#943335
+            }
+            .setUp{
+                color:#a66821
+            }
+            .userNum, .setUpNum, .loginUserNum{
+                color:#93b0d8;
+                text-align: center;
+            }
+
+            .userNum em, .setUpNum em, .loginUserNum em{
+                font-size:18px;
+                display: block;
+                font-weight:700;
+                font-family: "微软雅黑", "microsoft yahei";
+            }
+            .userNum span, .setUpNum span, .loginUserNum span{
+                font-size:12px;
+                display: block;
+            }
+            /*图形*/
+            .graph{
+                color:white;
+            }
+            .graph>div{
+                margin-top:20px;
+            }
+            .graph .col-md-7, .graph .col-md-5{
+                background: #18191d;
+                height:340px;
+                margin-right:0;
+            }
+
+
+            .graph .title{
+                padding-top:20px;
+                font-size:18px;
+                font-family: "黑体";
+
+            }
+            .graph .title label{
+                font-size:12px;
+                color:#93b0d8;
+                position: relative;
+            }
+            .graph .title input{
+                padding:0 5px;
+                width:100px;
+                background: #18191d;
+                border:1px solid #93b0d8;
+            }
+            #internet_user{
+                height:280px;
+
+            }
+
+            /* 小屏幕（平板，大于等于 768px） */
+            @media (min-width: 768px) {
+                .mainData{
+                    float:none;    
+                }
+                .quet .item em{
+                    font-size: 14px
+                } 
+                .quet .item span{
+                    font-size: 10px
+                } 
+                .mainData{
+                    width:100%;
+                }
+                .graph .col-md-7{
+                    margin-right:20px;
+                }
+                .graph .col-md-5{
+
+                    margin-right:0px;
+                }
+                .col-sm-6{
+                    width:48%;
+                }
+            }
+            /* 中等屏幕（桌面显示器，大于等于 992px） */
+            @media (min-width: 992px) {
+                 .quet{
+                    margin-top:0px;    
+                }
+                .mainData{
+                    float:right;    
+                }
+                .quet .item em{
+                    font-size: 18px
+                }
+                .quet .item span{
+                    font-size: 12px
+                } 
+                .mainData{
+                    width:80%;
+                    margin-right:20px;
+                }
+
+                .graph .col-md-7{
+                    width:52%;
+                }
+                .graph .col-md-5{
+                    width:44%;
+                    margin-right:0px;
+                }
+
+            }
+        </style>
+    </head>
+    <body>
+        <mian class="container-fluit">
+            <div class="row">
+                <div class="col-md-2 silder hidden-sm hidden-xs">
+                    <div class="logo">我的数据</div>
+                    <div class="place">
+                        <label>选择区域：<select>
+                            <option value ="china">中国</option> 
+                            <option value ="usa">美国</option> 
+                            <option value="jpan">日本</option> 
+
+                            </select>
+                        </label>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="item active dataPro"><a href=""><i></i>数据概况</a></li>
+                            <li class="item cityPro"><a href=""><i></i>城市概况</a></li>
+                            <li class="item userMange"><a href=""><i></i>用户管理</a></li>
+                            <li class="item dataStatic">
+                                <i></i>数据统计
+                                <div>
+                                    <a href="">设备统计</a>
+                                    <a href="">app统计</a>
+                                    <a href="">认证统计</a>
+                                    <a href="">区域统计</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10 mainData">
+                    <!--小屏幕 平板的导航 -->
+                    <nav class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">大数据</a>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="./navbar/"> 数据概况</a></li>
+                                    <li><a href="./navbar-static-top/"> 城市概况</a></li>
+                                    <li ><a href="./">用户管理</a></li>
+                                    <li ><a href="./">数据统计</a></li>
+                                </ul>
+                            </div><!--/.nav-collapse -->
+                        </div>
+                    </nav>
+
+                    <!--end-->
+                    <div class="row quet">
+                        <div class="col-md-4 col-sm-4 item hidden-xs">
+                            <div class="user"><i></i>上网用户</div>
+                            <div class="userNum"> 
+                                <em>5673 昨天</em>
+                                <span>7793总数</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 item hidden-xs">
+                            <div class="setUp"><i></i>AP设配</div>
+                            <div class="setUpNum"> 
+                                <em>56793 昨日在线</em>
+                                <span>77993总数</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 item hidden-xs">
+                            <div class="loginUser"><i></i>APP注册用户</div>
+                            <div class="loginUserNum"> 
+                                <em>567 昨日</em>
+                                <span>77993总数</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row graph">
+                        <div class="col-md-7 internet_hours col-sm-6 col-xs-12" >
+
+                        </div>
+                        <div class="col-md-5 internet_city col-sm-6 col-xs-12"></div>
+                    </div>
+                    <div class="row graph">
+                        <div class="col-md-7 internet_user col-sm-6 col-xs-12">
+                            <div class="clearFix title">
+                                <p class="fl">上网用户数据</p>  
+                                <label class="fr">时间 <input type="text"  id="dpd1"> - <input type="text" id="dpd2"></label> 
+                            </div>
+                            <div id="internet_user">
+
+                            </div>
+                        </div>
+                        <div class="col-md-5 internet_crowd col-sm-6 col-xs-12"></div>
+                    </div>
+                </div>
+            </div>
+
+        </mian>
+        <script src="./js/jquery-3.1.1.min.js"></script>
+        <script src="./js/echarts.minAll.js"></script>
+        <script src="./js/china.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/foundation-datepicker.min.js"></script>
+        <script src="./js/foundation-datepicker.zh-CN.js"></script>
+        <script src="./js/graphData.js"></script>
+
+        <script>
+            /*上网时段全国统计*/
+            var hours_myChart = echarts.init($('.internet_hours')[0]);
+            hours_myChart.setOption(internet_option);
+
+            /*上网人群留存*/
+            var crowd_myChart = echarts.init($('.internet_crowd')[0]);
+            crowd_myChart.setOption(retained_option);
+
+            /*上网用户数据*/
+            var interUser_myChart = echarts.init($('#internet_user')[0]);
+            interUser_myChart.setOption(interUser_option);
+
+            /*各城市上网shuju*/
+            var interCity_myChart = echarts.init($('.internet_city')[0]);
+            interCity_myChart.setOption(city_option);
+
+            //时间选择
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+            var checkin = $('#dpd1').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() < now.valueOf() ? '' : '';
+                }
+            }).on('changeDate', function (ev) {
+                if (ev.date.valueOf() > checkout.date.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.update(newDate);
+                }
+                checkin.hide();
+                $('#dpd2')[0].focus();
+            }).data('datepicker');
+
+            var checkout = $('#dpd2').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                checkout.hide();
+            }).data('datepicker');
+
+
+        </script>
+    </body>
+</html>

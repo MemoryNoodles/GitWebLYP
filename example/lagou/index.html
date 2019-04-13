@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <div id="banner" class="company_banner" >
+            <div class="banner_content">
+                <h3>什么值得投</h3>
+                <div id="it_content" class="it_content">
+                    <!--左右按钮-->
+                     <div>
+                        <div class="button-prev hide" ></div>
+                        <div  class="button-next"></div>
+                    </div>
+                    <div class="it_list">
+                        <ul class="listUl" >
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="content-container">
+            <div class="company_list_container">
+               <!--左边的内容-->
+                <div class="content_left fl">
+                    <div class="positionHead">
+                        <!-- 筛选 -->
+                        <ul id="filterBox" class="filter-wrapper">
+                            <li class="one-chosen" id="place">
+                                <span class="title ">公司地点：</span>
+                                <a class="active noFilter">全国</a>            
+                                <a>北京</a>
+                                <a>上海</a>
+                                <a>深圳</a>
+                                <a>广州</a>
+                                <a>成都</a>
+                                <a>武汉</a>
+                                <a>杭州</a>                   
+                                <a>南京</a>                   
+                                <a>西安</a>                   
+                                <a>厦门</a>                   
+                                <a>长沙</a>                   
+                                <a>天津</a> 
+                                <span class="more">更多<i></i></span>                  
+                            </li>
+                            <li class="multi-chosen" id="stage">
+                                <span class="title">融资阶段：</span>
+                                <a class="active noFilter">不限</a>
+                                <a>未融资<i class="delete"></i></a>
+                                <a>天使轮<i class="delete"></i></a>
+                                <a>A轮<i class="delete"></i></a>
+                                <a>B轮<i class="delete"></i></a>
+                                <a>c轮<i class="delete"></i></a>
+                                <a>d轮及以上<i class="delete"></i></a>
+                                <a>上市公司<i class="delete"></i></a>
+                                <a>不需要融资<i class="delete"></i></a>
+                                
+                            </li>
+                            <li class="multi-chosen" id="field">
+                                <span class="title">行业领域：</span>
+                                <a class="active noFilter">不限</a>
+                                <a >移动互联网<i class="delete"></i></a>
+                                <a>电子商务<i class="delete"></i></a>
+                                <a>金融<i class="delete"></i></a>
+                                <a >企业服务<i class="delete"></i></a>
+                                <a>教育<i class="delete"></i></a>
+                                <a >文化娱乐<i class="delete"></i></a>
+                                <a >游戏<i class="delete"></i></a>
+                                <a>O2O <i class="delete"></i></a>
+                                <a>硬件<i class="delete"></i></a>
+                                <span class="more">更多<i></i></span>   
+                            </li>        
+                        </ul>
+                        
+                        <!--排序-->
+                        <ul class="orderBy">
+                            <li id="order">
+                                 <span class="title">排序方式：</span>
+                                 <a class="active noFilter">默认排序</a>       
+                                 <a data-order="office">职位数量 ↓</a>          
+                                 <a data-order="assessNum">面试评价数 ↓</a> 
+                                 <a data-order="rate">简历处理率 ↓</a>    
+                                 <div class="assess">
+                                     <lable><input type="checkbox">有面试评价</lable>
+                                 </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--公司数据-->
+                    <div class="wrap">
+                        <div class="    company clearFix">
+                            <ul id="company_content">
+                                <li class="fl">
+                                    <div class="des">
+                                        <div>
+                                            <img src="./img/[@img]" alt="">
+                                            <p>怕寂寞，来压寨直播！</p>
+                                        </div>
+                                        <div>
+                                            <h4>[@company]</h4>
+                                            <p><span>[@say]</span>条面试评价</p>
+                                            <p><span>[@num]</span>个在招职位</p>
+                                            <p><span>[@rate]</span>简历处理率</p>
+                                        </div>
+                                    </div>  
+                                    <div class="company_state">
+                                        <span class="web"><i></i>[@web]</span>
+                                        <span class="type"><i></i>[@type]</span>
+                                        <span class="place"><i></i>[@place]</span>
+                                    </div>
+                                </li> 	
+
+                            </ul>
+                            
+                        </div>
+                        <!--分页-->
+                        <div id="pageData"></div>
+                    </div>
+                </div>
+                <!--右边的内容-->
+                <div class="content_right fr">
+                    
+                </div>
+                <!--侧边内容-->
+                <div class="backTop"></div>
+            </div>
+        </div>    
+        <script src="./js/jquery-3.1.1.min.js"></script>
+        <script src="./js/jquery.page.js"></script>
+        <script src="./js/data.js"></script>
+<script>
+$(function(){
+    /*
+      生成值得投值公司信息
+      得到数据然后动态加载在页面上
+    */
+    var companyStr = '';
+    companyObj.company.forEach(function(item, index){
+       companyStr +=  "<li>"+
+            "<div class=\"panel\">" +
+              "<img src=\""+item.src+"\" >" +
+              "<p class=\"panel_b\">"+item.slogan+"</p>" +
+              "<div class=\"panel_cont\">"  +
+                "<div class=\"panel_det\">" +
+                    "<p>"+item.des+"</p>"   +
+                    "<div>"                 +
+                      "<a class=\"go_btn\"  href=\""+item.href+"\"" + "target=\"_blank\" >进入公司主页</a>"            +
+                    "</div>"      +
+                "</div>"          +
+             "</div>"             +
+           "</div>"               +
+           "<div class=\"time\">" +
+               "07/14<span class=\"bottom_bg\"></span>" +
+            "</div>" +
+        "</li>"
+    })
+    $('.listUl').html(companyStr);
+    //往第一个Li里加span
+    $('.listUl li:first .time').append('<span class="bottom_bg first"></span>')
+    
+    
+    /*
+      值得投公司的轮播
+    */
+    //获得ul的总宽度
+    var totalW =  ($('.listUl li')[0].offsetWidth+64)*($('.listUl li').length);
+    $('.listUl').width(totalW)  
+    
+    //左右点击事件
+    var num=0;
+    $('.button-prev').click(function(){
+        num--;
+        getMove()  
+    })
+    $('.button-next').click(function(){
+        num++;
+        getMove()
+    })
+    
+    //移动
+    function getMove(sign){
+        if(num<=0){
+            num = 0;
+            $('.button-prev').hide();
+            
+        }else if( num== Math.floor(companyObj.company.length/5) ){
+            num = Math.floor(companyObj.company.length/5);
+             $('.button-next').hide();
+            
+        }else{
+             $('.button-prev').show();
+             $('.button-next').show();
+        }
+        $('.listUl').animate({
+            "left":-$('.it_list').width()*num                    
+        }) 
+    }   
+    
+/*---------------------------------------------------------------------------*/
+/*----------------------         数据过滤与排序    ----------------------------*/
+/*---------------------------------------------------------------------------*/
+    //产生公司信息数据
+    var str = '';
+    /*分页配置*/
+    var config = {			
+        CurrentPage:6,               //页面显示几条				
+        AllPage:jsonData.data,       //总数据
+    };
+   //过滤后得到的数据默认为全部数据
+    var newData = config.AllPage;
+    //数据过滤
+    var arrFilter = {'place':[], 'stage':[], 'field':[], "order":[] };
+    /*单选 -- 地点*/
+    $("#filterBox").find('li.one-chosen a').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        if(!$(this).hasClass('noFilter')){
+            arrFilter.place[0] = $(this).html();
+        }else{
+            arrFilter.place.length = 0;
+        }
+        
+        //过滤数据进行显示
+        filterData()
+        
+    })
+    
+    /*多选 -- 融资和领域*/
+    $("#filterBox").find('li.multi-chosen a').click(function(){
+        //检查是否是不需要过滤条件按钮
+        if($(this).hasClass('noFilter')){
+            $(this).addClass('active').siblings().removeClass('active');
+        }else{
+             $(this).addClass('active').siblings('.noFilter').removeClass('active');  
+            //存储过滤数据
+             arrFilter[$(this).parent().attr('id')].push( $(this).text() )
+             //过滤数据进行显示
+             filterData()
+        } 
+         
+    })
+    /*点击叉叉按钮*/
+    $("#filterBox li.multi-chosen a i").click(function(e){
+        $(this).parent().removeClass('active');
+        
+        //从数组里删除当前过滤项
+        //当前项的索引
+        var index =arrFilter[$(this).parents('li').attr('id')].indexOf( $(this).parent().text());
+        
+        //删除数据
+        arrFilter[$(this).parents('li').attr('id')].splice(index, 1)
+        //如果没有选中的项目，则选中默认的选项
+      
+        if(arrFilter[$(this).parents('li').attr('id')].length == 0){
+           $(this).parent().siblings('.noFilter').addClass('active');
+        }
+        //过滤数据进行显示
+        filterData()
+        e.stopPropagation();
+    })
+    
+    //排序
+     var compare = function(item){
+        var a = item;
+        return function(obj, obj2){
+           return obj[a] - obj2[a];
+        }
+    }
+    $(".orderBy").find('li a').click(function(){
+        
+        $(this).addClass('active').siblings().removeClass('active');
+        var item = $(this).data().order;
+        //对过滤后的数据进行排序
+        config.AllPage = newData.sort( compare(item) )
+         /*排序显示信息*/
+         page(config,1)
+    })
+    
+    /*过滤数据*/
+    function filterData(){
+        newData = jsonData.data.filter(function(item, index){
+            return filterDataDepp(arrFilter.place,item.place)  &&           
+                   filterDataDepp(arrFilter.stage,item.type) && filterDataDepp(arrFilter.field,item.web) 
+        });
+        config.AllPage = newData;
+        /*过滤数据过后的显示信息*/
+        page(config,1)
+        /*过滤数据过后的分页*/
+        pagIng();
+    }
+    /*深度过滤数据*/
+    function filterDataDepp(obj, para){
+        if(obj.length == 0) return true; 
+        for(var i=0; i<obj.length;i++){
+            if(obj[i] == para){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //获取页面模板
+    var strTemplate = $('#company_content').html();
+   
+    page(config,1)
+    function page(obj,nowPage){
+        
+        //从第几条开始
+        var firstDateNum = (obj.CurrentPage)*(nowPage-1)
+        var lastDataNum = (obj.CurrentPage)*nowPage;
+        if(lastDataNum > obj.AllPage.length)  {lastDataNum = obj.AllPage.length;}
+        for(var i=firstDateNum; i<lastDataNum; i++){
+                str += strTemplate.replace('[@img]', obj.AllPage[i].img).
+                replace('[@company]', obj.AllPage[i].companyName).
+                replace('[@say]', obj.AllPage[i].assessNum).
+                replace('[@num]', obj.AllPage[i].office).
+                replace('[@rate]', obj.AllPage[i].rate).
+                replace('[@web]', obj.AllPage[i].web).
+                replace('[@type]', obj.AllPage[i].type).
+                replace('[@place]', obj.AllPage[i].place);
+        }
+        $('#company_content').html(str);
+        str = '';         
+    }
+    
+    //分页
+    pagIng()
+    function pagIng(){
+        
+        $("#pageData").createPage({
+            pageCount:Math.ceil(config.AllPage.length/config.CurrentPage),
+            current:1,
+            backFn:function(num){
+           
+                page(config, num);
+            }
+        });
+    }
+    
+/************************************************************************/
+/****************************  侧边  ****************************************/
+/***********************************************************************/
+    $('.backTop').click(function(){
+        $(document.body).animate({
+            scrollTop:0
+        },function(){
+            $('.backTop').css({display:"none"})
+        })
+    })
+    
+    $(window).scroll(function(){
+        if($(document.body).scrollTop() >= 150){
+             $('.backTop').css({display:"block"})
+        }else{
+            $('.backTop').css({display:"none"})
+        }
+        
+    })
+    
+
+})
+</script>
+    </body>
+</html>

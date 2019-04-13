@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>高级事件</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        
+        <script>
+            
+           
+            
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">高级事件</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">模拟操作</h3>
+                <div class="point_content">
+                    <p class="paragraph">在事件触发的时候，有时我们需要一些模拟用户行为的操作。例如：当网页加载完毕后自行点击一个按钮触发一个事件，而不是用户去点击。</p>
+                    <img src="./jqueryImg/trigger.png" alt="">
+                    <p class="paragraph">有时在模拟用户行为的时候， 我们需要给事件执行传递参数， 这个参数类似与event.data的额外数据，可以可以是数字、字符串、数组、对象。</p>
+                    <img src="./jqueryImg/triggerWidthPara.png" alt="">
+                    <p>triggerHandler这个方法只会触发你绑定的动作, 不会触发默认事件</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">命名空间</h3>
+                <div class="point_content">
+                    <p class="paragraph">有时，我们想对事件进行移除。但对于同名同元素绑定的事件移除往往比较麻烦，这个时候，可以使用事件的命名空间解决。</p>
+                    <img src="./jqueryImg/nameSpace.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">on、off和one</h3>
+                <div class="point_content">
+                    <p class="paragraph">Query1.7以后推出了.on()和.off()方法代替了bind()与unbind()</p>
+                    <h4 class="small_title">on()</h4>
+                    <img src="./jqueryImg/on.png" alt="">
+                    <p>给动态生成的元素绑定事件</p>
+                    <img src="./jqueryImg/dongtai.png" alt="">
+                  <!--  <p>判定一个对象上是否绑定了事件</p>
+                    <img src="./jqueryImg/_data.png" alt="">-->
+                    <h4 class="small_title">off()</h4>
+                    <img src="./jqueryImg/off.png" alt="">
+                    <p class="paragraph">不管是.bind()还是.on()，绑定事件后都不是自动移除事件的，需要通过.unbind()和.off()来手工移除。jQuery 提供了.one()方法，绑定元素执行完毕后自动移除事件，可以方法仅触发一次的事件。</p>
+                    <img src="./jqueryImg/one.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="ico shortcut" href="./html-img/favicon.ico">    
+		<link rel="stylesheet" href="./css/common.css">
+		<title>form表单</title>
+	</head>
+	<body>
+		<h2 class="article-title">表单标签</h2>
+		<div class="wrap">
+			<section>
+				<p class="title">表单标签&lt;form&gt;</p>
+				<p class="paragraph">表单标签的内容通常是“表单元素”+“提交按钮”的形式。它虽然和&lt;div&gt;标签一样属于“块级元素”，但它却有自己的实际用处，也就是若不将“表单元素”放置于表单标签&lt;form&gt;中，那某些表单元素将会失效，如：“提交”按钮和“重置”按钮。</p>
+				<p class="paragraph"><code>form</code>标签具有以下属性：</p>
+				<div class="box">
+					<dl>
+						<dt>name</dt>
+						<dd>规定表单的名称。</dd>
+						<dt>action</dt>
+						<dd>规定当提交表单时向何处发送表单数据，它的属性值应该是一个“URL”。</dd>
+						<dt>method</dt>
+						<dd>规定用于发送 form-data 的 HTTP 方法，他有以下值：
+							<ul>
+								<li>get</li>
+								<li>post</li>
+							</ul>
+						</dd>
+						<dt>target</dt>
+						<dd>规定在何处打开“action”中设定的URL。有以下值：
+							<ul>
+								<li>_blank</li>
+								<li>_self</li>
+								<li>_parent</li>
+								<li>_top</li>
+								<li>&lt;iframe&gt;的“name”</li>
+							</ul>
+						</dd>
+						<dt>enctype</dt>
+						<dd>规定在发送到服务器之前应该如何对表单数据进行编码，有以下值：
+							<ul>
+								<li>application/x-www-form-urlencoded（默认，在发送前编码所有字符）</li>
+								<li>multipart/form-data（不对字符编码，在使用包含文件上传控件的表单时，必须使用该值</li>
+								<li>text/plain（空格转换为 "+" 加号，但不对特殊字符编码。）</li>
+							</ul>
+						</dd>
+						<dt>autocomplete</dt>
+						<dd>规定浏览器是否自动记录之前输入的值：(on默认记录/off不记录)；</dd>
+						<dt>novalidate</dt>
+						<dd>如果使用该属性，则提交表单时不进行html5自带的验证。</dd>
+						<dt>accept-charset</dt>
+						<dd>规定服务器用哪种字符集处理表单数据，常用的字符集有:
+							<ul>
+								<li>UTF-8（Unicode，双字节对字符进行编码，统一的编码标准）</li>
+								<li>ISO-8859-1（拉丁字母表的字符编码）</li>
+								<li>GB2312（简体中文字符集）</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+				<div>
+					<p><code>get和post</code>的区别</p>
+					<div class="box">
+						<dl>
+							<dd>1、<em>Get</em>是用来从服务器上获得数据，而<em>Post</em>是用来向服务器上传递数据。</dd>
+							<dd>2、<em>Get</em>将表单中数据的按照variable=value的形式，添加到action所指向的URL后面，并且两者使用“?”连接，而各个变量之间使用“&”连接；<em>Post</em>是将表单中的数据放在form的数据体中，按照变量和值相对应的方式，传递到action所指向URL。</dd>
+							<dd>3、<em>Get</em>是不安全的，因为在传输过程，数据被放在请求的URL中，而如今现有的很多服务器、代理服务器或者用户代理都会将请求URL记录到日志文件中，然后放在某个地方，这样就可能会有一些隐私的信息被第三方看到。另外，用户也可以在浏览器上直接看到提交的数据，一些系统内部消息将会一同显示在用户面前。<em>Post</em>的所有操作对用户来说都是不可见的。</dd>
+							<dd>4、<em>Get</em>传输的数据量小，这主要是因为受URL长度限制；而<em>Post</em>可以传输大量的数据，所以在上传文件只能使用Post。</dd>
+
+						</dl>
+					</div>
+				</div>
+				<img src="./html-img/from-method.jpg" alt="">
+				<div class="box">
+					<iframe src="./iframe/from-method.html" frameborder="0"></iframe>
+				</div>
+			</section>
+			<section>
+				<p class="title">&lt;label&gt;标签</p>
+				<p class="paragraph">一般配合input使用</p>
+				<img src="./html-img/form-label.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">  
+					<label><input name="sex" type="radio">男</label>
+					<label><input name="sex" type="radio">女</label>
+					<label><input name="sex" type="radio">去过泰国的人</label>                  
+				</div>
+			</section>
+			<sectiont>
+				<p class="title">&lt;input&gt;标签</p>
+				<p class="paragraph">&lt;input&gt;标签也是一个没有内容的标签，按照布局类型它属于“行内块级元素”，它是通过设置属性及属性值来决定它的显示类型的，除了“id”和“class”这些通用属性，发展到HTML5标准后，它除了拥有“name”、“type”、“maxlength”、“value”等传统属性，它还拥有“autocomplete”、“autofocus”、“required”、“form”、“placeholder”等多达近20个的新属性。</p>
+				<p class="paragraph"><code>type</code>属性</p>
+				<div class="box">
+					<ul>
+						<li>text：默认属性值，规定显示的类型为“文本框”</li>
+						<li>password：规定显示的类型为“密码框”；</li>
+						<li>radio：规定显示的类型为“单选框”；input元素里的name必须一致。</li>
+						<li>checkbox：规定显示的类型为“复选框”</li>
+						<li>file：规定显示的类型为“文件上传”控件 ;multiple加上这个可以多选文件</li>
+						<li>button：规定显示的类型为“按钮”</li>
+						<li>submit：规定显示的类型为“提交按钮”</li>
+						<li>reset：规定显示的类型为“重置按钮”</li>
+						
+						<li>image：规定显示的类型为“图像按钮”</li>
+						<li>hidden：规定显示的类型为“隐藏域”</li>
+					</ul>
+				</div>
+				<p class="paragraph">代码示列：</p>
+				<img src="./html-img/from-input.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">  
+				
+	<form>
+		<label>用户名：<input  type="text"></label><br> 
+		<label>密码：<input  type="password"></label><br>       
+		<label><input name="sex" type="radio">女</label>
+		<label><input name="sex" type="radio">男</label> <br>
+		<label for="">爱好：</label>
+		<label><input name="Hobby" type="checkbox">足球</label>
+		<label><input name="Hobby" type="checkbox">篮球</label>        
+		<label><input name="Hobby" type="checkbox">跑步</label> <br> 
+		<label>请上传：<input  type="file"></label>  <br>
+		<label>我是按钮：<input  type="button" value="确定"></label> <br>
+		<label>我是图片<input type="image" src="./html-img/h5_mark.jpg"></label>  <br>
+		<label>我隐藏了：<input  type="hidden"></label>      
+	</form>  
+			
+				</div>
+				<div class="box">
+					<form action="" name="test">
+						<label>用户名：<input type="text"></label><br>
+						<label>密&nbsp;&nbsp;&nbsp;码：<input type="text"></label><br>
+						<label>邮&nbsp;&nbsp;&nbsp;箱：<input type="text"></label><br>
+						<input type="submit" ><input type="reset" >
+					</form>
+				</div>
+			</sectiont>
+			<section>
+				<p class="paragraph"><code>maxlength</code>属性：规定输入字段中的字符的最大长度。</p>
+				<p class="paragraph"><code>readonly</code> 属性：使表单元素成为“只读”状态，在这个状态下只能读取元素内容，而不能进行编辑。</p>
+				<p class="paragraph"><code>disabled</code> 属性：使表单元素成为“禁用”状态，表单元素将“失效”。</p>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/frome-attr-01.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+
+					<label>用户民：<input type="text" maxlength="4"></label><br>
+					<label>密&nbsp;&nbsp;&nbsp;码：<input type="text" maxlength="7"></label><br>
+					<label>只&nbsp;&nbsp;&nbsp;读：<input type="text" value="你动不了我，哈哈" readonly="readonly"></label><br>
+					<label>禁&nbsp;&nbsp;&nbsp;用：<input type="text" value="已禁用" disabled="disabled"></label>
+
+				</div>
+				<p class="paragraph"><code>checked</code>属性:使“type”属性值为“checkbox”和“radio”的表单元素中的指定项默认成为“选中”状态。</p>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/frome-checked.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+					<form name="testForm" action="">
+						<label>性别：</label>
+						<label for="secret">保密</label><input id="secret" name="gender" type="radio" checked="checked">
+						<label for="male">男</label><input id="male" name="gender" type="radio">
+						<label for="female">女</label><input id="female" name="gender" type="radio">
+						<br>
+						<label>爱好：</label>
+						<label for="game">游戏</label><input id="game" name="hobby" type="checkbox">
+						<label for="book">看书</label><input id="book" name="hobby" type="checkbox" checked="checked">
+						<label for="sport">运动</label><input id="sport" name="hobby" type="checkbox">
+						<label for="travel">旅游</label><input id="travel" name="hobby" type="checkbox" checked="checked">
+					</form>
+				</div>
+			</section>
+			<section>
+				<p class="title">文本域&lt;textarea&gt;标签</p>
+				<p class="paragraph">它可以通过“cols”和“rows”属性来设置显示的尺寸，不过,我们通常用css去控制因为这样更加的准确。</p>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/from-textarea.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">       
+					<textarea  cols="50" rows="10" style="font-size:14px;">textarea标签和input       标签不  同的是，
+						textarea标签是   一个标签对，它拥有闭合标签。需要特别加以区分的是，它显示文本内容是通过标签的内容，
+						而非“value”属性。它可以通过“cols”和“rows”属性来设置显示的尺寸，不过,我们通常用css去控制因为这样更加的准确。</textarea>                    
+				</div> 
+				<p class="paragraph">通过上面的代码示例，细心的同学应该可以发现，textarea标签的内容会保留文本内容中的空格和换行符，所以在设置默认内容的时候要特别的注意，否则会让用户体验受到一些不好的影响。</p>
+			</section>
+			<section>
+				<p class="title">下拉框select标签</p>
+				<p class="paragraph">通过select标签可以创建单选和多选的下拉菜单。可以通过“size”属性设置该标签在一个选项菜单中可见的选项个数，当它的值设为“1”时，将显示为默认的select下拉菜单的样式，option是它必须的子菜单，否则将不能提供任何可选项，而option标签通常需要具有一个“value”属性，以便于在做数据操作时能准确地通过该属性值取到对应标签的内容。</p>
+				<p class="paragraph"><code>multiple</code>属性：在“windows操作系统”中按住“Ctrl”按钮，在“mac操作系统”中按住“command”按钮来选择多个选项，选择多个项的操作类似于操作系统中选择文件的操作。</p>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/from-select.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+					<form name="Form" action="">
+						<label  style="vertical-align: top;">想学哪门语言:</label>
+						<select style="vertical-align: top;">
+							<option value="0">css</option>
+							<option value="1">html</option>
+							<option value="2">javascript</option>
+							<option value="3">php</option>
+							<option value="4" selected="selected">java</option>
+							<option value="5">c#</option>
+						</select>
+						<select  size="6" multiple="multiple">
+							<option value="0">css</option>
+							<option value="1">html</option>
+							<option value="2">javascript</option>
+							<option value="3">php</option>
+							<option value="4" selected="selected">java</option>
+							<option value="5">c#</option>
+							<option value="6">.net</option>
+							<option value="7">c++</option>
+
+						</select>
+					</form>
+				</div>
+				<!-- select的分组 -->
+				<p class="paragraph">运用<code>optgroup</code>进行分组；</p>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/from-select-optgroup.png" alt="">
+				<p class="paragraph">运行效果：</p>
+
+				<div class="box">
+					<form name="testForm" >
+						<select>
+							<optgroup label="食品">
+								<option value="0">方便面</option>
+								<option value="1">火腿肠</option>
+								<option value="2">饼干</option>
+							</optgroup>
+							<optgroup label="电器">
+								<option value="3">电视</option>
+								<option value="4">冰箱</option>
+								<option value="5">空调</option>
+							</optgroup>
+							<optgroup label="厨房用品">
+								<option value="6">勺子</option>
+								<option value="7">菜刀</option>
+								<option value="8">筷子</option>
+							</optgroup>
+						</select>
+					</form>
+				</div>
+			</section>
+			<section>
+				<p class="title">button标签</p>
+				<p class="paragraph">button标签对和其它表单元素一样，同是属于“行内块元素”，它的作用和“type”属性为“button/submit/reset”的input一样，是在页面内创建一个“按钮”元素，它的“type”属性和"input"也一样，支持“button”、“submit”和“reset”三个值。它也是一个拥有闭合标签的元素。</p>
+				<p class="paragraph">和使用&gt;input type="button"&lt;相比,使用button有以下不同：</p>
+				<div class="box">
+					<ul>
+						<li>button按钮文本是放置于该标签的内容上，而input是将按钮文本设置于它的“value”属性上</li>
+						<li>在页面提交时，“IE浏览器”提交的是button标签对内的内容，而其它浏览器提交的是button的“value”属性值的内容</li>
+						<li>button标签对内可以同时显示文本、图片、表格甚至是多媒体，而input标签只能显示其中一个</li>
+						<li>button标签的“type”属性不进行设置的话，在“IE浏览器”中将默认设为“button”，而在其它浏览器中（包括 W3C 规范）都会默认设为“submit”，所以，为了统一浏览器的行为，我们通常都会为button的属性“type”设置一个初始值</li>
+						<li>在外观上button标签比input标签生成的按钮更加有质感，交互视觉效果也更加出色（大部分浏览器如此）</li>
+					</ul>
+				</div>
+				<p class="paragraph">示例代码：</p>
+				<img src="./html-img/from-button.png" alt="">
+				<p class="paragraph">运行效果：</p>
+				<div class="box">
+
+					<button type="button">普通按钮</button>
+					<button type="reset">重置按钮</button>
+					<button type="submit">提交按钮</button>
+
+				</div>
+			</section>
+			<section class="task">
+				<p>本节作业</p>
+				<p>没有？那是不可能的。看下面链接</p>
+
+				<p><a href="./iframe/formUp.html" target="_blank">看看做些撒作业</a></p>
+			</section>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+.wrap{width:1200px; margin:50px auto;}
+.type h3{
+	color:#000000;
+	font-weight: normal;
+	border-bottom:2px solid #00AC6B;
+	padding-bottom:10px;
+}
+.type .type_content{
+	margin:30px auto;
+	padding:0 20px;
+}
+.type_content .flex{
+	display:flex;
+}
+.type_content .flex div{
+	flex:1;
+}
+.type_content .flex div input{
+	width:150px; padding:5px 10px;
+}
+#result{
+	width:80px; 
+	/*height:50px;*/
+	background: #2183af;
+	color:white;
+	text-align: center;
+	padding:5px 10px; 
+	border-radius:5px;	
+	margin:0 auto;
+}
+#chartdiv{
+	margin:50px auto;
+}

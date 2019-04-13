@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{width:700px; height:400px;
+			background:url('../exampleImg/labo2.jpg') no-repeat;      
+			margin:0 auto; 
+	        transition:top 1s linear, 
+				       border-radius 1.5s ease 1s,
+				       left 1s ease-in 2.5s; 
+			transition-timing-function:cubic-bezier(0.7,0.2,0.1,1.9);
+			position:absolute;
+			top:-600px;
+			left:calc(50% - 500px);			 
+		}
+		.box{width:100px; height:100px; background: #000;}
+		.box:hover+.div1{ top:50px; border-radius:0 100% 0 0;
+		     left:100%;
+		}
+	</style>
+</head>
+<body>
+    <div class="box"></div>
+	<div class="div1"></div>
+</body>
+</html>

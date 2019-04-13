@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>轮播图</title>
+        <style>
+            body{ background:#666; }
+            ul,li{margin:0; padding:0; list-style: none}
+            /*图片*/
+            .wrap { text-align: center; margin-top:100px;}
+            .wrap .box{width:740px; height:423px; overflow:hidden; margin:0px auto;}
+            .wrap .img{ position: relative; height:423px; transition:0.8s;}
+            .wrap .img li{ float:left;  width:740px; }
+            .wrap .img li img{ width:740px; }
+            /*点的样式*/
+            .wrap .point{ margin:0 auto; width:160px; }
+            .wrap .point li{ height:15px; width:15px; border-radius:50%; border:2px solid #0b254e;
+                float:left; margin:10px;  
+            }
+            .wrap .point .active { background:#a5811d; }
+        </style>
+        <script src="./jsFile/common.js"></script>
+        <script>
+            window.onload = function(){
+               /* var move = new flash('flashImg', 'dots');
+                move.init();*/
+				new flash('flashImg', 'dots').init()
+            }
+        </script>
+    </head>
+    <body>
+        <section class="wrap" id="wrap">
+            <div class="box">
+                <ul class="img" id="flashImg">
+                    <li><img src="./exampleImg/labo.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo2.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo3.jpg" alt=""></li>
+                    <li><img src="./exampleImg/labo4.jpg" alt=""></li>
+                </ul> 
+            </div>
+            <ul class="point" id="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section> 
+    </body>
+</html>

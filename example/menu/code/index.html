@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<style>
+			.menu{background: #337956; height:50px; line-height:50px;}
+			nav{width:1200px; margin:0 auto; position: relative}
+			nav a{padding:0 20px; float:left; color:white;	z-index: 2;position: relative}
+			/*nav a.active{background: #c7ce22; color:white;}*/
+			.line{transition:0.5s; background:#c7ce22; position:absolute; left:0; height:50px;z-index: 1; width:77px}
+		</style>
+		<script>
+		   function getByClass(obj, cls){
+			   var aTag = obj.getElementsByTagName('*');
+			   var arr = [];
+			   for(var i=0; i<aTag.length; i++){
+				   if(aTag[i].className.indexOf(cls) != -1){
+					  arr.push(aTag[i]);				   
+				   }
+			   }
+			   return arr;
+		   }
+		   window.onload = function(){
+			   var oNav = document.getElementById('nav');
+			   var arrAtag = oNav.getElementsByTagName('a');
+			   var oLine = getByClass(oNav, 'line')[0];
+			   for(var i=0; i<arrAtag.length; i++){
+				   arrAtag[i].onmouseover = function(){
+					   console.log(this.offsetLeft);
+					   oLine.style.left = this.offsetLeft +'px';
+					   oLine.style.width = this.offsetWidth + 'px';
+				   }
+				   
+			   }
+			   oNav.onmouseout = function(){
+				    oLine.style.left = arrAtag[0].offsetLeft + 'px';
+					oLine.style.width = arrAtag[0].offsetWidth + 'px';
+			   }
+		   }
+		</script>
+	</head>
+	<body>
+		<div class="menu">
+			<nav id="nav">
+				<a href="">首 页</a>
+				<a href="">游西藏</a>
+				<a href="">读西藏</a>
+				<a href="">看西藏</a>
+				<a href="">活动专题</a>
+				<a href="" class="line"></a>
+			</nav>
+		</div>
+	</body>
+</html>

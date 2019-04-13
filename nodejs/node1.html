@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>开发环境</title>
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <h2 class="article-title">开发环境</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">开发环境</h3>
+                <div class="point_content"> 
+                    <p class="paragraph"><a href="./jsFile/node-v6.10.0-x64.msi" target="_blank">下载webstorm安装包</a></p>
+                    <h4 class="small_title">console控制台</h4>
+                    <div class="box">
+                        <ul>
+                            <li>console.log</li>
+                            <li>console.info</li>
+                            <li>console.error</li>
+                            <li>console.warn</li>
+                        </ul>
+                    </div>
+                    <p>在cmd中可以重定向到文件中<cmd>node 文件名&gt;log.txt</cmd></p>
+                    <!-- <h4 class="small_title">全局对象(global)</h4>-->
+
+                </div>
+
+            </section>
+            <section class="onePoint">
+                <h3 class="title">模块</h3>
+                <div class="point_content">
+                    <h4 class="small_title">核心模块之文件系统模块fs</h4>
+                    <div class="box">
+                        <dl>
+                            <dt>fs.mkdir(path,function(){})</dt>
+                            <dd>创建文件夹</dd>
+                            <dt>fs.rmdir(path, function(err){});</dt>
+                            <dd>删除文件夹</dd>
+                            <dt>fs.unlink(path)</dt>
+                            <dd>删除一个文件</dd>
+                            <dt>fs.unlinkSync(path, function(){})</dt>
+                            <dd>同步删除一个文件</dd>
+                            <dt>fs.readdir(path,  function (err, files) {});</dt>
+                            <dd>使用fs.readdir读取目录</dd>
+                           <!-- <dt>fs.open(path, flags, function(err, fd){})</dt>
+                            <dd>异步的打开一个文件</dd>
+                            <dt>fs.openSync(path, flags, function(err, fd){})</dt>
+                            <dd>同步的打开一个文件</dd>-->
+                            <dt>fs.readFile(filename, [options], callback)</dt>
+                            <dd>异步读取一个文件的全部内容</dd>
+                            <dt>fs.readFileSync(filename, [options])</dt>
+                            <dd>fs.readFile的同步版本</dd>
+                            <dt>fs.exists(path, function(exists){})</dt>
+                            <dd>检查指定路径的文件或者目录是否存在</dd>
+                            <dt>fs.rename(oldPath, newPath, function(err,fd){})</dt>
+                            <dd>重命名文件</dd>
+                            <dt>fs.renameSync(oldPath, newPath)</dt>
+                            <dd>同步重命名文件</dd>
+                            <dt>fs.stat(path, function(err,fd){})</dt>
+                            <dd>读取文件信息</dd>
+                            <dt>fs.appendFile(filename, data, 'utf8', callback)</dt>
+                            <dd>异步的将数据添加到一个文件的尾部，如果文件不存在，会创建一个新的文件。</dd>
+                            <dt>fs.appendFileSync(filename, data, [options])</dt>
+                            <dd>同步版</dd>
+                        </dl>
+                    </div>
+                    <p>简单的演示一下同步和异步</p>
+                    <img src="./nodeImg/fs.png" alt="">
+                    <h4 class="small_title"> path </h4>
+                    <div class="box"> 
+                        <ul>
+                            <li> extname:输出文件的后缀名 </li>
+                        </ul>
+                    </div>
+                    <h4 class="small_title">核心模块之http模块</h4>
+                    <p class="paragraph">http.createServer</p>
+                    <div class="box">
+                        <!--<ul>
+                            <li>http.createServer(function(request, response){})有返回值</li>
+                            <li> server.listen(port)  </li>
+                        </ul>-->
+                        <dl>
+                            <dt>http.createServer(function(request, response){})</dt>
+                            <dd>有返回值</dd>
+                            <dt>server.listen(port, [hostname]）</dt>
+                            <dd>监听客户端连接请求，只有当调用了listen方法以后，服务器才开始工作</dd>
+                            <dt>response对象</dt>
+                            <dd>write(代码) : 发送一个数据块到响应正文</dd>
+                            <dd>end(代码) : 当所有的正文和头信息发送完成以后调用该方法告诉服务器数据已经全部发送完成了，这时客服端才会停止刷新。</dd>
+                            <dd>writeHead(statusCode, '信息', [headers]): 这个方法只能在当前请求中使用一次，并且必须在response.end()之前调用，第二个参数可忽略。具体的可以看网络中的值</dd>
+                           
+                           
+                            
+                        </dl>
+                    </div>
+                    <h4 class="small_title">核心模块之url模块</h4>
+                    <div class="box">
+                        <dl>
+                            <dt>url.parse(request.url)</dt>
+                            <dd>对url格式的字符串进行解析，返回一个对象根据不同的url进行处理，返回不一样的数据</dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                            <dt></dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                </div>
+                
+            </section>
+            <section class="onePoint">
+                <h3 class="title">直接实战搭建服务器与前台通信</h3>
+            </section>
+        </article>
+    </body>
+</html>

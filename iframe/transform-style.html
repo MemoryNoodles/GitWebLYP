@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+          
+            ul,li{ margin:0; padding:0; }
+            .stage ul{ perspective:100px; -webkit-perspective:100px; margin:30px auto}
+            .stage li{ float:left; list-style:none; 
+                -webkit-transform-style:preserve-3d;
+                position:relative; transition:1s;  margin:0 10px;
+                -webkit-transform-origin: center center -12px;
+            }
+
+            .stage li span{float:left; width:50px; text-align:center; -webkit-backface-visibility:hidden;}  
+            .stage li span:nth-child(2){  position: absolute; left:-10px; top:-15px;
+                -webkit-transform-origin:bottom; -webkit-transform:rotateX(90deg);transform:rotateX(90deg);
+            }
+
+            .stage li:hover{ transform:rotateX(-90deg); -webkit-transform:rotateX(-90deg) }
+          
+        </style>
+    </head>
+    <body>
+        <nav class="stage">
+            <ul>
+                <li><span>项目一</span><span>选项一</span></li>
+                <li><span>项目二</span><span>选项二</span></li>
+                <li><span>项目三</span><span>选项三</span></li>
+            </ul>
+        </nav> 
+        
+       
+    </body>
+</html>

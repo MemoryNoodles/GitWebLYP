@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>插件</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+        <script>
+            
+            /*第一种*/
+            $.fn.extend({
+                aaa : function(){
+                    alert(2);
+                }
+            });
+            /*第二种  如果内部要使用$ 我们可能更多的使用第二种*/
+            (function ($) {
+                $.fn.extend({
+                    nav: function (color) {
+                        $(this).find('.nav').css({
+                            listStyle : 'none',
+                            margin : 0,
+                            $().aaa(); 
+                            padding : 0,
+                            display : 'none',
+                            color : color
+                        });
+                        $(this).find('.nav').parent().hover(function () {
+                            $(this).find('.nav').slideDown('normal');
+                        }, function () {
+                            $(this).find('.nav').stop().slideUp('normal');
+                        });
+                        return this;             //调用的时候返回这个对象--》为了方便链式操作   
+                    }
+                });
+            })(jQuery);
+            
+            
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">插件</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">自定义插件</h3>
+                <div class="point_content">
+                    <p class="paragraph">自定义插件有两种:<em>1、扩展工具方法（静态方法）</em>下的插件形式<em>$.xxx()</em>；<em>2、扩展到JQ对象（动态方法）</em>下的插件形式<em>$().xxx()</em></p>
+                    <img src="./html-img/extendToll.png" alt="">
+                    <img src="./html-img/extendJquery.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+				<h3 class="title">插件</h3>
+				<div class="point_content">
+					<a  target="_blank" href="././example/wow/code/wow.html">滚插件</a><br>
+					<a  target="_blank" href="././example/echat/code/useTheme.html">图形插件</a><br>
+					<a  target="_blank" href="././example/admin/index.html">后台管理</a><br>
+					<a  target="_blank" href="././example/fullpage/index.html">fullpage插件</a><br>
+					<a  target="_blank" href="././example/flow++/index.html">全屏滚动插件</a>
+					<a  target="_blank" href="././example/lagou/index.html">项目</a><br>
+				</div>
+			</section>
+        </article>
+    </body>
+</html>

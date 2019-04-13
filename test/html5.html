@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<select name="" id="sel">
+	<option value="1">11</option>
+	<option value="2">22</option>
+	<option value="3">33</option>
+	<option value="4">43</option>
+</select>
+	<script>
+		
+	   var sle = document.getElementById('sel');
+		sle.onchange = function(){
+			console.log(this.children[this.selectedIndex].text);
+		}
+		
+	</script>
+</body>
+</html>
+
+

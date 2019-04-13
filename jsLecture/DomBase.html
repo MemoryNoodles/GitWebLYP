@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM基础</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+            var oDiv = document.getElementById('wrap')
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">DOM基础</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">什么是DOM?</h3>
+                <div class="point_content">
+                    <p class="paragraph">DOM（Document Object Model）即文档对象模型，针对HTML和XML文档的API（应用程序接口）。DOM描绘了一个层次化的节点树，运行开发人员添加、移除和修改页面的某一部分。DOM脱胎于Netscape及微软公司创始的DHTML（动态HTML），但现在它已经成为表现和操作页面标记的真正跨平台、语言中立的方式。</p>     
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">DOM介绍</h3>
+                <div class="point_content">
+                    <h4 class="small_title">1.节点</h4>
+                    <p class="paragraph">加载HTML页面时，Web浏览器会生成一个树型结构，用来表示页面内部结构。DOM将这种树型结构理解为由节点组成。如下图：</p>
+                    <img src="./js-img/domNode.png" alt="">
+                    <p class="paragraph">从上图中我们可以理解这样几个概念，html标签没有父辈，没有兄弟，所以html标签为根标签。head标签是html子标签，meta和title标签之间是兄弟关系。如果把每个标签（元素）当作一个节点的话，那么这些节点组合成了一棵节点树。</p>
+                    <h4 class="small_title">2.节点种类</h4>
+                    <p class="paragraph">节点种类包括元素节点、文本节点、属性节点。</p>
+                    <img src="./js-img/DomNodes.jpg" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">查找元素</h3>
+                <div class="point_content">
+                    <p class="paragraph">W3C提供了比较方便简单的定位节点的方法和属性，以便我们快速的对节点进行操作。分别为：<em>getElementById()、getElementsByTagName()、getElementsByName()、getAttribute() 、setAttribute()和removeAttribute()</em>。当然了随着学习的深入我们还会在后面的学习中学习到HTML5提供的一些API。</p>
+                    <img src="./js-img/eleNodeMethod.png" alt="">
+                    <!--getElementById-->
+                    <h4 class="small_title">1.getElementById()方法</h4>
+                    <p class="paragraph">getElementById()方法，接受一个参数：获取元素的ID。如果找到相应的元素则返回该元素的HTMLDivElement对象，如果不存在，则返回null。</p>
+                    <img src="./js-img/getID.png" alt="">
+                    <p class="paragraph">上面的例子，默认情况返回 null，这无关是否存在 id="box"的标签，而是执行顺序问题。解决方法，1.把 script 调用标签<em>移到html末尾</em>即可；2.使用<em>onload</em>事件来处理JS，等待html加载完毕再加载onload事件里的JS。</p>
+                    <p class="paragraph">当我们通过<em>获取到</em>特定元素节点时，这个节点对象就被我们获取到了，而通过这个节点对象，我们可以<em>访问</em>它的一系列属性。</p>
+                    <img src="./js-img/eleNodeAttr.png" alt=""><br>
+
+                    <img src="./js-img/getIDNode.png" alt=""><br>
+                    <p>更加灵活的insertAdjacentHTML方法（了解）；insertAdajcentHTML(swhere,stext)</p>
+                    <div class="box">
+                        <dl>
+                            <dt>swhere: 指定插入html标签语句的地方，</dt>
+                            <dd>1、beforeBegin: 插入到标签开始前</dd>
+                            <dd>2、afterBegin:插入到标签开始标记之后</dd>
+                            <dd>3、beforeEnd:插入到标签结束标记前</dd>
+                            <dd>4、afterEnd:插入到标签结束标记后</dd>
+                            <dt>stext:要插入的内容</dt>
+                        </dl>
+                    </div>
+                    <img src="./js-img/htmlAttr.png" alt="">
+                    <p>大家想一下html的属性怎么取？</p>
+                    <!--getElementsByTagName-->
+                    <h4 class="small_title">2.getElementsByTagName()方法</h4>
+                    <p class="paragraph">getElementsByTagName()方法将返回一个对象数组HTMLCollection(NodeList)，这个数组保存着所有相同元素名的节点列表。</p>
+                    <img src="./js-img/getTagName.png" alt="">
+                    <!--getElementsByName-->
+                    <h4 class="small_title">3.getElementsByName()方法</h4>
+                    <p class="paragraph">getElementsByName()方法可以获取相同名称(name)的元素，返回一个对象数组HTMLCollection(NodeList)。</p>
+                    <img src="./js-img/getByName.png" alt="">
+                     <!--getAttribute-->
+                    <h4 class="small_title">4.getAttribute()方法</h4>
+                    <p class="paragraph">getAttribute()方法将获取元素中某个属性的值。它和直接使用.属性获取属性值的方法有一定区别。</p>
+                    <img src="./js-img/getAttr.png">
+                    <!--setAttribute-->
+                    <h4 class="small_title">5.setAttribute()方法</h4>
+                    <p class="paragraph">setAttribute()方法将设置元素中某个属性和值。它需要接受两个参数：属性名和值。如果属性本身已存在，那么就会被覆盖。</p>
+                    <img src="./js-img/setAttr.png" alt="">
+                    <!--6.removeAttribute()方法-->
+                    <h4 class="small_title">6.removeAttribute()方法</h4>
+                    <p class="paragraph">removeAttribute()可以移除 HTML 属性</p>
+                    <img src="./js-img/removeAttr.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">三、DOM节点</h3>
+                <div class="point_content">
+                    <h4 class="small_title">1、node节点属性</h4>
+                    <p class="paragraph">节点可以分为元素节点、属性节点和文本节点，这里我们简单说一下三个稍微有用的属性，分别为：nodeName、nodeType 和nodeValue。</p>
+                    <h4 class="small_title">2.层次节点属性</h4>
+                    <p class="paragraph">节点的层次结构可以划分为：父节点与（子节点、兄弟节点）这两种。当我们获取其中一个元素节点的时候，就可以使用层次节点属性来获取它相关层次的节点。</p>
+                    <img src="./js-img/nodeAttr.png" alt="">
+                    <img src="./js-img/nodeTrocetion.png" alt="">
+                </div>
+                <div><a style href="./exampleImg/3d/code/index.html" target="_blank">练习</a></div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">四、节点操作</h3>
+                <div class="point_content">
+                   <p class="paragraph">DOM不仅可以查找节点，也可以创建节点、复制节点、插入节点、删除节点和替换节点。</p> 
+                   <img src="./js-img/nodeOpeater.png" alt="">
+                </div>
+                <div>新浪新闻内容创建</div>
+                <div><a href="./exampleImg/opeartNode/code/index.html" target="_blank">留言板练习</a></div>
+            </section>
+        </article>
+    </body>
+</html>

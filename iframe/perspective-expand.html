@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <style>
+        section:nth-child(1){ perspective:100px; text-align: center;}
+        section:nth-child(1) img{ transform:translateZ(0); opacity:0;
+               animation:myMove 1s ease-in-out;
+               -webkit-animation:myMove 1s ease-in-out forwards;
+        }  
+        @keyframes myMove{
+            0%{transform:translateZ(-200px); opacity:0;}
+            60%{transform:translateZ(30px); opacity:1;}
+            80%{transform:translateZ(25px); opacity:0.9;}
+            100%{transform:translateZ(30px); opacity:1;}
+        }
+        @-webkit-keyframes myMove{
+            0%{transform:translateZ(-200px); opacity:0;}
+            60%{transform:translateZ(30px); opacity:1;}
+            80%{transform:translateZ(25px); opacity:0.9;}
+            100%{transform:translateZ(30px); opacity:1;}
+        }
+        
+        section:nth-child(2){ perspective:100px; text-align: center; margin-top:200px;}
+        section:nth-child(2) img{ transform:translateZ(0); opacity:0;
+               animation:myMove2 0.6s ease-in-out;
+               -webkit-animation:myMove2 0.6s ease-in-out forwards;
+               animation-play-state:paused;
+               -webkit-animation-play-state:paused;
+        } 
+         @keyframes myMove2{
+            0%{transform:translateZ(-200px); opacity:0;}
+            60%{transform:translateZ(30px); opacity:1;}
+            80%{transform:translateZ(25px); opacity:0.9;}
+            100%{transform:translateZ(30px); opacity:1;}
+        }
+        @-webkit-keyframes myMove2{
+            0%{transform:translateZ(-200px); opacity:0;}
+            60%{transform:translateZ(30px); opacity:1;}
+            80%{transform:translateZ(25px); opacity:0.9;}
+            100%{transform:translateZ(30px); opacity:1;}
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            
+            var oImg = document.getElementById('box1').getElementsByTagName('img')[0];
+            var oImg2 = document.getElementById('box2').getElementsByTagName('img')[0];
+            oImg.addEventListener('webkitAnimationEnd', end, false);
+            function end(){
+                
+                oImg2.style.webkitAnimationPlayState = 'running'
+                
+            }
+        }
+    </script>
+</head>
+<body >
+   <section id="box1">
+       <img src="../css-img/beatiful.png" alt="">
+   </section> 
+   <section id="box2">
+       <img src="../css-img/beatiful.png" alt="">
+   </section> 
+</body>
+</html>

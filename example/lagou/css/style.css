@@ -1,0 +1,228 @@
+.company_banner{
+    background: #00b38b;
+    width:100%;
+    height:390px;
+}
+
+.banner_content h3{
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 0 3px 9px rgba(0,0,0,.25);
+    padding: 25px 0 20px;
+    text-align: center;
+}
+.it_content{
+    width:1180px;
+    margin:0 auto;
+    position: relative;
+}
+.it_list {
+    width: 1120px;
+    height:300px;
+    overflow:hidden;
+    margin:0 auto;
+}
+.listUl{
+    position: relative;
+}
+.listUl li{
+    float:left;
+    font-size: 18px;
+    width: 160px;
+    height: 220px;
+    margin: 10px 32px 10px 32px;
+    background: #ccf0e8;
+    position: relative
+}
+.listUl li>div{
+    padding: 9px;
+}
+.it_list .listUl>li .time{
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    padding:0;
+} 
+.it_list .listUl>li .bottom_bg {
+    display: block;
+    position: absolute;
+    left: 126px;
+    top: 6px;
+    width: 120px;
+    height: 11px;
+    background: url('./img/it_bottom.png') no-repeat;
+}
+.it_list .listUl>li .bottom_bg.first{
+    width: 106px;
+    background-position: -14px 0;
+    left: -75px;
+}
+.panel_det{
+    display:none;
+}
+.panel_b{
+    text-align: center;
+    padding: 0 3px;
+    margin-top: 13px; 
+    font-size:14px;
+}
+
+.listUl img{
+    width:140px;
+    height:140px;
+}
+
+.button-prev, .button-next{
+    cursor: pointer; 
+    width: 46px;
+    height: 240px;
+    background-image: url('./img/arrow.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.button-prev{
+    left: -40px;
+    background-position: left center;
+} 
+.button-next{
+    right: -40px;
+    background-position: right center;
+}
+.button-prev:hover, .button-next:hover{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+/*内容部分*/
+.company_list_container{
+    width:1200px;
+    margin:40px auto 0;
+}
+.content_left{
+    width:960px;
+}
+.content_right{
+    width:210px;
+    background: #000;
+    border: 10px solid #fafafa;
+    text-align: center;
+}
+/*过滤*/
+.filterSort{width:900px; margin:30px auto;}
+
+.positionHead>ul{padding:0px 23px; background: #fafafa; border:1px solid #ededed;}
+.positionHead>ul:nth-child(1){margin-bottom:20px;}
+.positionHead li{margin:15px 0; font-size:14px; position: relative;}
+.positionHead li a{color:#555555; padding:3px 8px;}
+.positionHead li a:hover{background: #00b38a; color:white; padding:3px 8px;}
+.positionHead .active{background: #00b38a; color:white; padding:3px 8px;}
+.positionHead .active .delete{ background:url('./img/delIco.png') no-repeat center;
+    display:inline-block;  width: 11px; height: 11px; margin-left:5px
+}
+.positionHead .title{color:#555555; font-weight:500; font-size:15px;}
+.filter-wrapper li .more{
+    position: absolute;
+    right:23px;
+    top:50%; transform: translateY(-50%);
+}
+.filter-wrapper li .more i{
+    font-size: 0;
+    height: 0;
+    width: 0;
+    border-width: 6px 6px 0;
+    border-style: solid dashed;
+    border-color: #00b38a transparent transparent;
+    margin-left:5px;
+}
+.order{
+    position: relative;
+}
+.orderBy .assess{
+    position: absolute;
+    right:23px;
+    top:50%; transform:translateY(-50%);
+    
+}
+/*内容*/
+.wrap{margin:30px auto 100px;}
+.company li{float:left; border:1px solid #ededed; width:470px; height:290px;
+   position: relative;
+    margin-bottom:20px;
+}
+.company li:nth-child(even){
+    margin-left:20px;
+}
+.des{display: table;padding:30px 34px 0;}
+.des>div{display:table-cell; vertical-align: top;}
+.des>div:nth-child(2){
+    padding-left:20px;
+}
+.des>div img{width:130px; height:130px;}
+.des>div:nth-child(1) p{margin:20px 0;}
+.des>div:nth-child(2) h4{ font-size:20px; margin:5px 0 15px;}
+.des>div:nth-child(2) P{ font-size:18px; font-weight:bold; color:#555555}
+.des>div:nth-child(2) P span{ color:#00b38a; margin-right:10px;}
+.company_state{background: #fafafa; height:52px; line-height:52px;	
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width:100%;
+}
+.company_state span{width:32%; display: inline-block; text-align: center;}
+.company_state i{width:15px; height:18px; display: inline-block; margin-right:10px; vertical-align: middle;}
+.company_state .web i{background:url(./img/icon.png) no-repeat }
+.company_state .type i{background:url(./img/icon.png) no-repeat 0 -18px; }
+.company_state .place i{background:url(./img/icon.png) no-repeat 0 -36px; }
+
+#pageData{text-align: center; }
+#pageData a{border:1px solid #eaeaea; 
+    height:28px;padding:3px 10px; 
+    margin:0 5px; font-size:14px;
+    color:black;
+     
+}
+/*#pageData a.active{
+    background:#00b38a; color:white; 
+    border:1px solid #00b38a;
+}*/
+#pageData a.not{cursor:not-allowed !important;  color: silver !important;}
+#pageData a:not(.not):hover{background:#00b38a; color:white; border:1px solid #00b38a; cursor:pointer}/*not-allowed*/
+#pageData span.current{
+    background:#00b38a; color:white; border:1px solid #00b38a;
+    height: 28px;
+    padding: 3px 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    display:inline-block
+}
+#pageData .disabled{
+    margin: 0 5px 0 0 !improtant;
+    color: #555;
+    display: inline-block;
+    border: 1px solid #ededed;
+    height: 28px;
+    line-height: 21px;
+    padding: 3px 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    text-decoration: none;
+}
+/*侧边内容*/
+.backTop{
+    background:url('./img/backtop.png') no-repeat left top;
+    width: 28px;
+    height: 46px;
+    position: fixed;
+    right:50px;
+    bottom: 66px;
+    cursor: pointer;
+}
+.backTop:hover{
+    background:url('./img/backtop.png') no-repeat right top;  
+}

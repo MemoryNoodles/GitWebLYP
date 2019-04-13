@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+		article:after{
+			content:'';
+				display: block;
+				clear: both;
+		}
+        section{ height:150px; width:150px; float:left; margin:20px;}
+        section:nth-child(1){ background: -webkit-repeating-linear-gradient(135deg, #8bd1c6 0, #8bd1c6 .25em,
+                #b7f3eb 0.25em, #b7f3eb .75em);      
+        }
+        section:nth-child(2){ background: -webkit-repeating-linear-gradient(135deg, #9a3dd4 10%,
+                 #0092b7 30%);      
+        }
+        section:nth-child(3){background: -webkit-repeating-linear-gradient(135deg, #0092b7 20px,
+                 #013493 30px,#b7f3eb 30px); }
+        
+        
+    </style>
+</head>
+<body>
+  <article>
+  	 <section></section> 
+     <section></section> 
+     <section></section> 
+  </article>
+  
+</body>
+</html>

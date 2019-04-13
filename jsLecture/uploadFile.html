@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<title>ajax</title>
+		<script>
+			
+			//创建一个空对象实例
+			var formData = new FormData();
+			/*获取值*/
+				//我们可以通过get(key)/getAll(key)来获取对应的value，
+				formData.get("name"); // 获取key为name的第一个值
+				formData.getAll("name"); // 返回一个数组，获取key为name的所有值
+			/*添加数据*/
+				formData.append("k1", "v1");
+				formData.append("k1", "v2");
+				formData.append("k1", "v1");
+
+				formData.get("k1"); // "v1"
+				formData.getAll("k1"); // ["v1","v2","v1"]
+			/*设置修改数据*/
+			    formData.append("k1", "v1");
+				formData.set("k1", "1");
+				formData.getAll("k1"); // ["1"]
+			
+			
+		    /*判断是否该数据*/
+			    formData.append("k1", "v1");
+				formData.append("k2",null);
+
+				formData.has("k1"); // true
+				formData.has("k2"); // true
+				formData.has("k3"); // false
+			/*删除数据*/
+			    formData.append("k1", "v1");
+				formData.append("k1", "v2");
+				formData.append("k1", "v1");
+				formData.delete("k1");
+
+				formData.getAll("k1"); // []
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">Ajax</h2>
+		<article class="wrap">
+
+			<section class="onePoint">
+				<h3 class="title">FormData</h3>
+				<div class="point_content">
+					<p class="paragraph">FormData类型其实是在XMLHttpRequest 2级定义的，它是为序列化表以及创建与表单格式相同的数据（当然是用于XHR传输）提供便利。</p>
+					<img src="./js-img/formData1.png" alt="">
+					<img src="./js-img/formData2.png" alt="">
+					<h4 class="small_title">文件的上传</h4>
+					<p class="paragraph"><a href="./jsFile/phpUploadFile.php" target="_blank">后台PHP接收文件下载</a></p>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>函数</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+            console.log('Mr. Lee'.substring(2));
+            var color = '红色的';     
+            var colorJson = {
+                color : '蓝色的'
+            };
+            function sayColor() {
+                console.log(this.color);
+            }
+            sayColor();               //作用域在 window
+            sayColor.call(this);      //作用域在 window
+            sayColor.call(window);    //作用域在 window
+            sayColor.call(colorJson); //作用域在 colorJson，对象冒充
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">函数</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">函数声明</h3>
+                <div class="point_content">
+                    <p class="paragraph">函数对任何语言来说都是一个核心的概念。通过函数可以封装任意多条语句，而且可以在任何地方、任何时候调用执行。ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体。</p>
+                    <img src="./js-img/function.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">return返回值</h3>
+                <div class="point_content">
+                    <p class="paragraph">带参和不带参的函数，都没有定义返回值，而是调用后直接执行的。实际上，任何函数都可以通过return语句跟后面的要返回的值来实现返回值</p>
+                    <img src="./js-img/return.png" alt="">
+                    <p>return语句还有一个功能就是<em>退出当前函数</em>，注意和break的区别。PS：break用在循环和switch分支语句里。</p>
+                    <img src="./js-img/return02.png" alt="">
+                </div>
+               <div class="box">
+               	   <dl>
+               	   	<dt>练习</dt>
+               	   	<dd>1、url的封装</dd>
+               	   	<dd>2、增加、删除class</dd>
+               	   	<dd>3、数组去重的封装</dd>
+               	   </dl>
+               </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">函数内部属性</h3>
+                <div class="point_content">
+                    <p class="paragraph">在函数内部，有两个特殊的对象：arguments和this。arguments是一个类数组对象，包含着传入函数中的所有参数，主要用途是保存函数参数。但这个对象还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。</p>
+                    <p><em>arguments</em></p>
+                    <img src="./js-img/argument.png" alt="">
+                    <p><em>arguments.callee</em>，我们通常用他来实现递归。</p>
+                    <img src="./js-img/argumentCallee.png" alt="">
+                    <p>函数内部另一个特殊对象是<em>this</em>引用的是函数据以执行操作的对象，或者说函数调用语句所处的那个作用域。当在全局作用域中调用函数时，this对象引用的就是window。</p>
+                    <img src="./js-img/functionThis.png">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">函数属性和方法</h3>
+                <p class="paragraph">ECMAScript中的函数是对象，因此函数也有属性和方法。每个函数都包含两个属性：length和prototype(这个我们在面向对象中再讲)。其中，length属性表示函数希望接收的命名参数的个数。</p>
+                <img src="./js-img/funcLength.png" alt="">	
+              <!--  <p class="paragraph">对于<em>prototype</em>属性，它是保存所有实例方法的真正所在，也就是原型。这个属性 ，我们将在面向对象一章详细介绍。而prototype下有两个方法：<em>apply()和call()</em>，每个函数都包含这两个非继承而来的方法。这两个方法的用途都在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。</p>
+                <img src="./js-img/apply.png">
+                <p class="paragraph">call()方法于apply()方法相同，他们的区别仅仅在于<em>接收参数</em>的方式不同。对于call()方法而言，第一个参数是作用域，没有变化，变化只是其余的参数都是直接传递给函数的。</p>
+                <img src="./js-img/call.png">
+                <p>事实上，传递参数并不是apply()和call()方法真正的用武之地；它们经常使用的地方是能够<em>扩展函数赖以运行的作用域</em>。</p>
+                <img src="./js-img/CallandApplyUse.png">
+                <p class="paragraph">这个例子是之前作用域理解的例子修改而成，我们可以发现当我们使用call(colorJson)方法的时候，sayColor()方法的运行环境已经变成了colorJson对象里了。使用call()或者apply()来扩充作用域的最大好处，就是对象不需要与方法发生任何耦合关系(耦合，就是互相关联的意思，扩展和维护会发生连锁反应)。</p>-->
+            </section>
+        </article>
+    </body>
+</html>

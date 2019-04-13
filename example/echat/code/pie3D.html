@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ch-Zn">
+	<head>
+		<meta charset="UTF-8">
+		<title>图形</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/style.css">
+
+
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="type">
+				<h3>食品酒水</h3>
+				<div class="type_content">
+					<div class="flex" id="food" data-des="食品酒水">
+						<div><label>早餐：<input type="text" ></label></div>
+						<div><label>中餐：<input type="text" ></label></div>
+						<div><label>晚餐：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--衣服饰品-->
+			<div class="type">
+				<h3>衣服饰品</h3>
+				<div class="type_content">
+					<div class="flex" id="cloth" data-des="衣服饰品">
+						<div><label>衣服：<input type="text"></label></div>
+						<div><label>裤子：<input type="text"></label></div>
+						<div><label>袜子：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--行车交通-->
+			<div class="type">
+				<h3>行车交通</h3>
+				<div class="type_content">
+					<div class="flex" id="traffic" data-des="衣服饰品">
+						<div><label>打车：<input type="text"></label></div>
+						<div><label>公车：<input type="text"></label></div>
+						<div><label>私家车：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<!--交流通讯-->
+			<div class="type">
+				<h3>交流通讯</h3>
+				<div class="type_content">
+					<div class="flex" id="Communication" data-des="交流通讯">
+						<div><label>座机：<input type="text"></label></div>
+						<div><label>手机：<input type="text"></label></div>
+						<div><label>上网：<input type="text"></label></div>
+					</div>
+				</div>
+			</div>
+			<div id="result" class="right"> 结果</div>
+			<div id="chartdiv" style=" height: 400px;"></div>
+		</div>
+
+	</body>
+	<script src="./js/jquery-3.1.1.min.js"></script>
+	<script src="./js/amcharts.js"></script>
+	<script src="./js/pie.js"></script>
+	<script >
+
+		$(function(){
+			
+			var chart,  legend, chartData=[];
+
+			/*点击结果	得到支出的饼状图*/
+			$("#result").click(function(){
+				
+				
+				$(".flex").each(function(index){
+					var ind = index;
+					//console.log($(this).get(0).dataset.des); get(0) 转原生
+					chartData[index] = {};
+					/*支出类*/
+					chartData[index].outlay = $(this).attr('data-des');
+					/*支出类的总费用*/
+					chartData[index].value = 0;
+					$(this).find('input').each(function(){
+						if( parseInt($(this).val())  ){
+
+							chartData[ind].value += parseInt($(this).val());
+						}
+
+					})
+
+				})
+
+				// 生成图形
+				chart = new AmCharts.AmPieChart();
+				chart.dataProvider = chartData;
+				chart.titleField = "outlay";
+				chart.valueField = "value";
+				chart.outlineColor = "#FFFFFF";
+				chart.outlineAlpha = 0.8;
+				chart.outlineThickness = 2;
+				chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+				// this makes the chart 3D
+				chart.depth3D = 15;
+				chart.angle = 30;
+
+				// WRITE
+				chart.write("chartdiv");
+				
+		
+			})
+			
+			
+		})
+
+	</script>
+</html>

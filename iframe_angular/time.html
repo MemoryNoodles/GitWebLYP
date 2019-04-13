@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>                                           
+    <head>
+        <meta charset="UTF-8">
+        <title>angular1</title>
+        <script src="./jsFile/angular.min.js"></script> 
+        <script>
+            function func($scope){
+                $scope.today = new Date();
+            }
+        </script>
+    </head>
+    <body>     
+        <div class="part" ng-controller = 'func'>
+            <!--年份-->
+            <p>四位年份：{{ today | date:'yyyy' }}</p>
+            <!--月份-->
+            <p>数字月份：{{ today |date:'MM' }}</p>        
+            <!--日期格式化-->
+            <p>数字日期：{{ today|date:'dd' }}</p> 
+            <!--小时-->
+            <p>24小时制数字小时：{{today|date:'HH'}} </p>
+            <!--分钟-->
+            <p>数字分钟数：{{ today | date:'mm' }}</p>
+            <!--秒数-->
+            <p>数字秒数：{{ today | date:'ss' }}</p>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

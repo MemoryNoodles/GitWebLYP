@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+
+            /*HTML*/
+            //<canvas id="c1" width="400" height="400"></canvas>
+            /*javascript*/
+            window.onload = function(){
+
+                var oC = document.getElementById('c1');
+                //绘制环境
+                var oGC = oC.getContext('2d');   //目前支持2D的场景 webGl->3D支持很差
+               
+                /* 绘制其他曲线*/
+                //arcTo(x1,y1,x2,y2,r)  第一组坐标  第二组坐标 半径
+                oGC.moveTo(100,200);     // 创建开始点
+                oGC.arcTo(100,100,200,100,50);
+                oGC.stroke();            // 进行绘制
+   
+            }
+            
+        </script>
+    </head>
+    <body>
+        <canvas id="c1"  width="400" height="400"></canvas>
+    </body>
+</html>

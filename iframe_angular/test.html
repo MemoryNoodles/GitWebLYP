@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script src="./jsFile/angular.min.js"></script>
+        <script>
+            var module = angular.module('myApp', []);
+            module.filter('comstomFilter',function(){
+                //console.log(str)报错 必须像下面这样写   
+                return function(str,num){
+                    // console.log(str); --> hellow 
+                    // console.log(num); --> 2
+                    return str.charAt(0).toUpperCase() + str.substring(1);
+                }
+            });
+            module.controller('func', ['$scope', '$filter', function($scope, $filter){
+                $scope.name = $filter('comstomFilter')('hellow');
+                // $scope.name = $filter('comstomFilter')('hellow', 2); 可传第二个参数
+            }]);
+
+        </script>
+    </head>
+    <body>
+        <div ng-controller='func'>
+            <p>{{name}}</p>        
+        </div>
+    </body>
+</html>

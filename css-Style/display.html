@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>显示</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">     
+    </head>
+    <body>
+        <h2 class="article-title">display及其他</h2> 
+        <article class="wrap">
+            <section class="onePoint">
+                <p class="title">display属性</p>
+                <div class="box">
+                    <dl>
+                        <dt>none</dt>
+                        <dd>将元素设定为不显示，使元素完全地脱离“文档流”。</dd>
+                        <dt>inline</dt>
+                        <dd>将元素设定为“行内元素”。</dd>
+                        <dt>inline-block</dt>
+                        <dd>将元素设定为“行内块元素”。</dd>
+                        <dt>block</dt>
+                        <dd>将元素设定为“块元素”。</dd>
+                        <dt>flex</dt>
+                        <dd>弹性盒子模型</dd>
+                        <dt>table</dt>
+                        <dd>将元素作为table显示。</dd>
+                        <dt>table-row</dt>
+                        <dd>将元素作为一个tr元素来显示。</dd>
+                        <dt>table-cell</dt>
+                        <dd>将元素作为一个table单元格元素来显示。</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/display-table-html.jpg" alt=""><br>
+                <img src="./css-img/display-table-css.jpg" alt="">
+
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/display-table.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">visibility属性</p> 
+                <div class="box">
+                    <dl>
+                        <dt>visible（默认）</dt>
+                        <dd>设置元素为可见的</dd>
+                        <dt>hidden</dt>
+                        <dd>设置元素为不可见的(元素不可见后，它所占据的空间不会消失。)</dd>
+                    </dl>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">透明度</p>
+                <div class="box">
+                    <ul>
+                        <li>opacity:0~1;标准不透明度</li>
+                        <li>filter:alpha(opacity=0~100);IE滤镜</li>
+                    </ul>
+                </div>
+            </section>
+            <!--  background   -->
+            <section class="onePoint">
+                <p class="title">CSS背景</p>
+                <div class="box">
+                    <ul>
+                        <li>background-color:背景色；</li>
+                        <li>background-image:背景图像；</li>
+                        <li>background-repeat:背景图像重复</li>
+                        <li>background-position:背景图定位</li>
+                        <li>background-size:背景图大小</li>
+                        <li>background-attachment:背景图固定</li>
+                        <li>background-clip:背景裁切范围</li>
+                      <!--  <li>background-origin:背景开始位置</li>-->
+                    </ul>
+                </div>
+                <!--  background-repeat   -->
+                <p class="seq">1、background-repeat,设置背景图片时；背景图片默认会以“平铺”的方式排满整个元素的背景，而该属性正式用于控制图像重复排列方式的，它有以下值：</p>
+                <div class="box">
+                    <dl >
+                        <dt>repeat</dt>
+                        <dd>默认，以“平铺”的方式排列图片</dd>
+                        <dt>repeat-x</dt>
+                        <dd>只在水平方向（X轴方向）进行重复</dd>
+                        <dt>repeat-y</dt>
+                        <dd>只在垂直方向（Y轴方向）进行重复</dd>
+                        <dt>no-repeat</dt>
+                        <dd>使背景图片不重复</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/background-repeat-css.jpg" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/background-repeat.html" frameborder="0"></iframe>
+                </div>
+                <!--  background-position   -->
+                <p class="seq">2、background-position,随着技术的发展，现在的大公司越来越来追求前端的性能，这时候人们就用到了图片精灵(css sprites)，他可以把一个网页所用到的图片整合成一张图片，然后用background-position结合自己的宽高取相应的图片，这里我们就来了解一下background-position；</p>
+                <div class="box">
+                    <dl>
+                        <dt>方位英文单词</dt>
+                        <dd>可以有“left”、“right”、“top”、“bottom”和“center”。用法如：“left top”（默认），设置背景图在元素内的“左上方”；“right bottom”，设置背景图在元素内的“右下方”；“center center”，设置背景图在元素的“中心”。</dd>
+
+                        <dt>百分比单位</dt>
+                        <dd>用法如：“0% 50%”，设置背景图在元素内“水平方向”的“左方”，垂直方向的“中心”；“50% 50%”,，设置背景图在元素内的“中心”；“100% 100%”,，设置背景图在元素内的“右下方”。</dd>
+
+                        <dt>像素单位</dt>
+                        <dd>背景图的“左上角”相对于元素“左上角”偏移的距离，如“10px 20px”,设置背景图“水平向右”偏移10像素，“垂直向下”偏移20像素。 </dd>
+                    </dl>
+                </div>
+                <!--  background-size   -->
+                <p class="seq">3、background-size,背景图大小</p>
+                <div class="box">
+                    <dl>
+                        <dt>像素值</dt>
+                        <dd>可以通过像素“px”精确地设置背景图片的大小。需要设置为两个值，第一个值表示背景图的宽度；第二个值表示背景图的高度，还可以通过设置宽度或高度的其中一个，将另外一个值设置成“auto”达到保持背景图原始图像比例的效果。如：“240px 120px”、“180px auto”或“auto（相当于还原默认的大小）”。</dd>
+
+                        <dt>百分比值</dt>
+                        <dd>用“百分比”作为值，结构和用“像素值”一致，也是两个值，第一个值是相对于元素宽度的百分比值，第二个值是相对于元素高度的百分比。如：“100% 80%”、“100% auto”或“auto 50%”。</dd>
+
+                        <dt>contain</dt>
+                        <dd>自动将背景图像填满元素的其中一边，图像的比例保持不变。</dd>
+
+                        <dt>cover</dt>
+                        <dd>在保持图像原始比例的情况下，将元素的背景区域完全覆盖，超出元素宽高的部分会自动被裁剪，是一种比较“智能”的背景图片大小设置方式，通过配合“background-position”属性使用可以将开发者认为背景图像中“更重要”的部分通过定位显示出来。</dd>
+                    </dl>
+                </div>
+                <!--  background-attachment   -->
+                <p class="seq">4、background-attachment：定义背景图片随滚动轴的移动方式</p>
+                <div class="box">
+                    <dl class="attrExplain">
+                        <dt>scroll</dt>
+                        <dd>scroll: 默认值。背景图像会随着页面其余部分的滚动而移动。</dd>
+
+                        <dt>fixed</dt>
+                        <dd>fixed: 当页面的其余部分滚动时，背景图像不会移动。</dd>
+                    </dl>
+                </div>
+                <p><a href="./iframe/background-attachment.html" target="_blank">点击查看效果</a></p>
+                <!--  background-clip   -->
+                <p class="seq">5、background-clip：背景显示范围</p>
+                <p class="paragraph">该属性是规定背景显示的范围，是从“border”开始，是从“padding”开始，还是从“content”开始，它有以下值：</p>
+                <div class="box">
+                    <dl>
+                        <dt>border-box</dt>
+                        <dd>默认，背景的覆盖范围从“border”开始</dd>
+
+                        <dt>padding-box</dt>
+                        <dd>背景的覆盖范围从“padding”开始</dd>
+
+                        <dt>content-box</dt>
+                        <dd>背景的覆盖范围从“content”开始</dd>
+                    </dl>
+                </div>
+                <img src="./css-img/border-clip-css.jpg" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/background-clip.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <!-- background的组合值  -->
+            <section class="onePoint">
+                <p class="title">background的组合值</p>
+                <p class="paragraph">background的组合值是我们以后再开发中经常会用到的。</p>
+                <img src="./css-img/background-zuhe.jpg" alt="">
+            </section>
+            <!-- 背景色的渐变  -->
+            <section class="onePoint">
+                <p class="title">背景色的渐变</p>
+                <p class="paragraph">“background”背景色渐变是在元素内以你设置的方向进行颜色的过度变化；他有以下两种渐变方式：</p>
+                <div class="box">
+                    <ul>
+                        <li><em>线性渐变（linear-gradient）</em>:颜色的变化过度方式是沿着一条直线进行的。</li>
+                        <li><em>径向渐变（radial-gradient）</em>:颜色的变化过度方式是以一个圆的圆心为参照进行的。</li>
+                    </ul>
+                </div>
+                 <!-- 线性渐变  -->
+                <p>1、首先我们来看一下“线性渐变”；他的必要条件是必须要具有两种或以上的颜色。好我们看代码吧！</p>
+                <img src="./css-img/bg-linear-gradient.png" style="width:1200px" alt="">
+                <p>运行效果：</p>
+                <div class="box">
+                    <iframe src="./iframe/bg-linear-gradient.html" frameborder="0" style="height:600px"></iframe>
+                </div>
+                <p class="paragraph">有了上面的了解后，我们再来看一下<em>重复线性渐变</em><code>repeating-radial-gradient</code>，我们还是用代码说话吧！</p>
+                 <img src="./css-img/bg-linear-repeating.png" style="width:1200px" alt="">
+                 <div class="box">
+                     <iframe src="./iframe/bg-linear-gradient-complex.html" frameborder="0"></iframe>
+                 </div>
+                  <!-- 径向渐变  -->
+                  <p>2、“径向渐变”的属性值参数设置和“线性渐变”一致；我们直接看用代码写出来后他们的区别吧！</p>
+                  <img src="./css-img/bg-radial-gradient-html.png" alt="">
+                  <img src="./css-img/bg-radial-gradient.png" alt="">
+                  <div class="box">
+                      <iframe src="./iframe/bg-radial-gradient.html" frameborder="0"></iframe>
+                  </div>
+                  <p>镜像效果:-webkit-box-reflect(百度用法)</p>
+            </section>
+            
+        </article>
+        <!--        <script src="./js/common.js"></script>-->
+        
+    </body>
+</html>

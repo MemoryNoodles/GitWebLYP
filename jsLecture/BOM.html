@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BOM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script>
+
+            var search = location.search;            //获取到?page=2&id=3
+            var searchValue = search.substring(1);   //通过字符串操作  page=2&id=3
+            var arr = searchValue.split('&');
+            function getValue(arr, attr){
+                for(var i=0; i<arr.length; i++){
+                    if(arr[i].split("=")[0] == attr){
+                        return arr[i].split("=")[1];
+                    }
+                }
+            }
+            var theVal = getValue(arr, 'page');
+            console.log(theVal);                    //2
+            
+            
+            function myBrowser(){
+                var userAgent = navigator.userAgent;     //取得浏览器的userAgent字符串
+                if (userAgent.indexOf("Opera") > -1) {    //判断是否Opera浏览器
+                    return "Opera"
+                }; 
+                if (userAgent.indexOf("Firefox") > -1) {   //判断是否Firefox浏览器
+                    return "FF";
+                } 
+                if (userAgent.indexOf("Chrome") > -1){    //判断是否Chrome浏览器
+                    return "Chrome";
+                }
+                if (userAgent.indexOf("Safari") > -1) {   //判断是否Safari浏览器
+                    return "Safari";
+                } 
+                if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+                    return "IE";
+                };                                        //判断是否IE浏览器
+            }
+            console.log(myBrowser());                     //得到浏览器
+          
+          
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">BOM</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <p class="paragraph">BOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。BOM缺少规范，每个浏览器提供商又按照自己想法去扩展它，那么浏览器共有对象就成了事实的标准。所以，BOM本身是没有标准的或者还没有哪个组织去标准它。</p>   
+                <h3 class="title">window</h3>
+                <div class="point_content">
+                    <p class="paragraph">BOM的核心对象是window，它表示浏览器的一个实例。在浏览器里window对象有双重角色，它既是通过javascript访问浏览器窗口的一个接口，有事ECMAScript规定的Global对象。</p>
+                    <!--全局作用域-->
+                    <img src="./js-img/windowValue.png">
+                    <!--对话框-->
+                    <h4 class="small_title">系统对话框</h4>
+                    <p class="paragraph">浏览器通过alert()、confirm()方法可以调用系统对话框向用户显示信息。系统对话框与浏览器中显示的网页没有关系，也不包含HTML。</p>
+                    <img src="./js-img/confirm.png" alt="">
+                    <!--打开窗口-->
+                    <h4 class="small_title">打开窗口</h4>
+                    <p class="paragraph">使用window.open()方法可以导航到一个特定的URL，也可以打开一个新的浏览器窗口。</p>
+                    <p><a href="./iframe/windowOpen.html" target="_blank">点击查看列子</a></p>
+                    <!--窗口的位置和大小-->
+                    <h4 class="small_title">窗口大小</h4>
+                    <p class="paragraph">可视区尺寸</p>
+                    <img src="./js-img/clientWidth.png" alt="">
+                    <p class="paragraph">滚动距离</p>
+                    <img src="./js-img/BomscrollTop.png" alt="">
+                    <!--间歇调用和超时调用-->
+                    <h4 class="small_title">间歇调用和超时调用</h4>
+                    <p class="paragraph">JavaScript是单线程语言，但它允许通过设置超时值和间歇时间值来调度代码在特定的时刻执行。前者在指定的时间过后执行代码，而后者则是每隔指定的时间就执行一次代码。</p>
+                    <div class="box">
+                        <dl>
+                            <dt>setTimeout</dt>
+                            <dd>超时调用;它接受两个参数：要执行的代码和毫秒数的超时时间。</dd>
+                            <dt>setInterval</dt>
+                            <dd>间歇调用;它接受两个参数：要执行的代码和每次执行之前需要等待的时间。</dd>
+                        </dl>
+                    </div>
+                    <p><em>setTimeout与清除</em></p>
+                    <p>运用</p>
+                    <img src="./js-img/setTimeout.png">
+                    <p>清除</p>
+                    <img src="./js-img/clearTimeout.png">
+                    <p><em>setInterval与清除</em></p>
+                
+                    <p>运用</p>
+                    <img src="./js-img/setInterval.png" alt="">
+                    <p>清除</p>
+                    <img src="./js-img/clearInterval.png" alt="">
+                    <p>拓展</p>
+                    <img src="./js-img/requestAnimation.png">
+                    <div class="box">
+                        <p>特点：</p>
+                        <ul>
+                            <li>requestAnimationFrame会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率</li>
+                            <li>在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的CPU、GPU和内存使用量</li>
+                            <li>requestAnimationFrame是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">location对象</h3>
+                <div class="point_content">
+                    <p class="paragraph">location是BOM对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。下面我们就来看一下：</p>
+                    <div class="box">
+                        <dl>
+                            <dt>href</dt>
+                            <dd>整个URL</dd>
+                            <dt>search</dt>
+                            <dd>查询字符串</dd>
+                            <dt>hash</dt>
+                            <dd>如果该部分存在，表示锚点部分</dd>
+                            <dt>reload() </dt>
+                            <dd>重载当前URL</dd>
+                        </dl>
+                    </div>
+                    <img src="./js-img/hashSearch.png">
+                    <p>简单的运用</p>
+                    <img src="./js-img/searchVal.png" alt="">
+
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">navigator对象</h3>
+                <div class="point_content">
+                    <p class="paragraph">简单的封装js对浏览器的检测</p>
+                    <img src="./js-img/userAgent.png">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

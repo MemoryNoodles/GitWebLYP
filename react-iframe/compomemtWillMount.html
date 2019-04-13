@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="../jsFile/react.js"></script>
+	<script src="../jsFile/react-dom.min.js"></script>
+	<script src="../jsFile/browser.js"></script>
+    <style>
+		.box{
+			width:400px; height:200px;
+			line-height:200px; color:white; font-size:25px;
+			text-align:center;
+		}
+	</style>
+	
+	<script type="text/babel">
+	   var ChangeOpacity = React.createClass({
+		   getInitialState:function(){
+			   return {
+				   opacity:1,
+				   background:'red',
+               };
+		   },
+		   /*虽然他有初始值，但是在函数状态之前就已近改变了background的值*/
+		   componentWillMount:function(){
+			   this.setState({
+				   background:'green',
+			   })
+		   },
+		   /*每隔500毫秒调用一次 */
+		   componentDidMount:function(){
+			   this.timer = setInterval(function(){
+				   var opacity = this.state.opacity;
+				   opacity -= 0.05;
+				   if(opacity<0.1) opacity=1 
+				   this.setState({
+					   opacity:opacity
+				   });
+			   }.bind(this),500)                    //修改this的指向为当前对象
+		   },  /*这里进行了折叠，笔记本电脑屏幕太小没办法，不然截不全图*/
+		   render:function(){	
+			   return(
+				   <div className="box" style={{opacity:this.state.opacity,background:this.state.background}}>
+				   	  reactJS {this.props.customize}
+				   </div>				   
+			   )
+		   }
+	   });
+      
+	   ReactDOM.render(
+		     <ChangeOpacity customize="没那么难吧！" />,
+		     document.getElementById('box')
+	  );
+	</script>
+	
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

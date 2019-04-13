@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            window.onload = function(){
+                var oC = document.getElementById('c1');
+                //绘制环境
+                var oGC = oC.getContext('2d');    //目前支持2D的场景 3D的支持度极差
+                //绘制方块
+                //fillRect(L,T, W, H)
+                oGC.fillRect(50,50,100,100);     //默认颜色是黑色
+                //strokeRect(L,T, W, H)
+                oGC.strokeRect(50.5,50.5,100,100);  //带边框的方块
+
+                /*设置绘图*/
+                oGC.fillStyle = 'red';       //fillStyle填充颜色
+                oGC.strokeStyle = 'blue';  //strokeStyle边框颜色
+                oGC.lineWidth = 10          //边线颜色
+
+                /*边界绘制*/
+                oGC.lineJoin = 'bevel';    //lineJoin：边界连接点样式  -- 1/miter 默认 2、round 圆角 3、bevel 斜角
+                oGC.lineCap = 'round'     //端点样式   //butt 默认   2.round 圆角 3.square(高度多出为宽一半的值)
+                /*绘制路劲*/
+                //beginPath :开始绘制路劲 closePath:结束绘制路劲  moveTo移动到绘制的目标点 lineTo 新的目标点
+                oGC.beginPath();
+                oGC.moveTo(100,100);    
+                oGC.lineTo(200,200);   //一条线
+                oGC.lineTo(300,200);   //第二条线
+                oGC.closePath();      //闭合
+                oGC.stroke();        //绘制
+                oGC.fill();         //填充
+                
+                /*绘制路劲2*/
+                //stroke  划线
+                //fill 填充 默认黑色
+                //rect  矩形区域
+                //clearRect ：删除一个画布的矩形区域
+                //save  :保存路劲
+                //restore : 恢复路劲
+                oGC.beginPath();
+                oGC.rect(100,100,100,100);
+                oGC.closePath();
+                oGC.fill();
+                oGC.clearRect(0,0,oC.width,oC.height);   //删除oGC里的所有画布
+                
+                /*绘制圆*/
+                //arc(x, y, 半径, 起始弧度, 结束弧度,　旋转方向)
+                //x, y --起始位置
+                //弧度与角度的关系：弧度 = 角度*Math.PI/180
+                //旋转方向   顺时针（默认） 、逆时针（true）
+                oGC.moveTo(200,200);
+                oGC.arc(200,200,150,0,90*Math.PI/180,true);
+	            oGC.stroke();
+                
+                /* 绘制其他曲线*/
+                //arcTo(x1,y1,x2,y2,r)  第一组坐标  第二组坐标 半径
+                //quadraticCurveTo(dx,dy,x1,y1)  贝塞尔曲线 第一组控制点、第二组结束坐标
+                //bezierCurveTo(dx1,dy1,dx2,dy2,x1,y1) 贝塞尔曲线  第一组控制点 第二组控制点 第三组结束坐标
+                
+                /*变换*/
+                //translate  偏移：从起始点为基准点，移动当前坐标位置
+                //rotate  旋转：参数为弧度  
+                //scale   缩放
+            }; 
+        </script>
+    </head>
+    <body>
+        <canvas id="c1" width="400" height="400">
+            <span>不支持canvas浏览器</span>
+        </canvas> <!--默认：宽300 高150--> 
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app>                                           <!--绑定-->
+    <head>
+        <meta charset="UTF-8">
+        <title>angular1</title>
+        <script src="./jsFile/angular.min.js"></script> <!--引入文件-->
+        <script>
+            function angular($scope){                  
+                $scope.anyName = 'luce';
+            }
+        </script>
+    </head>
+    <body>
+        <div ng-controller="angular">
+            <!--当输入字段中的值发生变化时，anyName会被更新，而视图将反映出这个更新。-->
+            <input type="text" ng-model="anyName">     
+            <p>{{anyName}}</p>  
+        </div>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

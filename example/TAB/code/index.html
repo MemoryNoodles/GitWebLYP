@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>tab切换</title>
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/style.css">
+		<script src="./js/public.js"></script>
+		<script>
+			window.onload = function(){
+				var oTab = document.getElementById('tab');
+				var aLi = oTab.children; 
+				console.log(aLi);
+				var oConten = document.getElementById('content');
+				var aDiv = oConten.children; 
+				console.log(aDiv);
+				for(var i=0; i<aLi.length; i++){		
+					aLi[i].index = i;
+					aLi[i].onclick = function(){
+						for(var j=0; j<aLi.length; j++){	aLi[j].className = '';
+							aDiv[j].className = '';
+						}
+						 
+						 this.className = 'active';			//console.log(this);	
+						aDiv[this.index].className = 'active';
+						return false;
+					}
+				}
+			}			   
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="menu">
+				<ul id="tab" class="clearFix">
+					<li class="nobl active">图片</li>
+					<li><a href="">专栏</a></li>
+					<li><a href="">热点</a></li>
+				</ul>
+			</div>
+			<div id="content">
+				<div class="column active">
+					<div class="picture clearFix">
+						<a href="">
+							<img src="./img/1.jpg" alt=""><span>北京街头养眼潮女</span>
+						</a>
+						<a href="">
+							<img src="./img/2.jpg" alt="">
+							<span>什刹海朝霞满天飞</span>
+						</a>
+						<a href="">
+							<img src="./img/3.jpg" alt="">
+							<span>北航气质笑话</span>
+						</a>
+					</div>
+					<ul class="news">
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<div class="picture clearFix">
+						<a href="">
+							<img src="./img/4.jpg" alt="">
+							<span>潮人保暖有妙招</span>
+						</a>
+						<a href="">
+							<img src="./img/5.jpg" alt="">
+							<span>这里美得像仙境</span>
+						</a>
+						<a href="">
+							<img src="./img/6.jpg" alt="">
+							<span>长腿大眼萌少女</span>
+						</a>
+					</div>
+					<ul class="news">
+						<li>
+							<a href="">唐嫣对渣前任最好的打脸</a> <a href="">大唐玄奘》遭奥斯卡无视</a>
+						</li>
+						<li>
+							<a href="">黎晓斌: 深足冲超不再低调 </a> <a href="">邱国栋：足球从来不缺少爱</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<div class="picture clearFix">
+						<a href="">
+							<img src="./img/1.jpg" alt="">
+							<span>北京街头养眼潮女</span>
+						</a>
+						<a href="">
+							<img src="./img/2.jpg" alt="">
+							<span>什刹海朝霞满天飞</span>
+						</a>
+						<a href="">
+							<img src="./img/2.jpg" alt="">
+							<span>北航气质笑话</span>
+						</a>
+					</div>
+					<ul class="news">
+						<li>
+							<a href="">全峰快递邮寄包裹里有活老鼠</a> <a href="">女大学生受到惊吓（图）</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+						<li>
+							<a href="">西湖偷钓客钓走野生大鲤鱼</a> <a href="">416斤重大海龟惨遭屠宰</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

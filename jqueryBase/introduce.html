@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基本包装类型</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        
+        <script>
+
+
+            alert($);
+            alert($());
+            alert($('#box'));
+
+        </script>
+    </head>
+    <body>
+        <h2 class="article-title">jquery基础</h2>
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">什么是jQuery</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方法。它的作者是John Resig，于2006年创建的一个开源项目，随着越来越多开发者的加入，jQuery已经集成了JavaScript、 CSS、 DOM和Ajax于一体的强大功能。 它可以用最少的代码，完成更多复杂而困难的功能，从而得到了开发者的青睐。</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">jQuery的功能和优势</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery作为JavaScript封装的库，他的目的就是为了简化开发者使用JavaScript。主要功能有以下几点：</p>
+                    <div class="box">
+                        <ul>
+                            <li>1.像CSS那样访问和操作DOM</li>
+                            <li>2.修改CSS控制页面外观</li>
+                            <li>3.简化JavaScript代码操作</li>
+                            <li>4.事件处理更加容易</li>
+                            <li>5.各种动画效果使用方便</li>
+                            <li>6.基于jQuery大量插件</li>
+                            <li>7.自行扩展功能插件</li>
+                        </ul>
+                    </div>
+                    <p class="paragraph">jQuery最大的优势，就是特别的方便。比如模仿CSS获取DOM，比原生的JavaScript要方便太多。并且在多个CSS 设置上的集中处理非常舒服，而最常用的CSS功能又封装到单独的方法，感觉非常有心。最重要的是jQuery的代码兼容性非常好，你不需要总是头疼着考虑不同浏览器的兼容问题。</p>
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">代码风格</h3>
+                <div class="point_content">
+                    <p class="paragraph">在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么写：</p>
+                    <img src="./jqueryImg/$function.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">加载模式</h3>
+                <div class="point_content">
+                    <p class="paragraph">我们在之前的代码一直在使用$(function () {});这段代码进行首尾包裹， 那么为什么必须要包裹这段代码呢？原因是我们jQuery库文件是在body元素之前加载的，我们必须等待所有的DOM元素加载后，延迟支持DOM操作，否则就无法获取到。</p>
+                    <img src="./jqueryImg/$ready.png" alt="">
+                    <p class="paragraph">在实际应用中，我们都很少直接去使用window.onload，因为他需要等待图片之类的大型元素加载完毕后才能执行JS代码。所以，最头疼的就是网速较慢的情况下，页面已经全面展开，图片还在缓慢加载，这时页面上任何的JS交互功能全部处在假死状态。并且只能执行单次在多次开发和团队开发中会带来困难。</p>
+                </div>
+            </section>
+            <!-- <section class="onePoint">
+<h3 class="title">选择网页元素</h3>
+<img src="./jqueryImg/css().png">
+</section>
+<section class="onePoint">
+<h3 class="title">$()下的常用方法</h3>
+</section>-->
+        </article>
+    </body>
+</html>

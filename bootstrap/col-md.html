@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>栅格系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">   
+        <style>
+            .tab{ border-collapse:collapse}
+            .tab th{font-size:22px; color:#2a4672; text-align: center}
+            .tab td{font-size:22px; text-align: center; height:50px; color:#c9af1e }
+        </style> 
+    </head>
+    <body>
+        <h2 class="article-title">栅格系统</h2> 
+        <article class="wrap">
+            <section class="onePoint">
+                <h3 class="title">布局容器</h3>
+                <div class="point_content">
+                    <h4 class="small_title">单列</h4>
+                    <p>大家可以换成<em>contain-fluid</em>试试</p>
+                    <img src="./html-img/col-md-1.png" alt="">
+                    <div class="box">
+                        <iframe src="./iframe_bootstrap/col-md.html" frameborder="0"></iframe>
+                    </div>
+                    <h4 class="small_tilte">每列分配多列</h4>
+                    <img src="./html-img/col-md-more.png" alt="">
+                    <div class="box">
+                        <iframe src="./iframe_bootstrap/col-md-more.html" frameborder="0"></iframe>
+                    </div>
+                    <h4 class="small_title">多屏幕适应</h4>
+                    
+                    <table width="80%" class="tab" cellpadding="0" cellspacing="0" >
+                        <tr>
+                            <th>超小屏(&lt;768px)</th>
+                            <th>小屏(&gt;=768px)</th>
+                            <th>中屏(&gt;=992px)</th>
+                            <th>大屏(&gt;=1200px)</th>
+                        </tr>
+                        <tr>
+                            <td>col-xs-</td>
+                            <td>col-sm-</td>
+                            <td>col-md-</td>
+                            <td>col-lg-</td>
+                        </tr>
+                    </table>
+                    <img src="./html-img/col-moreSprit.png" alt="">
+                    <p><a href="./iframe_bootstrap/col-moeSprit.html" target="_blank">查看效果</a></p>
+                    <img src="./html-img/col-md-offset.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

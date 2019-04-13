@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML构成</title>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        
+        <style>
+            .html {
+                font-family: monospace;
+                color: #000;
+                line-height: 2px;
+                background: #ddedfb;
+                border: 1px solid #09C;
+                border-radius: 6px;
+                white-space: pre-wrap;
+                margin-left:20px;
+                text-align: left;
+                
+            }
+        
+            .html p{text-align: left; padding:13px 0 15px 30px;}
+        </style>
+    </head>
+    <body>
+        <h2 class="article-title">HTML DOCTYPE文档类型</h2>
+        <div class="wrap">
+          <!--文档基本结构strat-->
+            <div class="onePoint">
+                <p  class="title">文档基本结构</p>
+                <img src="./html-img/doctype.png" alt="" title="">
+            </div>
+            <!--文档基本结构strat-->
+          <!--声明文档类型的方式start-->
+           <div class="onePoint">
+              <p class="title">声明文档类型的方式</p>
+                <span>过度模式</span>
+                <div class="html">
+                   <p>&lt;!DOCTYPE html PUBLIC &nbsp;"-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" &gt;</p>
+               </div>
+                <span>严格模式</span>
+                <div class="html">
+                   <p class="tag">&lt;!DOCTYPE html PUBLIC&nbsp;"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" &gt;</p>
+               </div>
+                <span>框架模式</span>
+               <div class="html">
+                   <p class="tag">&lt;!DOCTYPE html PUBLIC&nbsp;"-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd" &gt;</p>
+               </div>
+               <span>html5的声明文挡模式</span>
+               <div class="html">
+                   <p class="tag">&lt;</span><span class="attr">!DOCTYPE html</span><span class="tag">&gt;</p>
+               </div>
+
+               <p class="paragraph">HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;?HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>     
+           </div>
+            <!--声明文档类型的方式end-->
+            <!--代码编码格式strat-->
+            <div class="onePoint">
+                <p  class="title">meta标签</p>
+                <p class="paragraph">代码编码格式</p>
+                <img src="./html-img/meta.png" alt="" title="">
+                <p class="paragraph">html自适应</p>
+                <img src="./html-img/html5-meta.png" alt="" title="">
+                <p><a href="http://caibaojian.com/mobile-meta.html" target="_blank">更多关于html5的meta信息</a>&nbsp;&nbsp;&nbsp;<a href="http://www.haorooms.com/post/html_meta_ds" target="_blank">更多html的meta的信息</a></p>
+            </div>
+            <!--代码编码格式strat-->
+            <!--代码编码格式strat-->
+            <div class="onePoint">
+                <p  class="title">文档标题</p>
+                <img src="./html-img/title.png" alt="" title="">
+            </div>
+            <!--代码编码格式strat-->
+           
+        </div>
+        
+    </body>
+</html>

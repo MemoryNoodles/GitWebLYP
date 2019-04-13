@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组的扩展</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<h2 class="article-title">数组的扩展</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">数组的扩展</h3>
+				<div class="point_content">
+			    	<!--Array.fro-->
+					<h4 class="small_title">Array.from</h4>
+					<p class="paragraph">Array.from方法用于将对象转为真正的数组</p>
+					<img src="./es6Img/arrayFrom.png">
+					<!--Array.of-->
+					<h4 class="small_title">Array.of</h4>
+					<p class="paragraph">Array.of方法用于将一组值，转换为数组。</p>
+					<img src="./es6Img/arrayOf.png">
+					<!--find()-->
+					<h4 class="small_title">find()/findIndex()</h4>
+					<p class="paragraph">数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。findIndex返回字符串在数组中的位置</p>
+					<img src="./es6Img/findIndex.png">
+					<p>ps:感觉和indexOf差不多？这个方法都可以发现NaN，弥补了数组的IndexOf方法的不足。</p>
+					<img src="./es6Img/findIndex2.png">
+					<!--fill-->
+					<h4 class="small_title">fill()</h4>
+					<p class="paragraph">参数:1、填充的内容,2、起始位置,3、结束位置</p>
+					<img src="./es6Img/fill.png" alt="">
+					<!--entries-->
+					<h4 class="small_title">entries()，keys()和values()</h4>
+					<div class="box">
+						<ul>
+							<li>entries():键值对的遍历</li>
+							<li>keys():键名的遍历</li>
+						<!--	<li>values():键值的遍历</li>-->
+						</ul>
+					</div>
+					<img src="./es6Img/arrEntries.png" alt="">
+					<p>如果不使用for...of循环，可以手动调用遍历器对象的next方法，进行遍历。</p>
+					<img src="./es6Img/arrEntriesNext.png">
+					<!--includes() -->
+					<img src="./es6Img/includes.png">
+				</div>
+
+			</section>
+
+
+		</article>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<link rel="shortcut icon" href="./html-img/favicon.ico">
+		<link rel="stylesheet" href="./css/common.css">
+		<script>
+            var str = "lacvlv";
+			var re = /l.*v/;
+            console.log(str.match(re)) //lacvlv
+            
+            var str = "lacvlv";
+			var re = /l.*?v/;
+            console.log(str.match(re)) //lacv
+            
+
+		</script>
+	</head>
+	<body>
+		<h2 class="article-title">正则表达式</h2>
+		<article class="wrap">
+			<section class="onePoint">
+				<h3 class="title">正则表达式</h3>
+				<div class="point_content">
+					<p class="paragraph">正则表达式主要用来验证客户端的输入数据。用户填写完表单单击按钮之后，表单就会被发送到服务器，在服务器端通常会用PHP、ASP.NET等服务器脚本对其进行进一步处理。因为客户端验证，可以节约大量的服务器端的系统资源，并且提供更好的用户体验。</p>
+					<p class="paragraph">创建正则表达式和创建字符串类似，创建正则表达式提供了两种方法，一种是采用new运算符，另一个是采用字面量方式。</p>
+					<img src="./js-img/newReg.png" alt=""><br>
+					<p>匹配模式</p>
+					<img src="./js-img/RegPara.png" alt="">      
+				</div>
+				<h3 class="title">$1和\1</h3>
+				<div class="point_content">
+				    <p>\1 表示后向引用，是指在正则表达式中，从左往右数，第1个()中的内容，以此类推，\2表示第2个()，\0表示整个表达式。</p>    				
+				    <img src="./js-img/reD.png" alt=""> 
+				    <p>$1-$9 存放着正则表达式中最近的9个正则表达式的提取的结果，这些结果按照子匹配的出现顺序依次排列。</p>
+				    <p>第一种用法</p>
+				    <img src="./js-img/re$.png" alt="">
+				    <p>试试将手机号12988886666转化成129****6666 。</p>
+				    <p>第二种用法</p>
+				    <img src="./js-img/re$2.png" alt="">
+				</div>
+				<h3 class="title">零宽正向先行断言(?=p)</h3>
+				<img src="./js-img/rel.png" alt="">
+				<div class="box">
+				    <ul>
+				        <li>(?:p):表示非捕获组</li>
+				        <li>x(?!y):匹配x仅仅当x后面不跟着y，</li>
+				        <li>^(?!\d+$):不是一连串数字开始而且结尾</li>
+				        <li>(?&lt;=内容):断言自身出现的位置的前面能匹配表达式exp</li>
+				        <li>(?=p):断言自身出现的位置的后面能匹配表达式exp</li>
+				        <li>(?&lt;!内容):	断言自身出现的位置的前面非内容</li>
+				    </ul>
+				</div>
+			
+				<!--用正则表达式验证-->
+				<h3 class="title">测试正则表达式</h3>
+				<div class="point_content">
+					<p class="paragraph">RegExp对象包含两个方法：test()和exec()，功能基本相似，用于测试字符串匹配。test()方法在字符串中查找是否存在指定的正则表达式并返回布尔值，如果存在则返回true，不存在则返回false。exec()方法也用于在字符串中查找指定正则表达式，如果exec()方法执行成功，则返回包含该查找字符串的相关信息数组。如果执行失败，则返回null 。</p>
+					<img src="./js-img/regExp.png" alt=""><br>
+					<!--<img src="./js-img/regExpMethod.png" alt="">-->
+
+				</div>
+				<!--使用字符串的正则表达式方法-->
+				<h3 class="title">使用字符串的正则表达式方法</h3>
+				<div class="point_content">
+					<p class="paragraph">除了test()和exec()方法，String对象也提供了4个使用正则表达式的方法。</p>
+					<img src="./js-img/strExRegMothed.png" alt="">
+					<img src="./js-img/strExRegUse.png" alt="">
+				</div>
+			</section>
+			<section class="onePoint">
+				<h3 class="title">获取控制</h3>
+				<div class="point_content">
+					<img src="./js-img/ExRegConTrol.png" alt="">
+				</div>
+				<img src="./js-img/tanlan.png" alt="">
+				<img src="./js-img/landuo.png" alt="">
+			</section>
+			<section>
+			    <p>在来一个高级用法</p>
+			    <img src="./js-img/regExpHeight.png" alt="">
+			</section>
+			<section class="task">
+				<p>本节作业</p>
+				<div>
+					<h5 class="doWithNoWord">必做</h5>
+					<div >
+						<a href="./example/RegExp/index.html"></a>
+					</div>
+					<h5 class="doWithYouslef">练习</h5>
+					<div>
+						<ul>
+							<li>用户名只能是字母、数字和下划线</li>
+							<li>密码只能是字母，并且两次要相同</li>
+							<li>邮箱</li>
+							<li>QQ号只能是数字</li>
+							<li>年龄只能是数字，并且大于12岁，小于100岁</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>

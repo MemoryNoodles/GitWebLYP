@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基础事件</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="shortcut icon" href="./html-img/favicon.ico">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./jsFile/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <h2 class="article-title" id="title">基础事件</h2>
+        <article class="wrap">
+           <!-- <section class="onePoint">
+                <h3 class="title">绑定事件</h3>
+                <div class="point_content">
+                    <p class="paragraph">jQuery通过.bind()方法来为元素绑定这些事件。可以传递三个参数：bind(type, [data], fn)，type表示一个或多个类型的事件名字符串；[data]是可选的，作为event.data属性值传递一个额外的数据，这个数据是一个字符串、一个数字、一个数组或一个对象；fn表示绑定到指定元素的处理函数。</p>
+                    <h4 class="small_title">绑定</h4>
+                    <img src="./jqueryImg/bindOne.png" alt="">
+                    <p>同时绑定多个事件</p>
+                    <img src="./jqueryImg/bindMore.png" alt="">
+                    <h4 class="small_title">解除绑定</h4>
+                    <img src="./jqueryImg/unbind.png" alt="">
+                </div>
+            </section>-->
+            <section class="onePoint">
+                <h3 class="title">简写事件</h3>
+                <div class="point_content">
+                    <p class="paragraph">为了使开发者更加方便的绑定事件，jQuery封装了常用的事件以便节约更多的代码。 我们称它为简写事件。</p>
+                    <img src="./jqueryImg/eventBind.jpg" alt="">
+                    <p class="paragraph">大家看了上面的事件，可能比较迷惑的是mouseover与mouseenter和focus()与focusin()。下面我们就通过一个列子来说明以下。</p>
+                    <img src="./jqueryImg/overAndEnter.png" alt="">
+                    <p class="paragraph">.focus()和.blur()分别表示光标激活和丢失，事件触发时机是当前元素。而.focusin()和.focusout()也表示光标激活和丢失，但事件触发时机可以是子元素。</p>
+                    <img src="./jqueryImg/focusAndIn.png" alt="">
+                </div>
+            </section>
+            <section class="onePoint">
+                <h3 class="title">复合事件</h3>
+                <div class="point_content">
+                   <img src="./jqueryImg/hover.png" alt="">
+                   <p class="paragraph">注意：.hover()方法是结合了.mouseenter()方法和.mouseleva()方法，并非.mouseover()和.mouseout()方法。</p>
+                </div>
+            </section>
+             <section class="onePoint">
+                <h3 class="title">索引</h3>
+                <div class="point_content">
+                   <img src="./jqueryImg/index.png" alt="">
+                </div>
+            </section>
+        </article>
+    </body>
+</html>

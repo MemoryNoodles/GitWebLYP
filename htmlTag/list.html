@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href="./html-img/favicon.ico">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>HTML列表</title>
+    
+</head>
+<body>
+  
+   <h2 class="article-title">HTML列表</h2> 
+   <div class="wrap">
+       <section>
+           <p class="title">无序列表&lt;ul&gt;</p>
+           <p class="paragraph">无序列表可以通过“type”属性来设置“列表项目符号”的类型，也可以通过css中的“list-style”来设置；通常用后者。</p>
+           <div class="box">
+               <dl>
+                   <dt>disc</dt>
+                   <dd>项目符号以实心圆“●”表示，默认值。</dd>
+                   <dt>circle</dt>
+                   <dd>项目符号以空心圆“○”表示。</dd>
+                   <dt>square</dt>
+                   <dd>项目符号以实心方块“■”表示。</dd>
+               </dl>
+           </div>
+           <img src="./html-img/list-ul.png" alt="">           
+           <p class="paragraph">运行效果：</p>
+           <div class="box">
+               <iframe src="./iframe/list-ul.html" frameborder="0" height="100px"></iframe>
+           </div>
+            <!-- ul的运用 -->
+           <p class="paragraph">运用列表的嵌套做菜单</p>
+           <img src="./html-img/list-ul-use.png" alt="">
+           <p class="paragraph">运行效果：</p>
+           <div class="box">
+               <iframe src="./iframe/list-ul-use.html" frameborder="0" height="250px"></iframe>
+           </div>
+           <img src="./html-img/ulli.png" alt="">
+       </section>
+       <section>
+           <p class="title">有序列表&lt;ol&gt;</p>
+           <div class="box">
+               <dl>
+                   <dt>reversed</dt>
+                   <dd>规定有序列表的顺序为“倒叙”。</dd>
+                   <dt>start</dt>
+                   <dd>规定有序列表的起始值。</dd>
+                   <dt>type</dt>
+                   <dd>规定有序列表的序号显示类型，有以下值：
+                       <ul>
+                           <li>“1”，默认，以阿拉伯数字作为列表符号</li>
+                           <li>“A”，以大写英文字母作为列表符号</li>
+                           <li>“a”，以小写英文字母作为列表符号</li>
+                           <li>“I”，以大写罗马数字作为列表符号</li>
+                           <li>“i”，以小写罗马数字作为列表符号</li>
+                       </ul>
+                   </dd>
+               </dl>
+           </div>
+           <img src="./html-img/list-ol.png" alt="">
+           <p class="paragraph">运行结果：</p>
+           <div class="box">
+               <iframe src="./iframe/list-ol.html" frameborder="0" height="300px" width="700px"></iframe>
+           </div>
+       </section>
+       <section>
+           <p class="title">定义列表&lt;dl&gt;</p>
+           <img src="./html-img/list-dl.png" alt="">
+           <p class="paragraph">运行结果：</p>
+           <div class="box">
+               <iframe src="./iframe/list-dl.html" frameborder="0"></iframe>
+           </div>
+       </section>
+   </div>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="keywords" content="html5,css3,html,css,javascript,es6,webpack,react" />
+    <meta name="description" content="前端知识点集结，web前端" />
+    <meta name="author" content="李永平" />
+    <link rel="shortcut icon" href="./html-img/favicon1.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script src="./jsFile/jquery-3.1.1.min.js"></script>
+    <style>
+        .load {
+            text-align: center;
+            display: none
+        }
+
+        .load img {
+            margin-top: 20%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px
+        }
+
+    </style>
+    <script>
+        document.onkeydown = function (event) {
+            if ((event.ctrlKey) && (event.keyCode == 115 || event.keyCode == 83) || event.keyCode == 123) {
+               /* event.returnValue=false;
+                 return;*/
+                return false;
+            }
+        }
+    </script>
+</head>
+<!--oncontextmenu="return false"  onselectstart="return false"-->
+<body   >
+<section id="main" >
+    <!--页头  -->
+    <header id="header">
+        <div class="theHead">
+            <div class="logo" style="color:white;">
+             
+                <img width=130px src="./html-img/lecai-logo.png" alt="">
+            </div>
+            <nav id="nav">
+                <ul id="oUl">
+                    <li>
+                        html
+                        <ul>
+                            <li><a data-href="././htmlTag/Compose.html" target="_blank">html结构</a></li>
+                            <li><a data-href="././htmlTag/TagClass.html" target="_blank">标签的分类</a></li>
+                            <li><a data-href="././htmlTag/block.html" target="_blank">html布局</a></li>
+                            <li><a data-href="././htmlTag/imgTag.html"  target="_blank">img标签</a></li>
+                            <li><a data-href="././htmlTag/aTag.html"  target="_blank">a超链接</a></li>
+                            <li><a data-href="././htmlTag/list.html"  target="_blank">html列表</a></li>
+                            <li><a data-href="././htmlTag/textTag.html"  target="_blank">文本标签</a></li>
+                            <li><a data-href="././htmlTag/table.html"  target="_blank">html表格</a></li>
+                            <li><a data-href="././htmlTag/from.html"  target="_blank">html表单</a></li>
+                            <li><a data-href="././htmlTag/from5.html"  target="_blank">html5表单</a></li>
+                            <li class="line"></li>
+                        </ul>
+
+                    </li>
+                    
+                    <li>css
+                        <ul>
+                            <li><a data-href="././css-Style/cssIntroduce.html" target="_blank">引入方式</a></li>
+                            <li><a data-href="././css-Style/Selector.html" target="_blank">选择器</a></li>
+                            <li><a data-href="././css-Style/box.html" target="_blank">盒模型</a></li>
+                            <li><a data-href="././css-Style/float.html" target="_blank">浮动与定位</a></li>
+                            <li><a data-href="././css-Style/display.html" target="_blank">背景与显示</a></li>
+                            <li><a data-href="././css-Style/font.html" target="_blank">字体设置</a></li>
+                            <li><a data-href="././css-Style/text.html" target="_blank">文本样式</a></li>
+                            <li><a data-href="././css-Style/flex-column-media.html" target="_blank">弹性盒模型</a></li>
+                            <li><a data-href="././css-Style/transitionAnd2D.html" target="_blank">过渡与2D变换</a></li>
+                            <li><a data-href="././css-Style/animationAnd3D.html" target="_blank">3D变换和动画</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                    
+                    <li>javascript
+                        <ol>
+                            <li>
+                                js基础
+                                <div>
+                                    <a data-href="././jsLecture/jsIntro.html" target="_blank">JS历史</a>
+                                    <a data-href="././jsLecture/jsPullin.html" target="_blank">引入JS</a>
+                                    <a data-href="././jsLecture/keywordAndVar.html" target="_blank">关键字与变量</a>
+                                    <a data-href="././jsLecture/DataTypes.html" target="_blank">基本数据类型</a>
+                                    <a data-href="././jsLecture/operater.html" target="_blank">运算符</a>
+                                    <a data-href="././jsLecture/FlowControlState.html" target="_blank">流程控制语句</a>
+                                    <a data-href="././jsLecture/basicPackType.html" target="_blank">基本包装类型</a>
+                                    <a data-href="././jsLecture/ObjectAndArr.html" target="_blank">数组</a>
+                                    <a data-href="././jsLecture/function.html" target="_blank">函数</a>
+                                  <!--  <a data-href="././jsLecture/functionNoName_closuse.html" target="_blank">函数与闭包</a>-->
+                                </div>
+                            </li>
+                            <li>
+                                js中级
+                                <div>
+                                    <a data-href="././jsLecture/createObj.html" target="_blank">创建对象</a>
+                                    <a data-href="././jsLecture/DomBase.html" target="_blank">DOM基础</a>
+                                    <a data-href="././jsLecture/DomSizePosition.html" target="_blank">DOM中的尺寸与位置</a>
+                                    <a data-href="././jsLecture/event.html" target="_blank">事件入门</a>
+                                    <a data-href="././jsLecture/eventBindDeep.html" target="_blank">事件绑定</a>
+                                    <a data-href="././jsLecture/eventObject.html" target="_blank">事件对象</a>
+                                    <a data-href="././jsLecture/RegExp.html" target="_blank">正则</a>
+                                    	<a data-href="././jsLecture/functionNoName_closuse.html" target="_blank">闭包</a>
+                                    <a data-href="././jsLecture/BOM.html" target="_blank">BOM对象</a>
+
+                                </div>
+                            </li>
+                            <li>js高级
+                                <div>
+                                    <a data-href="././jsLecture/webInObject.html" target="_blank">内置对象</a>
+                                    <a data-href="././jsLecture/DateTime.html" target="_blank">时间与日期</a>
+                                    <a data-href="././jsLecture/FaceObjAndPrototype.html" target="_blank">面向对象</a>
+                                    <a data-href="././jsLecture/FaceObjAndPrototypeH.html" target="_blank">面向对象的属性</a>
+                                    <a data-href="././jsLecture/inherit.html" target="_blank">继承</a>
+                                    <a data-href="././jsLecture/Component.html" target="_blank">面向对象开发</a>
+                                    <!--<a data-href="././jsLecture/Component.html" target="_blank">ajax</a>-->
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>html5
+                        <ul> 
+                             <li><a data-href="././html5/h5NewFeatures.html" target="_blank">新特性</a></li>
+                            <li><a data-href="././html5/h5NewTag.html" target="_blank">播放器</a></li>
+                            <li><a data-href="././html5/localStorage.html" target="_blank">本地存储</a></li>
+                            <li><a data-href="././html5/canvers.html" target="_blank">canvers</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                    <li>ajax
+                        <ul>
+                            <li><a data-href="././jsLecture/ajax.html">原生Ajax详解</a></li>
+                            <li><a data-href="././jsLecture/uploadFile.html">文件上传</a></li>
+                            <li><a data-href="././jsLecture/jsonp.html">jsonp</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                    <li>jquery
+                        <ul>
+                            <li><a data-href="././jqueryBase/introduce.html">基本介绍</a></li>
+                            <li><a data-href="././jqueryBase/sizzle.html">选择器</a></li>
+                            <li><a data-href="././jqueryBase/ToolFunc.html">工具函数</a></li>
+                            <li><a data-href="././jqueryBase/DomNode.html">DOM操作</a></li>
+                         
+                            <li><a data-href="././jqueryBase/eventBase.html">事件基础</a></li>
+                            <li><a data-href="././jqueryBase/eventObject.html">事件对象</a></li>
+                            <li><a data-href="././jqueryBase/eventHeight.html">高级事件</a></li>
+                            <li><a data-href="././jqueryBase/animate.html">动画</a></li>
+                            <li><a data-href="././jqueryBase/ajax.html">ajax</a></li>
+                            <li><a data-href="././jqueryBase/deferred.html">deferred</a></li>
+                            <li><a data-href="././jqueryBase/plugin.html">扩展插件</a></li>
+
+                    
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                   <!-- <li>bootstrap
+                        <ul>
+                            <li><a data-href="././bootstrap/introduce.html">介绍</a></li>
+                            <li><a data-href="././bootstrap/nav.html">菜单与轮播</a></li>
+                            <li><a data-href="././bootstrap/col-md.html">栅格系统</a></li>
+                            <li><a data-href="././bootstrap/response.html">响应式</a></li>
+                            <li><a data-href="././bootstrap/form.html">表单</a></li>
+                            <li><a data-href="././bootstrap/exsice.html">练习</a></li>
+                            <li><a data-href="././bootstrap/iconBtnComponent.html">表格和按钮</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                    <li>App
+                        <ul>
+
+                            <li><a data-href="././app/jqueryMobile.html">jquery Mobile</a></li>
+                            <li><a data-href="././app/QRcode.html">apiCloud</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>-->
+                    <li>es6
+                        <ul>
+                            <li><a data-href="././es6/letConst.html">let/const</a></li>
+                            <li><a data-href="././es6/str.html">字符串的扩展</a></li>
+                            <li>
+                                <a data-href="././es6/array.html">数组的扩展</a>
+                                <a data-href="././es6/object.html">对象的扩展</a>
+                            </li>
+                            <li><a data-href="././es6/arrayGivevalue.html">解构赋值</a></li>
+                            <li><a data-href="././es6/promise.html">promise</a></li>
+                            <li><a data-href="././es6/function.html">函数的扩展</a></li>
+                            <li><a data-href="././es6/class.html">class类</a></li>
+                            <li><a data-href="././es6/moudle.html">模块moudle</a></li>
+                            <li class="line"></li>
+                        </ul>
+                    </li>
+                    <li>
+                        react
+                        <ol>
+                            <li>react
+                                <div>
+                                    <a data-href="././reactJs/reactIntro.html">react介绍</a>
+                                    <a data-href="././reactJs/reactJSX.html">JSX语法</a>
+                                    <a data-href="././reactJs/render.html">渲染元素</a>
+                                    <a data-href="././reactJs/ReactCompon.html">组件和属性</a>
+                                     <a data-href="././reactJs/ReactState.html">state和组件生命周期</a>
+                                    <a data-href="././reactJs/reactEvent.html">react中的事件</a>
+                                    <a data-href="././reactJs/ListAndKeys.html">循环与条件渲染</a>
+                                     <a data-href="././reactJs/Performance.html">性能优化与高阶</a>
+                                    <!--<a data-href="././reactJs/componentProps.html">组件的属性</a>
+                                    <a data-href="././reactJs/ComponentNest.html">组件的嵌套</a>
+                                    <a data-href="././reactJs/componentChild.html">组件的子节点</a>-->
+                                   <!-- <a data-href="././reactJs/reactDOM.html">创建元素</a>-->
+                                </div>
+                            </li>
+                            <li>redux
+                                <div>
+                                    <a data-href="././redux/reduxIntro.html">redux介绍</a>
+                                    <a data-href="././redux/action.html">action</a>
+                                    <a data-href="././redux/reduce.html">reduce</a>
+                                    <a data-href="././redux/store.html">store</a>
+                                    <a data-href="././redux/createStore.html">createStore</a>
+                                    <a data-href="././redux/connect.html">connect</a>
+                                </div>
+                            </li>
+                             <li>router
+                                <div>
+                                     <a data-href="././reactRouter/router.html">router</a>
+                                </div>
+                            </li>
+                        </ol>
+
+                    </li>
+                   <!--<li>
+                      vue
+                        <ol>
+                            <li>
+                                基础
+                                <div>
+                                    <a data-href="././vue/introduce.html">vue介绍</a>
+                                    <a data-href="././vue/VueInstance.html">Vue实例</a>
+                                    <a data-href="././vue/v-point.html">模板语法 </a>
+                                    <a data-href="././vue/CalProperty.html">计算属性 </a>
+                                    <a data-href="././vue/classAndStyle.html">Class与Style绑定</a>
+                                    <a href="">表单控件绑定</a>
+                                    <a href="">组件</a>
+                                </div>
+                            </li>
+                            <li>
+                                进阶
+                                <div>
+                                  <a href="">vue脚手架</a>
+                                  <a href="">vue路由</a>
+                                  <a href="">vueX</a>
+                                </div>
+                            </li>
+                        </ol>
+                    </li>-->
+                  <li>
+                        工程化
+                            <ul>
+
+                                <li><a data-href="././tool/ToolNotes.html">使用工具须知</a></li>
+                                <li><a data-href="././tool/webpack.html">webpack+babel</a></li>
+                                <li><a data-href="././tool/gulp.html">gulp</a></li>
+                                 <li><a data-href="">AMD/CMD</a></li>
+                                <li><a data-href="././tool/less.html">less</a></li>
+                                <li><a data-href="././tool/git.html">git</a></li>
+                                <li><a data-href="././tool/Mustache.html">模板引擎</a></li>
+                                <li class="line"></li>
+                            </ul>
+                    </li>
+                   <li>后台
+                        <ol>
+                          <li>nodeJs
+                                   <div>
+                                    <a data-href="././nodejs/introduce.html">node基本介绍</a>
+                                    <a data-href="././nodejs/node1.html">node核心模块</a>
+                                    <a data-href="././nodejs/upfile.html">文件上传</a>
+                                     <a data-href="././nodejs/express.html">express</a>
+                                </div>
+                            </li>
+                            <li>MongoDB
+                                <div>
+                                    <a data-href="././MongoDB/install.html">MongDB安装</a>
+                                    <a data-href="././MongoDB/CRUD.html">基本操作</a>
+                                    <a data-href="././MongoDB/group.html">聚合及其他</a>
+                                    <a data-href="././MongoDB/mongodbVUE.html">可视化工具</a>
+                                </div>
+                            </li>
+                            <li>前后台结合
+                                <div>
+                                    <a data-href="././MongoDB/mongoDBandNode.html">学生管理系统</a>
+                                </div>
+                            </li> 
+                        </ol>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navBg" id="navBg"></div>
+    </header>
+    <!---->
+    <main class="main">
+        <aside id="aside">
+            <a href="./RollCall/index.html" target="_blank">节目</a>
+            <a href="./app/QRcode.html" target="_blank">APP</a>
+        </aside>
+        <article id="wrapBox">
+            <section id="iBanner">
+                <section id="contain">
+                    <img id="PeopleShadow" src="./html-img/iPeopleShadow.png" alt="">
+                    <img id="bgPeople" src="./html-img/iPeopleBg.png" alt="">
+                    <img id="iPeople" src="./html-img/iPeople.png" alt="">
+                    <img id="html5" src="./html-img/iHtml5.png" alt="">
+                </section>
+            </section>
+</section>
+</article>
+
+<div class="load"><img src="./html-img/loading.gif" alt=""></div>
+</main>
+<script src="./jsFile/prism.js"></script>
+<script src="./jsFile/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="../jsFile/react.js"></script>
+	<script src="../jsFile/react-dom.min.js"></script>
+	<script src="../jsFile/browser.js"></script>
+	<script type="text/babel">
+
+	  /* var CommentBox = React.createClass({
+           render: function() {
+				return (
+				  React.createElement(
+					  'div', 
+					  {className: "wrap box"},
+					  "Hello, world! I am a CommentBox."
+				   )
+				 );
+               }
+         });
+		ReactDOM.render(
+		  React.createElement(CommentBox, null),
+		  document.getElementById('content')
+		);*/
+
+		/*var child1 = React.createElement('li', null, '第一个');
+		var child2 = React.createElement('li', null, '第二个');
+		var child3 = React.createElement('li', null, '第三个');
+		var root = React.createElement('ul', { className: 'oul', name:"li_list" }, [child1, child2, child3]); //第三个参数写成数组形式也可以
+		ReactDOM.render(
+				root,
+				document.getElementById('content')
+		);*/
+
+		/*var cli = React.createClass({
+			render:function(){
+				return (
+						<li>
+						{this.props.text}
+						</li>
+				)
+			}
+		})
+		var child1 = React.createElement(cli, {key:'F',text:'第一个'});
+		var child2 = React.createElement(cli, {key:'S',text:'第二个'});
+		var child3 = React.createElement(cli, {key:'T',text:'第三个'});
+		var root = React.createElement('ul', { className: 'my-list' }, [child1, child2, child3]);
+		ReactDOM.render(
+				root,
+				document.getElementById('content')
+		);*/
+
+		var oli = React.createClass({
+			render:function(){
+				return (
+						<li>
+						{this.props.children}
+						</li>
+				)
+			}
+		})
+		var child1 = React.createElement(oli, {key:'a'},'第一个li,如果没有key会出现警告');
+		var child2 = React.createElement(oli, {key:'b'},'第二个li,如果没有key会出现警告');
+		var child3 = React.createElement(oli, {key:'c'},'第三个li,如果没有key会出现警告');
+		var root = React.createElement('ul', { className: 'my-list' }, [child1, child2, child3]);
+		ReactDOM.render(
+				root,
+				document.getElementById('content')
+		);
+	
+
+	</script>
+</head>
+<body>
+	<div id="content">
+		
+	</div>
+</body>
+</html>

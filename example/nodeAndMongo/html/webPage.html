@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+
+    <title></title>
+    <style>
+        body{
+            height: 100%;}
+        .head {
+            background: #666699;
+            height: 80px;
+            line-height: 80px;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .opeart {
+            margin: 30px 0;
+        }
+        .page{
+            width: 300px;
+        }
+        .pageNum{width:100px; margin:0 auto; text-align:center;}
+        table, th {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        td {
+            font-size: 14px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid head">
+    前端WEB-06/07班学员名单
+</div>
+
+<div class="container">
+    <!--增加与查询-->
+    <div class="clearfix opeart">
+        <div class="pull-left">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">增加学员</button>
+        </div>
+        <div class="pull-right">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+
+                    <div class="input-group">
+                        <div class="input-group-addon">姓名</div>
+                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="姓名">
+
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success">搜索</button>
+            </form>
+
+
+        </div>
+    </div>
+    <!--学生的数据信息-->
+    <table class="table table-hover" id="table">
+
+    </table>
+    <!--分页按钮-->
+    <div class="pull-right" >
+
+            <div class="pull-left">
+                <button id="upPage" disabled="disabled">上一页</button>
+            </div>
+            <div class="pageNum pull-left"><span id="nowPage">1</span>/<span id="allPage">4</span></div>
+            <div class="pull-left">
+                <button id="downPage">下一页</button>
+            </div>
+
+    </div>
+
+
+</div>
+<!--弹出框-->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">录入学员信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="message-name" class="control-label">姓名:</label>
+                        <input type="text" class="form-control" id="message-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-age" class="control-label">年龄:</label>
+                        <input type="text" class="form-control" id="message-age">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-address" class="control-label">地区:</label>
+                        <input type="text" class="form-control" id="message-address">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="addBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/ajax.js"></script>
+<script>
+    var oTable = document.getElementById('table');
+    var json = {},   //提交数据的json
+        initNum = 1, //默认显示第一页
+        allPage = 0;  //总页数
+    var str = '<tr><th>姓名</th><th>年龄</th><th>地区</th></tr>',
+        template = '<tr><td>@name</td><td>@age</td><td>@address</td></tr>';
+    /*
+    * 执行ajax获取数据  得到数据用get
+    * */
+    function getData(pageNum){
+        ajax('get', '/get', pageNum, function (result) {
+             /*如果是最后一页就提示并返回*/
+            if( result.length == 0 ){
+                alert("亲！已经是最后一页了！");
+                return;
+            }
+
+            result.forEach(function (item) {
+                str += template.replace('@name', item.name).replace('@age', item.age)
+                        .replace('@address', item.address)
+            })
+            oTable.innerHTML = str;
+            str = '<tr><th>姓名</th><th>年龄</th><th>地区</th></tr>';
+        })
+    }
+    getData(initNum);
+
+    /*得到总页数*/
+    ajax('get', '/page', 'allPage', function(result){
+        allPage = result.AllPage;
+         $("#allPage").html(result.AllPage);
+    })
+
+
+    /*
+    *   点击上一页
+    * */
+    $("#upPage").click(function(){
+
+        initNum--;
+        getData(initNum);
+
+        //动态显示上一页下一页
+        $("#nowPage").html(initNum);
+
+        /*如果当前页是第一页 则让页数显示为不可用*/
+        if( initNum - 1 == 0){
+            $("#upPage").attr({'disabled':true});
+        }
+        /*页数小于总页数时 让下一页按钮可用*/
+        if(initNum > 1){
+            $("#downPage").attr({'disabled':false});
+        }
+
+    })
+    /*
+    *  点击下一页
+    * */
+    $("#downPage").click(function(){
+
+
+        /*显示的页数增加， 同时发送ajax请求数据*/
+         initNum++;
+         getData(initNum);
+
+        //动态显示上一页下一页
+        $("#nowPage").html(initNum);
+
+        /*如果当前页是最后一页 则让页数显示为不可用*/
+        console.log(allPage);
+        if( initNum + 1 > allPage){
+             $("#downPage").attr({"disabled":true});
+        }
+        /*页数大于1时 让上一页按钮可用*/
+        if(initNum > 1){
+            $("#upPage").attr({'disabled':false});
+        }
+    })
+
+
+    /*
+    *  增加学员
+    * */
+
+    $('#addBtn').click(function () {
+        if ($('#message-name').val() != '' && $('#message-age').val() != '' && $('#message-addres').val() != '') {
+            json.name = $('#message-name').val();
+            json.age = $('#message-age').val();
+            json.address = $('#message-address').val();
+            ajax('post', '/post', JSON.stringify(json), function (data) {
+
+            })
+            //隐藏模态框
+            $('#add').modal('hide');
+        } else {
+            alert("请输入内容");
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+        <link rel="ico shortcut" href="./html-img/favicon.ico">    
+        <link rel="stylesheet" href="./css/common.css">
+        <title>HTML5 form表单</title>
+
+    </head>
+    <body>
+        <h2 class="article-title">HTML5 form表单</h2>
+        <div class="wrap">
+            <section class="onePoint">
+                <p class="title">新的输入型控件</p>
+                <div class="box">
+                    <dl>
+                        <dt>email</dt>
+                        <dd>电子邮箱文本框，跟普通的没什么区别；</dd>
+                        <dd>当输入不是邮箱的时候，验证通不过；</dd>
+                        <dd>移动端的键盘会有变化；</dd>
+                        <dt>tel</dt>
+                        <dd>电话号码</dd>
+                        <dt>url</dt>
+                        <dd>网页的URL</dd>
+                        <dt>search</dt>
+                        <dd>搜索引擎:chrome下输入文字后，会多出一个关闭的X</dd>
+                        <dt>range</dt>
+                        <dd>特定范围内的数值选择器</dd>
+                        <dd>min、max、step( 步数 )</dd>
+                        <dt>number</dt>
+                        <dd>只能包含数字的输入框</dd>
+                        <dt>color</dt>
+                        <dd>颜色选择器</dd>
+                        <dt>datetime</dt>
+                        <dd>显示完整日期</dd>
+                        <dt>datetime-local</dt>
+                        <dd>显示完整日期，不含时区</dd>
+                        <dt>time</dt>
+                        <dd>显示时间，不含时区</dd>
+                        <dt>date</dt>
+                        <dd>显示日期</dd>
+                        <dt>week</dt>
+                        <dd>显示周</dd>
+                        <dt>month</dt>
+                        <dd>显示月</dd>
+                    </dl>
+                </div>
+				<img src="./html-img/testForm.png">
+                <p>运行效果</p>
+                <div class="box">
+                	<iframe src="./iframe/formHtml5.html" frameborder="0"></iframe>
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">新的表单特性</p>
+                <div class="box">
+                    <dl>
+                        <dt>placeholder</dt>
+                        <dd>输入框提示信息</dd>
+                        <dt>autocomplete</dt>
+                        <dd>是否保存用户输入值; 默认为on，关闭提示选择off</dd>
+                        <dt>autofocus</dt>
+                        <dd>指定表单获取输入焦点</dd>
+                        <dt>list和datalist</dt>
+                        <dd>为输入框构造一个选择列表;注意:list值为datalist标签的id</dd>
+                        <dt>required</dt>
+                        <dd>此项必填，不能为空</dd>
+                        <dt>Pattern</dt>
+                        <dd>正则验证  pattern="\d{1,5}“</dd>
+                    </dl>
+                </div>
+                <p class="paragraph">示例代码：</p>
+                <img src="./html-img/from-datalist.png" alt="">
+                <p class="paragraph">运行效果：</p>
+                <div class="box">
+                    <input type="text" list="datalist" style="">
+                    <datalist id="datalist">
+                        <option value="合金弹头3"></option>
+                        <option value="合金弹头5"></option>
+                        <option value="三国战记2"></option>
+                        <option value="街头霸王"></option>
+                    </datalist> 
+                </div>
+            </section>
+            <section class="onePoint">
+                <p class="title">output标签</p>
+                <p class="paragraph">output标签是一个具有特殊作用的“行级元素”，它用于显示不同类型的输出。我们首先来看一个用output标签来显示“type”属性值为“range”的input表单元素的选择输出的例子：</p>
+                <img src="./html-img/from-output.png" alt="">
+                <p class="paragraph">运行效果：</p>
+                <div class="box">
+                    <form oninput="result.value=parseInt(rangeVal.value)">
+                        <label>0</label>
+                        <input id="rangeVal" min="0" max="100" value="30" type="range">
+                        <label>100</label>
+                        <label>您选择的值为：</label>
+                        <output name="result" for="rangeVal">41</output>
+                    </form>
+                </div>
+                <p class="paragraph">output除了获取并显示表单元素内这些会生成纯数字的“value”外，它还能对字符串进行拼接并最终将参与拼接运算的表单元素的“value”值计算结果显示出来，我们来看看一个有趣的例子：</p>
+                <img src="./html-img/from-output-string.png" alt="">
+                <p class="paragraph">运行效果：</p>
+                <div class="box">
+                    <form oninput="result.value=stateName.value+userName.value+callName.value">
+                        <label>设置称号：</label>
+                        <input id="stateName" value="你在" type="text"><br>
+                        <label>设置姓名：</label>
+                        <input id="userName" value="做什么" type="text"><br>
+                        <label>设置职称：</label>
+                        <input id="callName" value="小刚" type="text"><br>
+                        <label>您是：</label>
+                        <output name="result" for="userName callName stateName">?</output>
+                    </form>
+                </div>
+            </section>
+            <section class="task">
+            	<p>本章作业</p>
+            	<p>我想想...？</p>
+            </section>
+        </div>
+        
+    </body>
+</html>
